@@ -17,6 +17,8 @@ class IpAddress extends AbstractCommand
             ->addArgument("action", InputArgument::REQUIRED, "")
             ->addUsage("getByVpsName")
             ->addUsage("getByVpsNameAddress")
+            ->addUsage("setPtr")
+            ->addUsage("addIpv6")
             ->addArgument("args", InputArgument::IS_ARRAY, "Optional arguments");
     }
 
@@ -28,38 +30,45 @@ class IpAddress extends AbstractCommand
                 if (count($arguments) < 1) {
                     throw new \Exception("Vps name is required");
                 }
-                $vps = $this->getTransipApi()->vpsIpAddresses()->getByVpsName($arguments[0]);
-                $output->writeln(print_r($vps, 1));
+                $ipAddresses = $this->getTransipApi()->vpsIpAddresses()->getByVpsName($arguments[0]);
+                $output->writeln(print_r($ipAddresses, 1));
                 break;
             case "getByVpsNameAddress":
                 $arguments = $input->getArgument('args');
                 if (count($arguments) < 2) {
                     throw new \Exception("Vps name and address is required");
                 }
-                $vps = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($arguments[0],$arguments[1]);
-                $output->writeln(print_r($vps, 1));
+                $ipAddress = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($arguments[0], $arguments[1]);
+                $output->writeln(print_r($ipAddress, 1));
                 break;
-            case "order":
+            case "setPtr":
+                $arguments = $input->getArgument('args');
+                if (count($arguments) < 3) {
+                    throw new \Exception("vpsName, IpAddress and PTR are required ");
+                }
+                $vpsName   = $arguments[0];
+                $ipAddress = $arguments[1];
+                $ptr       = $arguments[2];
+
+                $ipAddressObject = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($vpsName, $ipAddress);
+                $ipAddressObject->setReverseDns($ptr);
+                $this->getTransipApi()->vpsIpAddresses()->update($vpsName,$ipAddressObject);
+                $output->writeln(print_r($ipAddressObject,1));
+
+                break;
+            case "addIpv6":
                 $arguments = $input->getArgument('args');
                 if (count($arguments) < 2) {
-                    throw new \Exception("vpsName, addons(comma separated)");
+                    throw new \Exception("VpsName and ipv6Address are required");
                 }
-                $vpsName = $arguments[0];
-                $addons  = $arguments[1];
-
-                $addons = explode(',', $addons);
-
-                $this->getTransipApi()->vpsIpAddresses()->order(
-                    $vpsName,
-                    $addons
-                );
+                $this->getTransipApi()->vpsIpAddresses()->addIpv6Address($arguments[0], $arguments[1]);
                 break;
-            case "cancel":
+            case "removeIpv6":
                 $arguments = $input->getArgument('args');
                 if (count($arguments) < 2) {
-                    throw new \Exception("VpsName and AddonName required");
+                    throw new \Exception("VpsName and ipv6Address are required");
                 }
-                $this->getTransipApi()->vpsIpAddresses()->cancel($arguments[0], $arguments[1]);
+                $this->getTransipApi()->vpsIpAddresses()->removeIpv6Address($arguments[0], $arguments[1]);
                 break;
             default:
                 throw new \Exception("invalid action given '{$input->getArgument('action')}'");
