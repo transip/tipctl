@@ -1,0 +1,30 @@
+{
+    "name": "transip/api.cli.client",
+    "description": "TransIP REST Api CLI client",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Stefan Konig",
+            "email": "skonig@transip.nl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/console": "^4.3",
+        "transip/api.client": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Transip\\Api\\CLI\\": "src/Transip/Api/CLI"
+        }
+    },
+    "repositories": {
+        "dev-package": {
+            "type": "path",
+            "url": "../api.client",
+            "options": {
+                "symlink": true
+            }
+        }
+    }
+}
