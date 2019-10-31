@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use Transip\Api\CLI\Command\AvailabilityZone;
+use Transip\Api\CLI\Command\MailService;
 use Transip\Api\CLI\Command\Products;
 use Transip\Api\CLI\Command\Vps;
 use Transip\Api\CLI\Command\Vps\Addon as VpsAddon;
@@ -19,6 +20,7 @@ $app->add(new Vps());
 $app->add(new VpsAddon());
 $app->add(new VpsBackup());
 $app->add(new VpsIpAddress());
+$app->add(new MailService());
 $app->add(new Traffic());
 
 $app->run();
