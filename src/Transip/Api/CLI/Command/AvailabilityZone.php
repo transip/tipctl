@@ -12,10 +12,9 @@ class AvailabilityZone extends AbstractCommand
     {
         $this->setName('AvailabilityZone')
             ->setDescription('TransIP AvailabilityZones')
-            ->setHelp('the different places a product can be in or placed')
+            ->setHelp('the different locations a product can be in')
             ->addArgument("action", InputArgument::REQUIRED, "")
             ->addUsage("getAll")
-            ->addUsage("getByName")
             ->addArgument("args", InputArgument::IS_ARRAY, "Optional arguments");
     }
 
@@ -25,14 +24,6 @@ class AvailabilityZone extends AbstractCommand
             case "getAll":
                 $availabilityZones = $this->getTransipApi()->availabilityZone()->getAll();
                 $output->writeln(print_r($availabilityZones,1));
-                break;
-            case "getByName":
-                $arguments = $input->getArgument('args');
-                if (count($arguments) < 1) {
-                    throw new \Exception("AvailabilityZone name is required");
-                }
-                $availabilityZone = $this->getTransipApi()->availabilityZone()->getByName($arguments[0]);
-                $output->writeln(print_r($availabilityZone,1));
                 break;
             default:
                 throw new \Exception("invalid action given '{$input->getArgument('action')}'");
