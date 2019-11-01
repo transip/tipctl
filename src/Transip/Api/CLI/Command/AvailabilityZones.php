@@ -2,15 +2,16 @@
 
 namespace Transip\Api\CLI\Command;
 
+use Exception;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 
-class AvailabilityZone extends AbstractCommand
+class AvailabilityZones extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('AvailabilityZone')
+        $this->setName('AvailabilityZones')
             ->setDescription('TransIP AvailabilityZones')
             ->setHelp('the different locations a product can be in')
             ->addArgument("action", InputArgument::REQUIRED, "")
@@ -26,7 +27,7 @@ class AvailabilityZone extends AbstractCommand
                 $output->writeln(print_r($availabilityZones,1));
                 break;
             default:
-                throw new \Exception("invalid action given '{$input->getArgument('action')}'");
+                throw new Exception("invalid action given '{$input->getArgument('action')}'");
         }
     }
 }
