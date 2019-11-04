@@ -11,6 +11,7 @@ use Transip\Api\CLI\Command\Vps\Addon as VpsAddon;
 use Transip\Api\CLI\Command\Vps\Backup as VpsBackup;
 use Transip\Api\CLI\Command\Vps\IpAddress as VpsIpAddress;
 use Transip\Api\CLI\Command\Vps\OperatingSystem as VpsOperatingSystem;
+use Transip\Api\CLI\Command\Vps\Snapshot as VpsSnapshot;
 use Transip\Api\CLI\Command\Traffic;
 
 $app = new Application();
@@ -22,6 +23,7 @@ $app->add(new VpsAddon());
 $app->add(new VpsBackup());
 $app->add(new VpsIpAddress());
 $app->add(new VpsOperatingSystem());
+$app->add(new VpsSnapshot());
 $app->add(new MailService());
 $app->add(new Traffic());
 
