@@ -12,7 +12,9 @@ use Transip\Api\CLI\Command\Vps\Backup as VpsBackup;
 use Transip\Api\CLI\Command\Vps\IpAddress as VpsIpAddress;
 use Transip\Api\CLI\Command\Vps\OperatingSystem as VpsOperatingSystem;
 use Transip\Api\CLI\Command\Vps\Snapshot as VpsSnapshot;
+use Transip\Api\CLI\Command\Vps\Upgrade as VpsUpgrade;
 use Transip\Api\CLI\Command\Traffic;
+use Transip\Api\CLI\Command\PrivateNetwork;
 
 $app = new Application();
 $app->setName('Transip API CLI');
@@ -24,6 +26,8 @@ $app->add(new VpsBackup());
 $app->add(new VpsIpAddress());
 $app->add(new VpsOperatingSystem());
 $app->add(new VpsSnapshot());
+$app->add(new VpsUpgrade());
+$app->add(new PrivateNetwork());
 $app->add(new MailService());
 $app->add(new Traffic());
 
