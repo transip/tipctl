@@ -4,6 +4,8 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use Transip\Api\CLI\Command\AvailabilityZones;
+use Transip\Api\CLI\Command\BigStorage;
+use Transip\Api\CLI\Command\BigStorage\Backup as BigStorageBackup;
 use Transip\Api\CLI\Command\MailService;
 use Transip\Api\CLI\Command\Products;
 use Transip\Api\CLI\Command\Vps;
@@ -28,6 +30,8 @@ $app->add(new VpsOperatingSystem());
 $app->add(new VpsSnapshot());
 $app->add(new VpsUpgrade());
 $app->add(new PrivateNetwork());
+$app->add(new BigStorage());
+$app->add(new BigStorageBackup());
 $app->add(new MailService());
 $app->add(new Traffic());
 

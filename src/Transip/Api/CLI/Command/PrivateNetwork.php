@@ -69,7 +69,7 @@ class PrivateNetwork extends AbstractCommand
             case "cancel":
                 $arguments = $input->getArgument('args');
                 if (count($arguments) < 2) {
-                    throw new Exception("PrivateNetwork and cancellation time (end|immediately) is required");
+                    throw new Exception("PrivateNetworkName and cancellation time (end|immediately) is required");
                 }
                 $this->getTransipApi()->privateNetworks()->cancel($arguments[0], $arguments[1]);
                 break;
