@@ -15,8 +15,6 @@ class BigStorage extends AbstractCommand
             ->setDescription('TransIP Bigstorage')
             ->setHelp('Bigstorage for TransIP Vpses')
             ->addArgument("action", InputArgument::REQUIRED, "")
-            ->addUsage("attachToVps")
-            ->addUsage("detachVps")
             ->addUsage("getBackupsByBigstorageName")
             ->addUsage("cancel")
             ->addArgument("args", InputArgument::IS_ARRAY, "Optional arguments");
@@ -25,24 +23,6 @@ class BigStorage extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         switch ($input->getArgument('action')) {
-            case "attachVps":
-                $arguments = $input->getArgument('args');
-                if (count($arguments) < 2) {
-                    throw new Exception("BigstorageName and vpsName is required");
-                }
-                $bigStorage = $this->getTransipApi()->bigStorages()->getByName($arguments[0]);
-                $bigStorage->setVpsName($arguments[1]);
-                $this->getTransipApi()->bigStorages()->update($bigStorage);
-                break;
-            case "detachVps":
-                $arguments = $input->getArgument('args');
-                if (count($arguments) < 1) {
-                    throw new Exception("BigstorageName is required");
-                }
-                $bigStorage = $this->getTransipApi()->bigStorages()->getByName($arguments[0]);
-                $bigStorage->setVpsName('');
-                $this->getTransipApi()->bigStorages()->update($bigStorage);
-                break;
             case "cancel":
                 $arguments = $input->getArgument('args');
                 if (count($arguments) < 2) {
