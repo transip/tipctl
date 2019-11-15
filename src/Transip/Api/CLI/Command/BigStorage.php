@@ -15,9 +15,6 @@ class BigStorage extends AbstractCommand
             ->setDescription('TransIP Bigstorage')
             ->setHelp('Bigstorage for TransIP Vpses')
             ->addArgument("action", InputArgument::REQUIRED, "")
-            ->addUsage("getAll")
-            ->addUsage("getByName")
-            ->addUsage("order")
             ->addUsage("upgrade")
             ->addUsage("setDescription")
             ->addUsage("attachToVps")
@@ -30,31 +27,6 @@ class BigStorage extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         switch ($input->getArgument('action')) {
-            case "getAll":
-                $bigStorages = $this->getTransipApi()->bigStorages()->getAll();
-                $output->writeln(print_r($bigStorages, 1));
-                break;
-            case "getByName":
-                $arguments = $input->getArgument('args');
-                if (count($arguments) < 1) {
-                    throw new Exception("BigstorageName is required");
-                }
-                $bigStorage = $this->getTransipApi()->bigStorages()->getByName($arguments[0]);
-                $output->writeln(print_r($bigStorage, 1));
-                break;
-            case "order":
-                $arguments = $input->getArgument('args');
-                if (count($arguments) < 1) {
-                    throw new Exception("size is required offsiteBackups, vpsName, ");
-                }
-
-                $size            = $arguments[0];
-                $offsiteBackups  = filter_var($arguments[1] ?? true, FILTER_VALIDATE_BOOLEAN);
-                $availabiltyZone = $arguments[2] ?? '';
-                $vpsName         = $arguments[3] ?? '';
-
-                $this->getTransipApi()->bigStorages()->order($size, $offsiteBackups, $availabiltyZone, $vpsName);
-                break;
             case "upgrade":
                 $arguments = $input->getArgument('args');
                 if (count($arguments) < 2) {

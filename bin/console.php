@@ -35,7 +35,11 @@ $app->add(new Vps\Snapshot());
 $app->add(new Vps\Upgrade());
 
 $app->add(new PrivateNetwork());
+
 $app->add(new BigStorage());
+$app->add(new BigStorage\GetAll());
+$app->add(new BigStorage\GetByName());
+$app->add(new BigStorage\Order());
 $app->add(new BigStorage\Backup());
 
 $app->add(new MailService\RegeneratePassword());
