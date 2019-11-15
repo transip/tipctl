@@ -16,8 +16,8 @@ class DetachVps extends AbstractCommand
     protected function configure()
     {
         $this->setName('BigStorage:detachVps')
-            ->setDescription('Detach your big storage to your vps.')
-            ->addArgument(self::BIGSTORAGE_NAME, InputArgument::REQUIRED, 'Name of the big storage to detach.')
+            ->setDescription('Detach your big storage to your vps')
+            ->addArgument(self::BIGSTORAGE_NAME, InputArgument::REQUIRED, 'The name of the big storage.')
             ->setHelp('This command will detach your big storage from your vps.');
     }
 

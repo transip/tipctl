@@ -9,17 +9,19 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetByName extends AbstractCommand
 {
+    const BIGSTORAGE_NAME = 'name';
+
     protected function configure()
     {
         $this->setName('BigStorage:getByName')
             ->setDescription('Get your big storage by name')
-            ->addArgument('BigStorageName', InputArgument::REQUIRED, 'Name of the big storage');
+            ->addArgument(self::BIGSTORAGE_NAME, InputArgument::REQUIRED, 'Name of the big storage');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('BigStorageName');
-        $bigStorage = $this->getTransipApi()->bigStorages()->getByName($arguments[0]);
+        $bigStorageName = $input->getArgument(self::BIGSTORAGE_NAME);
+        $bigStorage = $this->getTransipApi()->bigStorages()->getByName($bigStorageName);
 
         $output->writeln(print_r($bigStorage, 1));
     }

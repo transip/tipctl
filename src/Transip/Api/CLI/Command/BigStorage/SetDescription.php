@@ -16,7 +16,7 @@ class SetDescription extends AbstractCommand
     {
         $this->setName('BigStorage:setDescription')
             ->setDescription('Update your big storage description')
-            ->addArgument(self::BIGSTORAGE_NAME, InputArgument::REQUIRED, 'Name of the big storage')
+            ->addArgument(self::BIGSTORAGE_NAME, InputArgument::REQUIRED, 'The name of the big storage.')
             ->addArgument(self::BIGSTORAGE_DESCRIPTION, InputArgument::REQUIRED, 'Description of the big storage')
             ->setHelp('This command will change the description of your big storage');
     }
