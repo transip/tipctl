@@ -11,6 +11,7 @@
     "minimum-stability": "stable",
     "require": {
         "symfony/console": "^4.3",
+        "symfony/finder": "^4.3",
         "transip/api.client": "@dev"
     },
     "autoload": {
