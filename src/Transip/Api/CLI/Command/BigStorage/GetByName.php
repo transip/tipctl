@@ -13,7 +13,7 @@ class GetByName extends AbstractCommand
     {
         $this->setName('BigStorage:getByName')
             ->setDescription('Get your big storage by name')
-            ->addArgument("BigStorageName", InputArgument::REQUIRED, "Provide a big storage name");
+            ->addArgument('BigStorageName', InputArgument::REQUIRED, 'Name of the big storage');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
