@@ -6,8 +6,6 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
-use Exception;
-use Transip\Api\Client\Exception\HttpRequest\NotFoundException;
 
 class GetByName extends AbstractCommand
 {
