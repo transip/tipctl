@@ -17,9 +17,17 @@ foreach ($finder as $file) {
 
     $fullClassName = "Transip\Api\CLI\Command\\" . $className;
 
-    if (strpos($fullClassName, 'Abstract') === false) {
+    if(!strpos_arr($fullClassName, ['Abstract', 'Field'])) {
         $app->add(new $fullClassName);
     }
 }
 
 $app->run();
+
+function strpos_arr($haystack, $needle) {
+    if(!is_array($needle)) $needle = array($needle);
+    foreach($needle as $what) {
+        if(($pos = strpos($haystack, $what))!==false) return $pos;
+    }
+    return false;
+}
