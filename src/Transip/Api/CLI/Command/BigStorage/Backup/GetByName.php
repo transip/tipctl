@@ -9,11 +9,11 @@ use Transip\Api\CLI\Command\AbstractCommand;
 use Exception;
 use Transip\Api\CLI\Command\Field;
 
-class GetByBigStorageName extends AbstractCommand
+class GetByName extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('BigStorage:Backup:getByBigStorageName')
+        $this->setName('BigStorage:Backup:getByName')
             ->setDescription('Get a list of backups for a big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->setHelp('This command lists backups for any given big storage.');
