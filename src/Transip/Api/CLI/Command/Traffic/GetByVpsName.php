@@ -1,8 +1,6 @@
 <?php
 
-
-namespace Transip\Api\CLI\Command\AvailabilityZones;
-
+namespace Transip\Api\CLI\Command\Traffic;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -32,6 +30,4 @@ class GetByVpsName extends AbstractCommand
         $traffic = $this->getTransipApi()->traffic()->getByVpsName($vpsName);
         $output->writeln(print_r($traffic,1));
     }
-
-
 }

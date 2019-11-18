@@ -8,7 +8,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetTrafficPool extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Traffic:getTrafficPool')
@@ -21,5 +20,4 @@ class GetTrafficPool extends AbstractCommand
         $trafficPool = $this->getTransipApi()->traffic()->getTrafficPool();
         $output->writeln(print_r($trafficPool,1));
     }
-
 }

@@ -30,5 +30,4 @@ class DetachVps extends AbstractCommand
 
         $this->getTransipApi()->bigStorages()->update($bigStorage);
     }
-
 }
