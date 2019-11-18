@@ -15,19 +15,13 @@ class GetByName extends AbstractCommand
         $this->setName('Vps:getByName')
             ->setDescription('Get your Vps by name')
             ->setHelp('Provide a name to retrieve your Vps by name')
-            ->addArgument('args', InputArgument::IS_ARRAY, 'Optional arguments');
+            ->addArgument('VpsName', InputArgument::REQUIRED, 'VpsName');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('args');
-
-        if (count($arguments) < 1) {
-            throw new \Exception('Vps name is required');
-        }
-
-        $vps = $this->getTransipApi()->vps()->getByName($arguments[0]);
-
+        $vpsName = $input->getArgument('VpsName');
+        $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $output->writeln(print_r($vps,1));
     }
 }

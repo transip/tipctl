@@ -14,20 +14,18 @@ class SetLock extends AbstractCommand
     {
         $this->setName('Vps:setLock')
             ->setDescription('Lock a Vps')
-            ->setHelp('Provide a Vps name and 1 or a 0 for locking or unlocking')
-            ->addArgument('args', InputArgument::IS_ARRAY, 'Optional arguments');
+            ->setHelp('Provide a Vps name and true or a false for locking or unlocking')
+            ->addArgument('VpsName', InputArgument::REQUIRED, 'VpsName')
+            ->addArgument('SetLock', InputArgument::REQUIRED, 'SetLock');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('args');
+        $vpsName = $input->getArgument('VpsName');
+        $setLock = $input->getArgument('SetLock');
 
-        if (count($arguments) < 2) {
-            throw new \Exception("Vps name is required");
-        }
-
-        $vps = $this->getTransipApi()->vps()->getByName($arguments[0]);
-        $vps->setIsCustomerLocked((bool)$arguments[1]);
+        $vps = $this->getTransipApi()->vps()->getByName($vpsName);
+        $vps->setIsCustomerLocked(filter_var($setLock, FILTER_VALIDATE_BOOLEAN));
         $this->getTransipApi()->vps()->update($vps);
 
         $output->writeln(print_r($vps,1));

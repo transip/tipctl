@@ -3,8 +3,6 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
-use Transip\Api\CLI\Command\AvailabilityZones;
-use Transip\Api\CLI\Command\Products;
 use Symfony\Component\Finder\Finder;
 
 $app = new Application();
