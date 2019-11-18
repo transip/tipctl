@@ -8,7 +8,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 
-class AddVps extends AbstractPrivateNetwork
+class AddVps extends AbstractCommand
 {
 
     protected function configure()
@@ -21,8 +21,8 @@ class AddVps extends AbstractPrivateNetwork
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $privateNetworkName = $input->getArgument(self::PRIVATENETWORK_NAME);
-        $privateNetworkVpsName = $input->getArgument(self::PRIVATENETWORK_VPSNAME);
+        $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
+        $privateNetworkVpsName = $input->getArgument(Field::VPS_NAME);
 
         $this->getTransipApi()->privateNetworks()->addVps($privateNetworkName, $privateNetworkVpsName);
     }
