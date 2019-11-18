@@ -11,6 +11,8 @@ class Field
     const PRIVATENETWORK_NAME__DESC = 'The private network name';
     const PRIVATENETWORK_DESCRIPTION = 'PrivateNetworkDescription';
     const PRIVATENETWORK_DESCRIPTION__DESC = 'The private network description';
+    const PRIVATENETWORK_CANCELTIME = 'PrivateNetworkCancelTime';
+    const PRIVATENETWORK_CANCELTIME__DESC = 'Cancellation time, either ‘end’ or ‘immediately’';
 
     const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
     const BIGSTORAGE_BACKUPID__DESC = 'ID number of the backup';
