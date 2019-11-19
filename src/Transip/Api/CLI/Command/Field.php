@@ -23,7 +23,7 @@ class Field
     const BIGSTORAGE_CANCELTIME = 'BigStorageCancelTime';
     const BIGSTORAGE_CANCELTIME__DESC = 'Cancellation time, either ‘end’ or ‘immediately’';
     const BIGSTORAGE_SIZE = 'BigStorageSize';
-    const BIGSTORAGE_SIZE__DESC = 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40.';
+    const BIGSTORAGE_SIZE__DESC = 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40';
     const BIGSTORAGE_HASOFFSITEBACKUPS = 'BigStorageHasOffSiteBackups';
     const BIGSTORAGE_AVAILABILITYZONE = 'BigStorageAvailabilityZone';
 }
