@@ -6,6 +6,10 @@ class Field
 {
     const VPS_NAME = 'VpsName';
     const VPS_NAME__DESC = 'The name of the vps';
+    const VPS_ADDONS = 'Addons';
+    const VPS_ADDONS__DESC = 'Add-on names(more than one comma separated)';
+    const VPS_ADDON = 'AddonName';
+    const VPS_ADDON__DESC = 'Add-on name';
 
     const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     const PRIVATENETWORK_NAME__DESC = 'The private network name';
