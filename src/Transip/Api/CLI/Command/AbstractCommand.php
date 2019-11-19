@@ -3,6 +3,7 @@
 namespace Transip\Api\CLI\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Transip\Api\Client\TransipAPI;
 
 abstract class AbstractCommand extends Command
