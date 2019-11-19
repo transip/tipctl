@@ -6,29 +6,26 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
 
 class Upgrade extends AbstractCommand
 {
-    const BIGSTORAGE_NAME = 'name';
-    const BIGSTORAGE_SIZE = 'size';
-    const BIGSTORAGE_HASOFFSITEBACKUPS = 'offSiteBackups';
-
     protected function configure()
     {
         $this->setName('BigStorage:upgrade')
             ->setDescription('Upgrade your big storage')
-            ->addArgument(self::BIGSTORAGE_NAME, InputArgument::REQUIRED, 'The name of the big storage.')
-            ->addArgument(self::BIGSTORAGE_SIZE, InputArgument::REQUIRED, 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40.')
-            ->addArgument(self::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, '(optional) Whether to add offsite backups, default is false.')
+            ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
+            ->addArgument(Field::BIGSTORAGE_SIZE, InputArgument::REQUIRED, Field::BIGSTORAGE_SIZE__DESC)
+            ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, '(optional) Whether to add offsite backups.')
             ->setHelp('This command allows you to upgrade a big storage');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $bigStorageName = $input->getArgument(self::BIGSTORAGE_NAME);
-        $bigStorageSize = $input->getArgument(self::BIGSTORAGE_SIZE);
+        $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
+        $bigStorageSize = $input->getArgument(Field::BIGSTORAGE_SIZE);
 
-        $hasOffSiteBackupsInput = $input->getArgument(self::BIGSTORAGE_HASOFFSITEBACKUPS);
+        $hasOffSiteBackupsInput = $input->getArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS);
         $bigStorageHasOffSiteBackups = ($hasOffSiteBackupsInput === null) ? null : filter_var($hasOffSiteBackupsInput, FILTER_VALIDATE_BOOLEAN);
 
         $this->getTransipApi()->bigStorages()->upgrade($bigStorageName, $bigStorageSize, $bigStorageHasOffSiteBackups);
