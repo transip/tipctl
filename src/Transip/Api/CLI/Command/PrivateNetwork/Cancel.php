@@ -22,7 +22,7 @@ class Cancel extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_CANCELTIME);
+        $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
 
         $cancelTime = $input->getArgument(Field::PRIVATENETWORK_CANCELTIME);
         if(!in_array($cancelTime, ['end', 'immediately'])) {
