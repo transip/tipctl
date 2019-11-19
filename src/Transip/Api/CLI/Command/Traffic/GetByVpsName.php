@@ -27,6 +27,6 @@ class GetByVpsName extends AbstractCommand
         }
 
         $traffic = $this->getTransipApi()->traffic()->getByVpsName($vpsName);
-        $output->writeln(print_r($traffic,1));
+        $this->output($traffic);
     }
 }

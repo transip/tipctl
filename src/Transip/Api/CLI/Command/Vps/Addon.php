@@ -30,7 +30,7 @@ class Addon extends AbstractCommand
                     throw new \Exception("Vps name is required");
                 }
                 $vps = $this->getTransipApi()->vpsAddons()->getByVpsName($arguments[0]);
-                $output->writeln(print_r($vps, 1));
+                $this->output($vps);
                 break;
             case "order":
                 $arguments = $input->getArgument('args');

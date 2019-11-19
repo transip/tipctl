@@ -26,6 +26,6 @@ class GetByName extends AbstractCommand
         }
 
         $privateNetwork = $this->getTransipApi()->privateNetworks()->getByName($privateNetworkName);
-        $output->writeln(print_r($privateNetwork,1));
+        $this->output($privateNetwork);
     }
 }

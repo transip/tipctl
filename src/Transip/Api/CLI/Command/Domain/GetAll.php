@@ -8,7 +8,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetAll extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Domain:getAll')
@@ -18,6 +17,6 @@ class GetAll extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $domains = $this->getTransipApi()->domains()->getAll();
-        $output->writeln(print_r($domains,1));
+        $this->output($domains);
     }
 }

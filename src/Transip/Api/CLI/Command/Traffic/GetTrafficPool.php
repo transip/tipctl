@@ -18,6 +18,6 @@ class GetTrafficPool extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $trafficPool = $this->getTransipApi()->traffic()->getTrafficPool();
-        $output->writeln(print_r($trafficPool,1));
+        $this->output($trafficPool);
     }
 }

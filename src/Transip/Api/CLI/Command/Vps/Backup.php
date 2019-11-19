@@ -30,7 +30,7 @@ class Backup extends AbstractCommand
                     throw new \Exception("Vps name is required");
                 }
                 $vps = $this->getTransipApi()->vpsBackups()->getByVpsName($arguments[0]);
-                $output->writeln(print_r($vps, 1));
+                $this->output($vps);
                 break;
             case "revert":
                 $arguments = $input->getArgument('args');

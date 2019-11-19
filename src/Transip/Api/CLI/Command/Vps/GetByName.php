@@ -9,7 +9,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetByName extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:getByName')
@@ -22,6 +21,6 @@ class GetByName extends AbstractCommand
     {
         $vpsName = $input->getArgument('VpsName');
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
-        $output->writeln(print_r($vps,1));
+        $this->output($vps);
     }
 }

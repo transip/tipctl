@@ -9,7 +9,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class RegeneratePassword extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('MailService:regeneratePassword')
@@ -21,6 +20,6 @@ class RegeneratePassword extends AbstractCommand
         $this->getTransipApi()->mailService()->regenerateMailServicePassword();
         $mailServiceInformation = $this->getTransipApi()->mailService()->getMailServiceInformation();
 
-        $output->writeln(print_r($mailServiceInformation, 1));
+        $this->output($mailServiceInformation);
     }
 }

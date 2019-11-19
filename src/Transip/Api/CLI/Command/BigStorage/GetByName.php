@@ -22,6 +22,6 @@ class GetByName extends AbstractCommand
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorage = $this->getTransipApi()->bigStorages()->getByName($bigStorageName);
 
-        $output->writeln(print_r($bigStorage, 1));
+        $this->output($bigStorage);
     }
 }

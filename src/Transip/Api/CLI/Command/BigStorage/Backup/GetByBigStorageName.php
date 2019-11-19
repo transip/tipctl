@@ -26,6 +26,6 @@ class GetByBigStorageName extends AbstractCommand
             throw new Exception('A big storage name is required');
         }
         $vps = $this->getTransipApi()->bigStorageBackups()->getByBigStorageName($bigStorageName);
-        $output->writeln(print_r($vps, 1));
+        $this->output($vps);
     }
 }

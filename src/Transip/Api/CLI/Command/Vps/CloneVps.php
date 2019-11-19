@@ -9,14 +9,12 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class CloneVps extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:cloneVps')
             ->setDescription('Clone a given Vps')
             ->setHelp('Provide a Vps name of which you want a Vps clone')
             ->addArgument('args', InputArgument::IS_ARRAY, 'Optional arguments');
-
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -31,5 +29,4 @@ class CloneVps extends AbstractCommand
 
         $this->getTransipApi()->vps()->cloneVps($arguments[0], $availabilityZone);
     }
-
 }

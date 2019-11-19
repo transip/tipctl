@@ -9,7 +9,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class Order extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:order')
@@ -45,5 +44,4 @@ class Order extends AbstractCommand
             $availabilityZone
         );
     }
-
 }

@@ -32,7 +32,7 @@ class Snapshot extends AbstractCommand
                     throw new \Exception("Vps name is required");
                 }
                 $snapshots = $this->getTransipApi()->vpsSnapshots()->getByVpsName($arguments[0]);
-                $output->writeln(print_r($snapshots, 1));
+                $this->output($snapshots);
                 break;
             case "getByVpsNameSnapshotName":
                 $arguments = $input->getArgument('args');
@@ -40,14 +40,14 @@ class Snapshot extends AbstractCommand
                     throw new \Exception("VpsName and snapshotName is required");
                 }
                 $snapshot = $this->getTransipApi()->vpsSnapshots()->getByVpsNameSnapshotName($arguments[0], $arguments[1]);
-                $output->writeln(print_r($snapshot, 1));
+                $this->output($snapshot);
                 break;
             case "create":
                 $arguments = $input->getArgument('args');
                 if (count($arguments) < 2) {
                     throw new \Exception("vpsName and snapshotDescription are required");
                 }
-                $this->getTransipApi()->vpsSnapshots()->createSnapshot($arguments[0],$arguments[1]);
+                $this->getTransipApi()->vpsSnapshots()->createSnapshot($arguments[0], $arguments[1]);
 
                 break;
             case "revert":

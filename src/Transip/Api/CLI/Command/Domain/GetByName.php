@@ -21,6 +21,6 @@ class GetByName extends AbstractCommand
     {
         $domainName = $input->getArgument('DomainName');
         $domain = $this->getTransipApi()->domains()->getByName($domainName);
-        $output->writeln(print_r($domain,1));
+        $this->output($domain);
     }
 }

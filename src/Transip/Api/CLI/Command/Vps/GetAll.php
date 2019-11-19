@@ -8,7 +8,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetAll extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:getAll')
@@ -19,6 +18,6 @@ class GetAll extends AbstractCommand
     {
         $vpses = $this->getTransipApi()->vps()->getAll();
 
-        $output->writeln(print_r($vpses,1));
+        $this->output($vpses);
     }
 }

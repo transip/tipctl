@@ -27,6 +27,6 @@ class SetTransferLock extends AbstractCommand
         $domain->setIsTransferLocked(filter_var($transferLock, FILTER_VALIDATE_BOOLEAN));
         $this->getTransipApi()->domains()->update($domain);
 
-        $output->writeln(print_r($domain, 1));
+        $this->output($domain);
     }
 }

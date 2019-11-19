@@ -9,7 +9,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class Cancel extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:cancel')

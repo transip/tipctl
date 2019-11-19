@@ -19,6 +19,6 @@ class GetMailServiceInformation extends AbstractCommand
     {
         $mailServiceInformation = $this->getTransipApi()->mailService()->getMailServiceInformation();
 
-        $output->writeln(print_r($mailServiceInformation, 1));
+        $this->output($mailServiceInformation);
     }
 }

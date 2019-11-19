@@ -3,7 +3,6 @@
 
 namespace Transip\Api\CLI\Command\BigStorage;
 
-
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -25,12 +24,12 @@ class Cancel extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
-        if(strlen($bigStorageName) < 3) {
+        if (strlen($bigStorageName) < 3) {
             throw new Exception('Invalid big storage name provided');
         }
 
         $bigStorageCancelTime = $input->getArgument(Field::BIGSTORAGE_CANCELTIME);
-        if(!in_array($bigStorageCancelTime, ['end', 'immediately'])) {
+        if (!in_array($bigStorageCancelTime, ['end', 'immediately'])) {
             throw new Exception('Incorrect cancellation time provided, the value can only be `end` or `immediately`.');
         }
 
