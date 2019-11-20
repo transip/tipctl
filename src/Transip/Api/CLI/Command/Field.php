@@ -21,6 +21,12 @@ class Field
     const VPS_BACKUP_ID__DESC = 'Id of the backup';
     const VPS_BACKUP_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
     const VPS_BACKUP_SNAPSHOT_DESCRIPTION__DESC = 'An informative description that describes the snapshot';
+    const VPS_IPAddress = 'VpsIPAddress';
+    const VPS_IPAddress__DESC = 'The IP address of the VPS';
+    const VPS_IPAddress_Ptr = 'Ptr';
+    const VPS_IPAddress_Ptr__DESC = 'Reverse DNS record';
+    const VPS_IPV6Address = 'IPv6Address';
+    const VPS_IPV6Address__DESC = 'An IPv6 Address';
 
     const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     const PRIVATENETWORK_NAME__DESC = 'The private network name';
