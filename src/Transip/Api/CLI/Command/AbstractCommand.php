@@ -27,10 +27,11 @@ abstract class AbstractCommand extends Command
         return $this->transipApi;
     }
 
-    public function output($data) {
+    public function output($data): void
+    {
         $output = new ConsoleOutput();
 
-        if(is_array($data)) {
+        if (is_array($data)) {
           $data = print_r($data, 1);
         }
 
