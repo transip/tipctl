@@ -27,6 +27,12 @@ class Field
     const VPS_IPAddress_Ptr__DESC = 'Reverse DNS record';
     const VPS_IPV6Address = 'IPv6Address';
     const VPS_IPV6Address__DESC = 'An IPv6 Address';
+    const VPS_OS_NAME = 'OperatingSystemName';
+    const VPS_OS_NAME__DESC = 'The name of the operating system to install';
+    const VPS_HOSTNAME = 'Hostname';
+    const VPS_HOSTNAME__DESC = 'Hostname is required for preinstallable web controlpanels';
+    const VPS_PRODUCT_NAME = 'ProductName';
+    const VPS_PRODUCT_NAME__DESC = 'Name of the product';
 
     const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     const PRIVATENETWORK_NAME__DESC = 'The private network name';
