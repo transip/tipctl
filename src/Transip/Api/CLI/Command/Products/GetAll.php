@@ -18,6 +18,6 @@ class GetAll extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $products = $this->getTransipApi()->products()->getAll();
-        $output->writeln(print_r($products, 1));
+        $this->output($products);
     }
 }

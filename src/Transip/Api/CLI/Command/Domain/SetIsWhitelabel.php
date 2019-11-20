@@ -25,6 +25,6 @@ class SetIsWhitelabel extends AbstractCommand
         $domain->setIsWhitelabel(true);
         $this->getTransipApi()->domains()->update($domain);
 
-        $output->writeln(print_r($domain, 1));
+        $this->output($domain);
     }
 }

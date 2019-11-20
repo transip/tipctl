@@ -18,6 +18,6 @@ class GetAll extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $privateNetworks = $this->getTransipApi()->privateNetworks()->getAll();
-        $output->writeln(print_r($privateNetworks,1));
+        $this->output($privateNetworks);
     }
 }

@@ -9,7 +9,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class SetLock extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:setLock')
@@ -28,6 +27,6 @@ class SetLock extends AbstractCommand
         $vps->setIsCustomerLocked(filter_var($setLock, FILTER_VALIDATE_BOOLEAN));
         $this->getTransipApi()->vps()->update($vps);
 
-        $output->writeln(print_r($vps,1));
+        $this->output($vps);
     }
 }

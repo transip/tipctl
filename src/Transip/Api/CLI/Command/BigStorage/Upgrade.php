@@ -16,7 +16,7 @@ class Upgrade extends AbstractCommand
             ->setDescription('Upgrade your big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::BIGSTORAGE_SIZE, InputArgument::REQUIRED, Field::BIGSTORAGE_SIZE__DESC)
-            ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, '(optional) Whether to add offsite backups.')
+            ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, 'Whether to add offsite backups. (optional)')
             ->setHelp('This command allows you to upgrade a big storage');
     }
 

@@ -31,7 +31,7 @@ class IpAddress extends AbstractCommand
                     throw new \Exception("Vps name is required");
                 }
                 $ipAddresses = $this->getTransipApi()->vpsIpAddresses()->getByVpsName($arguments[0]);
-                $output->writeln(print_r($ipAddresses, 1));
+                $this->output($ipAddresses);
                 break;
             case "getByVpsNameAddress":
                 $arguments = $input->getArgument('args');
@@ -39,7 +39,7 @@ class IpAddress extends AbstractCommand
                     throw new \Exception("Vps name and address is required");
                 }
                 $ipAddress = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($arguments[0], $arguments[1]);
-                $output->writeln(print_r($ipAddress, 1));
+                $this->output($ipAddress);
                 break;
             case "setPtr":
                 $arguments = $input->getArgument('args');
@@ -52,8 +52,8 @@ class IpAddress extends AbstractCommand
 
                 $ipAddressObject = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($vpsName, $ipAddress);
                 $ipAddressObject->setReverseDns($ptr);
-                $this->getTransipApi()->vpsIpAddresses()->update($vpsName,$ipAddressObject);
-                $output->writeln(print_r($ipAddressObject,1));
+                $this->getTransipApi()->vpsIpAddresses()->update($vpsName, $ipAddressObject);
+                $this->output($ipAddressObject);
 
                 break;
             case "addIpv6":

@@ -9,7 +9,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class SetDescription extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:setDescription')
@@ -30,6 +29,6 @@ class SetDescription extends AbstractCommand
         $vps->setDescription($arguments[1]);
         $this->getTransipApi()->vps()->update($vps);
 
-        $output->writeln(print_r($vps,1));
+        $this->output($vps);
     }
 }

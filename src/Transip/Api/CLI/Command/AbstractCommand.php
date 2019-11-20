@@ -3,6 +3,7 @@
 namespace Transip\Api\CLI\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Transip\Api\Client\TransipAPI;
 
 abstract class AbstractCommand extends Command
@@ -24,5 +25,15 @@ abstract class AbstractCommand extends Command
     public function getTransipApi(): TransipAPI
     {
         return $this->transipApi;
+    }
+
+    public function output($data) {
+        $output = new ConsoleOutput();
+
+        if(is_array($data)) {
+          $data = print_r($data, 1);
+        }
+
+        $output->writeln($data);
     }
 }

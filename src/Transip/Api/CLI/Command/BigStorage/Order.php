@@ -3,7 +3,6 @@
 
 namespace Transip\Api\CLI\Command\BigStorage;
 
-
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -17,9 +16,9 @@ class Order extends AbstractCommand
         $this->setName('BigStorage:order')
             ->setDescription('Order a big storage')
             ->addArgument(Field::BIGSTORAGE_SIZE, InputArgument::REQUIRED, Field::BIGSTORAGE_SIZE__DESC)
-            ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, '(optional) Whether to order offsite backups, default is true.')
-            ->addArgument(Field::BIGSTORAGE_AVAILABILITYZONE, InputArgument::OPTIONAL, '(optional) The name of the availabilityZone where the BigStorage should be created. This parameter can not be used in conjunction with vpsName. If a vpsName is provided as well as an availabilityZone, the zone of the vps is leading.')
-            ->addArgument(Field::VPS_NAME, InputArgument::OPTIONAL, '(optional) The name of the VPS to attach the big storage to.')
+            ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, Field::BIGSTORAGE_HASOFFSITEBACKUPS__DESC_OPT)
+            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, 'The name of the availabilityZone where the BigStorage should be created. This parameter can not be used in conjunction with vpsName. If a vpsName is provided as well as an availabilityZone, the zone of the vps is leading. (optional)')
+            ->addArgument(Field::VPS_NAME, InputArgument::OPTIONAL, 'The name of the VPS to attach the big storage to. (optional)')
             ->setHelp('This command allows you to order a new big storage');
     }
 
@@ -28,9 +27,9 @@ class Order extends AbstractCommand
         $bigStorageSize               = $input->getArgument(Field::BIGSTORAGE_SIZE);
 
         // Default must be true
-        $bigStorageHasOffSiteBackups  = filter_var($input->getArgument(Field::BIGSTORAGE_OFFSITEBACKUPS) ?? true, FILTER_VALIDATE_BOOLEAN);
-        $bigStorageAvailabiltyZone    = $input->getArgument(Field::BIGSTORAGE_AVAILABILITYZONE) ?? '';
-        $bigStorageVpsName            = $input->getArgument(Field::BIGSTORAGE_VPSNAME) ?? '';
+        $bigStorageHasOffSiteBackups  = filter_var($input->getArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS) ?? true, FILTER_VALIDATE_BOOLEAN);
+        $bigStorageAvailabiltyZone    = $input->getArgument(Field::AVAILABILITY_ZONE) ?? '';
+        $bigStorageVpsName            = $input->getArgument(Field::VPS_NAME) ?? '';
 
         $this->getTransipApi()->bigStorages()->order($bigStorageSize, $bigStorageHasOffSiteBackups, $bigStorageAvailabiltyZone, $bigStorageVpsName);
     }

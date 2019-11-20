@@ -18,6 +18,6 @@ class GetAll extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $availabilityZones = $this->getTransipApi()->availabilityZone()->getAll();
-        $output->writeln(print_r($availabilityZones,1));
+        $this->output($availabilityZones);
     }
 }

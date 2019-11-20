@@ -26,7 +26,7 @@ class OperatingSystem extends AbstractCommand
         switch ($input->getArgument('action')) {
             case "getAll":
                 $operatingSystems = $this->getTransipApi()->vpsOperatingSystems()->getAll();
-                $output->writeln(print_r($operatingSystems, 1));
+                $this->output($operatingSystems);
                 break;
             case "install":
                 $arguments = $input->getArgument('args');

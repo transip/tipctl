@@ -18,6 +18,6 @@ class GetAll extends AbstractCommand
     {
         $bigStorages = $this->getTransipApi()->bigStorages()->getAll();
 
-        $output->writeln(print_r($bigStorages, 1));
+        $this->output($bigStorages);
     }
 }

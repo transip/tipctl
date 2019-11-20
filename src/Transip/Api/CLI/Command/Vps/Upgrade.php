@@ -30,7 +30,7 @@ class Upgrade extends AbstractCommand
                     throw new \Exception("Vps name is required");
                 }
                 $upgrades = $this->getTransipApi()->vpsUpgrades()->getByVpsName($arguments[0]);
-                $output->writeln(print_r($upgrades, 1));
+                $this->output($upgrades);
                 break;
             case "upgrade":
                 $arguments = $input->getArgument('args');
