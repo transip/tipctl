@@ -17,7 +17,7 @@ class Cancel extends AbstractCommand
         $this->setName('BigStorage:cancel')
             ->setDescription('Terminate or cancel your big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
-            ->addArgument(Field::BIGSTORAGE_CANCELTIME, InputArgument::REQUIRED, Field::BIGSTORAGE_CANCELTIME__DESC)
+            ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC)
             ->setHelp('This command will terminate or cancel your big storage.');
     }
 
@@ -28,9 +28,9 @@ class Cancel extends AbstractCommand
             throw new Exception('Invalid big storage name provided');
         }
 
-        $bigStorageCancelTime = $input->getArgument(Field::BIGSTORAGE_CANCELTIME);
+        $bigStorageCancelTime = $input->getArgument(Field::CANCELTIME);
         if (!in_array($bigStorageCancelTime, ['end', 'immediately'])) {
-            throw new Exception('Incorrect cancellation time provided, the value can only be `end` or `immediately`.');
+            throw new Exception("Incorrect cancellation time provided, the value can only be 'end' or 'immediately'.");
         }
 
         $this->getTransipApi()->bigStorages()->cancel($bigStorageName, $bigStorageCancelTime);

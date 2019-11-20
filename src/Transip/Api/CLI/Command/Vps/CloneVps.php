@@ -6,27 +6,26 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
 
 class CloneVps extends AbstractCommand
 {
     protected function configure()
     {
         $this->setName('Vps:cloneVps')
-            ->setDescription('Clone a given Vps')
-            ->setHelp('Provide a Vps name of which you want a Vps clone')
-            ->addArgument('args', InputArgument::IS_ARRAY, 'Optional arguments');
+            ->setDescription('Clone an existing VPS')
+            ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
+            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::AVAILABILITY_ZONE__DESC_OPT)
+            ->setHelp('You must provide the vps name of the VPS to clone, and optionally provide the name of the availability zone where the clone should be created');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('args');
+        $vpsName = $input->getArgument(Field::VPS_NAME);
+        $availabilityZone = $input->getArgument(Field::AVAILABILITY_ZONE);
 
-        if (count($arguments) < 1) {
-            throw new \Exception("source vps name is required, availabilityZone optional");
-        }
+        $availabilityZone = $availabilityZone ?? '';
 
-        $availabilityZone = $arguments[1] ?? '';
-
-        $this->getTransipApi()->vps()->cloneVps($arguments[0], $availabilityZone);
+        $this->getTransipApi()->vps()->cloneVps($vpsName, $availabilityZone);
     }
 }

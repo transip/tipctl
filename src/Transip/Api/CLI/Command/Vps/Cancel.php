@@ -6,25 +6,29 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
+use Exception;
 
 class Cancel extends AbstractCommand
 {
     protected function configure()
     {
         $this->setName('Vps:cancel')
-            ->setDescription('Cancel a Vps')
+            ->setDescription('Cancel or terminate a Vps')
             ->setHelp('Provide a Vps name to cancel and a cancellation time (end|immediately)')
-            ->addArgument('args', InputArgument::IS_ARRAY, 'Optional arguments');
+            ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
+            ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('args');
+        $vpsName = $input->getArgument(Field::VPS_NAME);
+        $cancelTime = $input->getArgument(Field::CANCELTIME);
 
-        if (count($arguments) < 2) {
-            throw new \Exception("VpsName and cancellation time (end|immediately) is required");
+        if (!in_array($cancelTime, ['end', 'immediately'])) {
+            throw new Exception("Incorrect cancellation time provided, the value can only be 'end' or 'immediately'.");
         }
 
-        $this->getTransipApi()->vps()->cancel($arguments[0]);
+        $this->getTransipApi()->vps()->cancel($vpsName, $cancelTime);
     }
 }

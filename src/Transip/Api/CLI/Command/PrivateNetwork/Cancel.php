@@ -16,7 +16,7 @@ class Cancel extends AbstractCommand
         $this->setName('PrivateNetwork:cancel')
             ->setDescription('Terminate or cancel your private network')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC)
-            ->addArgument(Field::PRIVATENETWORK_CANCELTIME, InputArgument::REQUIRED, Field::PRIVATENETWORK_CANCELTIME__DESC)
+            ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC)
             ->setHelp('This command will terminate or cancel your private network.');
     }
 
@@ -24,9 +24,9 @@ class Cancel extends AbstractCommand
     {
         $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
 
-        $cancelTime = $input->getArgument(Field::PRIVATENETWORK_CANCELTIME);
+        $cancelTime = $input->getArgument(Field::CANCELTIME);
         if (!in_array($cancelTime, ['end', 'immediately'])) {
-            throw new Exception('Incorrect cancellation time provided, the value can only be `end` or `immediately`.');
+            throw new Exception("Incorrect cancellation time provided, the value can only be 'end' or 'immediately'.");
         }
         $this->getTransipApi()->privateNetworks()->cancel($privateNetworkName, $cancelTime);
     }
