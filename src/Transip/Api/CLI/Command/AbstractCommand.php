@@ -31,7 +31,7 @@ abstract class AbstractCommand extends Command
     {
         $output = new ConsoleOutput();
 
-        if (is_array($data)) {
+        if (is_array($data) || is_object($data)) {
           $data = print_r($data, 1);
         }
 
