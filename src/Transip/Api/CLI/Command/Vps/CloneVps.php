@@ -15,7 +15,7 @@ class CloneVps extends AbstractCommand
         $this->setName('Vps:cloneVps')
             ->setDescription('Clone an existing VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
-            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::AVAILABILITY_ZONE__DESC_OPT)
+            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::AVAILABILITY_ZONE__DESC . Field::OPTIONAL)
             ->setHelp('You must provide the vps name of the VPS to clone, and optionally provide the name of the availability zone where the clone should be created');
     }
 

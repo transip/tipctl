@@ -10,7 +10,6 @@ class Field
     const CANCELTIME__DESC = 'Cancellation time, either ‘end’ or ‘immediately’';
     const AVAILABILITY_ZONE = 'AvailabilityZone';
     const AVAILABILITY_ZONE__DESC = 'The region name where this product should be created';
-    const AVAILABILITY_ZONE__DESC_OPT = self::AVAILABILITY_ZONE__DESC . self::OPTIONAL;
 
     const VPS_NAME = 'VpsName';
     const VPS_NAME__DESC = 'The name of the vps';
@@ -38,5 +37,4 @@ class Field
     const BIGSTORAGE_SIZE__DESC = 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40';
     const BIGSTORAGE_HASOFFSITEBACKUPS = 'BigStorageHasOffSiteBackups';
     const BIGSTORAGE_HASOFFSITEBACKUPS__DESC = 'Whether to order offsite backups, default is true.';
-    const BIGSTORAGE_HASOFFSITEBACKUPS__DESC_OPT = self::BIGSTORAGE_HASOFFSITEBACKUPS__DESC . self::OPTIONAL;
 }
