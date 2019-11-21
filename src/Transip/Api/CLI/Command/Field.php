@@ -48,4 +48,6 @@ class Field
 
     const HAIP_NAME = 'HaipName';
     const HAIP_NAME__DESC = 'The name of the HA-IP';
+    const HAIP_DESCRIPTION = 'Description';
+    const HAIP_DESCRIPTION__DESC = 'Description to give to the Haip';
 }

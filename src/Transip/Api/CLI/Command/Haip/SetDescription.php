@@ -15,12 +15,12 @@ class SetDescription extends AbstractCommand
         $this->setName('Haip:setDescription')
             ->setDescription('Set the description of a Haip')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
-            ->addArgument('description', InputArgument::REQUIRED, 'description to give to the Haip');
+            ->addArgument(Field::HAIP_DESCRIPTION, InputArgument::REQUIRED, Field::HAIP_DESCRIPTION);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $description = $input->getArgument('description');
+        $description = $input->getArgument(Field::HAIP_DESCRIPTION);
         $haipName = $input->getArgument(Field::HAIP_NAME);
 
         $haip = $this->getTransipApi()->haip()->getByName($haipName);
