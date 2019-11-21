@@ -14,7 +14,7 @@ class RemoveAttachedIpAddresses extends AbstractCommand
     {
         $this->setName('Haip:removeAttachedIpAddresses')
             ->setDescription('Remove all of the ips attached to your Haip')
-            ->addArgument('haipName', InputArgument::REQUIRED, 'name of haip');
+            ->addArgument('haipName', InputArgument::REQUIRED, 'name of Haip');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

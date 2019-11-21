@@ -40,9 +40,12 @@ class Field
     const PRIVATENETWORK_NAME__DESC = 'The private network name';
 
     const BIGSTORAGE_NAME = 'BigStorageName';
-    const BIGSTORAGE_NAME__DESC = 'The name of the big storage.';
+    const BIGSTORAGE_NAME__DESC = 'The name of the big storage';
     const BIGSTORAGE_SIZE = 'BigStorageSize';
     const BIGSTORAGE_SIZE__DESC = 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40';
     const BIGSTORAGE_HASOFFSITEBACKUPS = 'BigStorageHasOffSiteBackups';
     const BIGSTORAGE_HASOFFSITEBACKUPS__DESC = 'Whether to order offsite backups, default is true.';
+
+    const HAIP_NAME = 'HaipName';
+    const HAIP_NAME__DESC = 'The name of the HA-IP';
 }
