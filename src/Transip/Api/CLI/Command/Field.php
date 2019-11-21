@@ -33,18 +33,14 @@ class Field
     const VPS_HOSTNAME__DESC = 'Hostname is required for preinstallable web controlpanels';
     const VPS_PRODUCT_NAME = 'ProductName';
     const VPS_PRODUCT_NAME__DESC = 'Name of the product';
+    const VPS_SNAPSHOT_NAME = 'SnapshotName';
+    const VPS_SNAPSHOT_NAME__DESC = 'Name of the snapshot';
 
     const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     const PRIVATENETWORK_NAME__DESC = 'The private network name';
-    const PRIVATENETWORK_DESCRIPTION = 'PrivateNetworkDescription';
-    const PRIVATENETWORK_DESCRIPTION__DESC = 'The private network description';
 
-    const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
-    const BIGSTORAGE_BACKUPID__DESC = 'ID number of the backup';
     const BIGSTORAGE_NAME = 'BigStorageName';
     const BIGSTORAGE_NAME__DESC = 'The name of the big storage.';
-    const BIGSTORAGE_DESCRIPTION = 'BigStorageDescription';
-    const BIGSTORAGE_DESCRIPTION__DESC = 'Description of the big storage';
     const BIGSTORAGE_SIZE = 'BigStorageSize';
     const BIGSTORAGE_SIZE__DESC = 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40';
     const BIGSTORAGE_HASOFFSITEBACKUPS = 'BigStorageHasOffSiteBackups';

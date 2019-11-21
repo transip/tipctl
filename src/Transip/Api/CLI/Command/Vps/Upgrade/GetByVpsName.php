@@ -1,6 +1,8 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Vps;
+
+namespace Transip\Api\CLI\Command\Vps\Upgrade;
+
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -8,13 +10,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 
-class Start extends AbstractCommand
+class GetByVpsName extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Vps:start')
-            ->setDescription('Start a Vps')
-            ->setHelp('Provide a Vps name to start')
+        $this->setName('Vps:Upgrade:getByVpsName')
+            ->setDescription('List available upgrades for a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
@@ -22,6 +23,7 @@ class Start extends AbstractCommand
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
 
-        $this->getTransipApi()->vps()->start($vpsName);
+        $upgrades = $this->getTransipApi()->vpsUpgrades()->getByVpsName($vpsName);
+        $this->output($upgrades);
     }
 }

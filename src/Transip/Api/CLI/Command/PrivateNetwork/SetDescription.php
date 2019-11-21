@@ -10,18 +10,20 @@ use Transip\Api\CLI\Command\Field;
 
 class SetDescription extends AbstractCommand
 {
+    private const PRIVATENETWORK_DESCRIPTION = 'PrivateNetworkDescription';
+
     protected function configure()
     {
         $this->setName('PrivateNetwork:setDescription')
             ->setDescription('Set a new description to a private network')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC)
-            ->addArgument(Field::PRIVATENETWORK_DESCRIPTION, InputArgument::REQUIRED, Field::PRIVATENETWORK_DESCRIPTION__DESC);
+            ->addArgument(self::PRIVATENETWORK_DESCRIPTION, InputArgument::REQUIRED, 'The private network description');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
-        $privateNetworkDescription = $input->getArgument(Field::PRIVATENETWORK_DESCRIPTION);
+        $privateNetworkDescription = $input->getArgument(self::PRIVATENETWORK_DESCRIPTION);
 
         $privateNetwork = $this->getTransipApi()->privateNetworks()->getByName($privateNetworkName);
         $privateNetwork->setDescription($privateNetworkDescription);

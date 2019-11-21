@@ -11,8 +11,8 @@ class GetTrafficPool extends AbstractCommand
     protected function configure()
     {
         $this->setName('Traffic:getTrafficPool')
-            ->setDescription('Get all the traffic of your VPSes combined.')
-            ->setHelp('This command outputs traffic information of your VPSes combined.');
+            ->setDescription('Get all the traffic of your VPSs combined.')
+            ->setHelp('This command outputs traffic information of your VPSs combined.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

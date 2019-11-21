@@ -15,7 +15,7 @@ class Install extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('Vps:OperatingSystem:install')
-            ->setDescription('Install operating system on a VPS')
+            ->setDescription('Install an operating system on a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME)
             ->addArgument(Field::VPS_OS_NAME, InputArgument::REQUIRED, Field::VPS_OS_NAME__DESC)
             ->addArgument(Field::VPS_HOSTNAME, InputArgument::OPTIONAL, Field::VPS_HOSTNAME__DESC . Field::OPTIONAL)
