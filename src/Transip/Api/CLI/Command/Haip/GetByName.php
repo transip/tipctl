@@ -14,7 +14,7 @@ class GetByName extends AbstractCommand
     {
         $this->setName('Haip:getByName')
             ->setDescription('Get your Haip by name')
-            ->addArgument('haipName', InputArgument::REQUIRED, 'name of haip');
+            ->addArgument('haipName', InputArgument::REQUIRED, 'name of Haip');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
