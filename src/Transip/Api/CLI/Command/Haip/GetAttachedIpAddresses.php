@@ -14,7 +14,7 @@ class GetAttachedIpAddresses extends AbstractCommand
     {
         $this->setName('Haip:getAttachedIpAddresses')
             ->setDescription('Get all of the ips that are attached to your Haip')
-            ->addArgument('haipName', InputArgument::REQUIRED, 'name of haip');
+            ->addArgument('haipName', InputArgument::REQUIRED, 'name of Haip');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

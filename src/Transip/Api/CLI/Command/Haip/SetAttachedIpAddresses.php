@@ -14,7 +14,7 @@ class SetAttachedIpAddresses extends AbstractCommand
     {
         $this->setName('Haip:setAttachedIpAddresses')
             ->setDescription('Set the ips to attach to your Haip')
-            ->addArgument('haipName', InputArgument::REQUIRED, 'name of haip')
+            ->addArgument('haipName', InputArgument::REQUIRED, 'name of Haip')
             ->addArgument('ipAddresses', InputArgument::REQUIRED, 'IpAddresses ipv4 or/and ipv6 (comma separated)');
     }
 

@@ -1,0 +1,30 @@
+<?php
+
+namespace Transip\Api\CLI\Command\Haip;
+
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
+
+class SetDescription extends AbstractCommand
+{
+    protected function configure()
+    {
+        $this->setName('Haip:setDescription')
+            ->setDescription('Set the description of a Haip')
+            ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
+            ->addArgument('description', InputArgument::REQUIRED, 'description to give to the Haip');
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $description = $input->getArgument('description');
+        $haipName = $input->getArgument(Field::HAIP_NAME);
+
+        $haip = $this->getTransipApi()->haip()->getByName($haipName);
+        $haip->setDescription($description);
+        $this->getTransipApi()->haip()->update($haip);
+    }
+}

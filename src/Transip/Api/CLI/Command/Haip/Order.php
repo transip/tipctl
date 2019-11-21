@@ -16,8 +16,8 @@ class Order extends AbstractCommand
         $this->setName('Haip:order')
             ->setDescription('Order a new Haip')
             ->addArgument('productName', InputArgument::REQUIRED, 'product name of haip to order')
-            ->addArgument('description', InputArgument::OPTIONAL, 'optional description to give to the haip')
-            ->addOption('waitForDelivery', 'w', InputOption::VALUE_NONE, 'wait and poll till the haip is delivered');
+            ->addArgument('description', InputArgument::OPTIONAL, 'optional description to give to the Haip')
+            ->addOption('waitForDelivery', 'w', InputOption::VALUE_NONE, 'wait and poll till the Haip is delivered');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
