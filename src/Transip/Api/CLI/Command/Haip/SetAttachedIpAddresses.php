@@ -9,7 +9,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class SetAttachedIpAddresses extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Haip:setAttachedIpAddresses')

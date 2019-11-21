@@ -10,7 +10,6 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByVpsNameAddress extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Vps:IpAddress:getByVpsNameAddress')

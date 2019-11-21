@@ -10,7 +10,6 @@ use Transip\Api\CLI\Command\Field;
 
 class SetHealthCheckInterval extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Haip:setHealthCheckInterval')
