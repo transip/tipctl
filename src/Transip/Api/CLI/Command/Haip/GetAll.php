@@ -16,8 +16,8 @@ class GetAll extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $VPSs = $this->getTransipApi()->haip()->getAll();
+        $haips = $this->getTransipApi()->haip()->getAll();
 
-        $this->output($VPSs);
+        $this->output($haips);
     }
 }
