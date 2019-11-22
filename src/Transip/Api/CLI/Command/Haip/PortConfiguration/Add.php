@@ -11,7 +11,6 @@ use Transip\Api\Client\Entity\Haip\PortConfiguration;
 
 class Add extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Haip:PortConfiguration:add')

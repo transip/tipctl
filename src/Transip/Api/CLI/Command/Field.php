@@ -85,15 +85,9 @@ class Field
 
     public const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     public const PRIVATENETWORK_NAME__DESC = 'The private network name';
-    public const PRIVATENETWORK_DESCRIPTION = 'PrivateNetworkDescription';
-    public const PRIVATENETWORK_DESCRIPTION__DESC = 'The private network description';
 
-    public const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
-    public const BIGSTORAGE_BACKUPID__DESC = 'ID number of the backup';
     public const BIGSTORAGE_NAME = 'BigStorageName';
     public const BIGSTORAGE_NAME__DESC = 'The name of the big storage';
-    public const BIGSTORAGE_DESCRIPTION = 'BigStorageDescription';
-    public const BIGSTORAGE_DESCRIPTION__DESC = 'Description of the big storage';
     public const BIGSTORAGE_SIZE = 'BigStorageSize';
     public const BIGSTORAGE_SIZE__DESC = 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40';
     public const BIGSTORAGE_HASOFFSITEBACKUPS = 'BigStorageHasOffSiteBackups';
@@ -103,4 +97,12 @@ class Field
     public const HAIP_NAME__DESC = 'The name of the HA-IP';
     public const PORTCONFIGURATION_ID = 'PortConfigurationId';
     public const PORTCONFIGURATION_ID__DESC = 'The id of the port configuration';
+    public const HAIP_DESCRIPTION = 'Description';
+    public const HAIP_DESCRIPTION__DESC = 'Description to give to the Haip';
+
+    public const DOMAIN_TAG = 'TagName';
+    public const DOMAIN_TAG__DESC = 'The tag name';
+
+    public const FORMAT = 'format';
+    public const FORMAT__DESC = 'The output format `yaml` or `json`';
 }

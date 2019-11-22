@@ -22,6 +22,6 @@ class GetByDomainName extends AbstractCommand
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
         $contacts = $this->getTransipApi()->domainContact()->getByDomainName($domainName);
-        $output->writeln(print_r($contacts,1));
+        $output->writeln(print_r($contacts, 1));
     }
 }
