@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Transip\Api\CLI\Command\Vps\Backup;
+namespace Transip\Api\CLI\Command\Vps\Snapshot;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -9,21 +8,22 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 
-class GetByVpsName extends AbstractCommand
+class Delete extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Vps:Backup:getByVpsName')
-            ->setDescription('List backups for a vps')
+        $this->setName('Vps:Snapshot:Delete')
+            ->setDescription('Delete a snapshot')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
-            ->setHelp('TransIP offers multiple back-up types, every VPS has 4 hourly back-ups by default, weekly back-ups are available for a small fee. This API call returns back-ups for both types.');
+            ->addArgument(Field::VPS_SNAPSHOT_NAME, InputArgument::REQUIRED, Field::VPS_SNAPSHOT_NAME__DESC)
+            ->setHelp('Delete a VPS snapshot using this command.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
+        $snapshotName = $input->getArgument(Field::VPS_SNAPSHOT_NAME);
 
-        $vps = $this->getTransipApi()->vpsBackups()->getByVpsName($vpsName);
-        $this->output($vps);
+        $this->getTransipApi()->vpsSnapshots()->deleteSnapshot($vpsName, $snapshotName);
     }
 }

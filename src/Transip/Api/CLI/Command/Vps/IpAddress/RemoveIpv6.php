@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Transip\Api\CLI\Command\Vps\Backup;
+namespace Transip\Api\CLI\Command\Vps\IpAddress;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -9,21 +9,21 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 
-class GetByVpsName extends AbstractCommand
+class RemoveIpv6 extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Vps:Backup:getByVpsName')
-            ->setDescription('List backups for a vps')
+        $this->setName('Vps:IpAddress:removeIpv6')
+            ->setDescription('Remove an IPv6 address from a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
-            ->setHelp('TransIP offers multiple back-up types, every VPS has 4 hourly back-ups by default, weekly back-ups are available for a small fee. This API call returns back-ups for both types.');
+            ->addArgument(Field::VPS_IPV6Address, InputArgument::REQUIRED, Field::VPS_IPV6Address__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
+        $IPv6Address = $input->getArgument(Field::VPS_IPV6Address);
 
-        $vps = $this->getTransipApi()->vpsBackups()->getByVpsName($vpsName);
-        $this->output($vps);
+        $this->getTransipApi()->vpsIpAddresses()->removeIpv6Address($vpsName, $IPv6Address);
     }
 }

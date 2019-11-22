@@ -6,6 +6,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
 
 class Stop extends AbstractCommand
 {
@@ -14,17 +15,13 @@ class Stop extends AbstractCommand
         $this->setName('Vps:stop')
             ->setDescription('Stop a Vps')
             ->setHelp('Provide a Vps name to stop')
-            ->addArgument('args', InputArgument::IS_ARRAY, 'Optional arguments');
+            ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('args');
+        $vpsName = $input->getArgument(Field::VPS_NAME);
 
-        if (count($arguments) < 1) {
-            throw new \Exception("Vps name is required");
-        }
-
-        $this->getTransipApi()->vps()->stop($arguments[0]);
+        $this->getTransipApi()->vps()->stop($vpsName);
     }
 }

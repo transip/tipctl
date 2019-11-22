@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Vps;
+namespace Transip\Api\CLI\Command\Vps\OperatingSystem;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,14 +10,13 @@ class GetAll extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Vps:getAll')
-            ->setDescription('List all VPSs associated with your TransIP account');
+        $this->setName('Vps:OperatingSystem:getAll')
+            ->setDescription('List installable operating systems for a VPS');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $VPSs = $this->getTransipApi()->vps()->getAll();
-
-        $this->output($VPSs);
+        $operatingSystems = $this->getTransipApi()->vpsOperatingSystems()->getAll();
+        $this->output($operatingSystems);
     }
 }

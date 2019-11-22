@@ -6,6 +6,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
 
 class Reset extends AbstractCommand
 {
@@ -14,17 +15,13 @@ class Reset extends AbstractCommand
         $this->setName('Vps:reset')
             ->setDescription('Reset a Vps')
             ->setHelp('Provide a Vps name to reset')
-            ->addArgument('args', InputArgument::IS_ARRAY, 'Optional arguments');
+            ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('args');
+        $vpsName = $input->getArgument(Field::VPS_NAME);
 
-        if (count($arguments) < 1) {
-            throw new \Exception("Vps name is required");
-        }
-
-        $this->getTransipApi()->vps()->reset($arguments[0]);
+        $this->getTransipApi()->vps()->reset($vpsName);
     }
 }

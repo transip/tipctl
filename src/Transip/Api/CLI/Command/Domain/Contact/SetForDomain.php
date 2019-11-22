@@ -11,7 +11,6 @@ use Transip\Api\Client\Entity\Domain\WhoisContact;
 
 class SetForDomain extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Domain:Contact:setForDomain')

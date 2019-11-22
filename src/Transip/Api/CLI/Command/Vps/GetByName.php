@@ -6,6 +6,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
 
 class GetByName extends AbstractCommand
 {
@@ -14,12 +15,12 @@ class GetByName extends AbstractCommand
         $this->setName('Vps:getByName')
             ->setDescription('Get your Vps by name')
             ->setHelp('Provide a name to retrieve your Vps by name')
-            ->addArgument('VpsName', InputArgument::REQUIRED, 'VpsName');
+            ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $vpsName = $input->getArgument('VpsName');
+        $vpsName = $input->getArgument(Field::VPS_NAME);
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $this->output($vps);
     }

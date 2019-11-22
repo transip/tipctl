@@ -12,7 +12,7 @@ class GetAll extends AbstractCommand
     {
         $this->setName('PrivateNetwork:getAll')
             ->setDescription('List all private networks in your account.')
-            ->setHelp('This command lists all private networks along with the VPSes it’s attached to.');
+            ->setHelp('This command lists all private networks along with the VPSs it’s attached to.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

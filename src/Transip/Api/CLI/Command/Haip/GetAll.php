@@ -8,7 +8,6 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetAll extends AbstractCommand
 {
-
     protected function configure()
     {
         $this->setName('Haip:getAll')
@@ -17,8 +16,8 @@ class GetAll extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $vpses = $this->getTransipApi()->haip()->getAll();
+        $haips = $this->getTransipApi()->haip()->getAll();
 
-        $this->output($vpses);
+        $this->output($haips);
     }
 }

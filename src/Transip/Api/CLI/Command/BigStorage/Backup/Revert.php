@@ -10,19 +10,21 @@ use Transip\Api\CLI\Command\Field;
 
 class Revert extends AbstractCommand
 {
+    private const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
+
     protected function configure()
     {
         $this->setName('BigStorage:Backup:revert')
             ->setDescription('Restore a bigstorage backup')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
-            ->addArgument(Field::BIGSTORAGE_BACKUPID, InputArgument::REQUIRED, Field::BIGSTORAGE_BACKUPID__DESC)
+            ->addArgument(self::BIGSTORAGE_BACKUPID, InputArgument::REQUIRED, 'ID number of the backup')
             ->setHelp('This command restores a big storage backup.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
-        $bigStorageBackupId = $input->getArgument(Field::BIGSTORAGE_BACKUPID);
+        $bigStorageBackupId = $input->getArgument(self::BIGSTORAGE_BACKUPID);
 
         $this->getTransipApi()->bigStorageBackups()->revertBackup($bigStorageName, $bigStorageBackupId);
     }

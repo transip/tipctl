@@ -10,19 +10,20 @@ use Transip\Api\CLI\Command\Field;
 
 class SetHealthCheckInterval extends AbstractCommand
 {
+    private const INTERVAL = 'interval';
 
     protected function configure()
     {
         $this->setName('Haip:setHealthCheckInterval')
             ->setDescription('Set the interval in milliseconds on which the health check runs')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
-            ->addArgument('interval', InputArgument::REQUIRED, 'the interval must be larger than 2000');
+            ->addArgument(self::INTERVAL, InputArgument::REQUIRED, 'the interval must be larger than 2000');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
-        $interval = intval($input->getArgument('interval'));
+        $interval = intval($input->getArgument(self::INTERVAL));
 
         if ($interval < 2000) {
             throw new \Exception("Health check interval must be larger than 2000");
