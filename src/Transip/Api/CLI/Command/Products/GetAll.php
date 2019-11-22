@@ -5,6 +5,7 @@ namespace Transip\Api\CLI\Command\Products;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
 
 class GetAll extends AbstractCommand
 {
@@ -18,6 +19,6 @@ class GetAll extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $products = $this->getTransipApi()->products()->getAll();
-        $this->output($products);
+        $this->output($products, $input->getOption(Field::FORMAT));
     }
 }
