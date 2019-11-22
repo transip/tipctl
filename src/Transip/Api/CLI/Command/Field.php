@@ -101,4 +101,6 @@ class Field
 
     const HAIP_NAME = 'HaipName';
     const HAIP_NAME__DESC = 'The name of the HA-IP';
+    const PORTCONFIGURATION_ID = 'PortConfigurationId';
+    const PORTCONFIGURATION_ID__DESC = 'The id of the port configuration';
 }
