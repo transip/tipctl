@@ -25,10 +25,6 @@ class SetIpSetup extends AbstractCommand
         $ipSetup = $input->getArgument(self::IP_SETUP);
         $haipName = $input->getArgument(Field::HAIP_NAME);
 
-        if (!in_array($ipSetup, ['both', 'noipv6', 'ipv6to4'])) {
-            throw new \Exception('invalid ipSetup, examples: (both, noipv6, ipv6to4)');
-        }
-
         $haip = $this->getTransipApi()->haip()->getByName($haipName);
         $haip->setIpSetup($ipSetup);
         $this->getTransipApi()->haip()->update($haip);
