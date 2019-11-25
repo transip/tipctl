@@ -8,7 +8,7 @@ class TxtOutput extends AbstractOutput
     {
         $data = $this->data;
 
-        if(is_array($data) || is_object($data)) {
+        if (is_array($data) || is_object($data)) {
             return print_r($data, true);
         }
 

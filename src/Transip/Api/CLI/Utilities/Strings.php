@@ -14,9 +14,13 @@ class Strings
      */
     public static function strpos_arr(string $haystack, array $needle)
     {
-        if(!is_array($needle)) $needle = array($needle);
-        foreach($needle as $what) {
-            if(($pos = strpos($haystack, $what))!==false) return $pos;
+        if (!is_array($needle)) {
+            $needle = array($needle);
+        }
+        foreach ($needle as $what) {
+            if (($pos = strpos($haystack, $what))!==false) {
+                return $pos;
+            }
         }
         return false;
     }
