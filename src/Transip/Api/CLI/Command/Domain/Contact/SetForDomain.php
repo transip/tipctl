@@ -81,6 +81,6 @@ class SetForDomain extends AbstractCommand
         }
 
         $this->getTransipApi()->domainContact()->update($domainName, $newContacts);
-        $output->writeln(print_r($newContacts, 1));
+        $this->output($newContacts);
     }
 }

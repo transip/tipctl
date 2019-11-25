@@ -14,14 +14,14 @@ class GetByDomainName extends AbstractCommand
     {
         $this->setName('Domain:Nameserver:getByDomainName')
             ->setDescription('Get Nameservers for a domain')
-            ->setHelp('Provide a name to retrieve the nameservers for a specific domain')
+            ->setHelp('Provide a name to retrieve the Nameservers for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $domainName = $input->getArgument(Field::DOMAIN_NAME);
-        $dnsEntries = $this->getTransipApi()->domainNameserver()->getByDomainName($domainName);
-        $output->writeln(print_r($dnsEntries, 1));
+        $domainName  = $input->getArgument(Field::DOMAIN_NAME);
+        $nameservers = $this->getTransipApi()->domainNameserver()->getByDomainName($domainName);
+        $this->output($nameservers);
     }
 }

@@ -21,7 +21,7 @@ class GetByDomainName extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
-        $domain = $this->getTransipApi()->domainBranding()->getByDomainName($domainName);
-        $output->writeln(print_r($domain, 1));
+        $branding   = $this->getTransipApi()->domainBranding()->getByDomainName($domainName);
+        $this->output($branding);
     }
 }
