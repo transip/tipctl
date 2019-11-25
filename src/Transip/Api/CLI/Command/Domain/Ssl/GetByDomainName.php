@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Domain\DnsSec;
+namespace Transip\Api\CLI\Command\Domain\Ssl;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -12,16 +12,18 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Domain:DnsSec:getByDomainName')
-            ->setDescription('Get DNSSEC Entries for a domain')
-            ->setHelp('Provide a name to retrieve the DNSSEC Entries for a specific domain')
+        $this->setName('Domain:Ssl:getByDomainName')
+            ->setDescription('Get SSL Certificates for a domain')
+            ->setHelp(
+                'Provide a name to retrieve the SSL Certificates for a specific domain (does not include any letsencrypt certs)'
+            )
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $domainName    = $input->getArgument(Field::DOMAIN_NAME);
-        $dnsSecEntries = $this->getTransipApi()->domainDnsSec()->getByDomainName($domainName);
-        $this->output($dnsSecEntries);
+        $domainName = $input->getArgument(Field::DOMAIN_NAME);
+        $sslCertificates = $this->getTransipApi()->domainSsl()->getByDomainName($domainName);
+        $this->output($sslCertificates);
     }
 }

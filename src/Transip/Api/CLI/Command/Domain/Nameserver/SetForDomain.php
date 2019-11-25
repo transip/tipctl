@@ -35,5 +35,6 @@ class SetForDomain extends AbstractCommand
         }
 
         $this->getTransipApi()->domainNameserver()->update($domainName, $nameserverObjects);
+        $this->output($nameserverObjects);
     }
 }

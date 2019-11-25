@@ -54,6 +54,9 @@ class Field
     public const DOMAIN_COUNTRY = 'country';
     public const DOMAIN_COUNTRY__DESC = 'Country';
 
+    public const DOMAIN_AUTH_CODE = 'AuthCode';
+    public const DOMAIN_AUTH_CODE__DESC = 'Authentication code for transfer';
+
     public const DNS_ENTRY_NAME = 'Name';
     public const DNS_ENTRY_NAME__DESC = 'The name of the DNS Record';
     public const DNS_ENTRY_EXPIRE = 'Expire';
@@ -71,6 +74,9 @@ class Field
     public const DNSSEC_ENTRY_ALGORITHM__DESC = 'The algorithm type that is used, 3|5|6|7|8|10|12|13|14';
     public const DNSSEC_ENTRY_PUBLICKEY = 'PublicKey';
     public const DNSSEC_ENTRY_PUBLICKEY__DESC = 'The public key';
+
+    public const SSL_ID = 'CertificateId';
+    public const SSL_ID__DESC = 'SSL certificateId';
 
     public const VPS_NAME = 'VpsName';
     public const VPS_NAME__DESC = 'The name of the vps';
