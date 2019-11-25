@@ -26,15 +26,10 @@ abstract class AbstractCommand extends Command
      * @var OutputInterface
      */
     private $output;
-    /**
-     * @var array
-     */
-    private $allowedOutputFormats;
 
     public function __construct(string $name = null)
     {
         $init = new Settings();
-        $this->allowedOutputFormats = $init->getAllowedOutputFormats();
 
         $this->transipApi = new TransipAPI($init->getApiToken(), $init->getApiUrl());
         parent::__construct($name);
@@ -56,7 +51,7 @@ abstract class AbstractCommand extends Command
     public function output($data): void
     {
         $formatter = new Formatter();
-        $className = $formatter->prepare($this->input, $this->allowedOutputFormats);
+        $className = $formatter->prepare($this->input);
         $data      = $formatter->format(new $className($data));
 
         $this->output->writeln($data);

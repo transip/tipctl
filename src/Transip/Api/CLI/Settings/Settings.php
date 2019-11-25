@@ -10,10 +10,7 @@ class Settings
      * @var string
      */
     private $apiUrl;
-    /**
-     * @var array
-     */
-    private $allowedOutputFormats;
+
     /**
      * @var string
      */
@@ -26,7 +23,6 @@ class Settings
 
         $this->apiUrl = $data['apiUrl'];
         $this->apiToken = $data['apiToken'];
-        $this->allowedOutputFormats = $data['allowedOutputFormats'];
     }
 
     public function getApiUrl(): string

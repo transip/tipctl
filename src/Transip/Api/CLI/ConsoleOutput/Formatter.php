@@ -18,12 +18,12 @@ class Formatter
      * @return string
      * @throws Exception
      */
-    public function prepare(InputInterface $input, array $allowedOutputFormats): string
+    public function prepare(InputInterface $input): string
     {
         $formatType   = $input->getOption(Field::FORMAT);
         $outputFormat = strtolower($formatType);
 
-        $this->ensureGivenFormatTypeIsValid($outputFormat, $allowedOutputFormats);
+        $this->ensureGivenFormatTypeIsValid($outputFormat);
 
         return "\Transip\Api\CLI\ConsoleOutput\\". ucfirst($outputFormat) . 'Output';
     }
@@ -39,9 +39,9 @@ class Formatter
     /**
      * @throws Exception
      */
-    public function ensureGivenFormatTypeIsValid(string $format, array $allowedFormats): void
+    public function ensureGivenFormatTypeIsValid(string $format): void
     {
-        if (!in_array($format, $allowedFormats, true)) {
+        if (!in_array($format, ['json', 'yml', 'txt'], true)) {
             throw new Exception("Given output format `{$format}` is incorrect; Use ".
                 lcfirst(Field::FORMAT__DESC));
         }

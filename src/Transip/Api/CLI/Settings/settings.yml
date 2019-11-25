@@ -1,6 +1,2 @@
 apiUrl: ''
 apiToken: ''
-allowedOutputFormats:
-  - txt
-  - yaml
-  - json
