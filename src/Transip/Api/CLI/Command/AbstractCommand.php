@@ -6,7 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Transip\Api\CLI\Output\Formatter;
+use Transip\Api\CLI\ConsoleOutput\Formatter;
 use Transip\Api\Client\TransipAPI;
 
 abstract class AbstractCommand extends Command

@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Output;
+namespace Transip\Api\CLI\ConsoleOutput;
 
 use Symfony\Component\Yaml\Yaml;
 

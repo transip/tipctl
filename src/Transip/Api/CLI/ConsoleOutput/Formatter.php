@@ -1,17 +1,17 @@
 <?php
 
-namespace Transip\Api\CLI\Output;
+namespace Transip\Api\CLI\ConsoleOutput;
 
 use Exception;
 use Symfony\Component\Console\Input\InputInterface;
 use Transip\Api\CLI\Command\Field;
-use Transip\Api\CLI\Output\Interfaces\OutputInterface;
+use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface;
 use Transip\Api\CLI\Utilities\Strings;
 
 class Formatter
 {
     /**
-     * Generates the class name that will be loaded to format an array
+     * This method determines the class name that will be loaded to parse an array
      *
      * @param  InputInterface  $input
      * @return string
@@ -24,11 +24,11 @@ class Formatter
 
         $this->ensureGivenFormatTypeIsValid($outputFormat);
 
-        return "\Transip\Api\CLI\Output\\". $outputFormat . 'Output';
+        return "\Transip\Api\CLI\ConsoleOutput\\". $outputFormat . 'Output';
     }
 
     /**
-     * @see \Transip\Api\CLI\Output\AbstractOutput
+     * @see \Transip\Api\CLI\ConsoleOutput\AbstractOutput
      */
     public function format(OutputInterface $output): string
     {

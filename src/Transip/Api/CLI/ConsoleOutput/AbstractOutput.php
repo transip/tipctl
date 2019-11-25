@@ -1,8 +1,8 @@
 <?php
 
-namespace Transip\Api\CLI\Output;
+namespace Transip\Api\CLI\ConsoleOutput;
 
-use Transip\Api\CLI\Output\Interfaces\OutputInterface;
+use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface;
 
 abstract class AbstractOutput implements OutputInterface
 {

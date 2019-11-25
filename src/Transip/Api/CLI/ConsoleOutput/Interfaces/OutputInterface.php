@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Output\Interfaces;
+namespace Transip\Api\CLI\ConsoleOutput\Interfaces;
 
 interface OutputInterface
 {
