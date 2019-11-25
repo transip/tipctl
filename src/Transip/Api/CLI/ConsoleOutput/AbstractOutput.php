@@ -7,10 +7,11 @@ use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface;
 abstract class AbstractOutput implements OutputInterface
 {
     protected $data;
+
     public function __construct($data)
     {
         $this->data = $data;
     }
 
-    abstract public function parse(): string;
+    abstract public function render(): string;
 }

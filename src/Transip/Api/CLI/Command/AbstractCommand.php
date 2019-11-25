@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\ConsoleOutput\Formatter;
+use Transip\Api\CLI\Settings\Settings;
 use Transip\Api\Client\TransipAPI;
 
 abstract class AbstractCommand extends Command
@@ -25,13 +26,17 @@ abstract class AbstractCommand extends Command
      * @var OutputInterface
      */
     private $output;
+    /**
+     * @var array
+     */
+    private $allowedOutputFormats;
 
     public function __construct(string $name = null)
     {
-        $apiurl = '';
-        $token  = '';
+        $init = new Settings();
+        $this->allowedOutputFormats = $init->getAllowedOutputFormats();
 
-        $this->transipApi = new TransipAPI($token, $apiurl);
+        $this->transipApi = new TransipAPI($init->getApiToken(), $init->getApiUrl());
         parent::__construct($name);
 
         $this->addOption(Field::FORMAT, null, InputOption::VALUE_OPTIONAL, Field::FORMAT__DESC, 'json');
@@ -51,7 +56,7 @@ abstract class AbstractCommand extends Command
     public function output($data): void
     {
         $formatter = new Formatter();
-        $className = $formatter->prepare($this->input);
+        $className = $formatter->prepare($this->input, $this->allowedOutputFormats);
         $data      = $formatter->format(new $className($data));
 
         $this->output->writeln($data);

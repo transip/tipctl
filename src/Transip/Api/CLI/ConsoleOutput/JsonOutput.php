@@ -4,7 +4,7 @@ namespace Transip\Api\CLI\ConsoleOutput;
 
 class JsonOutput extends AbstractOutput
 {
-    public function parse(): string
+    public function render(): string
     {
         $data   = $this->data;
         $output = $data;

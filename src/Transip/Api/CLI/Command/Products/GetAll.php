@@ -5,7 +5,6 @@ namespace Transip\Api\CLI\Command\Products;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
-use Transip\Api\CLI\Command\Field;
 
 class GetAll extends AbstractCommand
 {
