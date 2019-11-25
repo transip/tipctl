@@ -124,5 +124,5 @@ class Field
     public const DOMAIN_TAG__DESC = 'The tag name';
 
     public const FORMAT = 'format';
-    public const FORMAT__DESC = 'The output format `yaml` or `json`';
+    public const FORMAT__DESC = 'The output format `txt`, `yaml` or `json`';
 }

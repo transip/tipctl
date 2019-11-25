@@ -12,5 +12,5 @@ abstract class AbstractOutput implements OutputInterface
         $this->data = $data;
     }
 
-    abstract public function parse();
+    abstract public function parse(): string;
 }
