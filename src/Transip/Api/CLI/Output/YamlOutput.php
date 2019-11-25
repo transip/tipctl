@@ -2,19 +2,17 @@
 
 namespace Transip\Api\CLI\Output;
 
-use Transip\Api\CLI\Command\AbstractCommand;
 use Symfony\Component\Yaml\Yaml;
 
-class YamlOutput extends AbstractCommand
+class YamlOutput extends AbstractOutput
 {
     public function parse()
     {
-        $data = $this->data;
-        $output = $data;
+        // converts object to array
+        $output = json_decode(json_encode($this->data), true);
 
-        if (is_array($data) || is_object($data)) {
-            $output = Yaml::dump($data);
-        }
+        // convert array to yaml
+        $output = Yaml::dump($output);
 
         return $output;
     }

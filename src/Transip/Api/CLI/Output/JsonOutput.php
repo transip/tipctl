@@ -2,8 +2,6 @@
 
 namespace Transip\Api\CLI\Output;
 
-use Transip\Api\CLI\Output\Interfaces\OutputInterface;
-
 class JsonOutput extends AbstractOutput
 {
     public function parse()

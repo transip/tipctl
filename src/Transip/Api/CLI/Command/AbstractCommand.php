@@ -3,8 +3,9 @@
 namespace Transip\Api\CLI\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\ConsoleOutput;
+use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Output\Formatter;
 use Transip\Api\Client\TransipAPI;
 
@@ -14,6 +15,16 @@ abstract class AbstractCommand extends Command
      * @var TransipAPI $transipApi
      */
     private $transipApi;
+
+    /**
+     * @var InputInterface
+     */
+    private $input;
+
+    /**
+     * @var OutputInterface
+     */
+    private $output;
 
     public function __construct(string $name = null)
     {
@@ -31,20 +42,18 @@ abstract class AbstractCommand extends Command
         return $this->transipApi;
     }
 
-    /**
-     * @throws \Exception
-     */
-    public function output($data, string $outputFormat): void
+    protected function initialize(InputInterface $input, OutputInterface $output): void
     {
-        $outputFormat = strtolower($outputFormat);
-        $outputFormat = ucfirst($outputFormat);
-        $className = '\\Transip\\Api\\CLI\\Output\\'. $outputFormat . 'Output';
+        $this->input  = $input;
+        $this->output = $output;
+    }
 
+    public function output($data): void
+    {
         $formatter = new Formatter();
-        $formatter->ensureGivenFormatTypeIsValid($outputFormat);
-        $data = $formatter->format(new $className($data));
+        $className = $formatter->prepare($this->input);
+        $data      = $formatter->format(new $className($data));
 
-        $output = new ConsoleOutput();
-        $output->writeln($data);
+        $this->output->writeln($data);
     }
 }
