@@ -38,5 +38,6 @@ class UpdateDnsEntry extends AbstractCommand
         $dnsEntry->setContent($content);
 
         $this->getTransipApi()->domainDns()->updateEntry($domainName, $dnsEntry);
+        $this->output($dnsEntry);
     }
 }

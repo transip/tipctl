@@ -38,5 +38,6 @@ class SetForDomain extends AbstractCommand
         $dnsSecEntry->setPublicKey($publicKey);
 
         $this->getTransipApi()->domainDnsSec()->update($domainName, [$dnsSecEntry]);
+        $this->output($dnsSecEntry);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Domain\DnsSec;
+namespace Transip\Api\CLI\Command\Domain\Action;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -12,16 +12,16 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Domain:DnsSec:getByDomainName')
-            ->setDescription('Get DNSSEC Entries for a domain')
-            ->setHelp('Provide a name to retrieve the DNSSEC Entries for a specific domain')
+        $this->setName('Domain:Action:getByDomainName')
+            ->setDescription('Get current action for a domain')
+            ->setHelp('Provide a name to retrieve the current running action for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $domainName    = $input->getArgument(Field::DOMAIN_NAME);
-        $dnsSecEntries = $this->getTransipApi()->domainDnsSec()->getByDomainName($domainName);
-        $this->output($dnsSecEntries);
+        $domainName = $input->getArgument(Field::DOMAIN_NAME);
+        $action     = $this->getTransipApi()->domainAction()->getByDomainName($domainName);
+        $this->output($action);
     }
 }
