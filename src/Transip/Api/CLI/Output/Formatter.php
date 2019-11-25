@@ -6,6 +6,7 @@ use Exception;
 use Symfony\Component\Console\Input\InputInterface;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Output\Interfaces\OutputInterface;
+use Transip\Api\CLI\Utilities\Strings;
 
 class Formatter
 {
@@ -23,7 +24,7 @@ class Formatter
 
         $this->ensureGivenFormatTypeIsValid($outputFormat);
 
-        return '\\Transip\\Api\\CLI\\Output\\'. $outputFormat . 'Output';
+        return "\Transip\Api\CLI\Output\\". $outputFormat . 'Output';
     }
 
     /**
@@ -39,9 +40,32 @@ class Formatter
      */
     public function ensureGivenFormatTypeIsValid(string $format): void
     {
-        // if you want to add a new format, don't forget to add an output class that extends AbstractOutput
-        if (!in_array($format, ['Json', 'Yaml'])) {
-            throw new Exception('Given output format is incorrect; Use '. Field::FORMAT__DESC);
+        if (!in_array($format, self::getAllowedFormats(), true)) {
+            throw new Exception("Given output format `{$format}` is incorrect; Use ".
+                lcfirst(Field::FORMAT__DESC));
         }
+    }
+
+    /**
+     * Scans the output directory and finds all existing Output format
+     * classes available in the system.
+     *
+     * @return array
+     */
+    public static function getAllowedFormats(): array
+    {
+        $allowedFormats = [];
+
+        $files = scandir(__DIR__);
+        foreach ($files as $fileName) {
+            if (!strpos($fileName, 'Output') || strpos($fileName, 'Abstract') !== false) {
+                continue;
+            }
+
+            $formatType = explode('Output', $fileName);
+            $allowedFormats[] = $formatType[0];
+        }
+
+        return $allowedFormats;
     }
 }

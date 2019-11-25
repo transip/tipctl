@@ -4,6 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Finder\Finder;
+use Transip\Api\CLI\Utilities\Strings;
 
 $app = new Application();
 $app->setName('Transip API CLI');
@@ -17,17 +18,9 @@ foreach ($finder as $file) {
 
     $fullClassName = "Transip\Api\CLI\Command\\" . $className;
 
-    if(!strpos_arr($fullClassName, ['Abstract', 'Field'])) {
+    if(!Strings::strpos_arr($fullClassName, ['Abstract', 'Field'])) {
         $app->add(new $fullClassName);
     }
 }
 
 $app->run();
-
-function strpos_arr($haystack, $needle) {
-    if(!is_array($needle)) $needle = array($needle);
-    foreach($needle as $what) {
-        if(($pos = strpos($haystack, $what))!==false) return $pos;
-    }
-    return false;
-}
