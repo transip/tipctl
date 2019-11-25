@@ -82,6 +82,20 @@ class Field
     public const VPS_BACKUP_ID__DESC = 'Id of the backup';
     public const VPS_BACKUP_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
     public const VPS_BACKUP_SNAPSHOT_DESCRIPTION__DESC = 'An informative description that describes the snapshot';
+    public const VPS_IPADDRESS = 'VpsIPAddress';
+    public const VPS_IPADDRESS__DESC = 'The IP address of the VPS';
+    public const VPS_IPADDRESS_PTR = 'Ptr';
+    public const VPS_IPADDRESS_PTR__DESC = 'Reverse DNS record';
+    public const VPS_IPV6Address = 'IPv6Address';
+    public const VPS_IPV6Address__DESC = 'An IPv6 Address';
+    public const VPS_OS_NAME = 'OperatingSystemName';
+    public const VPS_OS_NAME__DESC = 'The name of the operating system to install';
+    public const VPS_HOSTNAME = 'Hostname';
+    public const VPS_HOSTNAME__DESC = 'Hostname is required for preinstallable web controlpanels';
+    public const VPS_PRODUCT_NAME = 'ProductName';
+    public const VPS_PRODUCT_NAME__DESC = 'Name of the product';
+    public const VPS_SNAPSHOT_NAME = 'SnapshotName';
+    public const VPS_SNAPSHOT_NAME__DESC = 'Name of the snapshot';
 
     public const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     public const PRIVATENETWORK_NAME__DESC = 'The private network name';
