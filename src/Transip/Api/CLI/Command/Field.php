@@ -57,6 +57,9 @@ class Field
     public const DOMAIN_AUTH_CODE = 'AuthCode';
     public const DOMAIN_AUTH_CODE__DESC = 'Authentication code for transfer';
 
+    public const DOMAIN_ZONE_FILE = 'Zone';
+    public const DOMAIN_ZONE_FILE__DESC = 'Whole DNS Zone for domain';
+
     public const DNS_ENTRY_NAME = 'Name';
     public const DNS_ENTRY_NAME__DESC = 'The name of the DNS Record';
     public const DNS_ENTRY_EXPIRE = 'Expire';
