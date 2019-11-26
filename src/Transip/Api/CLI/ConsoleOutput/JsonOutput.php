@@ -1,12 +1,10 @@
 <?php
 
-namespace Transip\Api\CLI\Output;
-
-use Transip\Api\CLI\Output\Interfaces\OutputInterface;
+namespace Transip\Api\CLI\ConsoleOutput;
 
 class JsonOutput extends AbstractOutput
 {
-    public function parse()
+    public function render(): string
     {
         $data   = $this->data;
         $output = $data;

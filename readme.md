@@ -1,10 +1,10 @@
 # Getting started
-Open the AbstractCommand.php file located in:
+Open the settings.yaml file located in:
 ```
-src/Transip/Api/CLI/Command/AbstractCommand.php
+src/Transip/Api/CLI/Command/
 ```
-And update the following variables in the class constructor:
+And update the following variables in the settings file:
 ```php
-$apiurl = 'http://localhost:8005/v6';
-$token  = 'eyJ0eXAiOiJKVd';
+apiUrl: 'https://api.transip.nl/v6/'
+apiToken: ''
 ```
