@@ -6,7 +6,7 @@ use Symfony\Component\Yaml\Yaml;
 
 class YamlOutput extends AbstractOutput
 {
-    public function render():string
+    public function render(): string
     {
         // converts object to array
         $output = json_decode(json_encode($this->data), true);
