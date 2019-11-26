@@ -1,10 +1,10 @@
 # Getting started
-Open the settings.yaml file located in:
+### Start an interactive setup process
 ```
-src/Transip/Api/CLI/Command/
+bin/console.php setup
 ```
-And update the following variables in the settings file:
-```php
-apiUrl: 'https://api.transip.nl/v6/'
-apiToken: ''
+
+### Setup process with no interaction
+```
+bin/console.php setup -n --ApiUrl=url --ApiToken='token'
 ```

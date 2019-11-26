@@ -30,11 +30,6 @@ class Settings
         return $this->apiUrl;
     }
 
-    public function getAllowedOutputFormats(): array
-    {
-        return $this->allowedOutputFormats;
-    }
-
     public function getApiToken(): string
     {
         return $this->apiToken;
