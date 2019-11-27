@@ -29,12 +29,18 @@ abstract class AbstractCommand extends Command
 
     public function __construct(string $name = null)
     {
-        $init = new Settings();
+        $settings = Settings::getInstance();
 
-        $this->transipApi = new TransipAPI($init->getApiToken(), $init->getApiUrl());
+        $this->transipApi = new TransipAPI($settings->getApiToken(), $settings->getApiUrl());
         parent::__construct($name);
 
-        $this->addOption(Field::FORMAT, null, InputOption::VALUE_OPTIONAL, Field::FORMAT__DESC, 'json');
+        $this->addOption(
+            Field::FORMAT,
+            null,
+            InputOption::VALUE_OPTIONAL,
+            Field::FORMAT__DESC,
+            'json'
+        );
     }
 
     public function getTransipApi(): TransipAPI

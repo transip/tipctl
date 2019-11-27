@@ -2,10 +2,16 @@
 
 namespace Transip\Api\CLI\Settings;
 
-use Symfony\Component\Yaml\Yaml;
+use \RuntimeException;
+use Transip\Api\CLI\Command\Field;
+use Transip\Api\CLI\Util\JSONFile;
+use Webmozart\PathUtil\Path;
 
 class Settings
 {
+    private const CONFIG_DIR_NAME = '.transip';
+    private const CONFIG_FILE_NAME = 'restApiConfig.json';
+
     /**
      * @var string
      */
@@ -16,13 +22,29 @@ class Settings
      */
     private $apiToken;
 
-    public function __construct()
-    {
-        $settings = file_get_contents(__DIR__ . '/settings.yml');
-        $data = Yaml::parse($settings);
+    private static $instance = null;
 
-        $this->apiUrl = $data['apiUrl'];
-        $this->apiToken = $data['apiToken'];
+    private function __construct()
+    {
+        $configFilePath = self::getConfigFileName(true);
+
+        try {
+            $data = JSONFile::read($configFilePath);
+        } catch (RuntimeException $e) {
+            throw new RuntimeException('Please run the setup command, the config file does not exist');
+        }
+
+        $this->apiUrl   = $data[Field::API_URL];
+        $this->apiToken = $data[Field::API_TOKEN];
+    }
+
+    public static function getInstance(): self
+    {
+        if (self::$instance === null) {
+            self::$instance = new self;
+        }
+
+        return self::$instance;
     }
 
     public function getApiUrl(): string
@@ -33,5 +55,20 @@ class Settings
     public function getApiToken(): string
     {
         return $this->apiToken;
+    }
+
+    public static function getConfigDir(): string
+    {
+        $home_dir = Path::getHomeDirectory();
+        return $home_dir . '/' . self::CONFIG_DIR_NAME;
+    }
+
+    public static function getConfigFileName($getFilePath = false): string
+    {
+        if ($getFilePath) {
+            return self::getConfigDir() . '/' . self::CONFIG_FILE_NAME;
+        }
+
+        return self::CONFIG_FILE_NAME;
     }
 }

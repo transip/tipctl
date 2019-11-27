@@ -25,5 +25,3 @@ foreach ($finder as $file) {
 }
 
 $app->run();
-
-
