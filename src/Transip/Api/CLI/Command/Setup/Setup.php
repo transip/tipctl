@@ -23,7 +23,7 @@ class Setup extends AbstractCommand
             ->setDescription('Configure your access token')
             ->addOption(Field::API_URL, null, InputOption::VALUE_OPTIONAL, 'API url', self::DEFAULT_API_URL)
             ->addOption(Field::API_TOKEN, null, InputOption::VALUE_REQUIRED, 'API token')
-            ->setHelp('');
+            ->setHelp('Set your access token to connect to your account at TransIP');
     }
 
     protected function interact(InputInterface $input, OutputInterface $output): void
