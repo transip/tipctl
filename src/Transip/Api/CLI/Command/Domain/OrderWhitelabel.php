@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class OrderWhitelabel extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:orderWhitelabel')
             ->setDescription('Order domain whitelable services for your account')

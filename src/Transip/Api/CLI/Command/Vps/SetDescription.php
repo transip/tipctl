@@ -12,7 +12,7 @@ class SetDescription extends AbstractCommand
 {
     private const VPS_DESCRIPTION = 'VpsDescription';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:setDescription')
             ->setDescription('Set the description of a Vps')

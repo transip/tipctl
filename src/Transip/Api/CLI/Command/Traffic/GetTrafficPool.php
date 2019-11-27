@@ -8,7 +8,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetTrafficPool extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Traffic:getTrafficPool')
             ->setDescription('Get all the traffic of your VPSs combined.')

@@ -11,7 +11,7 @@ use Transip\Api\Client\Entity\Domain\Nameserver;
 
 class SetForDomain extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Nameserver:setForDomain')
             ->setDescription('Update all Nameservers for a domain')

@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Transfer extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:transfer')
             ->setDescription('Transfer a domain to your account')

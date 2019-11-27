@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class SetIsWhitelabel extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:setIsWhitelabel')
             ->setDescription('Set domain to whitelabel, this cannot be reversed!')

@@ -14,7 +14,7 @@ class Order extends AbstractCommand
     private const PRODUCT_NAME = 'ProductName';
     private const WAIT_FOR_DELVIERY = 'WaitForDelivery';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:order')
             ->setDescription('Order a new Haip')

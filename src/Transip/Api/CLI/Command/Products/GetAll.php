@@ -8,7 +8,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetAll extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Products:getAll')
             ->setDescription('Get all orderable products via the API excluding domains')

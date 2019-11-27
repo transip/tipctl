@@ -12,7 +12,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Cancel extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:cancel')
             ->setDescription('Terminate or cancel your big storage')

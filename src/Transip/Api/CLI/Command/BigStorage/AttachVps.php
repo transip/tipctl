@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class AttachVps extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:attachVps')
             ->setDescription('Attach your big storage to your vps')

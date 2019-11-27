@@ -11,7 +11,7 @@ use Transip\Api\Client\Entity\Domain\DnsSecEntry;
 
 class SetForDomain extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:DnsSec:setForDomain')
             ->setDescription('Update all DNSSEC entries for a domain')

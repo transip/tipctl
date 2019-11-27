@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class ConvertToSnapshot extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Backup:convertToSnapshot')
             ->setDescription('Convert a backup to a snapshot.')

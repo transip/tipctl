@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Register extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:register')
             ->setDescription('Register a new domain')

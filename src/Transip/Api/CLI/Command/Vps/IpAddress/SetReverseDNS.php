@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class SetReverseDNS extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:IpAddress:setReverseDNS')
             ->setDescription('Update reverse DNS for a VPS')

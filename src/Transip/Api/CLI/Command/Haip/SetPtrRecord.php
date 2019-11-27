@@ -12,7 +12,7 @@ class SetPtrRecord extends AbstractCommand
 {
     private const PTR = 'Ptr';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:setPtrRecord')
             ->setDescription('Set the PTR record for your HA-IP')

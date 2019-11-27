@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Stop extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:stop')
             ->setDescription('Stop a Vps')

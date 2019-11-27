@@ -12,7 +12,7 @@ class SetDescription extends AbstractCommand
 {
     private const PRIVATENETWORK_DESCRIPTION = 'PrivateNetworkDescription';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('PrivateNetwork:setDescription')
             ->setDescription('Set a new description to a private network')

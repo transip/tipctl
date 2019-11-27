@@ -11,7 +11,7 @@ use Transip\Api\Client\Entity\Domain\DnsEntry;
 
 class UpdateDnsEntry extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Dns:updateDnsEntry')
             ->setDescription('Update a single specific dns entry for a domain')

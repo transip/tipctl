@@ -11,7 +11,7 @@ use Transip\Api\Client\Entity\Domain\DnsEntry;
 
 class AddDnsEntry extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Dns:addDnsEntry')
             ->setDescription('Add a dns entry to the domain DNS entries')

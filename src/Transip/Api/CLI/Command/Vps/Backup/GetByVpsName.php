@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByVpsName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Backup:getByVpsName')
             ->setDescription('List backups for a vps')

@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class RemoveAttachedIpAddresses extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:removeAttachedIpAddresses')
             ->setDescription('Remove all of the ips attached to your Haip')

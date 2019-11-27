@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class CheckAvailability extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:checkAvailability')
             ->setDescription('check if a domain is available for registration')

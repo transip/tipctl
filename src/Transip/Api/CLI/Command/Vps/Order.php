@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Order extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:order')
             ->setDescription('Order a new VPS')

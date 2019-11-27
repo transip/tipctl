@@ -11,7 +11,7 @@ use Transip\Api\Client\Entity\Domain\WhoisContact;
 
 class SetForDomain extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Contact:setForDomain')
             ->setDescription('Update WHOIS contact information for a domain')

@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Upgrade extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:upgrade')
             ->setDescription('Upgrade your big storage')

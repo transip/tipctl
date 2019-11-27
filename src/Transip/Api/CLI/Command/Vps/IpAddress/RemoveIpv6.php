@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class RemoveIpv6 extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:IpAddress:removeIpv6')
             ->setDescription('Remove an IPv6 address from a VPS')

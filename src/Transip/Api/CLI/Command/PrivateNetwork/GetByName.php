@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('PrivateNetwork:getByName')
             ->setDescription('Gather detailed information about a private network.')

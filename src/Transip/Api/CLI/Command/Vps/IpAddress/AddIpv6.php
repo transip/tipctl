@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class AddIpv6 extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:IpAddress:addIpv6')
             ->setDescription('Add an IPv6 address to a VPS')

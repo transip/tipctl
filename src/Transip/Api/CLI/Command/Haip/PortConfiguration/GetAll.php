@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetAll extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:PortConfiguration:getAll')
             ->setDescription('Get all of your HA-IP port configurations')
