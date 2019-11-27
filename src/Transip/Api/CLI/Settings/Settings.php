@@ -3,7 +3,6 @@
 namespace Transip\Api\CLI\Settings;
 
 use \RuntimeException;
-use Symfony\Component\Console\Output\ConsoleOutput;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Util\JSONFile;
 use Webmozart\PathUtil\Path;
@@ -35,7 +34,7 @@ class Settings
         try {
             $data = JSONFile::read($configFilePath);
         } catch (RuntimeException $e) {
-            throw new RuntimeException('Please run the setup command, the config file does not exist');
+            throw new RuntimeException('Please run the setup command, the config file has not been set');
         }
 
         $this->apiUrl   = $data[Field::API_URL];
