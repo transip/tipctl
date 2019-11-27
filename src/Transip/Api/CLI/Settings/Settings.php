@@ -90,8 +90,7 @@ class Settings
 
     public function ensureConfigFileIsReadOnly(HelperInterface $formatter, OutputInterface $output): void
     {
-        $instance = self::getInstance();
-        if ($instance->getConfigFilePermissionWarning() === 'disabled') {
+        if ($this->getConfigFilePermissionWarning() === 'disabled') {
             return;
         }
 
