@@ -40,8 +40,12 @@ class Setup extends AbstractCommand
             true
         );
 
-        $output->writeln("\n". $welcomeMessage);
-        $output->writeln("\n\nThis command will guide you through creating your transip.json config.\n");
+        $output->writeln('');
+        $output->writeln($welcomeMessage);
+        $output->writeln('');
+        $output->writeln('');
+        $output->writeln('This command will guide you through creating your transip.json config.');
+        $output->writeln('');
 
         /*
          * First question: What is the restapi url?
@@ -79,7 +83,7 @@ class Setup extends AbstractCommand
         $response = (new TransipAPI($apiToken, $apiUrl))->products()->getAll();
         if (is_object($response) || is_array($response)) {
             $output->writeln('');
-            $output->writeln("API connection successful");
+            $output->writeln('API connection successful');
         }
 
         /*
