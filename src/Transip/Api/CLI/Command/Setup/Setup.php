@@ -109,5 +109,7 @@ class Setup extends AbstractCommand
 
         $output->writeln("Config file saved in {$configFilePath}");
         $output->writeln('');
+
+        @chmod($configFilePath, 0600);
     }
 }

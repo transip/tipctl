@@ -11,12 +11,12 @@ class JSONFile
 {
     public static function read(string $filePath): array
     {
-        if (!file_exists($filePath)) {
-            throw new RuntimeException("File '{$filePath}' could not be found, make sure the file exists.");
+        if (!file_exists($filePath) || !is_readable($filePath)) {
+            throw new RuntimeException("File '{$filePath}' could not be opened, make sure the file exists.");
         }
 
         $fileData = file_get_contents($filePath);
-        $jsonData = JSON_decode($fileData, true);
+        $jsonData = json_decode($fileData, true);
 
         if ($jsonData === null) {
             throw new RuntimeException("Failed to json decode: '{$filePath}'");

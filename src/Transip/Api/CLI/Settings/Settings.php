@@ -63,13 +63,13 @@ class Settings
     public static function getConfigDir(): string
     {
         $home_dir = Path::getHomeDirectory();
-        return $home_dir . '/' . self::CONFIG_DIR_NAME;
+        return Path::join($home_dir, self::CONFIG_DIR_NAME);
     }
 
     public static function getConfigFileName($getFilePath = false): string
     {
         if ($getFilePath) {
-            return self::getConfigDir() . '/' . self::CONFIG_FILE_NAME;
+            return Path::join(self::getConfigDir(), self::CONFIG_FILE_NAME);
         }
 
         return self::CONFIG_FILE_NAME;
