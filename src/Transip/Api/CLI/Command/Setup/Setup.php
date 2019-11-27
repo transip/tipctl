@@ -68,6 +68,9 @@ class Setup extends AbstractCommand
         $input->setOption(Field::API_TOKEN, $token);
     }
 
+    /**
+     * @throws RuntimeException
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $apiUrl    = $input->getOption(Field::API_URL);
