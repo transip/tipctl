@@ -6,6 +6,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Transip\Api\CLI\Command\Setup\Setup;
 use Transip\Api\CLI\ConsoleOutput\Formatter;
 use Transip\Api\CLI\Settings\Settings;
 use Transip\Api\Client\TransipAPI;
@@ -29,9 +30,6 @@ abstract class AbstractCommand extends Command
 
     public function __construct(string $name = null)
     {
-        $settings = Settings::getInstance();
-
-        $this->transipApi = new TransipAPI($settings->getApiToken(), $settings->getApiUrl());
         parent::__construct($name);
 
         $this->addOption(
@@ -43,15 +41,20 @@ abstract class AbstractCommand extends Command
         );
     }
 
+    protected function initialize(InputInterface $input, OutputInterface $output): void
+    {
+        if (!($this instanceof Setup)) {
+            $settings = Settings::getInstance();
+            $this->transipApi = new TransipAPI($settings->getApiToken(), $settings->getApiUrl());
+        }
+
+        $this->input  = $input;
+        $this->output = $output;
+    }
+
     public function getTransipApi(): TransipAPI
     {
         return $this->transipApi;
-    }
-
-    protected function initialize(InputInterface $input, OutputInterface $output): void
-    {
-        $this->input  = $input;
-        $this->output = $output;
     }
 
     public function output($data): void

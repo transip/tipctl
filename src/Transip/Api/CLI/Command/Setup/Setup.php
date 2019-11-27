@@ -51,8 +51,7 @@ class Setup extends AbstractCommand
          * First question: What is the restapi url?
          */
         $apiUrl = $input->getOption(Field::API_URL);
-        $formattedText = str_replace(' ', '', $formatter->formatBlock($apiUrl, 'fg=yellow'));
-        $urlQuestion = new Question("Enter the RestAPI url [{$formattedText}]: ", $apiUrl);
+        $urlQuestion = new Question("Enter the RestAPI url [<comment>{$apiUrl}</comment>]: ", $apiUrl);
 
         $apiUrl = $helper->ask($input, $output, $urlQuestion);
         $input->setOption(Field::API_URL, $apiUrl);
@@ -61,8 +60,7 @@ class Setup extends AbstractCommand
          * Second question: What is the restapi token?
          */
         $token = $input->getOption(Field::API_TOKEN);
-        $formattedText = str_replace(' ', '', $formatter->formatBlock($token, 'fg=yellow'));
-        $tokenQuestion = new Question("Enter your RestAPI token [{$formattedText}]: ", $token ?? null);
+        $tokenQuestion = new Question("Enter your RestAPI token [<comment>{$token}</comment>]: ", $token ?? null);
 
         $token = $helper->ask($input, $output, $tokenQuestion);
         $input->setOption(Field::API_TOKEN, $token);

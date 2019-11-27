@@ -3,6 +3,7 @@
 namespace Transip\Api\CLI\Settings;
 
 use \RuntimeException;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Util\JSONFile;
 use Webmozart\PathUtil\Path;
@@ -22,6 +23,9 @@ class Settings
      */
     private $apiToken;
 
+    /**
+     * @var null|self
+     */
     private static $instance = null;
 
     private function __construct()
