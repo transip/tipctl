@@ -6,5 +6,5 @@ bin/console.php setup
 
 ### Setup process with no interaction
 ```
-bin/console.php setup -n --ApiUrl=url --ApiToken='token'
+bin/console.php setup -n --apiUrl=url --apiToken='token'
 ```

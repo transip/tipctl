@@ -102,8 +102,9 @@ class Setup extends AbstractCommand
          */
         $configFilePath = Settings::getConfigFileName(true);
         $data = [
-            Field::API_URL   => $apiUrl,
-            Field::API_TOKEN => $apiToken,
+            Field::API_URL        => $apiUrl,
+            Field::API_TOKEN      => $apiToken,
+            Field::CONFIG_FILE_PERMISSION_WARNING => 'enabled',
         ];
         JSONFile::write($configFilePath, $data);
 

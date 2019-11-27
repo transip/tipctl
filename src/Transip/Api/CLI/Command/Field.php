@@ -129,8 +129,9 @@ class Field
     public const DOMAIN_TAG = 'TagName';
     public const DOMAIN_TAG__DESC = 'The tag name';
 
-    public const API_URL = 'ApiUrl';
-    public const API_TOKEN = 'ApiToken';
-    public const FORMAT = 'format';
+    public const API_URL = 'apiUrl';
+    public const API_TOKEN = 'apiToken';
+    public const CONFIG_FILE_PERMISSION_WARNING = 'configFilePermissionWarning';
+    public const FORMAT = 'Format';
     public const FORMAT__DESC = 'The output format `txt`, `yaml` or `json`';
 }
