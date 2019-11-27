@@ -81,6 +81,9 @@ class Field
     public const SSL_ID = 'CertificateId';
     public const SSL_ID__DESC = 'SSL certificateId';
 
+    public const TLD = 'TLD';
+    public const TLD__DESC = 'Top level domain';
+
     public const VPS_NAME = 'VpsName';
     public const VPS_NAME__DESC = 'The name of the vps';
     public const VPS_ADDONS = 'Addons';
