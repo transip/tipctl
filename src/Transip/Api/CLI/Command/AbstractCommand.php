@@ -54,12 +54,12 @@ abstract class AbstractCommand extends Command
         $this->output = $output;
     }
 
-    public function getTransipApi(): TransipAPI
+    protected function getTransipApi(): TransipAPI
     {
         return $this->transipApi;
     }
 
-    public function output($data): void
+    protected function output($data): void
     {
         $formatter = new Formatter();
         $className = $formatter->prepare($this->input);
