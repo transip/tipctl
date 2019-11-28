@@ -30,7 +30,6 @@ class Setup extends AbstractCommand
     {
         $helper = $this->getHelper('question');
 
-        // Greets the user
         $this->greetUser($output);
 
         // First question: What is the restapi url?
