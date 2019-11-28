@@ -32,6 +32,7 @@ abstract class AbstractCommand extends Command
     {
         parent::__construct($name);
 
+        // adds --format option to all commands
         $this->addOption(
             Field::FORMAT,
             null,

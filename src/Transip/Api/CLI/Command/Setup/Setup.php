@@ -11,7 +11,7 @@ use Symfony\Component\Filesystem\Filesystem;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Settings\Settings;
-use Transip\Api\CLI\Settings\SettingsParser\Json;
+use Transip\Api\CLI\Settings\Provider\Json;
 use Transip\Api\Client\TransipAPI;
 use RuntimeException;
 
@@ -58,7 +58,7 @@ class Setup extends AbstractCommand
 
         // Test connection to the api
         $response = (new TransipAPI($apiToken, $apiUrl))->products()->getAll();
-        if (is_object($response) || is_array($response)) {
+        if ($response) {
             $output->writeln('');
             $output->writeln('API connection successful');
         }
@@ -73,7 +73,7 @@ class Setup extends AbstractCommand
         }
 
         // Create configuration file
-        $configFilePath = Settings::getConfigFileName(true);
+        $configFilePath = Settings::getConfigFilePath();
         $data = [
             Field::API_URL => $apiUrl,
             Field::API_TOKEN => $apiToken,

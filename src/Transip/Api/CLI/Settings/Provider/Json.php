@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Settings\SettingsParser;
+namespace Transip\Api\CLI\Settings\Provider;
 
 use \RuntimeException;
 

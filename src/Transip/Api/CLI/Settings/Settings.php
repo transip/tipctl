@@ -6,7 +6,7 @@ use \RuntimeException;
 use Symfony\Component\Console\Helper\HelperInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\Field;
-use Transip\Api\CLI\Settings\SettingsParser\Json;
+use Transip\Api\CLI\Settings\Provider\Json;
 use Webmozart\PathUtil\Path;
 
 class Settings
@@ -38,7 +38,7 @@ class Settings
 
     private function __construct()
     {
-        $configFilePath = self::getConfigFileName(true);
+        $configFilePath = self::getConfigFilePath();
 
         try {
             $data = (new Json($configFilePath))->read();
@@ -81,13 +81,9 @@ class Settings
         return Path::join($homeDirectory, self::CONFIG_DIR_NAME);
     }
 
-    public static function getConfigFileName($getFilePath = false): string
+    public static function getConfigFilePath(): string
     {
-        if ($getFilePath) {
-            return Path::join(self::getConfigDir(), self::CONFIG_FILE_NAME);
-        }
-
-        return self::CONFIG_FILE_NAME;
+        return Path::join(self::getConfigDir(), self::CONFIG_FILE_NAME);
     }
 
     public function ensureConfigFileIsReadOnly(HelperInterface $formatter, OutputInterface $output): void
@@ -96,7 +92,7 @@ class Settings
             return;
         }
 
-        $configFilePath = self::getConfigFileName(true);
+        $configFilePath = self::getConfigFilePath();
 
         clearstatcache();
         $filePermissions = substr(sprintf('%o', fileperms($configFilePath)), -4);
