@@ -6,13 +6,15 @@ use \RuntimeException;
 use Symfony\Component\Console\Helper\HelperInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\Field;
-use Transip\Api\CLI\Util\JSONFile;
+use Transip\Api\CLI\Settings\SettingsParser\Json;
 use Webmozart\PathUtil\Path;
 
 class Settings
 {
-    private const CONFIG_DIR_NAME = '.transip';
-    private const CONFIG_FILE_NAME = 'restApiConfig.json';
+    private const CONFIG_DIR_NAME  = '.config/transip-api';
+    private const CONFIG_FILE_NAME = 'cli-config.json';
+
+    public const DEFAULT_API_URL = 'https://api.transip.nl/v6/';
 
     /**
      * @var string
@@ -27,26 +29,26 @@ class Settings
     /**
      * @var string
      */
-    private $configFilePermissionWarning;
+    private $showConfigFilePermissionWarning;
 
     /**
      * @var null|self
      */
-    private static $instance = null;
+    private static $instance;
 
     private function __construct()
     {
         $configFilePath = self::getConfigFileName(true);
 
         try {
-            $data = JSONFile::read($configFilePath);
+            $data = (new Json($configFilePath))->read();
         } catch (RuntimeException $e) {
             throw new RuntimeException('Please run the setup command, the config file has not been set');
         }
 
-        $this->apiUrl        = $data[Field::API_URL];
-        $this->apiToken      = $data[Field::API_TOKEN];
-        $this->configFilePermissionWarning = $data[Field::CONFIG_FILE_PERMISSION_WARNING];
+        $this->apiUrl = $data[Field::API_URL];
+        $this->apiToken = $data[Field::API_TOKEN];
+        $this->showConfigFilePermissionWarning = $data[Field::SHOW_CONFIG_FILE_PERMISSION_WARNING];
     }
 
     public static function getInstance(): self
@@ -68,15 +70,15 @@ class Settings
         return $this->apiToken;
     }
 
-    public function getConfigFilePermissionWarning(): string
+    public function getShowConfigFilePermissionWarning(): string
     {
-        return $this->configFilePermissionWarning;
+        return $this->showConfigFilePermissionWarning;
     }
 
     public static function getConfigDir(): string
     {
-        $home_dir = Path::getHomeDirectory();
-        return Path::join($home_dir, self::CONFIG_DIR_NAME);
+        $homeDirectory = Path::getHomeDirectory();
+        return Path::join($homeDirectory, self::CONFIG_DIR_NAME);
     }
 
     public static function getConfigFileName($getFilePath = false): string
@@ -90,7 +92,7 @@ class Settings
 
     public function ensureConfigFileIsReadOnly(HelperInterface $formatter, OutputInterface $output): void
     {
-        if ($this->getConfigFilePermissionWarning() === 'disabled') {
+        if ($this->getShowConfigFilePermissionWarning() === true) {
             return;
         }
 
@@ -106,7 +108,8 @@ class Settings
         $messages = [
             'Warning: It is advised to set the config file to read only.',
             '',
-            'To disable this warning message please edit the config file and set `'. Field::CONFIG_FILE_PERMISSION_WARNING. '` to `disabled`.',
+            'To disable this warning message please edit the config file and set `'.
+                Field::SHOW_CONFIG_FILE_PERMISSION_WARNING. '` to `disabled`.',
             '',
             "Config file can be found in: {$configFilePath}",
         ];
