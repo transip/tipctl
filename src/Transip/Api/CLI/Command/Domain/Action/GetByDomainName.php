@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByDomainName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Action:getByDomainName')
             ->setDescription('Get current action for a domain')

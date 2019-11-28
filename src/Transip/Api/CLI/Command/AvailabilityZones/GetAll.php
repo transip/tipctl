@@ -8,7 +8,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetAll extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('AvailabilityZones:getAll')
             ->setDescription('Lists the available AvailabilityZones')

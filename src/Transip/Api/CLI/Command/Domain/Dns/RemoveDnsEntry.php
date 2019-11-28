@@ -11,7 +11,7 @@ use Transip\Api\Client\Entity\Domain\DnsEntry;
 
 class RemoveDnsEntry extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Dns:removeDnsEntry')
             ->setDescription('Remove a dns entry from the domain DNS entries')

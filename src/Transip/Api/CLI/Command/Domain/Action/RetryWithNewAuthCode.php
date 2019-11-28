@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class RetryWithNewAuthCode extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Action:retryWithNewAuthCode')
             ->setDescription('Retry a failed domain action with new information')

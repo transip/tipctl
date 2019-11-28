@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByVpsNameSnapshotName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Snapshot:getByVpsNameSnapshotName')
             ->setDescription('List the details of a specific vps snapshot')

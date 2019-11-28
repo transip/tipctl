@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetAttachedIpAddresses extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:getAttachedIpAddresses')
             ->setDescription('Get all of the ips that are attached to your Haip')

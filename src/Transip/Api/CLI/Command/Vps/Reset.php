@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Reset extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:reset')
             ->setDescription('Reset a Vps')

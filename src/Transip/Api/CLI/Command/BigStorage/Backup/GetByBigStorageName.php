@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByBigStorageName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:Backup:getByBigStorageName')
             ->setDescription('Get a list of backups for a big storage')

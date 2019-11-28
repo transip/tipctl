@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByDomainName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Ssl:getByDomainName')
             ->setDescription('Get SSL Certificates for a domain')

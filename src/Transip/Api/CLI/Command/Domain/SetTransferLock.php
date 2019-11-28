@@ -12,7 +12,7 @@ class SetTransferLock extends AbstractCommand
 {
     private const TRANSFER_LOCK = 'TransferLock';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:setTransferLock')
             ->setDescription('Set Domain transfer lock at the registry')

@@ -12,7 +12,7 @@ class SetHealthCheckInterval extends AbstractCommand
 {
     private const INTERVAL = 'interval';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:setHealthCheckInterval')
             ->setDescription('Set the interval in milliseconds on which the health check runs')

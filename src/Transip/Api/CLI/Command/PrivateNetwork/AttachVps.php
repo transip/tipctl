@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class AttachVps extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('PrivateNetwork:attachVps')
             ->setDescription('Attach a VPS to a private network')

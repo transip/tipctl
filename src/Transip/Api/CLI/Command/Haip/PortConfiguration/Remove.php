@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Remove extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:PortConfiguration:remove')
             ->setDescription('Remove a port configuration for a HA-IP')

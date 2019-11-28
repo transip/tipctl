@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class SetDescription extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:setDescription')
             ->setDescription('Set the description of a Haip')

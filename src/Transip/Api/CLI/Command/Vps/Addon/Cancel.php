@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Cancel extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Addon:cancel')
             ->setDescription('Cancel an add-on based on its name')

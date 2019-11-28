@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Start extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:start')
             ->setDescription('Start a Vps')

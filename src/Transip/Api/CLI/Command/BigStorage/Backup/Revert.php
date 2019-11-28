@@ -12,7 +12,7 @@ class Revert extends AbstractCommand
 {
     private const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:Backup:revert')
             ->setDescription('Restore a bigstorage backup')

@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByTld extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Tld:getByTld')
             ->setDescription('Get information for specific TLD')

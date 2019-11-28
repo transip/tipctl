@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Upgrade extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Upgrade:upgrade')
             ->setDescription('Upgrading a VPS by specifying the upgrade name.')

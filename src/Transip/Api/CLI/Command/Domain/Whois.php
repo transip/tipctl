@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Whois extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:whois')
             ->setDescription('Get the whois information for a registered domain')

@@ -12,7 +12,7 @@ class Create extends AbstractCommand
 {
     private const VPS_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Snapshot:Create')
             ->setDescription('Create a snapshot for a VPS')

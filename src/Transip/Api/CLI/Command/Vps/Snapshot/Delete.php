@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Delete extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Snapshot:Delete')
             ->setDescription('Delete a snapshot')

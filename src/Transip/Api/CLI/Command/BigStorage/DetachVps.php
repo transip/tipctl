@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class DetachVps extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:detachVps')
             ->setDescription('Detach your big storage to your vps')

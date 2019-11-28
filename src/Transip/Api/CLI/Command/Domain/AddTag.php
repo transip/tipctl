@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class AddTag extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:addTag')
             ->setDescription('Add a tag to a domain')

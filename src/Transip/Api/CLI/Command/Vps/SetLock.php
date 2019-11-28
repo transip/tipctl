@@ -12,7 +12,7 @@ class SetLock extends AbstractCommand
 {
     private const SET_LOCK = 'SetLock';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:setLock')
             ->setDescription('Lock a Vps')

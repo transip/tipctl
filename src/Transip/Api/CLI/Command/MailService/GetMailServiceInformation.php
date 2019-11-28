@@ -9,7 +9,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetMailServiceInformation extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('MailService:getMailServiceInformation')
             ->setDescription('Get the Mail Service usage');

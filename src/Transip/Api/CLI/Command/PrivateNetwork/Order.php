@@ -8,7 +8,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class Order extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('PrivateNetwork:order')
             ->setDescription("Order a new private network; (\u{26A0} Creates an invoice)")

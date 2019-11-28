@@ -9,7 +9,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class RegeneratePassword extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('MailService:regeneratePassword')
             ->setDescription('Get a new password for the mail service');

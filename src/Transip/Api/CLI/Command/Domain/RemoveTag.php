@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class RemoveTag extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:removeTag')
             ->setDescription('Remove a tag from a domain')

@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByVpsName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Traffic:getByVpsName')
             ->setDescription('Get traffic information for a VPS')

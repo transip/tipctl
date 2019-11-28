@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Cancel extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Action:cancel')
             ->setDescription('Get cancel current action for a domain')

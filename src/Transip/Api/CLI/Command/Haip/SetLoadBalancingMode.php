@@ -13,7 +13,7 @@ class SetLoadBalancingMode extends AbstractCommand
     private const LOADBALANCING_MODE = 'LoadBalancingMode';
     private const COOKIE_NAME = 'CookieName';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:setLoadBalancingMode')
             ->setDescription('Set the load balancing mode and optional cookie mode on HTTP balancing of the Haip')

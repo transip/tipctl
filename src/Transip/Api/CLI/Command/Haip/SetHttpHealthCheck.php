@@ -14,7 +14,7 @@ class SetHttpHealthCheck extends AbstractCommand
     private const CHECK_PORT = 'CheckPort';
     private const CHECK_SSL  = 'CheckSSL';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:setHttpHealthCheck')
             ->setDescription('Set the HA-IP http health check variables')

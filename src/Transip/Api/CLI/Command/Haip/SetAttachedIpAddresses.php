@@ -12,7 +12,7 @@ class SetAttachedIpAddresses extends AbstractCommand
 {
     private const IP_ADDRESSES = 'ipAddresses';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:setAttachedIpAddresses')
             ->setDescription('Set the ips to attach to your Haip')

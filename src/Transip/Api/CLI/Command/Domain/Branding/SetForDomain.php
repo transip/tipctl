@@ -11,7 +11,7 @@ use Transip\Api\Client\Entity\Domain\Branding;
 
 class SetForDomain extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:Branding:setForDomain')
             ->setDescription('Update branding information for a domain')

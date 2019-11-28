@@ -12,7 +12,7 @@ class Cancel extends AbstractCommand
 {
     private const CANCEL_TIME = 'CancelTime';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Domain:cancel')
             ->setDescription('Get specific domain by its domainname')

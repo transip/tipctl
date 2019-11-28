@@ -12,7 +12,7 @@ class Revert extends AbstractCommand
 {
     private const DESTINATION_VPS_NAME = 'DestinationVpsName';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Vps:Snapshot:Revert')
             ->setDescription('Revert a snapshot to a VPS')

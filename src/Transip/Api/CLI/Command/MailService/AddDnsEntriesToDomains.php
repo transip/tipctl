@@ -9,7 +9,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class AddDnsEntriesToDomains extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('MailService:addDnsEntriesToDomains')
             ->setDescription('Add dns entries for the mailservice to a given domain')

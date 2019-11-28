@@ -11,7 +11,7 @@ use Exception;
 
 class Cancel extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('PrivateNetwork:cancel')
             ->setDescription('Terminate or cancel your private network')

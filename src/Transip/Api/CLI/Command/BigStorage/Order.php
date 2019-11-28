@@ -11,7 +11,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Order extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:order')
             ->setDescription('Order a big storage')

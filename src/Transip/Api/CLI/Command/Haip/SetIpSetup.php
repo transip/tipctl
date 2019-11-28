@@ -12,7 +12,7 @@ class SetIpSetup extends AbstractCommand
 {
     private const IP_SETUP = 'IpSetup';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:setIpSetup')
             ->setDescription('Set the IpSetup of your HA-IP, for example don\'t allow ipv6, route ipv6 traffic to ipv4 addresses')

@@ -12,7 +12,7 @@ class SetDescription extends AbstractCommand
 {
     private const BIGSTORAGE_DESCRIPTION = 'BigStorageDescription';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('BigStorage:setDescription')
             ->setDescription('Update your big storage description')

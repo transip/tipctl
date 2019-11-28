@@ -1,10 +1,12 @@
-# Getting started
-Open the settings.yaml file located in:
+# TransIP CLI
+The TransIP cli provides a variety of commands that allows you to take certain actions in your TransIP account such as ordering a new VPS or cancelling it.
+
+### Start an interactive setup process
 ```
-src/Transip/Api/CLI/Command/
+bin/console.php setup
 ```
-And update the following variables in the settings file:
-```php
-apiUrl: 'https://api.transip.nl/v6/'
-apiToken: ''
+
+### Setup process with no interaction
+```
+bin/console.php setup -n --apiUrl=url --apiToken='token'
 ```

@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByName extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('Haip:getByName')
             ->setDescription('Get your Haip by name')
