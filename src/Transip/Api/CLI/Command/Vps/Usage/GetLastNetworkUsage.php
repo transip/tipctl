@@ -23,8 +23,9 @@ class GetLastNetworkUsage extends AbstractCommand
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $usages  = $this->getTransipApi()->vpsUsage()->getByVpsName($vpsName, ['network'], time() - 300, time());
 
+        /** @var \StdClass $lastUsage */
         $lastUsage = null;
-        $usages    = $usages['network'] ?? null;
+        $usages    = $usages['network'] ?? [];
         foreach ($usages as $usage) {
             if ($lastUsage == null || $lastUsage->date < $usage->date) {
                 $lastUsage = $usage;
