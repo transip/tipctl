@@ -6,11 +6,10 @@ class JsonOutput extends AbstractOutput
 {
     public function render(): string
     {
-        $data   = $this->data;
-        $output = $data;
+        $output = json_encode($this->data, JSON_PRETTY_PRINT);
 
-        if (is_array($data) || is_object($data)) {
-            $output = json_encode($data, JSON_PRETTY_PRINT);
+        if ($output === false) {
+            throw new \RuntimeException('Failed to parse provided data: ' . print_r($this->data, true));
         }
 
         return $output;
