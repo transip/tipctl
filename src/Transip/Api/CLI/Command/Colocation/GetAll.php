@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Vps;
+namespace Transip\Api\CLI\Command\Colocation;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,13 +10,13 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:getAll')
-            ->setDescription('List all VPSes associated with your TransIP account');
+        $this->setName('Colocation:getAll')
+            ->setDescription('List all Colocations associated with your TransIP account');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $vpses = $this->getTransipApi()->vps()->getAll();
-        $this->output($vpses);
+        $colocations = $this->getTransipApi()->colocation()->getAll();
+        $this->output($colocations);
     }
 }

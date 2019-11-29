@@ -23,8 +23,9 @@ class GetLastCpuUsage extends AbstractCommand
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $usages  = $this->getTransipApi()->vpsUsage()->getByVpsName($vpsName, ['cpu'], time() - 300, time());
 
+        /** @var \StdClass $lastUsage */
         $lastUsage = null;
-        $usages    = $usages['cpu'] ?? null;
+        $usages    = $usages['cpu'] ?? [];
         foreach ($usages as $usage) {
             if ($lastUsage == null || $lastUsage->date < $usage->date) {
                 $lastUsage = $usage;

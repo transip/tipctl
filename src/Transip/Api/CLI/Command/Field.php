@@ -94,10 +94,6 @@ class Field
     public const VPS_BACKUP_ID__DESC = 'Id of the backup';
     public const VPS_BACKUP_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
     public const VPS_BACKUP_SNAPSHOT_DESCRIPTION__DESC = 'An informative description that describes the snapshot';
-    public const VPS_IPADDRESS = 'VpsIPAddress';
-    public const VPS_IPADDRESS__DESC = 'The IP address of the VPS';
-    public const VPS_IPADDRESS_PTR = 'Ptr';
-    public const VPS_IPADDRESS_PTR__DESC = 'Reverse DNS record';
     public const VPS_IPV6Address = 'IPv6Address';
     public const VPS_IPV6Address__DESC = 'An IPv6 Address';
     public const VPS_OS_NAME = 'OperatingSystemName';
@@ -128,6 +124,14 @@ class Field
 
     public const DOMAIN_TAG = 'TagName';
     public const DOMAIN_TAG__DESC = 'The tag name';
+
+    public const COLOCATION_NAME = 'coloName';
+    public const COLOCATION_NAME__DESC = 'Name of colocation';
+
+    public const IPADDRESS = 'IPAddress';
+    public const IPADDRESS__DESC = 'The IP address';
+    public const IPADDRESS_PTR = 'Ptr';
+    public const IPADDRESS_PTR__DESC = 'Reverse DNS record';
 
     public const API_URL = 'apiUrl';
     public const API_TOKEN = 'apiToken';
