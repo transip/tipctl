@@ -6,6 +6,8 @@ class Field
 {
     public const OPTIONAL = ' (optional)';
 
+    public const CUSTOMER_NAME = 'CustomerName';
+    public const CUSTOMER_NAME__DESC = 'The account name of the customer';
     public const CANCELTIME = 'CancelTime';
     public const CANCELTIME__DESC = 'Cancellation time, either ‘end’ or ‘immediately’';
     public const AVAILABILITY_ZONE = 'AvailabilityZone';
