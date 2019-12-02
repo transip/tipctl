@@ -10,8 +10,6 @@ use Transip\Api\CLI\Command\Field;
 
 class Cancel extends AbstractCommand
 {
-    private const CANCEL_TIME = 'CancelTime';
-
     protected function configure(): void
     {
         $this->setName('Domain:cancel')
