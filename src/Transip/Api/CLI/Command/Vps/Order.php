@@ -17,31 +17,30 @@ class Order extends AbstractCommand
             ->setHelp('Order a Vps with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products')
             ->addArgument(Field::VPS_PRODUCT_NAME, InputArgument::REQUIRED, Field::VPS_PRODUCT_NAME__DESC)
             ->addArgument(Field::VPS_OS_NAME, InputArgument::REQUIRED, Field::VPS_OS_NAME__DESC)
-            ->addArgument(Field::VPS_ADDONS, InputArgument::OPTIONAL, Field::VPS_ADDONS__DESC . Field::OPTIONAL)
-            ->addArgument(Field::VPS_HOSTNAME, InputArgument::OPTIONAL, Field::VPS_HOSTNAME__DESC . Field::OPTIONAL)
-            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::AVAILABILITY_ZONE . Field::OPTIONAL);
+            ->addArgument(Field::VPS_ADDONS, InputArgument::OPTIONAL, Field::VPS_ADDONS__DESC . Field::OPTIONAL, '')
+            ->addArgument(Field::VPS_HOSTNAME, InputArgument::OPTIONAL, Field::VPS_HOSTNAME__DESC . Field::OPTIONAL, '')
+            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::AVAILABILITY_ZONE__DESC . Field::OPTIONAL, '')
+            ->addArgument(Field::VPS_DESCRIPTION, InputArgument::OPTIONAL, Field::VPS_DESCRIPTION__DESC . Field::OPTIONAL, '');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $productName      = $input->getArgument(Field::VPS_PRODUCT_NAME);
         $operatingSystem  = $input->getArgument(Field::VPS_OS_NAME);
-        $addons           = $input->getArgument(Field::VPS_ADDONS) ?? '';
-        $hostname         = $input->getArgument(Field::VPS_HOSTNAME) ?? '';
-        $availabilityZone = $input->getArgument(Field::AVAILABILITY_ZONE) ?? '';
+        $addons           = $input->getArgument(Field::VPS_ADDONS);
+        $hostname         = $input->getArgument(Field::VPS_HOSTNAME);
+        $availabilityZone = $input->getArgument(Field::AVAILABILITY_ZONE);
+        $description      = $input->getArgument(Field::VPS_DESCRIPTION);
 
-        if ($addons != '') {
-            $addons = explode(',', $addons);
-        } else {
-            $addons = [];
-        }
+        $addons = (strlen($addons) > 1) ? explode(',', $addons) : [];
 
         $this->getTransipApi()->vps()->order(
             $productName,
             $operatingSystem,
             $addons,
             $hostname,
-            $availabilityZone
+            $availabilityZone,
+            $description
         );
     }
 }
