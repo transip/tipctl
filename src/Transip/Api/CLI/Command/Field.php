@@ -13,6 +13,8 @@ class Field
 
     public const DOMAIN_NAME = 'DomainName';
     public const DOMAIN_NAME__DESC = 'The domain name';
+    public const DOMAIN_TRANSFER_LOCK = 'TransferLock';
+    public const DOMAIN_TRANSFER_LOCK__DESC = 'Transfer Lock (true|false)';
 
     public const DOMAIN_NAMESERVERS = 'Nameservers';
     public const DOMAIN_NAMESERVERS__DESC = 'Nameserver hostnames (comma separated)';
@@ -116,6 +118,10 @@ class Field
     public const BIGSTORAGE_SIZE__DESC = 'The size of the big storage in TB’s, please use a multitude of 2. The maximum size is 40';
     public const BIGSTORAGE_HASOFFSITEBACKUPS = 'BigStorageHasOffSiteBackups';
     public const BIGSTORAGE_HASOFFSITEBACKUPS__DESC = 'Whether to order offsite backups, default is true.';
+    public const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
+    public const BIGSTORAGE_BACKUPID__DESC = 'ID number of the backup';
+    public const BIGSTORAGE_DESCRIPTION = 'BigStorageDescription';
+    public const BIGSTORAGE_DESCRIPTION__DESC = 'Description of the big storage';
 
     public const HAIP_NAME = 'HaipName';
     public const HAIP_NAME__DESC = 'The name of the HA-IP';
@@ -123,6 +129,8 @@ class Field
     public const PORTCONFIGURATION_ID__DESC = 'The id of the port configuration';
     public const HAIP_DESCRIPTION = 'Description';
     public const HAIP_DESCRIPTION__DESC = 'Description to give to the Haip';
+    public const SSL_CERTIFICATE_ID = 'sslCertificateId';
+    public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing Domain:Ssl certificate';
 
     public const DOMAIN_TAG = 'TagName';
     public const DOMAIN_TAG__DESC = 'The tag name';
