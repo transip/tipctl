@@ -10,13 +10,13 @@
     ],
     "minimum-stability": "stable",
     "require": {
+        "ext-json": "*",
         "symfony/console": "4.3.*",
         "symfony/finder": "4.3.*",
+        "symfony/filesystem": "4.3.*",
         "transip/api.client": "@dev",
-        "ext-json": "*",
         "symfony/yaml": "4.3.*",
-        "webmozart/path-util": "^2.3",
-        "symfony/filesystem": "^5.0"
+        "webmozart/path-util": "^2.3"
     },
     "autoload": {
         "psr-4": {
