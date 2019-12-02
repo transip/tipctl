@@ -86,6 +86,8 @@ class Field
 
     public const VPS_NAME = 'VpsName';
     public const VPS_NAME__DESC = 'The name of the vps';
+    public const VPS_DESCRIPTION = 'VpsDescription';
+    public const VPS_DESCRIPTION__DESC = 'Description of the vps';
     public const VPS_ADDONS = 'Addons';
     public const VPS_ADDONS__DESC = 'Add-on names(more than one comma separated)';
     public const VPS_ADDON = 'AddonName';
