@@ -38,7 +38,7 @@ class Formatter
      */
     public function ensureGivenFormatTypeIsValid(string $format): void
     {
-        if (!in_array($format, ['json', 'yml', 'txt'], true)) {
+        if (!in_array($format, ['json', 'yaml', 'txt'], true)) {
             throw new \RuntimeException("Given output format `{$format}` is incorrect; Use ".
                 lcfirst(Field::FORMAT__DESC));
         }
