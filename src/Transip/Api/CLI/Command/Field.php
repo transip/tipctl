@@ -148,6 +148,6 @@ class Field
     public const API_URL = 'apiUrl';
     public const API_TOKEN = 'apiToken';
     public const SHOW_CONFIG_FILE_PERMISSION_WARNING = 'showConfigFilePermissionWarning';
-    public const FORMAT = 'Format';
+    public const FORMAT = 'format';
     public const FORMAT__DESC = 'The output format `txt`, `yaml` or `json`';
 }

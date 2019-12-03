@@ -14,7 +14,7 @@ class Settings
     private const CONFIG_DIR_NAME  = '.config/transip-api';
     private const CONFIG_FILE_NAME = 'cli-config.json';
 
-    public const DEFAULT_API_URL = 'https://api.transip.nl/v6/';
+    public const TRANSIP_API_ENDPOINT = 'https://api.transip.nl/v6';
 
     /**
      * @var string
