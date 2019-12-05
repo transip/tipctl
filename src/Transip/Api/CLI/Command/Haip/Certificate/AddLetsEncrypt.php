@@ -10,7 +10,6 @@ use Transip\Api\CLI\Command\Field;
 
 class AddLetsEncrypt extends AbstractCommand
 {
-
     private const COMMON_NAME = 'commonName';
 
     protected function configure()

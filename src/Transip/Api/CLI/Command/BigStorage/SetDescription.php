@@ -10,7 +10,6 @@ use Transip\Api\CLI\Command\Field;
 
 class SetDescription extends AbstractCommand
 {
-
     protected function configure(): void
     {
         $this->setName('BigStorage:setDescription')

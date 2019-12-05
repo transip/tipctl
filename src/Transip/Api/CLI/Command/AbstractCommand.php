@@ -7,6 +7,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\Setup\Setup;
+use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface as ConsoleOutputInterface;
+use Transip\Api\CLI\ConsoleOutput\OutputFactory;
 use Transip\Api\CLI\ConsoleOutput\Formatter;
 use Transip\Api\CLI\Settings\Settings;
 use Transip\Api\Client\TransipAPI;
@@ -62,10 +64,17 @@ abstract class AbstractCommand extends Command
 
     protected function output($data): void
     {
-        $formatter = new Formatter();
-        $className = $formatter->prepare($this->input);
-        $data      = $formatter->format(new $className($data));
+        $formatter = $this->getFormatterFromInput();
 
-        $this->output->writeln($data);
+        $formattedOutput = $formatter->render($data);
+
+        $this->output->writeln($formattedOutput);
+    }
+
+    private function getFormatterFromInput(): ConsoleOutputInterface
+    {
+        $formatType = $this->input->getOption(Field::FORMAT);
+
+        return OutputFactory::create($formatType);
     }
 }
