@@ -4,5 +4,5 @@ namespace Transip\Api\CLI\ConsoleOutput\Interfaces;
 
 interface OutputInterface
 {
-    public function render();
+    public function render($data): string;
 }

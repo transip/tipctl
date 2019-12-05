@@ -10,7 +10,6 @@ use Transip\Api\CLI\Command\Field;
 
 class Revert extends AbstractCommand
 {
-
     protected function configure(): void
     {
         $this->setName('BigStorage:Backup:revert')
