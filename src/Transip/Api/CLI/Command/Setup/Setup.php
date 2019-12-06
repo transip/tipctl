@@ -57,7 +57,8 @@ class Setup extends AbstractCommand
         }
 
         // Test connection to the api
-        $response = (new TransipAPI($apiToken, $apiUrl))->products()->getAll();
+        $response = (new TransipAPI($apiToken, $apiUrl))->test();
+
         if ($response) {
             $output->writeln('');
             $output->writeln('API connection successful');
