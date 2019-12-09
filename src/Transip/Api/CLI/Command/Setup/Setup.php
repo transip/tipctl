@@ -61,10 +61,10 @@ class Setup extends AbstractCommand
 
         if ($response === true) {
             $output->writeln('');
-            $output->writeln('API connection successful', 'fg=green');
+            $output->writeln('<fg=green>API connection successful</>');
         } else {
             $output->writeln('');
-            $output->writeln('API connection failed', 'fg=red');
+            $output->writeln('<fg=red>API connection failed</>');
         }
 
         // Ensure config directory exists
