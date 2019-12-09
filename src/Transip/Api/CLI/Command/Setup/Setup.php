@@ -57,11 +57,14 @@ class Setup extends AbstractCommand
         }
 
         // Test connection to the api
-        $response = (new TransipAPI($apiToken, $apiUrl))->test();
+        $response = (new TransipAPI($apiToken, $apiUrl))->test()->test();
 
-        if ($response) {
+        if ($response === true) {
             $output->writeln('');
-            $output->writeln('API connection successful');
+            $output->writeln('API connection successful', 'fg=green');
+        } else {
+            $output->writeln('');
+            $output->writeln('API connection failed', 'fg=red');
         }
 
         // Ensure config directory exists
