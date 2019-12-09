@@ -139,6 +139,15 @@ class Field
 
     public const COLOCATION_NAME = 'coloName';
     public const COLOCATION_NAME__DESC = 'Name of colocation';
+    public const COLOCATION_REMOTE_HANDS_CONTACT_NAME = 'contactName';
+    public const COLOCATION_REMOTE_HANDS_CONTACT_NAME__DESC = 'Name of contact creating the remote hand';
+    public const COLOCATION_REMOTE_HANDS_PHONE_NUMBER = 'phoneNumber';
+    public const COLOCATION_REMOTE_HANDS_PHONE_NUMBER__DESC = 'Phonenumber to contact in case of questions';
+    public const COLOCATION_REMOTE_HANDS_EXPECTED_DURATION = 'expectedDuration';
+    public const COLOCATION_REMOTE_HANDS_EXPECTED_DURATION__DESC = 'Approximation of the time needed to complete in minutes';
+    public const COLOCATION_REMOTE_HANDS_INSTRUCTIONS = 'instructions';
+    public const COLOCATION_REMOTE_HANDS_INSTRUCTIONS__DESC = 'Instructions on the task to perform';
+
 
     public const IPADDRESS = 'IPAddress';
     public const IPADDRESS__DESC = 'The IP address';
