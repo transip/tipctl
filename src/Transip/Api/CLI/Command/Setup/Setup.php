@@ -2,6 +2,7 @@
 
 namespace Transip\Api\CLI\Command\Setup;
 
+use Exception;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -57,7 +58,11 @@ class Setup extends AbstractCommand
         }
 
         // Test connection to the api
-        $response = (new TransipAPI($apiToken, $apiUrl))->test()->test();
+        try {
+            $response = (new TransipAPI($apiToken, $apiUrl))->test()->test();
+        } catch (Exception $exception) {
+            $response = false;
+        }
 
         if ($response === true) {
             $output->writeln('');
@@ -65,6 +70,15 @@ class Setup extends AbstractCommand
         } else {
             $output->writeln('');
             $output->writeln('<fg=red>API connection failed</>');
+
+            $tokenQuestion = new Question("Save to config file anyway? [<comment>No</comment>]: ", 'No');
+            $helper        = $this->getHelper('question');
+            $shouldSave    = $helper->ask($input, $output, $tokenQuestion);
+            $shouldSave    = filter_var($shouldSave, FILTER_VALIDATE_BOOLEAN);
+
+            if ($shouldSave === false) {
+                return;
+            }
         }
 
         // Ensure config directory exists
