@@ -11,7 +11,7 @@ class Field
     public const CANCELTIME = 'CancelTime';
     public const CANCELTIME__DESC = 'Cancellation time, either ‘end’ or ‘immediately’';
     public const AVAILABILITY_ZONE = 'AvailabilityZone';
-    public const AVAILABILITY_ZONE__DESC = 'The region name where this product should be created';
+    public const AVAILABILITY_ZONE__DESC = 'The region name where this product should be created (find by <fg=yellow>AvailabilityZones:getAll</>)';
 
     public const DOMAIN_NAME = 'DomainName';
     public const DOMAIN_NAME__DESC = 'The domain name';
@@ -103,11 +103,11 @@ class Field
     public const VPS_IPV6Address = 'IPv6Address';
     public const VPS_IPV6Address__DESC = 'An IPv6 Address';
     public const VPS_OS_NAME = 'OperatingSystemName';
-    public const VPS_OS_NAME__DESC = 'The name of the operating system to install';
+    public const VPS_OS_NAME__DESC = 'The name of the operating system to install (find by <fg=yellow>Vps:OperatingSystem:getAll</>)';
     public const VPS_HOSTNAME = 'Hostname';
     public const VPS_HOSTNAME__DESC = 'Hostname is required for preinstallable web controlpanels';
     public const VPS_PRODUCT_NAME = 'ProductName';
-    public const VPS_PRODUCT_NAME__DESC = 'Name of the product';
+    public const VPS_PRODUCT_NAME__DESC = 'Name of the product (find by <fg=yellow>Products:getAll</>)';
     public const VPS_SNAPSHOT_NAME = 'SnapshotName';
     public const VPS_SNAPSHOT_NAME__DESC = 'Name of the snapshot';
 
