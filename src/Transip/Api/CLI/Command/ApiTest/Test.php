@@ -12,7 +12,7 @@ class Test extends AbstractCommand
     {
         $this->setName('ApiTest:test')
             ->setDescription('Check your API connection and token via this simple test')
-            ->setHelp('will check if the API is reachable with token');
+            ->setHelp('Will check if the API is reachable with token');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
