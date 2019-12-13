@@ -106,6 +106,8 @@ class Field
     public const VPS_OS_NAME__DESC = 'The name of the operating system to install (find by <fg=yellow>Vps:OperatingSystem:getAll</>)';
     public const VPS_HOSTNAME = 'Hostname';
     public const VPS_HOSTNAME__DESC = 'Hostname is required for preinstallable web controlpanels';
+    public const VPS_MULTIPLE_COUNT = 'Amount of VPSs';
+    public const VPS_MULTIPLE_COUNT__DESC = 'The amount of VPSs to order';
     public const VPS_PRODUCT_NAME = 'ProductName';
     public const VPS_PRODUCT_NAME__DESC = 'Name of the product (find by <fg=yellow>Products:getAll</>)';
     public const VPS_SNAPSHOT_NAME = 'SnapshotName';
