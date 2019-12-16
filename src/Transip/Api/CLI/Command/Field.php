@@ -157,7 +157,9 @@ class Field
     public const IPADDRESS_PTR__DESC = 'Reverse DNS record';
 
     public const API_URL = 'apiUrl';
-    public const API_TOKEN = 'apiToken';
+    public const API_LOGIN = 'loginName';
+    public const API_PRIVATE_KEY = 'apiPrivateKey';
+    public const API_USE_WHITELIST = 'apiUseWhitelist';
     public const SHOW_CONFIG_FILE_PERMISSION_WARNING = 'showConfigFilePermissionWarning';
     public const FORMAT = 'format';
     public const FORMAT__DESC = 'The output format `txt`, `yaml` or `json`';

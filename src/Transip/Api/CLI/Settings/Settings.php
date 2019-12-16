@@ -24,7 +24,17 @@ class Settings
     /**
      * @var string
      */
-    private $apiToken;
+    private $apiLogin;
+
+    /**
+     * @var string
+     */
+    private $apiPrivateKey;
+
+    /**
+     * @var bool
+     */
+    private $apiUseWhitelist;
 
     /**
      * @var string
@@ -46,8 +56,10 @@ class Settings
             throw new RuntimeException('Please run the setup command, the config file has not been set');
         }
 
-        $this->apiUrl = $data[Field::API_URL];
-        $this->apiToken = $data[Field::API_TOKEN];
+        $this->apiUrl                          = $data[Field::API_URL];
+        $this->apiLogin                        = $data[Field::API_LOGIN];
+        $this->apiPrivateKey                   = $data[Field::API_PRIVATE_KEY];
+        $this->apiUseWhitelist                 = $data[Field::API_USE_WHITELIST];
         $this->showConfigFilePermissionWarning = $data[Field::SHOW_CONFIG_FILE_PERMISSION_WARNING];
     }
 
@@ -65,9 +77,19 @@ class Settings
         return $this->apiUrl;
     }
 
-    public function getApiToken(): string
+    public function getApiLogin(): string
     {
-        return $this->apiToken;
+        return $this->apiLogin;
+    }
+
+    public function getApiPrivateKey(): string
+    {
+        return $this->apiPrivateKey;
+    }
+
+    public function getApiUseWhitelist(): bool
+    {
+        return $this->apiUseWhitelist;
     }
 
     public function getShowConfigFilePermissionWarning(): string
