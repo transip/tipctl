@@ -22,7 +22,7 @@ class Cancel extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
-        $addonName = $input->getArgument(Field::VPS_ADDONS);
+        $addonName = $input->getArgument(Field::VPS_ADDON);
 
         $this->getTransipApi()->vpsAddons()->cancel($vpsName, $addonName);
     }
