@@ -110,7 +110,7 @@ class Settings
 
     public function ensureConfigFileIsReadOnly(HelperInterface $formatter, OutputInterface $output): void
     {
-        if ($this->getShowConfigFilePermissionWarning() === true) {
+        if (!$this->getShowConfigFilePermissionWarning()) {
             return;
         }
 
