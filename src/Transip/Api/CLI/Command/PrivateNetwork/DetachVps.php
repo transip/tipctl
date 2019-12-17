@@ -12,7 +12,7 @@ class DetachVps extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('privateNetwork:detachVps')
+        $this->setName('privatenetwork:detachvps')
             ->setDescription('Remove a VPS from a private network')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC)
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);

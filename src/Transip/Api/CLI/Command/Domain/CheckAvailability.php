@@ -12,7 +12,7 @@ class CheckAvailability extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:checkAvailability')
+        $this->setName('domain:checkavailability')
             ->setDescription('check if a domain is available for registration')
             ->setHelp('Provide a domainName to retrieve the registration status')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

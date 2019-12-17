@@ -12,7 +12,7 @@ class GetByTld extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:tld:getByTld')
+        $this->setName('domain:tld:getbytld')
             ->setDescription('Get information for specific TLD')
             ->setHelp('Provide a TLD for information like price on this TLD')
             ->addArgument(Field::TLD, InputArgument::REQUIRED, Field::TLD__DESC);

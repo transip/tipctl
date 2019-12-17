@@ -13,7 +13,7 @@ class GetLastDiskUsage extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('vps:usage:getLastDiskUsage')
+        $this->setName('vps:usage:getlastdiskusage')
             ->setDescription('Retrieve the last measured disk usage for the given VPS in IOPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }

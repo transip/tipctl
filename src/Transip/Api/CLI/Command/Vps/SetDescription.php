@@ -12,7 +12,7 @@ class SetDescription extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:setDescription')
+        $this->setName('vps:setdescription')
             ->setDescription('Set the description of a Vps')
             ->setHelp('Provide a Vps name and a description name')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)

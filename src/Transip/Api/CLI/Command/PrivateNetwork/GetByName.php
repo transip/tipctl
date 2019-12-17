@@ -13,7 +13,7 @@ class GetByName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('privateNetwork:getByName')
+        $this->setName('privatenetwork:getbyname')
             ->setDescription('Gather detailed information about a private network.')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC);
     }

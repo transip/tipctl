@@ -13,7 +13,7 @@ class Add extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('haip:portConfiguration:add')
+        $this->setName('haip:portconfiguration:add')
             ->setDescription('Add a new port configuration to your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::HAIP_PORT_CONFIGURATION_NAME, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_NAME__DESC)

@@ -12,7 +12,7 @@ class GetByDomainNameCertificateId extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:ssl:getByDomainNameCertificateId')
+        $this->setName('domain:ssl:getbydomainnamecertificateid')
             ->setDescription('Get SSL Certificate by id for a domainName')
             ->setHelp('Provide a id and DomainName to retrieve a specific SSL Certificate')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

@@ -13,7 +13,7 @@ class Cancel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('privateNetwork:cancel')
+        $this->setName('privatenetwork:cancel')
             ->setDescription('Cancel your private network')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC)
             ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC)

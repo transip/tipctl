@@ -13,7 +13,7 @@ class ConvertToSnapshot extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:backup:convertToSnapshot')
+        $this->setName('vps:backup:converttosnapshot')
             ->setDescription('Convert a backup to a snapshot.')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_BACKUP_ID, InputArgument::REQUIRED, Field::VPS_BACKUP_ID__DESC)

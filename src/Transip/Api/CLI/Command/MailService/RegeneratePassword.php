@@ -11,7 +11,7 @@ class RegeneratePassword extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('mailService:regeneratePassword')
+        $this->setName('mailservice:regeneratepassword')
             ->setDescription('Get a new password for the mail service');
     }
 

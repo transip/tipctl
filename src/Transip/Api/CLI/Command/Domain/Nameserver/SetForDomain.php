@@ -13,7 +13,7 @@ class SetForDomain extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:nameserver:setForDomain')
+        $this->setName('domain:nameserver:setfordomain')
             ->setDescription('Update all Nameservers for a domain')
             ->setHelp('Provide all hostnames of the Nameservers for the domain, comma separate multiple')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

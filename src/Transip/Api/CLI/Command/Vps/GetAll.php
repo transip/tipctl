@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:getAll')
+        $this->setName('vps:getall')
             ->setDescription('List all VPSs associated with your TransIP account');
     }
 

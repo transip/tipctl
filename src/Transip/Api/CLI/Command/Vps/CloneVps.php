@@ -12,7 +12,7 @@ class CloneVps extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:cloneVps')
+        $this->setName('vps:clonevps')
             ->setDescription('Clone an existing VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::AVAILABILITY_ZONE__DESC . Field::OPTIONAL, '')

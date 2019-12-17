@@ -11,7 +11,7 @@ class Field
     public const CANCELTIME = 'CancelTime';
     public const CANCELTIME__DESC = 'Cancellation time, either ‘end’ or ‘immediately’';
     public const AVAILABILITY_ZONE = 'AvailabilityZone';
-    public const AVAILABILITY_ZONE__DESC = 'The region name where this product should be created (find by <fg=yellow>AvailabilityZones:getAll</>)';
+    public const AVAILABILITY_ZONE__DESC = 'The region name where this product should be created (find by <fg=yellow>availabilityzones:getall</>)';
 
     public const DOMAIN_NAME = 'DomainName';
     public const DOMAIN_NAME__DESC = 'The domain name';
@@ -88,7 +88,7 @@ class Field
     public const TLD__DESC = 'Top level domain';
 
     public const PRODUCT_NAME = 'ProductName';
-    public const PRODUCT_NAME__DESC = 'Name of the product (find by <fg=yellow>Products:getAll</>)';
+    public const PRODUCT_NAME__DESC = 'Name of the product (find by <fg=yellow>products:getall</>)';
 
     public const VPS_NAME = 'VpsName';
     public const VPS_NAME__DESC = 'The name of the vps';
@@ -105,7 +105,7 @@ class Field
     public const VPS_IPV6Address = 'IPv6Address';
     public const VPS_IPV6Address__DESC = 'An IPv6 Address';
     public const VPS_OS_NAME = 'OperatingSystemName';
-    public const VPS_OS_NAME__DESC = 'The name of the operating system to install (find by <fg=yellow>Vps:OperatingSystem:getAll</>)';
+    public const VPS_OS_NAME__DESC = 'The name of the operating system to install (find by <fg=yellow>vps:operatingsystem:getall</>)';
     public const VPS_HOSTNAME = 'Hostname';
     public const VPS_HOSTNAME__DESC = 'Hostname is required for preinstallable web controlpanels';
     public const VPS_MULTIPLE_COUNT = 'Amount of VPSs';
@@ -162,7 +162,7 @@ class Field
     public const HAIP_DESCRIPTION__DESC = 'Description to give to the Haip';
 
     public const SSL_CERTIFICATE_ID = 'sslCertificateId';
-    public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing Domain:Ssl certificate';
+    public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing domain:ssl certificate';
     public const SSL_COMMON_NAME = 'commonName';
     public const SSL_COMMON_NAME__DESC = 'Domain name for which we should issue the certificate';
 

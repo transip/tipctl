@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:tld:getAll')
+        $this->setName('domain:tld:getall')
             ->setDescription('Get all available Tlds to register with price')
             ->setHelp('Get all the TLD information like price, min & max character length');
     }

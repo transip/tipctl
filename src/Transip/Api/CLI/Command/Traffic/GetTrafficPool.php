@@ -10,7 +10,7 @@ class GetTrafficPool extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('traffic:getTrafficPool')
+        $this->setName('traffic:gettrafficpool')
             ->setDescription('Get all the traffic of your VPSs combined.')
             ->setHelp('This command outputs traffic information of your VPSs combined.');
     }

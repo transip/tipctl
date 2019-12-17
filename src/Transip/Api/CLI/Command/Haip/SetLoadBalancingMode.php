@@ -13,7 +13,7 @@ class SetLoadBalancingMode extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('haip:setLoadBalancingMode')
+        $this->setName('haip:setloadbalancingmode')
             ->setDescription('Set the load balancing mode and optional cookie mode on HTTP balancing of the Haip')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::HAIP_LOADBALANCING_MODE, InputArgument::REQUIRED, Field::HAIP_LOADBALANCING_MODE__DESC)

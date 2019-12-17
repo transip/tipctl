@@ -12,7 +12,7 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:ssl:getByDomainName')
+        $this->setName('domain:ssl:getbydomainname')
             ->setDescription('Get SSL Certificates for a domain')
             ->setHelp(
                 'Provide a name to retrieve the SSL Certificates for a specific domain (does not include any letsencrypt certs)'

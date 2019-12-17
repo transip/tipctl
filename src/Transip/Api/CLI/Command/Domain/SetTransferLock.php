@@ -12,7 +12,7 @@ class SetTransferLock extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:setTransferLock')
+        $this->setName('domain:settransferlock')
             ->setDescription('Set Domain transfer lock at the registry')
             ->setHelp('Provide a domain name and true or a false for locking or unlocking')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

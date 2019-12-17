@@ -16,7 +16,7 @@ class SetHttpHealthCheck extends AbstractCommand
 
     protected function configure(): void
     {
-        $this->setName('haip:setHttpHealthCheck')
+        $this->setName('haip:sethttphealthcheck')
             ->setDescription('Set the HA-IP http health check variables')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(self::CHECK_PATH, InputArgument::REQUIRED, 'The path (URI) of the page to check HTTP status code on')

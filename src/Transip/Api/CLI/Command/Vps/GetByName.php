@@ -12,7 +12,7 @@ class GetByName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:getByName')
+        $this->setName('vps:getbyname')
             ->setDescription('Get your Vps by name')
             ->setHelp('Provide a name to retrieve your Vps by name')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);

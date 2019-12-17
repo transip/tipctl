@@ -13,7 +13,7 @@ class SetForDomain extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:zoneFile:setForDomain')
+        $this->setName('domain:zonefile:setfordomain')
             ->setDescription('Update zone for a domain')
             ->setHelp('Provide the zone for a domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

@@ -12,7 +12,7 @@ class AddExisting extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('haip:certificate:addExisting')
+        $this->setName('haip:certificate:addexisting')
             ->setDescription('Add existing Domain:Ssl certificates to your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::SSL_CERTIFICATE_ID, InputArgument::REQUIRED, Field::SSL_CERTIFICATE_ID__DESC);

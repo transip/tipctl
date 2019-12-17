@@ -13,7 +13,7 @@ class GetLastCpuUsage extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('vps:usage:getLastCpuUsage')
+        $this->setName('vps:usage:getlastcpuusage')
             ->setDescription('Retrieve the last measured CPU usage for the given VPS in percent')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }

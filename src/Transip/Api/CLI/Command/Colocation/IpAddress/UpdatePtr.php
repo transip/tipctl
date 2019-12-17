@@ -12,7 +12,7 @@ class UpdatePtr extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('colocation:ipAddress:updatePtr')
+        $this->setName('colocation:ipaddress:updateptr')
             ->setDescription('Update the ReverseDNS of a IpAddress')
             ->addArgument(Field::COLOCATION_NAME, InputArgument::REQUIRED, Field::COLOCATION_NAME__DESC)
             ->addArgument(Field::IPADDRESS, InputArgument::REQUIRED, Field::IPADDRESS__DESC)

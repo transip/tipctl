@@ -12,7 +12,7 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:zoneFile:getByDomainName')
+        $this->setName('domain:zoneFile:getbydomainname')
             ->setDescription('Get the Zonefile for a domain')
             ->setHelp('Provide a name to retrieve the zonefile for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

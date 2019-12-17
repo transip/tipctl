@@ -11,7 +11,7 @@ class RequestAccessToken extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('apitest:requestAccessToken')
+        $this->setName('apitest:requestaccesstoken')
             ->setDescription('Use key to create a temporary access token')
             ->setHelp('Use keypair generated in the Control Panel to create a temporary access token');
     }

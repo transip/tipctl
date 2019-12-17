@@ -12,7 +12,7 @@ class GetByVpsNameAddress extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:ipAddress:getByVpsNameAddress')
+        $this->setName('vps:ipaddress:getbyvpsnameaddress')
             ->setDescription('List information for a specific IP address')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::IPADDRESS, InputArgument::REQUIRED, Field::IPADDRESS__DESC)

@@ -12,7 +12,7 @@ class SetPtrRecord extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('haip:setPtrRecord')
+        $this->setName('haip:setptrrecord')
             ->setDescription('Set the PTR record for your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::IPADDRESS_PTR, InputArgument::REQUIRED, Field::IPADDRESS_PTR__DESC);

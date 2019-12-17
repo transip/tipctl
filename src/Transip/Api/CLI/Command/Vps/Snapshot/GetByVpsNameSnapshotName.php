@@ -12,7 +12,7 @@ class GetByVpsNameSnapshotName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:snapshot:getByVpsNameSnapshotName')
+        $this->setName('vps:snapshot:getbyvpsnamesnapshotname')
             ->setDescription('List the details of a specific vps snapshot')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_SNAPSHOT_NAME, InputArgument::REQUIRED, Field::VPS_SNAPSHOT_NAME__DESC);

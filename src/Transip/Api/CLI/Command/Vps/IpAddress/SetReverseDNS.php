@@ -13,7 +13,7 @@ class SetReverseDNS extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:ipAddress:setReverseDNS')
+        $this->setName('vps:ipaddress:setreversedns')
             ->setDescription('Update reverse DNS for a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::IPADDRESS, InputArgument::REQUIRED, Field::IPADDRESS__DESC)

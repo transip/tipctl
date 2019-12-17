@@ -13,7 +13,7 @@ class RemoveIpv6 extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('vps:ipAddress:removeIpv6')
+        $this->setName('vps:ipaddress:removeipv6')
             ->setDescription('Remove an IPv6 address from a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_IPV6Address, InputArgument::REQUIRED, Field::VPS_IPV6Address__DESC);

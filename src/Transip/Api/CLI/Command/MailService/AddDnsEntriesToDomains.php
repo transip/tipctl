@@ -12,7 +12,7 @@ class AddDnsEntriesToDomains extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('mailService:addDnsEntriesToDomains')
+        $this->setName('mailservice:adddnsentriestodomains')
             ->setDescription('Add dns entries for the mailservice to a given domain')
             ->setHelp('domain(s) (comma separated) is required')
             ->addArgument(Field::DOMAIN_NAMES, InputArgument::REQUIRED, Field::DOMAIN_NAMES__DESC);

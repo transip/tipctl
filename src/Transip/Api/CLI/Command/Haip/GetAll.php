@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('haip:getAll')
+        $this->setName('haip:getall')
             ->setDescription('Get all of your Haips');
     }
 

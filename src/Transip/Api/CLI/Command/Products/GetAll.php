@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('products:getAll')
+        $this->setName('products:getall')
             ->setDescription('Get all orderable products via the API excluding domains')
             ->setHelp('All orderable products via the API excluding domains');
     }

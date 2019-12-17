@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:getAll')
+        $this->setName('domain:getall')
             ->setDescription('Get all of your Domains');
     }
 

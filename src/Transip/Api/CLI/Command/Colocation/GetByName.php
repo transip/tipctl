@@ -12,7 +12,7 @@ class GetByName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('colocation:getByName')
+        $this->setName('colocation:getbyname')
             ->setDescription('Get your colocation by name')
             ->setHelp('Provide a name to retrieve your colocation')
             ->addArgument(Field::COLOCATION_NAME, InputArgument::REQUIRED, Field::COLOCATION_NAME__DESC);

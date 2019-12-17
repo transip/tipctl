@@ -13,7 +13,7 @@ class GetByVpsName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('traffic:getByVpsName')
+        $this->setName('traffic:getbyvpsname')
             ->setDescription('Get traffic information for a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->setHelp('This command prints traffic information for a given vps.');
