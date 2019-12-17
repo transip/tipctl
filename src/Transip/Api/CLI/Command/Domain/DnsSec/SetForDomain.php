@@ -13,7 +13,7 @@ class SetForDomain extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:DnsSec:setForDomain')
+        $this->setName('domain:dnsSec:setForDomain')
             ->setDescription('Update all DNSSEC entries for a domain')
             ->setHelp('Provide all DNSSEC entries of the domain, this function only sets one!')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

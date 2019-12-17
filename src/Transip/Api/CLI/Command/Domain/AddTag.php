@@ -12,7 +12,7 @@ class AddTag extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:addTag')
+        $this->setName('domain:addTag')
             ->setDescription('Add a tag to a domain')
             ->setHelp('Provide a domain name and tag you would like to add')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

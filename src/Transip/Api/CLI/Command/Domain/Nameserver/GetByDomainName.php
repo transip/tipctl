@@ -12,7 +12,7 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Nameserver:getByDomainName')
+        $this->setName('domain:nameserver:getByDomainName')
             ->setDescription('Get Nameservers for a domain')
             ->setHelp('Provide a name to retrieve the Nameservers for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

@@ -16,7 +16,7 @@ class SetHttpHealthCheck extends AbstractCommand
 
     protected function configure(): void
     {
-        $this->setName('Haip:setHttpHealthCheck')
+        $this->setName('haip:setHttpHealthCheck')
             ->setDescription('Set the HA-IP http health check variables')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(self::CHECK_PATH, InputArgument::REQUIRED, 'The path (URI) of the page to check HTTP status code on')
@@ -27,8 +27,8 @@ class SetHttpHealthCheck extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
-        $port = intval($input->getArgument(self::CHECK_PORT));
-        $path = $input->getArgument(self::CHECK_PATH);
+        $port     = intval($input->getArgument(self::CHECK_PORT));
+        $path     = $input->getArgument(self::CHECK_PATH);
 
         $isSsl = $input->getArgument(self::CHECK_SSL);
         $isSsl = filter_var($isSsl, FILTER_VALIDATE_BOOLEAN);

@@ -12,7 +12,7 @@ class GetByColoName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Colocation:IpAddress:getByColoName')
+        $this->setName('colocation:ipAddress:getByColoName')
             ->setDescription('List IP addresses for Colocation')
             ->addArgument(Field::COLOCATION_NAME, InputArgument::REQUIRED, Field::COLOCATION_NAME__DESC)
             ->setHelp('This API call will return all IPv4 and IPv6 addresses attached to the Colocation');

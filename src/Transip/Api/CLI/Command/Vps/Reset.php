@@ -12,7 +12,7 @@ class Reset extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:reset')
+        $this->setName('vps:reset')
             ->setDescription('Reset a Vps')
             ->setHelp('Provide a Vps name to reset')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);

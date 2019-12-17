@@ -14,7 +14,7 @@ class Cancel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:cancel')
+        $this->setName('bigstorage:cancel')
             ->setDescription('Terminate or cancel your big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC)

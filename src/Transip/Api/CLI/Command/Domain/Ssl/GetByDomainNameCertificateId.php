@@ -12,19 +12,17 @@ class GetByDomainNameCertificateId extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Ssl:getByDomainNameCertificateId')
+        $this->setName('domain:ssl:getByDomainNameCertificateId')
             ->setDescription('Get SSL Certificate by id for a domainName')
-            ->setHelp(
-                'Provide a id and DomainName to retrieve a specific SSL Certificate'
-            )
+            ->setHelp('Provide a id and DomainName to retrieve a specific SSL Certificate')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)
-            ->addArgument(Field::SSL_ID, InputArgument::REQUIRED, Field::SSL_ID__DESC);
+            ->addArgument(Field::SSL_CERTIFICATE_ID, InputArgument::REQUIRED, Field::SSL_CERTIFICATE_ID__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $domainName      = $input->getArgument(Field::DOMAIN_NAME);
-        $certificateId   = $input->getArgument(Field::SSL_ID);
+        $certificateId   = $input->getArgument(Field::SSL_CERTIFICATE_ID);
         $sslCertificates = $this->getTransipApi()->domainSsl()->getByDomainNameCertificateId(
             $domainName,
             $certificateId

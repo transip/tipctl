@@ -12,7 +12,7 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Contact:getByDomainName')
+        $this->setName('domain:contact:getByDomainName')
             ->setDescription('Get the WHOIS Contacts for a domain')
             ->setHelp('Provide a name to retrieve the WHOIS contacts for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

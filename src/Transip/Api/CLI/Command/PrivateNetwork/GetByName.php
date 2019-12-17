@@ -13,7 +13,7 @@ class GetByName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('PrivateNetwork:getByName')
+        $this->setName('privateNetwork:getByName')
             ->setDescription('Gather detailed information about a private network.')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC);
     }
@@ -21,11 +21,8 @@ class GetByName extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
-        if (strlen($privateNetworkName) < 3) {
-            throw new Exception('PrivateNetwork name is required');
-        }
+        $privateNetwork     = $this->getTransipApi()->privateNetworks()->getByName($privateNetworkName);
 
-        $privateNetwork = $this->getTransipApi()->privateNetworks()->getByName($privateNetworkName);
         $this->output($privateNetwork);
     }
 }

@@ -13,7 +13,7 @@ class SetForDomain extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Contact:setForDomain')
+        $this->setName('domain:contact:setForDomain')
             ->setDescription('Update WHOIS contact information for a domain')
             ->setHelp('Provide all the information for a type contact to update')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

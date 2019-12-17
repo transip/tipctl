@@ -10,8 +10,8 @@ class Order extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('PrivateNetwork:order')
-            ->setDescription("Order a new private network; (\u{26A0} Creates an invoice)")
+        $this->setName('privateNetwork:order')
+            ->setDescription("Order a new private network")
             ->setHelp('After ordering a private network you’re able to attach it to a VPS to make use of the private network.');
     }
 

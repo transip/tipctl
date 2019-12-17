@@ -14,9 +14,9 @@ class SetLock extends AbstractCommand
 
     protected function configure(): void
     {
-        $this->setName('Vps:setLock')
+        $this->setName('vps:setLock')
             ->setDescription('Lock a Vps')
-            ->setHelp('Provide a Vps name and true or a false for locking or unlocking')
+            ->setHelp('Locking will prevent any action from being performed on your VPS.')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(self::SET_LOCK, InputArgument::REQUIRED, 'SetLock `true` or `false`');
     }

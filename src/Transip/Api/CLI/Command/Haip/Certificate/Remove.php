@@ -10,20 +10,18 @@ use Transip\Api\CLI\Command\Field;
 
 class Remove extends AbstractCommand
 {
-    private const CERTIFICATE_ID = 'certificateId';
-
     protected function configure()
     {
-        $this->setName('Haip:Certificate:remove')
+        $this->setName('haip:certificate:remove')
             ->setDescription('Remove a certificate from your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
-            ->addArgument(self::CERTIFICATE_ID, InputArgument::REQUIRED, 'The id of the HA-IP certificate to remove');
+            ->addArgument(Field::SSL_CERTIFICATE_ID, InputArgument::REQUIRED, Field::SSL_CERTIFICATE_ID__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $haipName = $input->getArgument(Field::HAIP_NAME);
-        $certificateId = $input->getArgument(self::CERTIFICATE_ID);
+        $haipName      = $input->getArgument(Field::HAIP_NAME);
+        $certificateId = $input->getArgument(Field::SSL_CERTIFICATE_ID);
 
         $this->getTransipApi()->haipCertificates()->delete($haipName, $certificateId);
     }

@@ -13,7 +13,7 @@ class SetReverseDNS extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:IpAddress:setReverseDNS')
+        $this->setName('vps:ipAddress:setReverseDNS')
             ->setDescription('Update reverse DNS for a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::IPADDRESS, InputArgument::REQUIRED, Field::IPADDRESS__DESC)
@@ -23,8 +23,8 @@ class SetReverseDNS extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $vpsName = $input->getArgument(Field::VPS_NAME);
-        $ipAddress = $input->getArgument(Field::IPADDRESS);
+        $vpsName          = $input->getArgument(Field::VPS_NAME);
+        $ipAddress        = $input->getArgument(Field::IPADDRESS);
         $newPointerRecord = $input->getArgument(Field::IPADDRESS_PTR);
 
         $ipAddressObject = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($vpsName, $ipAddress);

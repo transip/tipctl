@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('AvailabilityZones:getAll')
+        $this->setName('availabilityzones:getAll')
             ->setDescription('Lists the available AvailabilityZones')
             ->setHelp('This command displays all available zones where you can order a product.');
     }

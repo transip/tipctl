@@ -13,8 +13,8 @@ class Cancel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Haip:cancel')
-            ->setDescription('Cancel or terminate a Haip')
+        $this->setName('haip:cancel')
+            ->setDescription('Cancel a Haip')
             ->setHelp('Provide a Haip name to cancel and a cancellation time (end|immediately)')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC);
@@ -22,12 +22,8 @@ class Cancel extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $haipName = $input->getArgument(Field::HAIP_NAME);
+        $haipName   = $input->getArgument(Field::HAIP_NAME);
         $cancelTime = $input->getArgument(Field::CANCELTIME);
-
-        if (!in_array($cancelTime, ['end', 'immediately'])) {
-            throw new Exception("Incorrect cancellation time provided, the value can only be 'end' or 'immediately'.");
-        }
 
         $this->getTransipApi()->haip()->cancel($haipName, $cancelTime);
     }

@@ -12,7 +12,7 @@ class OrderMultiple extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:orderMultiple')
+        $this->setName('vps:orderMultiple')
             ->setDescription('Order multiple new VPSs')
             ->setHelp('Order multiple VPSs with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products')
             ->addArgument(Field::VPS_MULTIPLE_COUNT, InputArgument::REQUIRED, Field::VPS_MULTIPLE_COUNT__DESC)

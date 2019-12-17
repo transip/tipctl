@@ -12,7 +12,7 @@ class Whois extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:whois')
+        $this->setName('domain:whois')
             ->setDescription('Get the whois information for a registered domain')
             ->setHelp('Provide a domainName to retrieve the WHOIS information')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

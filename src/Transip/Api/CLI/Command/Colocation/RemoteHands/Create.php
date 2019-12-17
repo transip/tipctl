@@ -13,7 +13,7 @@ class Create extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Colocation:RemoteHands:create')
+        $this->setName('colocation:remoteHands:create')
             ->setDescription('Create a remote hands request for your colocation')
             ->addArgument(Field::COLOCATION_NAME, InputArgument::REQUIRED, Field::COLOCATION_NAME__DESC)
             ->addArgument(

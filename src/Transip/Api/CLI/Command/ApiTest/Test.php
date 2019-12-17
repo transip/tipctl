@@ -10,7 +10,7 @@ class Test extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('ApiTest:test')
+        $this->setName('apitest:test')
             ->setDescription('Check your API connection and token via this simple test')
             ->setHelp('Will check if the API is reachable with token');
     }

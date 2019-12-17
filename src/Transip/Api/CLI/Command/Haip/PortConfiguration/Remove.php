@@ -12,16 +12,16 @@ class Remove extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Haip:PortConfiguration:remove')
+        $this->setName('haip:portConfiguration:remove')
             ->setDescription('Remove a port configuration for a HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
-            ->addArgument(Field::PORTCONFIGURATION_ID, InputArgument::REQUIRED, Field::PORTCONFIGURATION_ID__DESC);
+            ->addArgument(Field::HAIP_PORT_CONFIGURATION_ID, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_ID__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $haipName = $input->getArgument(Field::HAIP_NAME);
-        $portConfigurationId = $input->getArgument(Field::PORTCONFIGURATION_ID);
+        $haipName            = $input->getArgument(Field::HAIP_NAME);
+        $portConfigurationId = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_ID);
 
         $this->getTransipApi()->haipPortConfigurations()->delete($haipName, $portConfigurationId);
     }

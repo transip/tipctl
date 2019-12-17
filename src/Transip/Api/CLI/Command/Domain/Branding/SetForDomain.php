@@ -13,7 +13,7 @@ class SetForDomain extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Branding:setForDomain')
+        $this->setName('domain:branding:setForDomain')
             ->setDescription('Update branding information for a domain')
             ->setHelp('Provide all the information for the branding of a domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

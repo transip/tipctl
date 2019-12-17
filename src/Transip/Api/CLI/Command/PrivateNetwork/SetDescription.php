@@ -14,7 +14,7 @@ class SetDescription extends AbstractCommand
 
     protected function configure(): void
     {
-        $this->setName('PrivateNetwork:setDescription')
+        $this->setName('privateNetwork:setDescription')
             ->setDescription('Set a new description to a private network')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC)
             ->addArgument(self::PRIVATENETWORK_DESCRIPTION, InputArgument::REQUIRED, 'The private network description');
@@ -22,7 +22,7 @@ class SetDescription extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
+        $privateNetworkName        = $input->getArgument(Field::PRIVATENETWORK_NAME);
         $privateNetworkDescription = $input->getArgument(self::PRIVATENETWORK_DESCRIPTION);
 
         $privateNetwork = $this->getTransipApi()->privateNetworks()->getByName($privateNetworkName);

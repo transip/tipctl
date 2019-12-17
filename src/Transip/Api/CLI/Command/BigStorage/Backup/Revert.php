@@ -12,7 +12,7 @@ class Revert extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:Backup:revert')
+        $this->setName('bigstorage:Backup:revert')
             ->setDescription('Restore a bigstorage backup')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::BIGSTORAGE_BACKUPID, InputArgument::REQUIRED, Field::BIGSTORAGE_BACKUPID__DESC)

@@ -12,7 +12,7 @@ class SetIsWhitelabel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:setIsWhitelabel')
+        $this->setName('domain:setIsWhitelabel')
             ->setDescription('Set domain to whitelabel, this cannot be reversed!')
             ->setHelp('Provide a domain name to set to whitelabel, can not be reversed!')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

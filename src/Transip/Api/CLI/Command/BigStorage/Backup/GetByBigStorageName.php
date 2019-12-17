@@ -13,7 +13,7 @@ class GetByBigStorageName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:Backup:getByBigStorageName')
+        $this->setName('bigstorage:Backup:getByBigStorageName')
             ->setDescription('Get a list of backups for a big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->setHelp('This command lists backups for any given big storage.');

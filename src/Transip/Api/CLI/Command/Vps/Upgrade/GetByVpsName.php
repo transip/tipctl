@@ -13,7 +13,7 @@ class GetByVpsName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:Upgrade:getByVpsName')
+        $this->setName('vps:upgrade:getByVpsName')
             ->setDescription('List available upgrades for a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }

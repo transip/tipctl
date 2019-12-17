@@ -13,7 +13,7 @@ class UpdateDnsEntry extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Dns:updateDnsEntry')
+        $this->setName('domain:dns:updateDnsEntry')
             ->setDescription('Update a single specific dns entry for a domain')
             ->setHelp('Updates the content for a already existing singulair DNS Record')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

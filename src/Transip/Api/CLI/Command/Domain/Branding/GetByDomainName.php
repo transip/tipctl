@@ -12,7 +12,7 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Branding:getByDomainName')
+        $this->setName('domain:branding:getByDomainName')
             ->setDescription('Get branding information for a domain')
             ->setHelp('Provide a name to retrieve the branding information for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

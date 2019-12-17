@@ -10,19 +10,17 @@ use Transip\Api\CLI\Command\Field;
 
 class SetPtrRecord extends AbstractCommand
 {
-    private const PTR = 'Ptr';
-
     protected function configure(): void
     {
-        $this->setName('Haip:setPtrRecord')
+        $this->setName('haip:setPtrRecord')
             ->setDescription('Set the PTR record for your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
-            ->addArgument(self::PTR, InputArgument::REQUIRED, 'The ptr record to set');
+            ->addArgument(Field::IPADDRESS_PTR, InputArgument::REQUIRED, Field::IPADDRESS_PTR__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $ptr = $input->getArgument(self::PTR);
+        $ptr      = $input->getArgument(Field::IPADDRESS_PTR);
         $haipName = $input->getArgument(Field::HAIP_NAME);
 
         $haip = $this->getTransipApi()->haip()->getByName($haipName);

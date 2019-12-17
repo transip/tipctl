@@ -13,7 +13,7 @@ class RemoveDnsEntry extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Dns:removeDnsEntry')
+        $this->setName('domain:dns:removeDnsEntry')
             ->setDescription('Remove a dns entry from the domain DNS entries')
             ->setHelp('Provide the information of a DNS Record you want to remove')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

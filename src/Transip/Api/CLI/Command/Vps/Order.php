@@ -12,7 +12,7 @@ class Order extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:order')
+        $this->setName('vps:order')
             ->setDescription('Order a new VPS')
             ->setHelp('Order a Vps with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products')
             ->addArgument(Field::VPS_PRODUCT_NAME, InputArgument::REQUIRED, Field::VPS_PRODUCT_NAME__DESC)
