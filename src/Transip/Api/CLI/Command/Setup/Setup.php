@@ -93,6 +93,7 @@ class Setup extends AbstractCommand
             $response = (new TransipAPI($login, $privateKey, $whitelist, '', $apiUrl))->test()->test();
         } catch (Exception $exception) {
             $response = false;
+            $errorMessage = $exception->getMessage();
         }
 
         if ($response === true) {
@@ -100,7 +101,7 @@ class Setup extends AbstractCommand
             $output->writeln('<fg=green>API connection successful</>');
         } else {
             $output->writeln('');
-            $output->writeln('<fg=red>API connection failed</>');
+            $output->writeln("<fg=red>API connection failed! {$errorMessage}</>");
 
             $tokenQuestion = new ConfirmationQuestion("Save to config file anyway? [<comment>No</comment>]: ", false);
             $shouldSave    = $helper->ask($input, $output, $tokenQuestion);
