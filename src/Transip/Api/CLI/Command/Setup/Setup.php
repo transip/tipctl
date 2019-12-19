@@ -71,7 +71,7 @@ class Setup extends AbstractCommand
 
         // Last question: What is the restapi private key?
         $output->writeln('Enter your RestAPI Private Key:');
-        $keyQuestion = new Question("");
+        $keyQuestion = new Question('');
 
         $privateKey = '';
 
