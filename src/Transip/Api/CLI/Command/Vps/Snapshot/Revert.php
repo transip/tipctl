@@ -10,15 +10,14 @@ use Transip\Api\CLI\Command\Field;
 
 class Revert extends AbstractCommand
 {
-    private const DESTINATION_VPS_NAME = 'DestinationVpsName';
 
     protected function configure(): void
     {
-        $this->setName('Vps:Snapshot:Revert')
+        $this->setName('vps:snapshot:revert')
             ->setDescription('Revert a snapshot to a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_SNAPSHOT_NAME, InputArgument::REQUIRED, Field::VPS_SNAPSHOT_NAME__DESC)
-            ->addArgument(self::DESTINATION_VPS_NAME, InputArgument::OPTIONAL, 'VpsName. When set, reverts the snapshot to this VPS.' . Field::OPTIONAL)
+            ->addArgument(Field::VPS_DESTINATION_VPS_NAME, InputArgument::OPTIONAL, Field::VPS_DESTINATION_VPS_NAME__DESC . Field::OPTIONAL)
             ->setHelp('When restoring a snapshot, this can be done either on the VPS the snapshot originates from or onto another VPS. Specifying the DestinationVpsName makes sure the snapshot is restored onto another VPS');
     }
 
@@ -26,7 +25,7 @@ class Revert extends AbstractCommand
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $snapshotName = $input->getArgument(Field::VPS_SNAPSHOT_NAME);
-        $destinationVpsName = $input->getArgument(self::DESTINATION_VPS_NAME) ?? '';
+        $destinationVpsName = $input->getArgument(Field::VPS_DESTINATION_VPS_NAME) ?? '';
 
         $this->getTransipApi()->vpsSnapshots()->revertSnapshot($vpsName, $snapshotName, $destinationVpsName);
     }

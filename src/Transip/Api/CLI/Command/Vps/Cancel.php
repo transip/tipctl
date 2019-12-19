@@ -13,7 +13,7 @@ class Cancel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:cancel')
+        $this->setName('vps:cancel')
             ->setDescription('Cancel or terminate a Vps')
             ->setHelp('Provide a Vps name to cancel and a cancellation time (end|immediately)')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
@@ -22,12 +22,8 @@ class Cancel extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $vpsName = $input->getArgument(Field::VPS_NAME);
+        $vpsName    = $input->getArgument(Field::VPS_NAME);
         $cancelTime = $input->getArgument(Field::CANCELTIME);
-
-        if (!in_array($cancelTime, ['end', 'immediately'])) {
-            throw new Exception("Incorrect cancellation time provided, the value can only be 'end' or 'immediately'.");
-        }
 
         $this->getTransipApi()->vps()->cancel($vpsName, $cancelTime);
     }

@@ -12,7 +12,7 @@ class Cancel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:Addon:cancel')
+        $this->setName('vps:addon:cancel')
             ->setDescription('Cancel an add-on based on its name')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_ADDON, InputArgument::REQUIRED, Field::VPS_ADDON__DESC)

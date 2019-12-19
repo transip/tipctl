@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:OperatingSystem:getAll')
+        $this->setName('vps:operatingsystem:getall')
             ->setDescription('List installable operating systems for a VPS');
     }
 

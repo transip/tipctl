@@ -13,7 +13,7 @@ class GetByBigStorageName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:Backup:getByBigStorageName')
+        $this->setName('bigstorage:backup:getbybigstoragename')
             ->setDescription('Get a list of backups for a big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->setHelp('This command lists backups for any given big storage.');
@@ -22,9 +22,6 @@ class GetByBigStorageName extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
-        if (strlen($bigStorageName) < 3) {
-            throw new Exception('A big storage name is required');
-        }
         $vps = $this->getTransipApi()->bigStorageBackups()->getByBigStorageName($bigStorageName);
         $this->output($vps);
     }

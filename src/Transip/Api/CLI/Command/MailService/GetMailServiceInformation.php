@@ -11,7 +11,7 @@ class GetMailServiceInformation extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('MailService:getMailServiceInformation')
+        $this->setName('mailservice:getmailserviceinformation')
             ->setDescription('Get the Mail Service usage');
     }
 

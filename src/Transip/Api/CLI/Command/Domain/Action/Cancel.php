@@ -12,7 +12,7 @@ class Cancel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Action:cancel')
+        $this->setName('domain:action:cancel')
             ->setDescription('Get cancel current action for a domain')
             ->setHelp('Provide a name to cancel the action currently running for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

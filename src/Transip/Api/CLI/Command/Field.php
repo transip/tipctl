@@ -11,10 +11,12 @@ class Field
     public const CANCELTIME = 'CancelTime';
     public const CANCELTIME__DESC = 'Cancellation time, either ‘end’ or ‘immediately’';
     public const AVAILABILITY_ZONE = 'AvailabilityZone';
-    public const AVAILABILITY_ZONE__DESC = 'The region name where this product should be created (find by <fg=yellow>AvailabilityZones:getAll</>)';
+    public const AVAILABILITY_ZONE__DESC = 'The region name where this product should be created (find by <fg=yellow>availabilityzones:getall</>)';
 
     public const DOMAIN_NAME = 'DomainName';
     public const DOMAIN_NAME__DESC = 'The domain name';
+    public const DOMAIN_NAMES = 'DomainNames';
+    public const DOMAIN_NAMES__DESC = 'DomainNames (comma seperated)';
     public const DOMAIN_TRANSFER_LOCK = 'TransferLock';
     public const DOMAIN_TRANSFER_LOCK__DESC = 'Transfer Lock (true|false)';
 
@@ -82,11 +84,11 @@ class Field
     public const DNSSEC_ENTRY_PUBLICKEY = 'PublicKey';
     public const DNSSEC_ENTRY_PUBLICKEY__DESC = 'The public key';
 
-    public const SSL_ID = 'CertificateId';
-    public const SSL_ID__DESC = 'SSL certificateId';
-
     public const TLD = 'TLD';
     public const TLD__DESC = 'Top level domain';
+
+    public const PRODUCT_NAME = 'ProductName';
+    public const PRODUCT_NAME__DESC = 'Name of the product (find by <fg=yellow>products:getall</>)';
 
     public const VPS_NAME = 'VpsName';
     public const VPS_NAME__DESC = 'The name of the vps';
@@ -98,20 +100,25 @@ class Field
     public const VPS_ADDON__DESC = 'Add-on name';
     public const VPS_BACKUP_ID = 'VpsBackupId';
     public const VPS_BACKUP_ID__DESC = 'Id of the backup';
-    public const VPS_BACKUP_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
-    public const VPS_BACKUP_SNAPSHOT_DESCRIPTION__DESC = 'An informative description that describes the snapshot';
+    public const VPS_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
+    public const VPS_SNAPSHOT_DESCRIPTION__DESC = 'An informative description that describes the snapshot';
     public const VPS_IPV6Address = 'IPv6Address';
     public const VPS_IPV6Address__DESC = 'An IPv6 Address';
     public const VPS_OS_NAME = 'OperatingSystemName';
-    public const VPS_OS_NAME__DESC = 'The name of the operating system to install (find by <fg=yellow>Vps:OperatingSystem:getAll</>)';
+    public const VPS_OS_NAME__DESC = 'The name of the operating system to install (find by <fg=yellow>vps:operatingsystem:getall</>)';
     public const VPS_HOSTNAME = 'Hostname';
     public const VPS_HOSTNAME__DESC = 'Hostname is required for preinstallable web controlpanels';
     public const VPS_MULTIPLE_COUNT = 'Amount of VPSs';
     public const VPS_MULTIPLE_COUNT__DESC = 'The amount of VPSs to order';
-    public const VPS_PRODUCT_NAME = 'ProductName';
-    public const VPS_PRODUCT_NAME__DESC = 'Name of the product (find by <fg=yellow>Products:getAll</>)';
     public const VPS_SNAPSHOT_NAME = 'SnapshotName';
     public const VPS_SNAPSHOT_NAME__DESC = 'Name of the snapshot';
+    public const VPS_DESTINATION_VPS_NAME = 'DestinationVpsName';
+    public const VPS_DESTINATION_VPS_NAME__DESC = 'Reverts the snapshot to this VPS.';
+    public const VPS_BASE64INSTALLTEXT = 'Base64InstallText';
+    public const VPS_BASE64INSTALLTEXT__DESC = 'Base64 encoded preseed / kickstart instructions, when installing unattended';
+    public const VPS_SET_LOCK = 'SetLock';
+    public const VPS_SET_LOCK__DESC = 'VPS SetLock `true` or `false`';
+
 
     public const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     public const PRIVATENETWORK_NAME__DESC = 'The private network name';
@@ -129,12 +136,35 @@ class Field
 
     public const HAIP_NAME = 'HaipName';
     public const HAIP_NAME__DESC = 'The name of the HA-IP';
-    public const PORTCONFIGURATION_ID = 'PortConfigurationId';
-    public const PORTCONFIGURATION_ID__DESC = 'The id of the port configuration';
+    public const HAIP_LOADBALANCING_MODE = 'LoadBalancingMode';
+    public const HAIP_LOADBALANCING_MODE__DESC = 'The load balancing mode for the haip (roundrobin|cookie|source) are allowed load balancing modes';
+    public const HAIP_COOKIE_NAME = 'LoadBalancingMode';
+    public const HAIP_COOKIE_NAME__DESC = 'Name of the cookie used in cookie loadbalancing mode';
+    public const HAIP_IP_SETUP = 'IpSetup';
+    public const HAIP_IP_SETUP__DESC = 'HA-IP IP setup can be any of (both|noipv6|ipv6to4)';
+    public const HAIP_INTERVAL = 'interval';
+    public const HAIP_INTERVAL__DESC = 'The interval must be larger than 2000';
+    public const HAIP_WAIT_FOR_DELIVERY = 'WaitForDelivery';
+    public const HAIP_WAIT_FOR_DELIVERY__DESC = 'Wait and poll until the Haip is delivered';
+    public const HAIP_PORT_CONFIGURATION_NAME = 'PortConfigName';
+    public const HAIP_PORT_CONFIGURATION_NAME__DESC = 'The name of the PortConfiguration';
+    public const HAIP_PORT_CONFIGURATION_SOURCE_PORT = 'SourcePort';
+    public const HAIP_PORT_CONFIGURATION_SOURCE_PORT__DESC = 'Incoming portNumber of configuration';
+    public const HAIP_PORT_CONFIGURATION_TARGET_PORT = 'TargetPort';
+    public const HAIP_PORT_CONFIGURATION_TARGET_PORT__DESC = 'PortNumber to send the traffic to';
+    public const HAIP_PORT_CONFIGURATION_MODE = 'Mode';
+    public const HAIP_PORT_CONFIGURATION_MODE__DESC = 'The port configuration mode';
+    public const HAIP_PORT_CONFIGURATION_SSL_MODE = 'SslMode';
+    public const HAIP_PORT_CONFIGURATION_SSL_MODE__DESC = 'The endpoint SSL mode';
+    public const HAIP_PORT_CONFIGURATION_ID = 'PortConfigurationId';
+    public const HAIP_PORT_CONFIGURATION_ID__DESC = 'The id of the port configuration';
     public const HAIP_DESCRIPTION = 'Description';
     public const HAIP_DESCRIPTION__DESC = 'Description to give to the Haip';
+
     public const SSL_CERTIFICATE_ID = 'sslCertificateId';
-    public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing Domain:Ssl certificate';
+    public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing domain:ssl certificate';
+    public const SSL_COMMON_NAME = 'commonName';
+    public const SSL_COMMON_NAME__DESC = 'Domain name for which we should issue the certificate';
 
     public const DOMAIN_TAG = 'TagName';
     public const DOMAIN_TAG__DESC = 'The tag name';
@@ -153,6 +183,8 @@ class Field
 
     public const IPADDRESS = 'IPAddress';
     public const IPADDRESS__DESC = 'The IP address';
+    public const IPADDRESSES = 'IPAddresses';
+    public const IPADDRESSES__DESC = 'IpAddresses ipv4 or/and ipv6 (comma separated)';
     public const IPADDRESS_PTR = 'Ptr';
     public const IPADDRESS_PTR__DESC = 'Reverse DNS record';
 

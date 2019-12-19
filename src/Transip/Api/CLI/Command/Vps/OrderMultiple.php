@@ -12,11 +12,11 @@ class OrderMultiple extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:orderMultiple')
+        $this->setName('vps:ordermultiple')
             ->setDescription('Order multiple new VPSs')
             ->setHelp('Order multiple VPSs with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products')
             ->addArgument(Field::VPS_MULTIPLE_COUNT, InputArgument::REQUIRED, Field::VPS_MULTIPLE_COUNT__DESC)
-            ->addArgument(Field::VPS_PRODUCT_NAME, InputArgument::REQUIRED, Field::VPS_PRODUCT_NAME__DESC)
+            ->addArgument(Field::PRODUCT_NAME, InputArgument::REQUIRED, Field::PRODUCT_NAME__DESC)
             ->addArgument(Field::VPS_OS_NAME, InputArgument::REQUIRED, Field::VPS_OS_NAME__DESC)
             ->addArgument(Field::VPS_ADDONS, InputArgument::OPTIONAL, Field::VPS_ADDONS__DESC . Field::OPTIONAL, '')
             ->addArgument(Field::VPS_HOSTNAME, InputArgument::OPTIONAL, Field::VPS_HOSTNAME__DESC . Field::OPTIONAL, '')
@@ -27,7 +27,7 @@ class OrderMultiple extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $count            = $input->getArgument(Field::VPS_MULTIPLE_COUNT);
-        $productName      = $input->getArgument(Field::VPS_PRODUCT_NAME);
+        $productName      = $input->getArgument(Field::PRODUCT_NAME);
         $operatingSystem  = $input->getArgument(Field::VPS_OS_NAME);
         $addons           = $input->getArgument(Field::VPS_ADDONS);
         $hostname         = $input->getArgument(Field::VPS_HOSTNAME);

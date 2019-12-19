@@ -10,21 +10,19 @@ use Transip\Api\CLI\Command\Field;
 
 class SetLock extends AbstractCommand
 {
-    private const SET_LOCK = 'SetLock';
-
     protected function configure(): void
     {
-        $this->setName('Vps:setLock')
+        $this->setName('vps:setlock')
             ->setDescription('Lock a Vps')
-            ->setHelp('Provide a Vps name and true or a false for locking or unlocking')
+            ->setHelp('Locking will prevent any action from being performed on your VPS.')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
-            ->addArgument(self::SET_LOCK, InputArgument::REQUIRED, 'SetLock `true` or `false`');
+            ->addArgument(Field::VPS_SET_LOCK, InputArgument::REQUIRED, Field::VPS_SET_LOCK__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
-        $setLock = $input->getArgument(self::SET_LOCK);
+        $setLock = $input->getArgument(Field::VPS_SET_LOCK);
 
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $vps->setIsCustomerLocked(filter_var($setLock, FILTER_VALIDATE_BOOLEAN));

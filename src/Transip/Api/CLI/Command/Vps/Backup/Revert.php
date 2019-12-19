@@ -12,7 +12,7 @@ class Revert extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:Backup:revert')
+        $this->setName('vps:backup:revert')
             ->setDescription('Revert a VPS back-up and restore the VPS to an earlier state')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_BACKUP_ID, InputArgument::REQUIRED, Field::VPS_BACKUP_ID__DESC)

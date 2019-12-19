@@ -12,7 +12,7 @@ class Delete extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:Snapshot:Delete')
+        $this->setName('vps:snapshot:delete')
             ->setDescription('Delete a snapshot')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_SNAPSHOT_NAME, InputArgument::REQUIRED, Field::VPS_SNAPSHOT_NAME__DESC)

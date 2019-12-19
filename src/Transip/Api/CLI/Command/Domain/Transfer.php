@@ -12,7 +12,7 @@ class Transfer extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:transfer')
+        $this->setName('domain:transfer')
             ->setDescription('Transfer a domain to your account')
             ->setHelp('Provide a name to retrieve your Domain by name')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

@@ -12,7 +12,7 @@ class GetByName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Haip:getByName')
+        $this->setName('haip:getbyname')
             ->setDescription('Get your Haip by name')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }
@@ -20,7 +20,7 @@ class GetByName extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
-        $haip = $this->getTransipApi()->haip()->getByName($haipName);
+        $haip     = $this->getTransipApi()->haip()->getByName($haipName);
 
         $this->output($haip);
     }

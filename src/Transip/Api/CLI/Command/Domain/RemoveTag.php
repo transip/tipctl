@@ -12,7 +12,7 @@ class RemoveTag extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:removeTag')
+        $this->setName('domain:removetag')
             ->setDescription('Remove a tag from a domain')
             ->setHelp('Provide a domain name and tag you would like to remove')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME)

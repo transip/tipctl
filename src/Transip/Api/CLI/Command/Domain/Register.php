@@ -12,7 +12,7 @@ class Register extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:register')
+        $this->setName('domain:register')
             ->setDescription('Register a new domain')
             ->setHelp('Provide a name to retrieve your Domain by name')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

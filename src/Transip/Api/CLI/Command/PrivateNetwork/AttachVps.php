@@ -12,7 +12,7 @@ class AttachVps extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('PrivateNetwork:attachVps')
+        $this->setName('privatenetwork:attachvps')
             ->setDescription('Attach a VPS to a private network')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC)
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
@@ -20,7 +20,7 @@ class AttachVps extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
+        $privateNetworkName    = $input->getArgument(Field::PRIVATENETWORK_NAME);
         $privateNetworkVpsName = $input->getArgument(Field::VPS_NAME);
 
         $this->getTransipApi()->privateNetworks()->attachVps($privateNetworkName, $privateNetworkVpsName);

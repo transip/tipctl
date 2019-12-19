@@ -13,7 +13,7 @@ class AddDnsEntry extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Dns:addDnsEntry')
+        $this->setName('domain:dns:adddnsentry')
             ->setDescription('Add a dns entry to the domain DNS entries')
             ->setHelp('Provide DNS Record information to add to the DNS entries')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

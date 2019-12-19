@@ -12,7 +12,7 @@ class Remove extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Colocation:IpAddress:remove')
+        $this->setName('colocation:ipaddress:remove')
             ->setDescription('Administratively remove ipAddresses that are in a range that belong to your colocation')
             ->addArgument(Field::COLOCATION_NAME, InputArgument::REQUIRED, Field::COLOCATION_NAME__DESC)
             ->addArgument(Field::IPADDRESS, InputArgument::REQUIRED, Field::IPADDRESS__DESC)

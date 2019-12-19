@@ -6,27 +6,22 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
+use Transip\Api\CLI\Command\Field;
 
 class AddDnsEntriesToDomains extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('MailService:addDnsEntriesToDomains')
+        $this->setName('mailservice:adddnsentriestodomains')
             ->setDescription('Add dns entries for the mailservice to a given domain')
             ->setHelp('domain(s) (comma separated) is required')
-            ->addArgument("args", InputArgument::IS_ARRAY, "Optional arguments");
+            ->addArgument(Field::DOMAIN_NAMES, InputArgument::REQUIRED, Field::DOMAIN_NAMES__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $arguments = $input->getArgument('args');
-
-        if (count($arguments) < 1) {
-            throw new \Exception($this->getHelp());
-        }
-
-        $domains = $arguments[0];
-        $domains = explode(',', $domains);
+        $domainNames = $input->getArgument(Field::DOMAIN_NAMES);
+        $domains = explode(',', $domainNames);
 
         $this->getTransipApi()->mailService()->addMailServiceDnsEntriesToDomains($domains);
     }

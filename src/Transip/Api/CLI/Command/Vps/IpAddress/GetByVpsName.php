@@ -12,7 +12,7 @@ class GetByVpsName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:IpAddress:getByVpsName')
+        $this->setName('vps:ipaddress:getbyvpsname')
             ->setDescription('List IP addresses for a VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->setHelp('This API call will return all IPv4 and IPv6 addresses attached to the VPS');
@@ -20,7 +20,7 @@ class GetByVpsName extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $vpsName = $input->getArgument(Field::VPS_NAME);
+        $vpsName     = $input->getArgument(Field::VPS_NAME);
         $ipAddresses = $this->getTransipApi()->vpsIpAddresses()->getByVpsName($vpsName);
 
         $this->output($ipAddresses);

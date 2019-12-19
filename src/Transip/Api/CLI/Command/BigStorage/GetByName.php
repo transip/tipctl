@@ -12,7 +12,7 @@ class GetByName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:getByName')
+        $this->setName('bigstorage:getbyname')
             ->setDescription('Get your big storage by name')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC);
     }

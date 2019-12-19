@@ -11,7 +11,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:getAll')
+        $this->setName('bigstorage:getall')
              ->setDescription('Get all of your big storages');
     }
     protected function execute(InputInterface $input, OutputInterface $output)

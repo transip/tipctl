@@ -12,7 +12,7 @@ class GetAttachedIpAddresses extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Haip:getAttachedIpAddresses')
+        $this->setName('haip:getattachedipaddresses')
             ->setDescription('Get all of the ips that are attached to your Haip')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }

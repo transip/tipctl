@@ -12,7 +12,7 @@ class Handover extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:handover')
+        $this->setName('vps:handover')
             ->setDescription('Handover a Vps to another TransIP Customer')
             ->setHelp('The Vps will be stopped during the handover')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)

@@ -12,7 +12,7 @@ class GetByDomainName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:DnsSec:getByDomainName')
+        $this->setName('domain:dnssec:getbydomainname')
             ->setDescription('Get DNSSEC Entries for a domain')
             ->setHelp('Provide a name to retrieve the DNSSEC Entries for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);

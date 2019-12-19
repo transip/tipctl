@@ -13,7 +13,7 @@ class Order extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:order')
+        $this->setName('bigstorage:order')
             ->setDescription('Order a big storage')
             ->addArgument(Field::BIGSTORAGE_SIZE, InputArgument::REQUIRED, Field::BIGSTORAGE_SIZE__DESC)
             ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, Field::BIGSTORAGE_HASOFFSITEBACKUPS__DESC . Field::OPTIONAL)

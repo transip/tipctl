@@ -12,7 +12,7 @@ class SetDescription extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:setDescription')
+        $this->setName('bigstorage:setdescription')
             ->setDescription('Update your big storage description')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::BIGSTORAGE_DESCRIPTION, InputArgument::REQUIRED, Field::BIGSTORAGE_DESCRIPTION__DESC)

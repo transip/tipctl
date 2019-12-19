@@ -12,7 +12,7 @@ class Start extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:start')
+        $this->setName('vps:start')
             ->setDescription('Start a Vps')
             ->setHelp('Provide a Vps name to start')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);

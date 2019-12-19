@@ -13,7 +13,7 @@ class GetByVpsName extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:Addon:getByVpsName')
+        $this->setName('vps:addon:getbyvpsname')
             ->setDescription('List active, cancellable and available addons for a VPS.')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->setHelp('List active, cancellable and available addons for a VPS.');

@@ -13,26 +13,26 @@ class Change extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Haip:PortConfiguration:change')
+        $this->setName('haip:portconfiguration:change')
             ->setDescription('Update a port configuration for your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
-            ->addArgument(Field::PORTCONFIGURATION_ID, InputArgument::REQUIRED, Field::PORTCONFIGURATION_ID__DESC)
-            ->addArgument('Name', InputArgument::REQUIRED, 'Name of the port configuration')
-            ->addArgument('SourcePort', InputArgument::REQUIRED, 'Incoming port number of configuration')
-            ->addArgument('TargetPort', InputArgument::REQUIRED, 'Port number to send the traffic to')
-            ->addArgument('Mode', InputArgument::REQUIRED, 'The port configuration mode')
-            ->addArgument('SslMode', InputArgument::REQUIRED, 'The endpoint SSL mode');
+            ->addArgument(Field::HAIP_PORT_CONFIGURATION_ID, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_ID__DESC)
+            ->addArgument(Field::HAIP_PORT_CONFIGURATION_NAME, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_NAME__DESC)
+            ->addArgument(Field::HAIP_PORT_CONFIGURATION_SOURCE_PORT, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_SOURCE_PORT__DESC)
+            ->addArgument(Field::HAIP_PORT_CONFIGURATION_TARGET_PORT, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_TARGET_PORT__DESC)
+            ->addArgument(Field::HAIP_PORT_CONFIGURATION_MODE, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_MODE__DESC)
+            ->addArgument(Field::HAIP_PORT_CONFIGURATION_SSL_MODE, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_SSL_MODE__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $haipName = $input->getArgument(Field::HAIP_NAME);
-        $portConfigurationId = $input->getArgument(Field::PORTCONFIGURATION_ID);
-        $name = $input->getArgument('Name');
-        $sourcePort = $input->getArgument('SourcePort');
-        $targetPort = $input->getArgument('TargetPort');
-        $mode = $input->getArgument('Mode');
-        $sslMode = $input->getArgument('SslMode');
+        $haipName            = $input->getArgument(Field::HAIP_NAME);
+        $portConfigurationId = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_ID);
+        $name                = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_NAME);
+        $sourcePort          = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_SOURCE_PORT);
+        $targetPort          = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_TARGET_PORT);
+        $mode                = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_MODE);
+        $sslMode             = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_SSL_MODE);
 
         $portConfiguration = $this->getTransipApi()->haipPortConfigurations()->getByPortConfigurationId($haipName, $portConfigurationId);
 

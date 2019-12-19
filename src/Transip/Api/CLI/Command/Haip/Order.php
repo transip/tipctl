@@ -11,24 +11,20 @@ use Transip\Api\CLI\Command\Field;
 
 class Order extends AbstractCommand
 {
-    private const PRODUCT_NAME = 'ProductName';
-    private const WAIT_FOR_DELVIERY = 'WaitForDelivery';
-
     protected function configure(): void
     {
-        $this->setName('Haip:order')
+        $this->setName('haip:order')
             ->setDescription('Order a new Haip')
-            ->addArgument(self::PRODUCT_NAME, InputArgument::REQUIRED, 'product name of haip to order')
+            ->addArgument(Field::PRODUCT_NAME, InputArgument::REQUIRED, Field::PRODUCT_NAME__DESC)
             ->addArgument(Field::HAIP_DESCRIPTION, InputArgument::OPTIONAL, Field::HAIP_DESCRIPTION__DESC . Field::OPTIONAL)
-            ->addOption(self::WAIT_FOR_DELVIERY, 'w', InputOption::VALUE_NONE, 'wait and poll till the Haip is delivered');
+            ->addOption(Field::HAIP_WAIT_FOR_DELIVERY, 'w', InputOption::VALUE_NONE, Field::HAIP_WAIT_FOR_DELIVERY__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $productName = $input->getArgument(self::PRODUCT_NAME);
-        $description = $input->getArgument(Field::HAIP_DESCRIPTION);
-
-        $shouldWaitForDelivery = $input->getOption(self::WAIT_FOR_DELVIERY);
+        $productName           = $input->getArgument(Field::PRODUCT_NAME);
+        $description           = $input->getArgument(Field::HAIP_DESCRIPTION);
+        $shouldWaitForDelivery = $input->getOption(Field::HAIP_WAIT_FOR_DELIVERY);
 
         if ($description && $shouldWaitForDelivery) {
             $haipsBeforeOrder = $this->getTransipApi()->haip()->findByDescription($description);
@@ -40,7 +36,8 @@ class Order extends AbstractCommand
 
                 if (count($haipsBeforeOrder) < count($haips)) {
                     $lastHaip = end($haips);
-                    return $this->output($lastHaip);
+                    $this->output($lastHaip);
+                    return;
                 }
 
                 $this->output("Waiting for haip '{$description}', not there yet");

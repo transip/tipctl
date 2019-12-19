@@ -12,7 +12,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Haip:Certificate:getAll')
+        $this->setName('haip:certificate:getall')
             ->setDescription('List all SSL Certificates that are currently used by your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }

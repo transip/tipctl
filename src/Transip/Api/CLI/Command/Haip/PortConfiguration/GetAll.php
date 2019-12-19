@@ -12,7 +12,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Haip:PortConfiguration:getAll')
+        $this->setName('haip:portconfiguration:getall')
             ->setDescription('Get all of your HA-IP port configurations')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }

@@ -12,7 +12,7 @@ class Add extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Colocation:IpAddress:add')
+        $this->setName('colocation:ipaddress:add')
             ->setDescription('Allocate ipAddresses that are in a range that belong to your colocation')
             ->addArgument(Field::COLOCATION_NAME, InputArgument::REQUIRED, Field::COLOCATION_NAME__DESC)
             ->addArgument(Field::IPADDRESS, InputArgument::REQUIRED, Field::IPADDRESS__DESC)

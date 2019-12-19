@@ -12,7 +12,7 @@ class Order extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:Addon:order')
+        $this->setName('vps:addon:order')
             ->setDescription('Extend a specific VPS with add-ons')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_ADDONS, InputArgument::REQUIRED, Field::VPS_ADDONS__DESC)

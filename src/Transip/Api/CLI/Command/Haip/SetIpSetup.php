@@ -10,19 +10,17 @@ use Transip\Api\CLI\Command\Field;
 
 class SetIpSetup extends AbstractCommand
 {
-    private const IP_SETUP = 'IpSetup';
-
     protected function configure(): void
     {
-        $this->setName('Haip:setIpSetup')
+        $this->setName('haip:setipsetup')
             ->setDescription('Set the IpSetup of your HA-IP, for example don\'t allow ipv6, route ipv6 traffic to ipv4 addresses')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
-            ->addArgument(self::IP_SETUP, InputArgument::REQUIRED, 'HA-IP IP setup can be any of (both, noipv6, ipv6to4)');
+            ->addArgument(Field::HAIP_IP_SETUP, InputArgument::REQUIRED, Field::HAIP_IP_SETUP__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $ipSetup = $input->getArgument(self::IP_SETUP);
+        $ipSetup  = $input->getArgument(Field::HAIP_IP_SETUP);
         $haipName = $input->getArgument(Field::HAIP_NAME);
 
         $haip = $this->getTransipApi()->haip()->getByName($haipName);

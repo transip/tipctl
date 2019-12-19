@@ -13,7 +13,7 @@ class GetLastNetworkUsage extends AbstractCommand
 {
     protected function configure()
     {
-        $this->setName('Vps:Usage:getLastNetworkUsage')
+        $this->setName('vps:usage:getlastnetworkusage')
             ->setDescription('Retrieve the last measured network usage for the given VPS in mbit')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }

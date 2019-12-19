@@ -22,7 +22,7 @@ class Setup extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('setup')
-            ->setDescription('Configure your access token')
+            ->setDescription('Configure your API access credentials')
             ->addOption(Field::API_URL, null, InputOption::VALUE_OPTIONAL, 'API url', Settings::TRANSIP_API_ENDPOINT)
             ->addOption(Field::API_LOGIN, null, InputOption::VALUE_REQUIRED, 'API token')
             ->addOption(Field::API_PRIVATE_KEY, null, InputOption::VALUE_REQUIRED, 'API Private key')

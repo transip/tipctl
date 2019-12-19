@@ -12,8 +12,8 @@ class Upgrade extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:upgrade')
-            ->setDescription('Upgrade your big storage')
+        $this->setName('bigstorage:upgrade')
+            ->setDescription('upgrade your big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::BIGSTORAGE_SIZE, InputArgument::REQUIRED, Field::BIGSTORAGE_SIZE__DESC)
             ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, 'Whether to add offsite backups. (optional)')

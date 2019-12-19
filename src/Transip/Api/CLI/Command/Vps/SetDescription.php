@@ -10,21 +10,19 @@ use Transip\Api\CLI\Command\Field;
 
 class SetDescription extends AbstractCommand
 {
-    private const VPS_DESCRIPTION = 'VpsDescription';
-
     protected function configure(): void
     {
-        $this->setName('Vps:setDescription')
+        $this->setName('vps:setdescription')
             ->setDescription('Set the description of a Vps')
             ->setHelp('Provide a Vps name and a description name')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
-            ->addArgument(self::VPS_DESCRIPTION, InputArgument::REQUIRED, 'The vps description');
+            ->addArgument(Field::VPS_DESCRIPTION, InputArgument::REQUIRED, Field::VPS_DESCRIPTION__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $vpsName = $input->getArgument(Field::VPS_NAME);
-        $vpsDescription = $input->getArgument(self::VPS_DESCRIPTION);
+        $vpsName        = $input->getArgument(Field::VPS_NAME);
+        $vpsDescription = $input->getArgument(Field::VPS_DESCRIPTION);
 
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $vps->setDescription($vpsDescription);

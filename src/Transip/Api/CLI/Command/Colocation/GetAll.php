@@ -10,7 +10,7 @@ class GetAll extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Colocation:getAll')
+        $this->setName('colocation:getall')
             ->setDescription('List all Colocations associated with your TransIP account');
     }
 

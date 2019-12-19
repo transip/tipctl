@@ -12,7 +12,7 @@ class RetryWithNewAuthCode extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Domain:Action:retryWithNewAuthCode')
+        $this->setName('domain:action:retrywithnewauthcode')
             ->setDescription('Retry a failed domain action with new information')
             ->setHelp('Provide a name to retrieve the current running action for a specific domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)

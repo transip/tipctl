@@ -13,7 +13,7 @@ class AttachVps extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('BigStorage:attachVps')
+        $this->setName('bigstorage:attachvps')
             ->setDescription('Attach your big storage to your vps')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, 'Name of the vps that the big storage should attach to.')
