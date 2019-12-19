@@ -138,11 +138,11 @@ class Field
     public const HAIP_NAME__DESC = 'The name of the HA-IP';
     public const HAIP_LOADBALANCING_MODE = 'LoadBalancingMode';
     public const HAIP_LOADBALANCING_MODE__DESC = 'The load balancing mode for the haip (roundrobin|cookie|source) are allowed load balancing modes';
-    public const HAIP_COOKIE_NAME = 'LoadBalancingMode';
+    public const HAIP_COOKIE_NAME = 'CookieName';
     public const HAIP_COOKIE_NAME__DESC = 'Name of the cookie used in cookie loadbalancing mode';
     public const HAIP_IP_SETUP = 'IpSetup';
     public const HAIP_IP_SETUP__DESC = 'HA-IP IP setup can be any of (both|noipv6|ipv6to4)';
-    public const HAIP_INTERVAL = 'interval';
+    public const HAIP_INTERVAL = 'Interval';
     public const HAIP_INTERVAL__DESC = 'The interval must be larger than 2000';
     public const HAIP_WAIT_FOR_DELIVERY = 'WaitForDelivery';
     public const HAIP_WAIT_FOR_DELIVERY__DESC = 'Wait and poll until the Haip is delivered';
