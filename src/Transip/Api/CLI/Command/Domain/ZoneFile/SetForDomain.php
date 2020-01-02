@@ -26,6 +26,5 @@ class SetForDomain extends AbstractCommand
         $zoneFile   = $input->getArgument(Field::DOMAIN_ZONE_FILE);
 
         $this->getTransipApi()->domainZoneFile()->update($domainName, $zoneFile);
-        $this->output($zoneFile);
     }
 }

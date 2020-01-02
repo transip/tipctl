@@ -27,7 +27,5 @@ class AddTag extends AbstractCommand
         $domain = $this->getTransipApi()->domains()->getByName($domainName);
         $domain->addTag($tagName);
         $this->getTransipApi()->domains()->update($domain);
-
-        $this->output($domain);
     }
 }

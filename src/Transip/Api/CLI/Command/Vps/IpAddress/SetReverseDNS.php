@@ -30,7 +30,5 @@ class SetReverseDNS extends AbstractCommand
         $ipAddressObject = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($vpsName, $ipAddress);
         $ipAddressObject->setReverseDns($newPointerRecord);
         $this->getTransipApi()->vpsIpAddresses()->update($vpsName, $ipAddressObject);
-
-        $this->output($ipAddressObject);
     }
 }

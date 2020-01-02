@@ -29,7 +29,5 @@ class UpdatePtr extends AbstractCommand
         $ipAddress = $this->getTransipApi()->colocationIpAddress()->getByColoNameAddress($coloName, $ipAddress);
         $ipAddress->setReverseDns($ptr);
         $this->getTransipApi()->colocationIpAddress()->update($coloName, $ipAddress);
-
-        $this->output($ipAddress);
     }
 }
