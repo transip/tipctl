@@ -102,6 +102,8 @@ class Field
     public const VPS_BACKUP_ID__DESC = 'Id of the backup';
     public const VPS_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
     public const VPS_SNAPSHOT_DESCRIPTION__DESC = 'An informative description that describes the snapshot';
+    public const VPS_SNAPSHOT_SHOULDSTARTVPS = 'ShouldStartVPS';
+    public const VPS_SNAPSHOT_SHOULDSTARTVPS__DESC = 'Should start the VPS right after the snapshot has been taken';
     public const VPS_IPV6Address = 'IPv6Address';
     public const VPS_IPV6Address__DESC = 'An IPv6 Address';
     public const VPS_OS_NAME = 'OperatingSystemName';

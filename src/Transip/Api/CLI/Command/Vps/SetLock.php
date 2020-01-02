@@ -27,7 +27,5 @@ class SetLock extends AbstractCommand
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $vps->setIsCustomerLocked(filter_var($setLock, FILTER_VALIDATE_BOOLEAN));
         $this->getTransipApi()->vps()->update($vps);
-
-        $this->output($vps);
     }
 }

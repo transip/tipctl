@@ -47,6 +47,5 @@ class SetForDomain extends AbstractCommand
         $branding->setBannerLine3($bannerLine3);
 
         $this->getTransipApi()->domainBranding()->update($domainName, $branding);
-        $this->output($branding);
     }
 }

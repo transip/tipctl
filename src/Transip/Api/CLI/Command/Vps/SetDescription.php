@@ -27,7 +27,5 @@ class SetDescription extends AbstractCommand
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $vps->setDescription($vpsDescription);
         $this->getTransipApi()->vps()->update($vps);
-
-        $this->output($vps);
     }
 }

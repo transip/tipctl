@@ -27,7 +27,5 @@ class RemoveTag extends AbstractCommand
         $domain = $this->getTransipApi()->domains()->getByName($domainName);
         $domain->removeTag($tagName);
         $this->getTransipApi()->domains()->update($domain);
-
-        $this->output($domain);
     }
 }
