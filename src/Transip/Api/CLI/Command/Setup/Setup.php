@@ -79,6 +79,7 @@ class Setup extends AbstractCommand
         for ($i = 0; $i < 30; $i++) {
             $privateKeyPart = $helper->ask($input, $output, $keyQuestion);
             $privateKey     .= $privateKeyPart . PHP_EOL;
+
             if (strpos($privateKeyPart, '-----END PRIVATE KEY-----') !== false || $privateKeyPart == '') {
                 break;
             }
@@ -87,6 +88,8 @@ class Setup extends AbstractCommand
         if (strlen($privateKey) < 2) {
             throw new RuntimeException('Provided RestAPI key is invalid');
         }
+
+        $output->writeln("Checking API connection to endpoint '{$apiUrl}'");
 
         // Test connection to the api
         try {
@@ -101,7 +104,8 @@ class Setup extends AbstractCommand
             $output->writeln('<fg=green>API connection successful</>');
         } else {
             $output->writeln('');
-            $output->writeln("<fg=red>API connection failed! {$errorMessage}</>");
+            $output->writeln("<fg=red>API connection failed!</>");
+            $output->writeln("<fg=red>{$errorMessage}</>");
 
             $tokenQuestion = new ConfirmationQuestion("Save to config file anyway? [<comment>No</comment>]: ", false);
             $shouldSave    = $helper->ask($input, $output, $tokenQuestion);
