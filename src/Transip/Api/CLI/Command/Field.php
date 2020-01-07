@@ -100,6 +100,16 @@ class Field
     public const VPS_ADDON__DESC = 'Add-on name';
     public const VPS_BACKUP_ID = 'VpsBackupId';
     public const VPS_BACKUP_ID__DESC = 'Id of the backup';
+    public const VPS_FIREWALL_DESCRIPTION = 'Description';
+    public const VPS_FIREWALL_DESCRIPTION__DESC = 'Description of the Firewall Rule';
+    public const VPS_FIREWALL_START_PORT = 'StartPort';
+    public const VPS_FIREWALL_START_PORT__DESC = 'StartPort of the Firewall Rule';
+    public const VPS_FIREWALL_END_PORT = 'EndPort';
+    public const VPS_FIREWALL_END_PORT__DESC = 'EndPort of the Firewall Rule';
+    public const VPS_FIREWALL_PROTOCOL = 'Protocol';
+    public const VPS_FIREWALL_PROTOCOL__DESC = 'Protocol of the Firewall Rule';
+    public const VPS_FIREWALL_WHITELIST = 'Whitelist';
+    public const VPS_FIREWALL_WHITELIST__DESC = 'Whitelisted IP\'s or Ranges of the Firewall Rule (comma seperated)';
     public const VPS_SNAPSHOT_DESCRIPTION = 'SnapshotDescription';
     public const VPS_SNAPSHOT_DESCRIPTION__DESC = 'An informative description that describes the snapshot';
     public const VPS_SNAPSHOT_SHOULDSTARTVPS = 'ShouldStartVPS';
