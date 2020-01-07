@@ -15,8 +15,8 @@ class GetUsage extends AbstractCommand
         $this->setName('bigstorage:getusage')
             ->setDescription('Get your big storage usage i/o statistics')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
-            ->addArgument(Field::BIGSTORAGE_STARTDATE, InputArgument::OPTIONAL, Field::BIGSTORAGE_STARTDATE__DESC, 0)
-            ->addArgument(Field::BIGSTORAGE_ENDDATE, InputArgument::OPTIONAL, Field::BIGSTORAGE_ENDDATE__DESC, 0)
+            ->addArgument(Field::BIGSTORAGE_STARTDATE, InputArgument::OPTIONAL, Field::BIGSTORAGE_STARTDATE__DESC . Field::OPTIONAL, 0)
+            ->addArgument(Field::BIGSTORAGE_ENDDATE, InputArgument::OPTIONAL, Field::BIGSTORAGE_ENDDATE__DESC . Field::OPTIONAL, 0)
             ->setHelp('This command allows you to retrieve usage statistics of a big storage. Start and end dates cannot be longer than a one month period.');
     }
 
