@@ -11,7 +11,7 @@ class JsonOutput implements OutputInterface
         $output = json_encode($data, JSON_PRETTY_PRINT);
 
         if ($output === false) {
-            throw new \RuntimeException('Failed to parse provided data: ' . print_r($this->data, true));
+            throw new \RuntimeException('Failed to parse provided data: ' . print_r($data, true));
         }
 
         return $output;

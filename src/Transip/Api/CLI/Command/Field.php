@@ -145,6 +145,10 @@ class Field
     public const BIGSTORAGE_BACKUPID__DESC = 'ID number of the backup';
     public const BIGSTORAGE_DESCRIPTION = 'BigStorageDescription';
     public const BIGSTORAGE_DESCRIPTION__DESC = 'Description of the big storage';
+    public const BIGSTORAGE_STARTDATE = 'StartDate';
+    public const BIGSTORAGE_STARTDATE__DESC = 'Start date in unix timestamp';
+    public const BIGSTORAGE_ENDDATE = 'EndDate';
+    public const BIGSTORAGE_ENDDATE__DESC = 'End date in unix timestamp';
 
     public const HAIP_NAME = 'HaipName';
     public const HAIP_NAME__DESC = 'The name of the HA-IP';
