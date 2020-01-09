@@ -134,6 +134,10 @@ class Field
 
     public const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     public const PRIVATENETWORK_NAME__DESC = 'The private network name';
+    public const PRIVATENETWORK_DESCRIPTION = 'Description';
+    public const PRIVATENETWORK_DESCRIPTION__DESC = 'Description to give to the private network';
+    public const PRIVATENETWORK_WAIT_FOR_DELIVERY = 'WaitForDelivery';
+    public const PRIVATENETWORK_WAIT_FOR_DELIVERY__DESC = 'Wait and poll until the private network is delivered';
 
     public const BIGSTORAGE_NAME = 'BigStorageName';
     public const BIGSTORAGE_NAME__DESC = 'The name of the big storage';
