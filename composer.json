@@ -1,11 +1,11 @@
 {
-    "name": "transip/api.cli.client",
-    "description": "TransIP REST Api CLI client",
+    "name": "transip/restapi-cli-client",
+    "description": "TransIP REST API CLI client",
     "type": "project",
     "authors": [
         {
-            "name": "Stefan Konig",
-            "email": "skonig@transip.nl"
+            "name": "TransIP",
+            "email": "support@transip.nl"
         }
     ],
     "minimum-stability": "stable",
@@ -14,7 +14,7 @@
         "symfony/console": "4.3.*",
         "symfony/finder": "4.3.*",
         "symfony/filesystem": "4.3.*",
-        "transip/api.client": "@dev",
+        "transip/restapi-php-library": "@dev",
         "symfony/yaml": "4.3.*",
         "webmozart/path-util": "^2.3"
     },
@@ -26,7 +26,7 @@
     "repositories": {
         "dev-package": {
             "type": "path",
-            "url": "../api.client",
+            "url": "../api.library",
             "options": {
                 "symlink": true
             }
