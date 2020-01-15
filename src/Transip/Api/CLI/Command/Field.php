@@ -215,4 +215,11 @@ class Field
     public const SHOW_CONFIG_FILE_PERMISSION_WARNING = 'showConfigFilePermissionWarning';
     public const FORMAT = 'format';
     public const FORMAT__DESC = 'The output format `txt`, `yaml` or `json`';
+
+    public const INVOICE_NUMBER = 'InvoiceNumber';
+    public const INVOICE_NUMBER__DESC = 'A unique code that was assigned to your invoice';
+    public const PAGE = 'Page';
+    public const PAGE__DESC = 'Page of the result set';
+    public const ITEMS_PER_PAGE = 'ItemsPerPage';
+    public const ITEMS_PER_PAGE__DESC = 'Amount of data you would like visible per page.';
 }

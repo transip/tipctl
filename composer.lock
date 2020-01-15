@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9ae138d059d400c9d2269260eccc58b3",
+    "content-hash": "839d6659a829f9b3b91756b8ec37ae7c",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -1091,12 +1091,12 @@
             "time": "2019-10-30T12:58:49+00:00"
         },
         {
-            "name": "transip/api.client",
-            "version": "dev-master",
+            "name": "transip/restapi-php-library",
+            "version": "dev-feature/invoice-resource",
             "dist": {
                 "type": "path",
-                "url": "../api.client",
-                "reference": "a81d3d9f1b06718b7a85803dbc43cad8321b0963"
+                "url": "../api.library",
+                "reference": "2e0ff6ca4ebe4f96fc2aff07b60c1012b4792ce4"
             },
             "require": {
                 "ext-json": "*",
@@ -1110,13 +1110,16 @@
                     "Transip\\Api\\Client\\": "src/Transip/Api/Client"
                 }
             },
+            "license": [
+                "GNU GENERAL PUBLIC LICENSE"
+            ],
             "authors": [
                 {
-                    "name": "Stefan Konig",
-                    "email": "skonig@transip.nl"
+                    "name": "TransIP",
+                    "email": "support@transip.nl"
                 }
             ],
-            "description": "TransIP REST Api client",
+            "description": "TransIP REST API Library",
             "transport-options": {
                 "symlink": true
             }
@@ -1220,7 +1223,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "transip/api.client": 20
+        "transip/restapi-php-library": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
