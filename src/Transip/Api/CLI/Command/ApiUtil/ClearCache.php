@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\ApiTest;
+namespace Transip\Api\CLI\Command\ApiUtil;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,7 +10,7 @@ class ClearCache extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('apitest:clearcache')
+        $this->setName('apiutil:clearcache')
             ->setDescription('Clear the Token cache')
             ->setHelp('Will force the generation of a new token');
     }

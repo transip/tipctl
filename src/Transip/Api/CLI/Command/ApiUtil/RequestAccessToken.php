@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\ApiTest;
+namespace Transip\Api\CLI\Command\ApiUtil;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,7 +11,7 @@ class RequestAccessToken extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('apitest:requestaccesstoken')
+        $this->setName('apiutil:requestaccesstoken')
             ->setDescription('Use key to create a temporary access token')
             ->setHelp('Use keypair generated in the Control Panel to create a temporary access token');
     }
@@ -19,7 +19,7 @@ class RequestAccessToken extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $settings = Settings::getInstance();
-        $token = $this->getTransipApi()->auth()->createToken($settings->getApiLogin(), $settings->getApiPrivateKey() ,"test-" . rand(0,9999));
+        $token = $this->getTransipApi()->auth()->createToken($settings->getApiLogin(), $settings->getApiPrivateKey() ,"test-" . time());
         $this->output($token);
     }
 }

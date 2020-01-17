@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\ApiTest;
+namespace Transip\Api\CLI\Command\ApiUtil;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,7 +10,7 @@ class Test extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('apitest:test')
+        $this->setName('apiutil:test')
             ->setDescription('Check your API connection and token via this simple test')
             ->setHelp('Will check if the API is reachable with token');
     }
