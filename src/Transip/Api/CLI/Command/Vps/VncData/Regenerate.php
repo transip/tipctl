@@ -13,7 +13,7 @@ class Regenerate extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('vps:vncdata:regenerate')
-            ->setDescription('Regenerate the vnc credentials')
+            ->setDescription('Regenerate VNC credentials')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
