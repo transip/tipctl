@@ -12,7 +12,7 @@ class Disable extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:firewall:disable')
+        $this->setName('vps:firewall:disable')
             ->setDescription('Disable the VpsFirewall for a specific VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->setHelp('All incoming traffic will be allowed when VpsFirewall is disabled');

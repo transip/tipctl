@@ -13,7 +13,7 @@ class RemoveRule extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:firewall:removerule')
+        $this->setName('vps:firewall:removerule')
             ->setDescription('Remove a rule to the VpsFirewall of a specific VPS')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::VPS_FIREWALL_DESCRIPTION, InputArgument::REQUIRED, Field::VPS_FIREWALL_DESCRIPTION__DESC)

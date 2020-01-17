@@ -12,7 +12,7 @@ class Upgrade extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('Vps:upgrade:upgrade')
+        $this->setName('vps:upgrade:upgrade')
             ->setDescription('Upgrading a VPS by specifying the upgrade name.')
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC)
             ->addArgument(Field::PRODUCT_NAME, InputArgument::REQUIRED, Field::PRODUCT_NAME__DESC)
