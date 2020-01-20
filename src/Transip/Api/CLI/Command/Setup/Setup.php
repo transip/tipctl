@@ -14,7 +14,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Settings\Settings;
 use Transip\Api\CLI\Settings\Provider\Json;
-use Transip\Api\Client\TransipAPI;
+use Transip\Api\Library\TransipAPI;
 use RuntimeException;
 
 class Setup extends AbstractCommand

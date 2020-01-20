@@ -13,7 +13,7 @@ class Cancel extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('domain:cancel')
-            ->setDescription('Get specific domain by its domainname')
+            ->setDescription('Cancel a specific domain by its domainname')
             ->setHelp('Provide a domainName and canceltime (end|immediately) to cancel a domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)
             ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC);
