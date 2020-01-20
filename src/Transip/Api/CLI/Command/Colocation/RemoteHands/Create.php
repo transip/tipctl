@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
-use Transip\Api\Client\Entity\Colocation\RemoteHands;
+use Transip\Api\Library\Entity\Colocation\RemoteHands;
 
 class Create extends AbstractCommand
 {

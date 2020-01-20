@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
-use Transip\Api\Client\Entity\Haip\PortConfiguration;
+use Transip\Api\Library\Entity\Haip\PortConfiguration;
 
 class Change extends AbstractCommand
 {

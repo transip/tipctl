@@ -13,7 +13,7 @@ class OrderWhitelabel extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('domain:orderwhitelabel')
-            ->setDescription('Order domain whitelable services for your account')
+            ->setDescription('Order domain whitelabel services for your account')
             ->setHelp('Order the whitelabel services for this account');
     }
 

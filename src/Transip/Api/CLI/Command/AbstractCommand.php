@@ -9,9 +9,8 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\Setup\Setup;
 use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface as ConsoleOutputInterface;
 use Transip\Api\CLI\ConsoleOutput\OutputFactory;
-use Transip\Api\CLI\ConsoleOutput\Formatter;
 use Transip\Api\CLI\Settings\Settings;
-use Transip\Api\Client\TransipAPI;
+use Transip\Api\Library\TransipAPI;
 
 abstract class AbstractCommand extends Command
 {
