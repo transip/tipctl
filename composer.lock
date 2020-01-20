@@ -1092,11 +1092,11 @@
         },
         {
             "name": "transip/restapi-php-library",
-            "version": "dev-feature/invoice-resource",
+            "version": "dev-new-examples",
             "dist": {
                 "type": "path",
                 "url": "../api.library",
-                "reference": "2e0ff6ca4ebe4f96fc2aff07b60c1012b4792ce4"
+                "reference": "6d3c9eec3d87555540403d839eff43fc9f2cd43e"
             },
             "require": {
                 "ext-json": "*",
@@ -1107,11 +1107,11 @@
             "type": "project",
             "autoload": {
                 "psr-4": {
-                    "Transip\\Api\\Client\\": "src/Transip/Api/Client"
+                    "Transip\\Api\\Library\\": "src/Transip/Api/Library"
                 }
             },
             "license": [
-                "GNU GENERAL PUBLIC LICENSE"
+                "MIT LICENSE"
             ],
             "authors": [
                 {
