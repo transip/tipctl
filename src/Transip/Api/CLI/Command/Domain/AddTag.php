@@ -16,13 +16,13 @@ class AddTag extends AbstractCommand
             ->setDescription('Add a tag to a domain')
             ->setHelp('Provide a domain name and tag you would like to add')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC)
-            ->addArgument(Field::DOMAIN_TAG, InputArgument::REQUIRED, Field::DOMAIN_TAG__DESC);
+            ->addArgument(Field::TAG_NAME, InputArgument::REQUIRED, Field::TAG_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
-        $tagName    = $input->getArgument(Field::DOMAIN_TAG);
+        $tagName    = $input->getArgument(Field::TAG_NAME);
 
         $domain = $this->getTransipApi()->domains()->getByName($domainName);
         $domain->addTag($tagName);

@@ -186,8 +186,8 @@ class Field
     public const SSL_COMMON_NAME = 'commonName';
     public const SSL_COMMON_NAME__DESC = 'Domain name for which we should issue the certificate';
 
-    public const DOMAIN_TAG = 'TagName';
-    public const DOMAIN_TAG__DESC = 'The tag name';
+    public const TAG_NAME = 'TagName';
+    public const TAG_NAME__DESC = 'The tag name';
 
     public const COLOCATION_NAME = 'coloName';
     public const COLOCATION_NAME__DESC = 'Name of colocation';
