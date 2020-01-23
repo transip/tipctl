@@ -48,7 +48,7 @@ abstract class AbstractCommand extends Command
         if (!($this instanceof Setup)) {
             $settings = Settings::getInstance();
             $this->transipApi = new TransipAPI($settings->getApiLogin(), $settings->getApiPrivateKey(), $settings->getApiUseWhitelist(),'', $settings->getApiUrl());
-
+            $this->transipApi->setTokenLabelPrefix('api.cli-');
             $settings->ensureConfigFileIsReadOnly($this->getHelperSet()->get('formatter'), $output);
         }
 
