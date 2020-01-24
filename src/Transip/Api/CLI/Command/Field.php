@@ -43,6 +43,8 @@ class Field
     public const DOMAIN_LAST_NAME__DESC = 'Last Name';
     public const DOMAIN_COMPANY_KVK = 'companyKvk';
     public const DOMAIN_COMPANY_KVK__DESC = 'Company Chamber of Commerce number';
+    public const DOMAIN_COMPANY_TYPE = 'CompanyType';
+    public const DOMAIN_COMPANY_TYPE__DESC = 'Company type: BV|BVI/O|COOP|CV|EENMANSZAAK|KERK|NV|OWM|REDR|STICHTING|VERENIGING|VOF|BEG|BRO|EESV|ANDERS';
     public const DOMAIN_STREET = 'street';
     public const DOMAIN_STREET__DESC = 'Street name';
     public const DOMAIN_NUMBER = 'number';

@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Domain\ZoneFile;
+namespace Transip\Api\CLI\Command\Domain\Whitelabel;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -8,20 +8,22 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 
-class GetByDomainName extends AbstractCommand
+class Enable extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('domain:zonefile:getbydomainname')
-            ->setDescription('Get the Zonefile for a domain')
-            ->setHelp('Provide a name to retrieve the zonefile for a specific domain')
+        $this->setName('domain:whitelabel:enable')
+            ->setDescription('Enable whitelabel for your domain, this cannot be reversed!')
+            ->setHelp('Provide a domain name to set to whitelabel, can not be reversed!')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
-        $zoneFile   = $this->getTransipApi()->domainZoneFile()->getByDomainName($domainName);
-        $this->output($zoneFile);
+
+        $domain = $this->getTransipApi()->domains()->getByName($domainName);
+        $domain->setIsWhitelabel(true);
+        $this->getTransipApi()->domains()->update($domain);
     }
 }

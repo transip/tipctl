@@ -22,6 +22,7 @@ class SetForDomain extends AbstractCommand
             ->addArgument(Field::DOMAIN_LAST_NAME, InputArgument::REQUIRED, Field::DOMAIN_LAST_NAME__DESC)
             ->addArgument(Field::DOMAIN_COMPANY_NAME, InputArgument::REQUIRED, Field::DOMAIN_COMPANY_NAME__DESC)
             ->addArgument(Field::DOMAIN_COMPANY_KVK, InputArgument::REQUIRED, Field::DOMAIN_COMPANY_KVK__DESC)
+            ->addArgument(Field::DOMAIN_COMPANY_TYPE, InputArgument::REQUIRED, Field::DOMAIN_COMPANY_TYPE__DESC)
             ->addArgument(Field::DOMAIN_STREET, InputArgument::REQUIRED, Field::DOMAIN_STREET__DESC)
             ->addArgument(Field::DOMAIN_NUMBER, InputArgument::REQUIRED, Field::DOMAIN_NUMBER__DESC)
             ->addArgument(Field::DOMAIN_POSTAL_CODE, InputArgument::REQUIRED, Field::DOMAIN_POSTAL_CODE__DESC)
@@ -40,6 +41,7 @@ class SetForDomain extends AbstractCommand
         $lastName    = $input->getArgument(Field::DOMAIN_LAST_NAME);
         $companyName = $input->getArgument(Field::DOMAIN_COMPANY_NAME);
         $companyKvk  = $input->getArgument(Field::DOMAIN_COMPANY_KVK);
+        $companyType = $input->getArgument(Field::DOMAIN_COMPANY_TYPE);
         $street      = $input->getArgument(Field::DOMAIN_STREET);
         $number      = $input->getArgument(Field::DOMAIN_NUMBER);
         $postalCode  = $input->getArgument(Field::DOMAIN_POSTAL_CODE);
@@ -55,6 +57,7 @@ class SetForDomain extends AbstractCommand
         $whoisContact->setLastName($lastName);
         $whoisContact->setCompanyName($companyName);
         $whoisContact->setCompanyKvk($companyKvk);
+        $whoisContact->setCompanyType($companyType);
         $whoisContact->setStreet($street);
         $whoisContact->setNumber($number);
         $whoisContact->setPostalCode($postalCode);
