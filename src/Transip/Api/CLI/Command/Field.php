@@ -224,4 +224,32 @@ class Field
     public const PAGE__DESC = 'Page of the result set';
     public const ITEMS_PER_PAGE = 'ItemsPerPage';
     public const ITEMS_PER_PAGE__DESC = 'Amount of data you would like visible per page.';
+
+    public const TCP_IPADDRESS = self::IPADDRESS;
+    public const TCP_IPADDRESS__DESC = 'IP Address that is monitored';
+    public const LABEL = 'Label';
+    public const LABEL__DESC = 'Title of the monitor';
+    public const PORTS = 'Ports';
+    public const PORTS__DESC = 'Ports that are to be monitored (comma separated)';
+    public const CHECK_INTERVAL = 'CheckInterval';
+    public const CHECK_INTERVAL__DESC = 'Checking interval in minutes (numbers 1-6)';
+    public const ALLOWED_TIMEOUTS = 'AllowedTimeouts';
+    public const ALLOWED_TIMEOUTS__DESC = 'Allowed time outs (numbers 1-5)';
+    public const CONTACT_ID = 'ContactId';
+    public const CONTACT_ID__DESC = 'Id number of the contact (find by <fg=yellow>vps:tcpmonitor:contact:getall</>)';
+    public const CONTACT_ENABLE_EMAIL = 'EnableEmail';
+    public const CONTACT_ENABLE_EMAIL__DESC = 'Send emails to contact (true|false)';
+    public const CONTACT_ENABLE_SMS = 'EnableSMS';
+    public const CONTACT_ENABLE_SMS__DESC = 'Send SMS text messages to contact (true|false)';
+    public const TIME_FROM = 'TimeFrom';
+    public const TIME_FROM__DESC = 'Ignore time start from (example `18:00`)';
+    public const TIME_TO = 'TimeTo';
+    public const TIME_TO__DESC = 'Ignore time end at (example `08:30`)';
+
+    public const CONTACT_NAME = 'Name';
+    public const CONTACT_NAME__DESC = 'Name of the contact';
+    public const CONTACT_TELEPHONE = 'Telephone';
+    public const CONTACT_TELEPHONE__DESC = 'Telephone number of the contact';
+    public const CONTACT_EMAIL = 'Email';
+    public const CONTACT_EMAIL__DESC = 'Email address of the contact';
 }
