@@ -24,6 +24,6 @@ class GetByInvoiceNumber extends AbstractCommand
 
         $invoicePdfData = $this->getTransipApi()->invoicePdf()->getByInvoiceNumber($invoiceNumber);
 
-        $output->writeln($invoicePdfData);
+        $this->output($invoicePdfData);
     }
 }

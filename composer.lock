@@ -1092,11 +1092,11 @@
         },
         {
             "name": "transip/restapi-php-library",
-            "version": "dev-vpsTagResource",
+            "version": "dev-master",
             "dist": {
                 "type": "path",
                 "url": "../api.library",
-                "reference": "ceaeb4901e5268289446be749d804f092f7dd1f2"
+                "reference": "c845aa08116a6b78c9494214c1d5d546e3d82316"
             },
             "require": {
                 "ext-json": "*",
