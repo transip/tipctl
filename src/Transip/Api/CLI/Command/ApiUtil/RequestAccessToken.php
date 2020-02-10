@@ -19,7 +19,7 @@ class RequestAccessToken extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $settings = Settings::getInstance();
-        $token = $this->getTransipApi()->auth()->createToken($settings->getApiLogin(), $settings->getApiPrivateKey() ,"test-" . time());
-        $this->output($token);
+        $token = $this->getTransipApi()->auth()->createToken($settings->getApiLogin(), $settings->getApiPrivateKey(), "test-" . time());
+        $output->writeLn($token);
     }
 }

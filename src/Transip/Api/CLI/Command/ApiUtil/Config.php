@@ -28,7 +28,8 @@ class Config extends AbstractCommand
                 'endpoint'                => $this->getTransipApi()->getEndpointUrl(),
                 'login'                   => $this->getTransipApi()->getLogin(),
                 'generateWhitelistTokens' => $this->getTransipApi()->getGenerateWhitelistOnlyTokens(),
-            ]
+                'readOnlyMode'            => $this->getTransipApi()->getReadOnlyMode(),
+            ],
         ];
 
         $this->output($information);

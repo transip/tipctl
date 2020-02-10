@@ -17,7 +17,16 @@ class Test extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $success = $this->getTransipApi()->test()->test();
-        $this->output(['success' => $success]);
+        $timeStart = microtime(true);
+        $success   = $this->getTransipApi()->test()->test();
+        $timeDone  = microtime(true);
+
+        if ($success) {
+            $output->writeln('<fg=green>API connection successful</>');
+        } else {
+            $output->writeln("<fg=red>API connection failed!</>");
+        }
+        $ping = round(($timeDone - $timeStart) * 1000);
+        $output->writeln("Elapsed time: {$ping} ms");
     }
 }

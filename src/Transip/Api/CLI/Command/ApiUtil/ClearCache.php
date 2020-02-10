@@ -18,6 +18,6 @@ class ClearCache extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->getTransipApi()->clearCache();
-        $this->output("Cache cleared");
+        $output->writeLn("<fg=green>TransIP API library cache cleared</>");
     }
 }
