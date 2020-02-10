@@ -20,7 +20,7 @@ class AddRule extends AbstractCommand
             ->addArgument(Field::VPS_FIREWALL_START_PORT, InputArgument::REQUIRED, Field::VPS_FIREWALL_START_PORT__DESC)
             ->addArgument(Field::VPS_FIREWALL_END_PORT, InputArgument::REQUIRED, Field::VPS_FIREWALL_END_PORT__DESC)
             ->addArgument(Field::VPS_FIREWALL_PROTOCOL, InputArgument::REQUIRED, Field::VPS_FIREWALL_PROTOCOL__DESC)
-            ->addArgument(Field::VPS_FIREWALL_WHITELIST, InputArgument::OPTIONAL, Field::VPS_FIREWALL_WHITELIST__DESC . Field::OPTIONAL,[])
+            ->addArgument(Field::VPS_FIREWALL_WHITELIST, InputArgument::OPTIONAL, Field::VPS_FIREWALL_WHITELIST__DESC . Field::OPTIONAL, [])
             ->setHelp('All incoming traffic that matches this rule will be allowed');
     }
 

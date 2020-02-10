@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Create extends AbstractCommand
 {
-       protected function configure(): void
+    protected function configure(): void
     {
         $this->setName('vps:snapshot:create')
             ->setDescription('Create a snapshot for a VPS')

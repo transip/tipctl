@@ -1,0 +1,22 @@
+{
+  "directories": [
+    "bin",
+    "src"
+  ],
+  "files": [
+    "LICENSE",
+    "README.md"
+  ],
+  "finder": [
+    {
+      "name": "*.php",
+      "exclude": [
+        "Tests"
+      ],
+      "in": "vendor"
+    }
+  ],
+  "git-version": "package_version",
+  "main": "bin/tipctl",
+  "output": "tipctl.phar"
+}

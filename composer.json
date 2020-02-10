@@ -1,35 +1,27 @@
 {
-    "name": "transip/restapi-cli-client",
-    "description": "TransIP REST API CLI client",
-    "type": "project",
-    "authors": [
-        {
-            "name": "TransIP",
-            "email": "support@transip.nl"
-        }
-    ],
-    "minimum-stability": "stable",
-    "require": {
-        "ext-json": "*",
-        "symfony/console": "4.3.*",
-        "symfony/finder": "4.3.*",
-        "symfony/filesystem": "4.3.*",
-        "transip/restapi-php-library": "@dev",
-        "symfony/yaml": "4.3.*",
-        "webmozart/path-util": "^2.3"
-    },
-    "autoload": {
-        "psr-4": {
-            "Transip\\Api\\CLI\\": "src/Transip/Api/CLI"
-        }
-    },
-    "repositories": {
-        "dev-package": {
-            "type": "path",
-            "url": "../api.library",
-            "options": {
-                "symlink": true
-            }
-        }
+  "name": "transip/restapi-cli-client",
+  "description": "TransIP REST API CLI client",
+  "license": "Apache-2.0",
+  "authors": [
+    {
+      "name": "TransIP",
+      "email": "support@transip.eu"
     }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "^7.2.0",
+    "ext-json": "*",
+    "symfony/console": "4.3.*",
+    "symfony/finder": "4.3.*",
+    "symfony/filesystem": "4.3.*",
+    "transip/restapi-php-library": "6.0.*",
+    "symfony/yaml": "4.3.*",
+    "webmozart/path-util": "^2.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Transip\\Api\\CLI\\": "src/Transip/Api/CLI"
+    }
+  }
 }
