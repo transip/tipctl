@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Invoice;
+namespace Transip\Api\CLI\Command\Invoice\Items;
 
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -12,18 +12,18 @@ class GetByInvoiceNumber extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('invoice:getbyinvoicenumber')
-            ->setDescription('Get a specific invoice by invoiceNumber')
+        $this->setName('invoice:items:getbyinvoicenumber')
+            ->setDescription('Get the invoiceItems for a specific invoice')
             ->addArgument(Field::INVOICE_NUMBER, InputArgument::REQUIRED, Field::INVOICE_NUMBER__DESC)
-            ->setHelp('This API call will return information for one specific invoice');
+            ->setHelp('This API call returns details for each item on an invoice');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $invoiceNumber = $input->getArgument(Field::INVOICE_NUMBER);
 
-        $invoiceData = $this->getTransipApi()->invoice()->getByInvoiceNumber($invoiceNumber);
+        $invoicePdfData = $this->getTransipApi()->invoiceItem()->getByInvoiceNumber($invoiceNumber);
 
-        $this->output($invoiceData);
+        $this->output($invoicePdfData);
     }
 }
