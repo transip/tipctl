@@ -1,6 +1,4 @@
-variables:
-  DOCKER_IMAGE: '$IMAGE_URL'
-image: '$DOCKER_IMAGE'
+image: '$IMAGE_URL'
 stages:
   - lint
   - build
@@ -24,6 +22,14 @@ lint:composer:
   stage: lint
   script:
     - composer validate --no-interaction --strict
+  tags:
+    - k8s
+
+lint:secretsscan:
+  image: '$IMAGE_URL_PYTHON'
+  stage: lint
+  script:
+    - ci/scan_secrets.sh
   tags:
     - k8s
 
