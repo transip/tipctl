@@ -18,31 +18,11 @@ if [ -z "$FILE_TO_PUSH" ] ; then
   exit 1;
 fi
 
-# returns the previous tag since this tag
-function get_previous_tag() {
-  git describe --abbrev=0 --tags $TAG_VERSION^ 2> /dev/null || echo ""
-}
-
-# generate description by the previous commits
-# if changelog did not change between tags we generate something via the commits
-function get_description() {
-  previous_tag=$(get_previous_tag)
-
-  # no previous tag add everything as
-  if [ -z "$previous_tag"]; then
-    git --no-pager log --decorate=no --format="- %s" --no-merges | sed 's/\-/\\n\-/'
-    return;
-  fi;
-
-  git --no-pager log --decorate=no --format="- %s" --no-merges | sed 's/\-/\\n\-/'
-}
-
 description="Please set a description"
 
 json_output=$(curl -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "Content-Type: application/json" \
-  -X POST "https://api.github.com/repos/transip/tipctl/releases" \
-  -d "{\"tag_name\": \"$TAG_VERSION\", \"name\": \"$TAG_VERSION\", \"body\": \"$description\", \"draft\": true, \"prerelease\": false}")
+  -X GET "https://api.github.com/repos/transip/tipctl/releases/tags/${TAG_VERSION}")
 
 release_id=$(echo $json_output | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
 name_of_asset=$(basename $FILE_TO_PUSH)
