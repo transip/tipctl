@@ -11,6 +11,7 @@ fi
 
 if ! which trufflehog; then
   echo "# Installing trufflehog before scanning"
+  pip install gitdb2==3.0.0 # todo remove after https://github.com/dxa4481/truffleHog/issues/200 has been resovled
   pip -q install trufflehog
 fi
 

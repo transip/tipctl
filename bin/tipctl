@@ -10,7 +10,7 @@ $app = new Application();
 $app->setName('Transip API CLI');
 
 $finder = new Finder();
-$finder->files()->in(__DIR__ . '/../src/Transip/Api/CLI/Command');
+$finder->files()->in(__DIR__ . '/../src/Command');
 
 foreach ($finder as $file) {
     $className = str_replace('.php', '', $file->getRelativePathname());

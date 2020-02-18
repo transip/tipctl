@@ -1096,12 +1096,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/transip/restapi-php-library.git",
-                "reference": "61000f6e908cb29d6affa605e2fb6397904f6a22"
+                "reference": "6dfe1887cfbd7f15c5431d8e7baab3cbd1cb9bc4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/transip/restapi-php-library/zipball/61000f6e908cb29d6affa605e2fb6397904f6a22",
-                "reference": "61000f6e908cb29d6affa605e2fb6397904f6a22",
+                "url": "https://api.github.com/repos/transip/restapi-php-library/zipball/6dfe1887cfbd7f15c5431d8e7baab3cbd1cb9bc4",
+                "reference": "6dfe1887cfbd7f15c5431d8e7baab3cbd1cb9bc4",
                 "shasum": ""
             },
             "require": {
@@ -1128,20 +1128,20 @@
                 }
             ],
             "description": "TransIP Rest API Library",
-            "time": "2020-02-12T14:21:57+00:00"
+            "time": "2020-02-13T15:23:07+00:00"
         },
         {
             "name": "webmozart/assert",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozart/assert.git",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925"
+                "reference": "aed98a490f9a8f78468232db345ab9cf606cf598"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozart/assert/zipball/573381c0a64f155a0d9a23f4b0c797194805b925",
-                "reference": "573381c0a64f155a0d9a23f4b0c797194805b925",
+                "url": "https://api.github.com/repos/webmozart/assert/zipball/aed98a490f9a8f78468232db345ab9cf606cf598",
+                "reference": "aed98a490f9a8f78468232db345ab9cf606cf598",
                 "shasum": ""
             },
             "require": {
@@ -1176,7 +1176,7 @@
                 "check",
                 "validate"
             ],
-            "time": "2019-11-24T13:36:37+00:00"
+            "time": "2020-02-14T12:15:55+00:00"
         },
         {
             "name": "webmozart/path-util",
