@@ -21,7 +21,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Transip\\Api\\CLI\\": "src/Transip/Api/CLI"
+      "Transip\\Api\\CLI\\": "src"
     }
   }
 }
