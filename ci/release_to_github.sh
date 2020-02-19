@@ -22,7 +22,8 @@ description="Please set a description"
 
 json_output=$(curl -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "Content-Type: application/json" \
-  -X GET "https://api.github.com/repos/transip/tipctl/releases/tags/${TAG_VERSION}")
+  -X POST "https://api.github.com/repos/transip/tipctl/releases" \
+  -d "{\"tag_name\": \"$TAG_VERSION\", \"name\": \"$TAG_VERSION\", \"body\": \"$description\", \"draft\": true, \"prerelease\": false}")
 
 release_id=$(echo $json_output | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
 name_of_asset=$(basename $FILE_TO_PUSH)
