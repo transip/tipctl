@@ -3,6 +3,7 @@ stages:
   - lint
   - build
   - deploy
+  - release
 
 lint:php:
   stage: lint
@@ -47,8 +48,17 @@ build:phar:
   tags:
     - k8s
 
-deploy:create-github-release:
+deploy:create-github-deploy:
   stage: deploy
+  only:
+    - tags
+  script:
+    - ci/sync_to_github.sh
+  tags:
+    - k8s
+
+release:create-github-release:
+  stage: release
   only:
     - tags
   except:
