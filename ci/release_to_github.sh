@@ -18,12 +18,16 @@ if [ -z "$FILE_TO_PUSH" ] ; then
   exit 1;
 fi
 
-description="Please set a description"
+function convert_to_json() {
+  python -c 'import json,sys;print json.dumps(sys.stdin.read().strip())'
+}
+
+description="$(git show --format=%N $TAG_VERSION | tail -n+3 | convert_to_json)"
 
 json_output=$(curl -H "Authorization: token ${GITHUB_TOKEN}" \
   -H "Content-Type: application/json" \
   -X POST "https://api.github.com/repos/transip/tipctl/releases" \
-  -d "{\"tag_name\": \"$TAG_VERSION\", \"name\": \"$TAG_VERSION\", \"body\": \"$description\", \"draft\": true, \"prerelease\": false}")
+  -d "{\"tag_name\": \"${TAG_VERSION}\", \"name\": \"${TAG_VERSION}\", \"body\": ${description}, \"draft\": true, \"prerelease\": false}")
 
 release_id=$(echo $json_output | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
 name_of_asset=$(basename $FILE_TO_PUSH)
