@@ -5,9 +5,12 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Finder\Finder;
+use Transip\Api\CLI\Settings\Settings;
+
+$version = Settings::TRANSIP_CLI_VERSION;
 
 $app = new Application();
-$app->setName('Transip API CLI');
+$app->setName("Transip RestAPI CLI v{$version}");
 
 $finder = new Finder();
 $finder->files()->in(__DIR__ . '/../src/Command');
