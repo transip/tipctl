@@ -38,15 +38,13 @@ build:phar:
   stage: build
   script:
     - composer install --no-dev --no-interaction --no-progress
-    - curl -L --output /tmp/box.phar https://github.com/humbug/box/releases/download/3.8.4/box.phar
-    - chmod +x /tmp/box.phar
-    - /tmp/box.phar compile
+    - box compile
   artifacts:
     expire_in: 1 hour
     paths:
       - tipctl.phar
-  tags:
-    - k8s
+#  tags:
+#    - k8s
 
 deploy:create-github-deploy:
   stage: deploy
