@@ -4,13 +4,29 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Finder\Finder;
 use Transip\Api\CLI\Settings\Settings;
 
-$version = Settings::TRANSIP_CLI_VERSION;
+$app = new Application("Transip RestAPI CLI", Settings::TRANSIP_CLI_VERSION);
 
-$app = new Application();
-$app->setName("Transip RestAPI CLI v{$version}");
+$app->getDefinition()->addOptions([
+    new InputOption(
+        '--demo',
+        '-d',
+        InputOption::VALUE_NONE,
+        'Use TransIP Demo account'
+    )
+]);
+
+$app->getDefinition()->addOptions([
+    new InputOption(
+        '--test',
+        '-t',
+        InputOption::VALUE_NONE,
+        'Use Test Mode (dry run)'
+    )
+]);
 
 $finder = new Finder();
 $finder->files()->in(__DIR__ . '/../src/Command');
