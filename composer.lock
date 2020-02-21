@@ -1092,16 +1092,16 @@
         },
         {
             "name": "transip/restapi-php-library",
-            "version": "v6.0.0",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/transip/restapi-php-library.git",
-                "reference": "e6e7e354fb0af920ccf1c451cf8c0477f2226b78"
+                "reference": "6ed762c51e1ec016669644303a049c8bc98fae69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/transip/restapi-php-library/zipball/e6e7e354fb0af920ccf1c451cf8c0477f2226b78",
-                "reference": "e6e7e354fb0af920ccf1c451cf8c0477f2226b78",
+                "url": "https://api.github.com/repos/transip/restapi-php-library/zipball/6ed762c51e1ec016669644303a049c8bc98fae69",
+                "reference": "6ed762c51e1ec016669644303a049c8bc98fae69",
                 "shasum": ""
             },
             "require": {
@@ -1128,7 +1128,7 @@
                 }
             ],
             "description": "TransIP Rest API Library",
-            "time": "2020-02-19T14:44:14+00:00"
+            "time": "2020-02-21T15:22:55+00:00"
         },
         {
             "name": "webmozart/assert",
