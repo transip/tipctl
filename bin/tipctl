@@ -19,6 +19,15 @@ $app->getDefinition()->addOptions([
     )
 ]);
 
+$app->getDefinition()->addOptions([
+    new InputOption(
+        '--test',
+        '-t',
+        InputOption::VALUE_NONE,
+        'Use Test Mode (dry run)'
+    )
+]);
+
 $finder = new Finder();
 $finder->files()->in(__DIR__ . '/../src/Command');
 

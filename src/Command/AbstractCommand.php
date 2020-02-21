@@ -59,6 +59,10 @@ abstract class AbstractCommand extends Command
                 $this->transipApi->useDemoToken();
             }
 
+            if ($input->getOption('test')) {
+                $this->transipApi->setTestMode(true);
+            }
+
             $this->transipApi->setTokenLabelPrefix('api.cli-');
             $settings->ensureConfigFileIsReadOnly($this->getHelperSet()->get('formatter'), $output);
         }
