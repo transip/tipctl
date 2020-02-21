@@ -1,5 +1,5 @@
 {
-  "name": "transip/restapi-cli-client",
+  "name": "transip/tipctl",
   "description": "TransIP REST API CLI client",
   "license": "Apache-2.0",
   "authors": [
