@@ -41,11 +41,16 @@ It is important to note that you must use `./` every time to indicate you are us
 You can install Tipctl using [Composer](http://getcomposer.org/). Run the following command:
 
 ```shell script
-# Install
 composer global require transip/tipctl
+```
 
-# ...
+Now that the tipctl binary is available globally, make sure that your global vendor binaries directory is included in your environment `$PATH` variable. You can get the vendor binaries directory with the following command:
+```shell script
+composer global config bin-dir --absolute
+```
 
+Now execute the following command to see the version of tipctl installed:
+```shell script
 tipctl --version
 ```
 
