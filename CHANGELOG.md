@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+6.0.3
+-----
+
+* Fixed errors with finding the auto loader when installing using composer
+
 6.0.2
 -----
 
