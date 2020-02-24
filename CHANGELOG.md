@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+6.0.1
+-----
+
+* Fixed potential compatibility issues with Symfony versions across different projects when conducting a composer global install 
+
 6.0.0
 -----
 

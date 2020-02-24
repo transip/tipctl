@@ -12,11 +12,11 @@
   "require": {
     "php": "^7.2.0",
     "ext-json": "*",
-    "symfony/console": "4.3.*",
-    "symfony/finder": "4.3.*",
-    "symfony/filesystem": "4.3.*",
+    "symfony/console": "^4.3",
+    "symfony/finder": "^4.3",
+    "symfony/filesystem": "^4.3",
     "transip/restapi-php-library": "6.0.*",
-    "symfony/yaml": "4.3.*",
+    "symfony/yaml": "^4.3",
     "webmozart/path-util": "^2.3"
   },
   "autoload": {
