@@ -1,6 +1,19 @@
 #!/usr/bin/env php
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
+
+// Default autoloader location (installed manually)
+$autoloader = __DIR__ . '/../vendor/autoload.php';
+
+if (!file_exists($autoloader)) {
+    // Installed via `composer [global] require`.
+    $autoloader = __DIR__ . '/../../../autoload.php';
+}
+
+if (!file_exists($autoloader)) {
+    throw new RuntimeException('Tipctl was unable to find its autoloader. Did you forget to run composer update?');
+}
+
+require_once($autoloader);
 
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Command\Command;
