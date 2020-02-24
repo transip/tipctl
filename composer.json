@@ -23,5 +23,8 @@
     "psr-4": {
       "Transip\\Api\\CLI\\": "src"
     }
-  }
+  },
+  "bin": [
+    "bin/tipctl"
+  ]
 }

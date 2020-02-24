@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+6.0.2
+-----
+
+* Added tipctl to the vendor binaries directory.
+* Updated README.md
+
 6.0.1
 -----
 
