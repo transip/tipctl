@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+6.0.4
+-----
+
+* Switched the transip library repository to transip-api-php
+
 6.0.3
 -----
 
