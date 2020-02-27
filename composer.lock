@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "74614d8446ec1ec0418da9b97b5933c1",
+    "content-hash": "ae9ce6cb5112aef6b1b00264d9ed4c05",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -1092,17 +1092,17 @@
             "time": "2020-01-21T11:12:16+00:00"
         },
         {
-            "name": "transip/restapi-php-library",
-            "version": "v6.0.1",
+            "name": "transip/transip-api-php",
+            "version": "v6.0.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:transip/restapi-php-library.git",
-                "reference": "5d6b67b10ef7f52955b78585fd4bbf8e0820d840"
+                "url": "https://github.com/transip/transip-api-php.git",
+                "reference": "3c578eeaa06e6b585324be93f165626e11be2acf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/transip/restapi-php-library/zipball/5d6b67b10ef7f52955b78585fd4bbf8e0820d840",
-                "reference": "5d6b67b10ef7f52955b78585fd4bbf8e0820d840",
+                "url": "https://api.github.com/repos/transip/transip-api-php/zipball/3c578eeaa06e6b585324be93f165626e11be2acf",
+                "reference": "3c578eeaa06e6b585324be93f165626e11be2acf",
                 "shasum": ""
             },
             "require": {
@@ -1129,7 +1129,7 @@
                 }
             ],
             "description": "TransIP Rest API Library",
-            "time": "2020-02-21T15:31:17+00:00"
+            "time": "2020-02-27T14:46:04+00:00"
         },
         {
             "name": "webmozart/assert",
