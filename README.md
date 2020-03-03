@@ -34,7 +34,7 @@ chmod +x ./tipctl.phar
 # Test if the tipctl is executable
 ./tipctl.phar --version
 ```
-It is important to note that you must use `./` every time to indicate you are using the tipctl executable from your current directory. This is because the command line (bash) interprets all commands by looking for commands in locations described in the environment variable $PATH. If you want to use the tipctl command globally, then we recommend installing using composer.
+It is important to note that you must use `./` every time to indicate you are using the tipctl executable from your current directory. This is because the command line (bash) interprets all commands by looking for commands in locations described in the environment variable `$PATH`. If you want to use the tipctl command globally, then we recommend installing using composer.
 
 ### Install with Composer
 
@@ -92,7 +92,7 @@ tipctl domain:dns:updatednsentry example.com subdomain 300 A 37.97.254.1
 
 ## How PHP resource calls are implemented
 
-Since this project is built on the RestAPI PHP library, in the [library README.md](https://github.com/transip/restapi-php-library/blob/master/README.md) we recommend to look in to this CLI project for examples on how we have implemented the available resource calls that exist in the RestAPI library.
+Since this project is built on the RestAPI PHP library, in the [library README.md](https://github.com/transip/transip-api-php/blob/master/README.md) we recommend to look in to this CLI project for examples on how we have implemented the available resource calls that exist in the RestAPI library.
 
 ### Where to find the implementations
 
