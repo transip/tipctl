@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+6.0.5
+-----
+
+* Fix to demo mode, you can now use it without running setup
+* You can now specify expiry date when requesting access tokens
+
 6.0.4
 -----
 
