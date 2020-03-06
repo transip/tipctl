@@ -46,7 +46,10 @@ abstract class AbstractCommand extends Command
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
         if (!($this instanceof Setup)) {
-            $settings = Settings::getInstance();
+            $isDemoMode = $input->getOption('demo');
+
+            $settings = Settings::getInstance($isDemoMode);
+
             $this->transipApi = new TransipAPI(
                 $settings->getApiLogin(),
                 $settings->getApiPrivateKey(),
@@ -55,7 +58,7 @@ abstract class AbstractCommand extends Command
                 $settings->getApiUrl()
             );
 
-            if ($input->getOption('demo')) {
+            if ($isDemoMode) {
                 $this->transipApi->useDemoToken();
             }
 

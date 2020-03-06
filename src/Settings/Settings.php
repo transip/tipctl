@@ -15,7 +15,7 @@ class Settings
     private const CONFIG_FILE_NAME = 'cli-config.json';
 
     public const TRANSIP_API_ENDPOINT = 'https://api.transip.nl/v6';
-    public const TRANSIP_CLI_VERSION = '6.0.4';
+    public const TRANSIP_CLI_VERSION = '6.0.5';
 
     /**
      * @var string
@@ -47,7 +47,7 @@ class Settings
      */
     private static $instance;
 
-    private function __construct()
+    private function initialise(): void
     {
         $configFilePath = self::getConfigFilePath();
 
@@ -64,10 +64,30 @@ class Settings
         $this->showConfigFilePermissionWarning = $data[Field::SHOW_CONFIG_FILE_PERMISSION_WARNING];
     }
 
-    public static function getInstance(): self
+    /**
+     * Demo mode is enabled, here we ensure that all properties in this class are empty.
+     *
+     * @return void
+     */
+    private function initialiseDemo(): void
+    {
+        $this->apiUrl                          = '';
+        $this->apiLogin                        = '';
+        $this->apiPrivateKey                   = '';
+        $this->apiUseWhitelist                 = '';
+        $this->showConfigFilePermissionWarning = '';
+    }
+
+    public static function getInstance(bool $isDemoMode): self
     {
         if (self::$instance === null) {
-            self::$instance = new self;
+            self::$instance = new self();
+
+            if (!$isDemoMode) {
+                (self::$instance)->initialise();
+            } else {
+                (self::$instance)->initialiseDemo();
+            }
         }
 
         return self::$instance;
