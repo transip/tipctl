@@ -252,4 +252,9 @@ class Field
     public const CONTACT_TELEPHONE__DESC = 'Telephone number of the contact';
     public const CONTACT_EMAIL = 'Email';
     public const CONTACT_EMAIL__DESC = 'Email address of the contact';
+
+    public const READ_ONLY = 'ReadOnly';
+    public const READ_ONLY__DESC = 'Whether the token should be read only (true|false)';
+    public const TOKEN_END_DATE = 'TokenEndDate';
+    public const TOKEN_END_DATE__DESC = "Token end date '10 min', '1 day', '1 week', '1 month'";
 }
