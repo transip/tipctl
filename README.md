@@ -90,6 +90,72 @@ tipctl domain:dns:updatednsentry -h
 tipctl domain:dns:updatednsentry example.com subdomain 300 A 37.97.254.1
 ```
 
+### Understanding how to use the help argument
+
+When using tipctl you can use a `-h` argument to get information about how a specified command works.
+
+```shell script
+# Passing a help argument to any command
+# tipctl <anycommand> -h
+```
+
+From the above example, the help argument should be used and interpeted like this:
+
+```shell script
+# Example for attach vps command
+tipctl bigstorage:attachvps -h
+```
+
+And this will output the following:
+```
+Description:
+  Attach your big storage to your vps
+
+Usage:
+  bigstorage:attachvps [options] [--] <BigStorageName> <VpsName>
+
+Arguments:
+  BigStorageName         The name of the big storage
+  VpsName                Name of the vps that the big storage should attach to.
+```
+
+Usage example and how it should be interpeted
+```shell script
+# We look at the following usage example:
+# bigstorage:attachvps [options] [--] <BigStorageName> <VpsName>
+
+# Interpertation of the above
+tipctl bigstorage:attachvps example-bigstorage3 examples-vps4
+```
+
+## Demo / Read Only Modes
+
+### Test mode
+
+Test mode allows you to connect to your TransIP account and execute actions without making any changes to your products or your account. In the test process, all actions are evaluated as best as possible, comparable to production mode. If any given argument is incorrect, then you will see errors that explain why a query was unsuccessful.  
+
+While executing any command, you can provide an argument called `--test`. This lets our API know that the command you executed is a test and no changes will occur in your TransIP account. 
+```shell script
+# Example for all commands
+# tipctl --test <command> <arguments>
+
+# How you should use this
+tipctl --test vps:order vps-bladevps-x1 debian-9
+```
+
+### Demo mode
+
+Demo mode allows you to connect to the [TransIP demo account](https://www.transip.nl/demo-account/) and interact with the demo account to give you perspective on how you can use Tipctl with a TransIP account.
+
+```shell script
+# Example for all commands
+# tipctl --demo <command>
+
+# How this should be used
+tipctl --demo vps:getall
+```
+
+# RestAPI Library
 ## How PHP resource calls are implemented
 
 Since this project is built on the RestAPI PHP library, in the [library README.md](https://github.com/transip/restapi-php-library/blob/master/README.md) we recommend to look in to this CLI project for examples on how we have implemented the available resource calls that exist in the RestAPI library.
