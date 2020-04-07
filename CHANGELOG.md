@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+6.1.0 [WiP - not yet released]
+-----
+
+* Added bigstorage description parameter to order command
+* 
+
 6.0.5
 -----
 
