@@ -155,6 +155,8 @@ class Field
     public const BIGSTORAGE_STARTDATE__DESC = 'Start date in unix timestamp';
     public const BIGSTORAGE_ENDDATE = 'EndDate';
     public const BIGSTORAGE_ENDDATE__DESC = 'End date in unix timestamp';
+    public const BIGSTORAGE_VPS_ATTACH__DESC = 'The name of the VPS to attach the big storage to';
+    public const BIGSTORAGE_VPS_AVAILABILITY_ZONE__DESC = 'The name of the availabilityZone where the BigStorage should be created. This parameter can not be used in conjunction with vpsName. If a vpsName is provided as well as an availabilityZone, the zone of the vps is leading';
 
     public const HAIP_NAME = 'HaipName';
     public const HAIP_NAME__DESC = 'The name of the HA-IP';

@@ -17,8 +17,9 @@ class Order extends AbstractCommand
             ->setDescription('Order a big storage')
             ->addArgument(Field::BIGSTORAGE_SIZE, InputArgument::REQUIRED, Field::BIGSTORAGE_SIZE__DESC)
             ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, Field::BIGSTORAGE_HASOFFSITEBACKUPS__DESC . Field::OPTIONAL)
-            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, 'The name of the availabilityZone where the BigStorage should be created. This parameter can not be used in conjunction with vpsName. If a vpsName is provided as well as an availabilityZone, the zone of the vps is leading. (optional)')
-            ->addArgument(Field::VPS_NAME, InputArgument::OPTIONAL, 'The name of the VPS to attach the big storage to. (optional)')
+            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::BIGSTORAGE_VPS_AVAILABILITY_ZONE__DESC . Field::OPTIONAL)
+            ->addArgument(Field::VPS_NAME, InputArgument::OPTIONAL, Field::BIGSTORAGE_VPS_ATTACH__DESC . Field::OPTIONAL)
+            ->addArgument(Field::BIGSTORAGE_DESCRIPTION, InputArgument::OPTIONAL, FIELD::BIGSTORAGE_DESCRIPTION__DESC . Field::OPTIONAL)
             ->setHelp('This command allows you to order a new big storage');
     }
 
@@ -30,7 +31,8 @@ class Order extends AbstractCommand
         $bigStorageHasOffSiteBackups  = filter_var($input->getArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS) ?? true, FILTER_VALIDATE_BOOLEAN);
         $bigStorageAvailabiltyZone    = $input->getArgument(Field::AVAILABILITY_ZONE) ?? '';
         $bigStorageVpsName            = $input->getArgument(Field::VPS_NAME) ?? '';
+        $bigStorageDescription        = $input->getArgument(Field::BIGSTORAGE_DESCRIPTION) ?? '';
 
-        $this->getTransipApi()->bigStorages()->order($bigStorageSize, $bigStorageHasOffSiteBackups, $bigStorageAvailabiltyZone, $bigStorageVpsName);
+        $this->getTransipApi()->bigStorages()->order($bigStorageSize, $bigStorageHasOffSiteBackups, $bigStorageAvailabiltyZone, $bigStorageVpsName, $bigStorageDescription);
     }
 }
