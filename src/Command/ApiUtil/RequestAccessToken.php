@@ -25,7 +25,7 @@ class RequestAccessToken extends AbstractCommand
         $readOnly = filter_var($input->getArgument(Field::READ_ONLY), FILTER_VALIDATE_BOOLEAN);
         $expirationTime = $input->getArgument(Field::TOKEN_END_DATE);
 
-        $settings = Settings::getInstance();
+        $settings = Settings::getInstance(false);
         $token = $this->getTransipApi()->auth()->createToken($settings->getApiLogin(), $settings->getApiPrivateKey(), "test-" . time(), $readOnly, '', $expirationTime);
         $output->writeLn($token);
     }
