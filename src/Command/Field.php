@@ -259,4 +259,11 @@ class Field
     public const READ_ONLY__DESC = 'Whether the token should be read only (true|false)';
     public const TOKEN_END_DATE = 'TokenEndDate';
     public const TOKEN_END_DATE__DESC = "Token end date '10 min', '1 day', '1 week', '1 month'";
+
+    public const SSH_KEY_ID = 'SSHKeyId';
+    public const SSH_KEY_ID__DESC = 'SSH key identifier';
+    public const SSH_KEY = 'SSHKey';
+    public const SSH_KEY__DESC = 'SSH Key';
+    public const SSH_KEY_DESCRIPTION = 'Description';
+    public const SSH_KEY_DESCRIPTION__DESC = 'SSH key description';
 }
