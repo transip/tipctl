@@ -132,7 +132,12 @@ class Field
     public const VPS_BASE64INSTALLTEXT__DESC = 'Base64 encoded preseed / kickstart instructions, when installing unattended';
     public const VPS_SET_LOCK = 'SetLock';
     public const VPS_SET_LOCK__DESC = 'VPS SetLock `true` or `false`';
-
+    public const VPS_USERNAME = 'Username';
+    public const VPS_USERNAME__DESC = 'The username you will be able to login with when installing with cloudinit flavour';
+    public const VPS_INSTALL_FLAVOUR = 'installFlavour';
+    public const VPS_INSTALL_FLAVOUR__DESC = 'The type of installation to use, installer, cloudinit or preinstallable';
+    public const VPS_SSH_KEYS = 'SshKeys';
+    public const VPS_SSH_KEYS__DESC = 'Add a public sshKey use for authentication with username in a cloudinit installation (use comma to seperate multiple keys)';
 
     public const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     public const PRIVATENETWORK_NAME__DESC = 'The private network name';
