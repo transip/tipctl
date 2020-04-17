@@ -15,7 +15,7 @@ class Add extends AbstractCommand
         $this->setName('sshkey:add')
             ->setDescription('Add a new SSH key to your TransIP account')
             ->addArgument(Field::SSH_KEY, InputArgument::REQUIRED, Field::SSH_KEY__DESC)
-            ->addArgument(Field::SSH_KEY_DESCRIPTION, InputArgument::REQUIRED, Field::SSH_KEY_DESCRIPTION__DESC)
+            ->addArgument(Field::SSH_KEY_DESCRIPTION, InputArgument::OPTIONAL, Field::SSH_KEY_DESCRIPTION__DESC, '')
             ->setHelp('');
     }
 
