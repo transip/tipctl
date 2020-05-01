@@ -13,7 +13,7 @@ class GetById extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('sshkey:getbyid')
-            ->setDescription('Request information about an existing SSH key from your TransIP account')
+            ->setDescription('Request information about an existing SSH key')
             ->addArgument(Field::SSH_KEY_ID, InputArgument::REQUIRED, Field::SSH_KEY_ID)
             ->setHelp('');
     }

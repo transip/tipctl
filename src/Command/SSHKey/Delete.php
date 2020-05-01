@@ -13,7 +13,7 @@ class Delete extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('sshkey:delete')
-            ->setDescription('Delete an existing SSH key from your TransIP account')
+            ->setDescription('Delete an existing SSH key')
             ->addArgument(Field::SSH_KEY_ID, InputArgument::REQUIRED, Field::SSH_KEY_ID__DESC)
             ->setHelp('');
     }

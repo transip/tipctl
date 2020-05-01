@@ -11,7 +11,7 @@ class GetAll extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('sshkey:getall')
-            ->setDescription('List all SSH keys in your TransIP account')
+            ->setDescription('List all SSH keys in your account')
             ->setHelp('');
     }
 
