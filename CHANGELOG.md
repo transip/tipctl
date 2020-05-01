@@ -1,11 +1,12 @@
 CHANGELOG
 =========
 
-6.1.0 [WiP - not yet released]
+6.1.0
 -----
 
+* Added SSH Key resource commands
+* Added CloudInit installation functionality to order and install VPS commands
 * Added bigstorage description parameter to order command
-* 
 
 6.0.5
 -----
