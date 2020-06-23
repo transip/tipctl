@@ -189,6 +189,8 @@ class Field
     public const HAIP_PORT_CONFIGURATION_ID__DESC = 'The id of the port configuration';
     public const HAIP_DESCRIPTION = 'Description';
     public const HAIP_DESCRIPTION__DESC = 'Description to give to the Haip';
+    public const HAIP_TLS_MODE = 'TlsMode';
+    public const HAIP_TLS_MODE__DESC = '`tls10_11_12` or `tls11_12` `tls12`';
 
     public const SSL_CERTIFICATE_ID = 'sslCertificateId';
     public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing domain:ssl certificate';
