@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ -z "GITHUB_CREDENTIALS" ] ; then
+if [ -z "$GITHUB_CREDENTIALS" ] ; then
   echo "we need a github credentials in order to proceed";
   exit 1;
 fi
