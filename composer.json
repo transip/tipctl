@@ -15,9 +15,13 @@
     "symfony/console": "^4.3",
     "symfony/finder": "^4.3",
     "symfony/filesystem": "^4.3",
-    "transip/transip-api-php": "6.3.*",
+    "transip/transip-api-php": "6.4.*",
     "symfony/yaml": "^4.3",
     "webmozart/path-util": "^2.3"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.17",
+    "php-parallel-lint/php-parallel-lint": "^1.2"
   },
   "autoload": {
     "psr-4": {
