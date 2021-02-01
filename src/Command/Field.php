@@ -273,4 +273,13 @@ class Field
     public const SSH_KEY__DESC = 'SSH Key';
     public const SSH_KEY_DESCRIPTION = 'Description';
     public const SSH_KEY_DESCRIPTION__DESC = 'SSH key description';
+
+    public const LICENSE_ID = 'LicenseId';
+    public const LICENSE_ID__DESC = 'License Id';
+    public const LICENSE_NAME = 'LicenseName';
+    public const LICENSE_NAME__DESC = 'License name';
+    public const NEW_LICENSE_NAME = 'NewLicenseName';
+    public const NEW_LICENSE_NAME__DESC = 'New license name that you want to switch to';
+    public const QUANTITY = 'Quantity';
+    public const QUANTITY__DESC = 'Amount';
 }

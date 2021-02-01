@@ -15,7 +15,7 @@
     "symfony/console": "^4.3",
     "symfony/finder": "^4.3",
     "symfony/filesystem": "^4.3",
-    "transip/transip-api-php": "^6.5",
+    "transip/transip-api-php": "^6.6",
     "symfony/yaml": "^4.3",
     "webmozart/path-util": "^2.3"
   },
