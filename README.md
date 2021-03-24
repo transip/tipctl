@@ -63,7 +63,10 @@ tipctl setup
 
 You can also run the setup script with no user interaction
 ```shell script
-tipctl setup --no-interaction --apiUrl 'https://api.transip.nl/v6' --loginName 'yourUsername' --apiPrivateKey 'yourKeyPair' --apiUseWhitelist true
+tipctl setup --no-interaction --apiUrl='https://api.transip.nl/v6' --loginName='yourUsername' --apiPrivateKey='yourKeyPair' --apiUseWhitelist=true
+
+# When using spaces to separate an option from its value, you must escape the beginning of your private key
+tipctl setup --no-interaction --apiUrl 'https://api.transip.nl/v6' --loginName 'yourUsername' --apiPrivateKey '\-----BEGIN PRIVATE KEY-----...' --apiUseWhitelist=true
 ```
 
 ## Usage / Commands

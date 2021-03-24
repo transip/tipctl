@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.6.2
+-----
+* Fixed a bug that prevented running a non-interactive setup
+
 6.6.1
 -----
 * Enabled PHP 8.0 support

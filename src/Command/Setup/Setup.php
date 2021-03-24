@@ -59,15 +59,6 @@ class Setup extends AbstractCommand
 
         $apiUseWhitelist = $helper->ask($input, $output, $whitelistQuestion);
         $input->setOption(Field::API_USE_WHITELIST, $apiUseWhitelist);
-    }
-
-    protected function execute(InputInterface $input, OutputInterface $output)
-    {
-        $apiUrl    = strval($input->getOption(Field::API_URL));
-        $login     = strval($input->getOption(Field::API_LOGIN));
-        $whitelist = boolval($input->getOption(Field::API_USE_WHITELIST));
-
-        $helper = $this->getHelper('question');
 
         // Last question: What is the restapi private key?
         $output->writeln('Enter your RestAPI Private Key:');
@@ -85,9 +76,21 @@ class Setup extends AbstractCommand
             }
         }
 
+        $input->setOption(Field::API_PRIVATE_KEY, $privateKey);
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $apiUrl     = strval($input->getOption(Field::API_URL));
+        $login      = strval($input->getOption(Field::API_LOGIN));
+        $whitelist  = boolval($input->getOption(Field::API_USE_WHITELIST));
+        $privateKey = $input->getOption(Field::API_PRIVATE_KEY);
+
         if (strlen($privateKey) < 2) {
             throw new RuntimeException('Provided RestAPI key is invalid');
         }
+
+        $helper = $this->getHelper('question');
 
         $output->writeln("Checking API connection to endpoint '{$apiUrl}'");
 
