@@ -1,6 +1,11 @@
 CHANGELOG
 =========
 
+
+6.7.0
+-----
+* Added a reset function for the VpsFirewall 
+
 6.6.2
 -----
 * Fixed a bug that prevented running a non-interactive setup
