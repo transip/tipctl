@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "41a6ed02bad9624599fa3fa81a596538",
+    "content-hash": "556a242e1769c713677b8fab8d4c3c67",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -1467,16 +1467,16 @@
         },
         {
             "name": "transip/transip-api-php",
-            "version": "v6.7.0",
+            "version": "v6.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/transip/transip-api-php.git",
-                "reference": "fb0693f07adf81591e7bfe3c874eb590de133002"
+                "reference": "502ddb67dd1aea45fe953187842e937a03d857dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/transip/transip-api-php/zipball/fb0693f07adf81591e7bfe3c874eb590de133002",
-                "reference": "fb0693f07adf81591e7bfe3c874eb590de133002",
+                "url": "https://api.github.com/repos/transip/transip-api-php/zipball/502ddb67dd1aea45fe953187842e937a03d857dc",
+                "reference": "502ddb67dd1aea45fe953187842e937a03d857dc",
                 "shasum": ""
             },
             "require": {
@@ -1509,9 +1509,9 @@
             "description": "TransIP Rest API Library",
             "support": {
                 "issues": "https://github.com/transip/transip-api-php/issues",
-                "source": "https://github.com/transip/transip-api-php/tree/v6.7.0"
+                "source": "https://github.com/transip/transip-api-php/tree/v6.7.1"
             },
-            "time": "2021-05-07T13:59:41+00:00"
+            "time": "2021-05-14T08:33:50+00:00"
         },
         {
             "name": "webmozart/assert",

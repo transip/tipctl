@@ -1,6 +1,9 @@
 CHANGELOG
 =========
 
+6.7.1
+-----
+* Added getZoneFile function
 
 6.7.0
 -----
