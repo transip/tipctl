@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.8.0
+-----
+* Added getbyvpsname method to the operatingsystem command
+
 6.7.1
 -----
 * Added getZoneFile function
