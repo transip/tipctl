@@ -1,6 +1,6 @@
 <?php
 
-namespace Transip\Api\CLI\Command\Traffic;
+namespace Transip\Api\CLI\Command\TrafficPool;
 
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -10,14 +10,14 @@ class GetTrafficPool extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('traffic:gettrafficpool')
-            ->setDescription('Get all the traffic of your VPSs combined.')
-            ->setHelp('This command outputs traffic information of your VPSs combined.');
+        $this->setName('trafficpool:gettrafficpool')
+            ->setDescription('Get all the Traffic Pool information of your VPSs combined.')
+            ->setHelp('This command outputs Traffic Pool information of your VPSs combined.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $trafficPool = $this->getTransipApi()->traffic()->getTrafficPool();
+        $trafficPool = $this->getTransipApi()->trafficPool()->getTrafficPool();
         $this->output($trafficPool);
     }
 }

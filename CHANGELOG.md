@@ -4,6 +4,7 @@ CHANGELOG
 6.8.0
 -----
 * Added getbyvpsname method to the operatingsystem command
+* Deprecated Traffic endpoint in favor of TrafficPool endpoint
 
 6.7.1
 -----
