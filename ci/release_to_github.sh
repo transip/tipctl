@@ -29,7 +29,7 @@ json_output=$(curl -H "Authorization: token ${GITHUB_TOKEN}" \
   -X POST "https://api.github.com/repos/transip/tipctl/releases" \
   -d "{\"tag_name\": \"${TAG_VERSION}\", \"name\": \"${TAG_VERSION}\", \"body\": ${description}, \"draft\": true, \"prerelease\": false}")
 
-release_id=$(echo $json_output | python -c 'import json,sys;print json.load(sys.stdin)["id"]')
+release_id=$(echo $json_output | python -c 'import json,sys;print(json.load(sys.stdin)["id"])')
 name_of_asset=$(basename $FILE_TO_PUSH)
 
 echo "Created release ${release_id}, lets upload our artifact to this release"
