@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+6.10.0
+-----
+* Added autodns functionality for domain
+
+6.9.0
+-----
+* Added support for NAPTR DNS resource record
+
 6.8.0
 -----
 * Added getbyvpsname method to the operatingsystem command
