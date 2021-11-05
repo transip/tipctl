@@ -19,7 +19,7 @@ if [ -z "$FILE_TO_PUSH" ] ; then
 fi
 
 function convert_to_json() {
-  python -c 'import json,sys;print json.dumps(sys.stdin.read().strip())'
+  python -c 'import json,sys;print(json.dumps(sys.stdin.read().strip()))'
 }
 
 description="$(git show --format=%N $TAG_VERSION | tail -n+3 | convert_to_json)"
