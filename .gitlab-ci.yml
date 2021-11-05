@@ -80,6 +80,7 @@ deploy:create-github-deploy:
     - k8s-tbk
 
 release:create-github-release:
+  image: '$IMAGE_URL_PYTHON'
   stage: release
   only:
     - tags
