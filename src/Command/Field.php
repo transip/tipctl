@@ -282,4 +282,7 @@ class Field
     public const NEW_LICENSE_NAME__DESC = 'New license name that you want to switch to';
     public const QUANTITY = 'Quantity';
     public const QUANTITY__DESC = 'Amount';
+
+    public const OPENSTACK_PROJECT_ID = 'ProjectId';
+    public const OPENSTACK_PROJECT_ID__DESC = 'Project Id';
 }
