@@ -2,6 +2,10 @@
 
 namespace Transip\Api\CLI\Command\OpenStack\Project;
 
+use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
+use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\Library\TransipAPI;
 
