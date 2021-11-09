@@ -7,7 +7,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
-use Transip\Api\Library\TransipAPI;
 
 class GetByProjectId extends AbstractCommand
 {
@@ -23,10 +22,9 @@ class GetByProjectId extends AbstractCommand
     {
         $projectId = $input->getArgument(Field::OPENSTACK_PROJECT_ID);
 
-        /** @var TransipAPI $api */
-        $api = $this->getTransipApi();
-
-        $usersData = $api->openStackProjects()->getByProjectId($projectId);
+        $usersData = $this->getTransipApi()
+            ->openStackProjects()
+            ->getByProjectId($projectId);
 
         $this->output($usersData);
     }
