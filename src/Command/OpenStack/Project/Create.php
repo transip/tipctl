@@ -15,7 +15,7 @@ class Create extends AbstractCommand
         $this->setName('openstack:project:create')
             ->setDescription('Create an OpenStack project.')
             ->addArgument(Field::OPENSTACK_PROJECT_NAME, InputArgument::REQUIRED, Field::OPENSTACK_PROJECT_NAME__DESC)
-            ->addArgument(Field::OPENSTACK_PROJECT_DESCRIPTION, InputArgument::REQUIRED, Field::OPENSTACK_PROJECT_DESCRIPTION__DESC)
+            ->addArgument(Field::OPENSTACK_PROJECT_DESCRIPTION, InputArgument::OPTIONAL, Field::OPENSTACK_PROJECT_DESCRIPTION__DESC)
         ;
     }
 

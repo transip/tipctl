@@ -12,7 +12,7 @@ class Cancel extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('openstack:project:create')
+        $this->setName('openstack:project:cancel')
             ->setDescription('Cancel and delete an OpenStack project.')
             ->addArgument(Field::OPENSTACK_PROJECT_ID, InputArgument::REQUIRED, Field::OPENSTACK_PROJECT_ID__DESC)
         ;
