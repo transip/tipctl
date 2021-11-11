@@ -13,7 +13,7 @@ class GetByProjectId extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('openstack:project:getbyprojectid')
-            ->setDescription('Get the project information for a specific openstack project')
+            ->setDescription('Get the project information for a specific OpenStack project')
             ->addArgument(Field::OPENSTACK_PROJECT_ID, InputArgument::REQUIRED, Field::OPENSTACK_PROJECT_ID__DESC)
             ->setHelp('This API call returns details for an openstack project');
     }
