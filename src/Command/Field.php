@@ -154,6 +154,8 @@ class Field
     public const BIGSTORAGE_HASOFFSITEBACKUPS__DESC = 'Whether to order offsite backups, default is true.';
     public const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
     public const BIGSTORAGE_BACKUPID__DESC = 'ID number of the backup';
+    public const BIGSTORAGE_BACKUP_DESTINATION_NAME = 'DestinationBigStorageName';
+    public const BIGSTORAGE_BACKUP_DESTINATION_NAME__DESC = 'Reverts the backup to this big storage.';
     public const BIGSTORAGE_DESCRIPTION = 'BigStorageDescription';
     public const BIGSTORAGE_DESCRIPTION__DESC = 'Description of the big storage';
     public const BIGSTORAGE_STARTDATE = 'StartDate';
