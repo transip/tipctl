@@ -16,6 +16,7 @@ class Revert extends AbstractCommand
             ->setDescription('Restore a bigstorage backup')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::BIGSTORAGE_BACKUPID, InputArgument::REQUIRED, Field::BIGSTORAGE_BACKUPID__DESC)
+            ->addArgument(Field::BIGSTORAGE_BACKUP_DESTINATION_NAME, InputArgument::OPTIONAL, Field::BIGSTORAGE_BACKUP_DESTINATION_NAME__DESC . Field::OPTIONAL)
             ->setHelp('This command restores a big storage backup.');
     }
 
@@ -23,7 +24,12 @@ class Revert extends AbstractCommand
     {
         $bigStorageName     = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorageBackupId = $input->getArgument(Field::BIGSTORAGE_BACKUPID);
+        $destinationBigStorageName = $input->getArgument(Field::BIGSTORAGE_BACKUP_DESTINATION_NAME) ?? '';
 
-        $this->getTransipApi()->bigStorageBackups()->revertBackup($bigStorageName, $bigStorageBackupId);
+        $this->getTransipApi()->bigStorageBackups()->revertBackup(
+            $bigStorageName,
+            $bigStorageBackupId,
+            $destinationBigStorageName
+        );
     }
 }
