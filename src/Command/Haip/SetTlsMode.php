@@ -14,7 +14,7 @@ class SetTlsMode extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:settlsmode')
-            ->setDescription('Set the tls mode')
+            ->setDescription('Set TLS mode to: `' . Haip::TLSMODE_TLS10_11_12 . '`, `'. Haip::TLSMODE_TLS11_12 . '` or `' . Haip::TLSMODE_TLS12 . '`')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::HAIP_TLS_MODE, InputArgument::REQUIRED, Field::HAIP_TLS_MODE__DESC);
     }
