@@ -13,7 +13,7 @@ class GetByName extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:getbyname')
-            ->setDescription('Get your Haip by name')
+            ->setDescription('Get HA-IP by name')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }
 

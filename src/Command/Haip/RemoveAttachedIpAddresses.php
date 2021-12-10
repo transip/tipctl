@@ -13,7 +13,7 @@ class RemoveAttachedIpAddresses extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:removeattachedipaddresses')
-            ->setDescription('Remove all of the ips attached to your Haip')
+            ->setDescription('Remove all of the IP\'s attached to your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }
 
