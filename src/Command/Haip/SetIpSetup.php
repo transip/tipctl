@@ -13,7 +13,7 @@ class SetIpSetup extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:setipsetup')
-            ->setDescription('Set the IpSetup of your HA-IP, for example don\'t allow ipv6, route ipv6 traffic to ipv4 addresses')
+            ->setDescription('Set the IpSetup of your HA-IP, for example don\'t allow ipv6 or route ipv6 traffic to ipv4 addresses')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::HAIP_IP_SETUP, InputArgument::REQUIRED, Field::HAIP_IP_SETUP__DESC);
     }

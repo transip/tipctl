@@ -11,7 +11,7 @@ class GetAll extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:getall')
-            ->setDescription('Get all of your Haips');
+            ->setDescription('Get all of your HA-IP\'s');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)

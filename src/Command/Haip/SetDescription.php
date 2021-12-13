@@ -13,7 +13,7 @@ class SetDescription extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:setdescription')
-            ->setDescription('Set the description of a Haip')
+            ->setDescription('Set the description of a HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::HAIP_DESCRIPTION, InputArgument::REQUIRED, Field::HAIP_DESCRIPTION);
     }

@@ -154,6 +154,8 @@ class Field
     public const BIGSTORAGE_HASOFFSITEBACKUPS__DESC = 'Whether to order offsite backups, default is true.';
     public const BIGSTORAGE_BACKUPID = 'BigStorageBackupId';
     public const BIGSTORAGE_BACKUPID__DESC = 'ID number of the backup';
+    public const BIGSTORAGE_BACKUP_DESTINATION_NAME = 'DestinationBigStorageName';
+    public const BIGSTORAGE_BACKUP_DESTINATION_NAME__DESC = 'Reverts the backup to this big storage.';
     public const BIGSTORAGE_DESCRIPTION = 'BigStorageDescription';
     public const BIGSTORAGE_DESCRIPTION__DESC = 'Description of the big storage';
     public const BIGSTORAGE_STARTDATE = 'StartDate';
@@ -174,7 +176,7 @@ class Field
     public const HAIP_INTERVAL = 'Interval';
     public const HAIP_INTERVAL__DESC = 'The interval must be larger than 2000';
     public const HAIP_WAIT_FOR_DELIVERY = 'WaitForDelivery';
-    public const HAIP_WAIT_FOR_DELIVERY__DESC = 'Wait and poll until the Haip is delivered';
+    public const HAIP_WAIT_FOR_DELIVERY__DESC = 'Wait and poll until the HA-IP is delivered';
     public const HAIP_PORT_CONFIGURATION_NAME = 'PortConfigName';
     public const HAIP_PORT_CONFIGURATION_NAME__DESC = 'The name of the PortConfiguration';
     public const HAIP_PORT_CONFIGURATION_SOURCE_PORT = 'SourcePort';
@@ -188,9 +190,9 @@ class Field
     public const HAIP_PORT_CONFIGURATION_ID = 'PortConfigurationId';
     public const HAIP_PORT_CONFIGURATION_ID__DESC = 'The id of the port configuration';
     public const HAIP_DESCRIPTION = 'Description';
-    public const HAIP_DESCRIPTION__DESC = 'Description to give to the Haip';
+    public const HAIP_DESCRIPTION__DESC = 'Description to give to the HA-IP';
     public const HAIP_TLS_MODE = 'TlsMode';
-    public const HAIP_TLS_MODE__DESC = '`tls10_11_12` or `tls11_12` `tls12`';
+    public const HAIP_TLS_MODE__DESC = '`tls10_11_12`, `tls11_12` or `tls12`';
 
     public const SSL_CERTIFICATE_ID = 'sslCertificateId';
     public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing domain:ssl certificate';

@@ -14,8 +14,7 @@ class Cancel extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:cancel')
-            ->setDescription('Cancel a Haip')
-            ->setHelp('Provide a Haip name to cancel and a cancellation time (end|immediately)')
+            ->setDescription('Cancel HA-IP with cancellation time (end|immediately)')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC);
     }

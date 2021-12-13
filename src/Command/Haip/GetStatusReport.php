@@ -13,7 +13,7 @@ class GetStatusReport extends AbstractCommand
     protected function configure()
     {
         $this->setName('haip:getstatusreport')
-            ->setDescription('Get the current status of your Haip and its backends')
+            ->setDescription('Get the current status of your HA-IP and its backends')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }
 

@@ -13,7 +13,7 @@ class SetAttachedIpAddresses extends AbstractCommand
     protected function configure(): void
     {
         $this->setName('haip:setattachedipaddresses')
-            ->setDescription('Set the ips to attach to your Haip')
+            ->setDescription('Set IP\'s to attach to your HA-IP, multiple IP\'s comma-separated')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC)
             ->addArgument(Field::IPADDRESSES, InputArgument::REQUIRED, Field::IPADDRESSES__DESC);
     }
