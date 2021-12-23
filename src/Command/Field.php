@@ -284,4 +284,22 @@ class Field
     public const NEW_LICENSE_NAME__DESC = 'New license name that you want to switch to';
     public const QUANTITY = 'Quantity';
     public const QUANTITY__DESC = 'Amount';
+
+    public const OPENSTACK_PROJECT_ID = 'ProjectId';
+    public const OPENSTACK_PROJECT_ID__DESC = 'Project Id';
+    public const OPENSTACK_PROJECT_NAME = 'Name';
+    public const OPENSTACK_PROJECT_NAME__DESC = 'Name of the project (will be prefixed with your TransIP username)';
+    public const OPENSTACK_PROJECT_DESCRIPTION = 'Description';
+    public const OPENSTACK_PROJECT_DESCRIPTION__DESC = 'Description of the project';
+
+    public const OPENSTACK_USER_ID = 'UserId';
+    public const OPENSTACK_USER_ID__DESC = 'User Id';
+    public const OPENSTACK_USER_USERNAME = 'Username';
+    public const OPENSTACK_USER_USERNAME__DESC = 'Username for the user (will be prefixed with your TransIP username)';
+    public const OPENSTACK_USER_DESCRIPTION = 'Description';
+    public const OPENSTACK_USER_DESCRIPTION__DESC = 'Description for the user';
+    public const OPENSTACK_USER_EMAIL = 'Email';
+    public const OPENSTACK_USER_EMAIL__DESC = 'Email-address of the user';
+    public const OPENSTACK_USER_PASSWORD = 'Password';
+    public const OPENSTACK_USER_PASSWORD__DESC = 'Password for the user';
 }
