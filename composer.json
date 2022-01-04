@@ -8,6 +8,11 @@
       "email": "support@transip.eu"
     }
   ],
+  "config": {
+    "platform": {
+      "php": "7.2"
+    }
+  },
   "minimum-stability": "stable",
   "require": {
     "php": "^7.2.0|^8.0",
@@ -15,7 +20,7 @@
     "symfony/console": "^4.3",
     "symfony/finder": "^4.3",
     "symfony/filesystem": "^4.3",
-    "transip/transip-api-php": "^6.12.0",
+    "transip/transip-api-php": "^6.12.1",
     "symfony/yaml": "^4.3",
     "webmozart/path-util": "^2.3"
   },
