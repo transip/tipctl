@@ -279,7 +279,9 @@ class Field
     public const LICENSE_ID = 'LicenseId';
     public const LICENSE_ID__DESC = 'License Id';
     public const LICENSE_NAME = 'LicenseName';
+    public const LICENSE_NAMES = 'LicenseNames';
     public const LICENSE_NAME__DESC = 'License name';
+    public const LICENSE_NAMES__DESC = 'License names separated by a comma';
     public const NEW_LICENSE_NAME = 'NewLicenseName';
     public const NEW_LICENSE_NAME__DESC = 'New license name that you want to switch to';
     public const QUANTITY = 'Quantity';

@@ -20,7 +20,8 @@ class Install extends AbstractCommand
             ->addArgument(Field::VPS_HOSTNAME, InputArgument::OPTIONAL, Field::VPS_HOSTNAME__DESC . Field::OPTIONAL)
             ->addArgument(Field::VPS_USERNAME, InputArgument::OPTIONAL, Field::VPS_USERNAME__DESC . Field::OPTIONAL)
             ->addArgument(Field::VPS_SSH_KEYS, InputArgument::OPTIONAL, Field::VPS_SSH_KEYS__DESC . Field::OPTIONAL)
-            ->addArgument(Field::VPS_BASE64INSTALLTEXT, InputArgument::OPTIONAL, Field::VPS_BASE64INSTALLTEXT__DESC . Field::OPTIONAL);
+            ->addArgument(Field::VPS_BASE64INSTALLTEXT, InputArgument::OPTIONAL, Field::VPS_BASE64INSTALLTEXT__DESC . Field::OPTIONAL)
+            ->addArgument(Field::LICENSE_NAMES, InputArgument::OPTIONAL, Field::LICENSE_NAMES__DESC . Field::OPTIONAL, '');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -32,8 +33,10 @@ class Install extends AbstractCommand
         $username            = $input->getArgument(Field::VPS_USERNAME) ?? '';
         $sshKeys             = $input->getArgument(Field::VPS_SSH_KEYS);
         $base64InstallText   = $input->getArgument(Field::VPS_BASE64INSTALLTEXT) ?? '';
+        $licenseNames         = $input->getArgument(Field::LICENSE_NAMES);
 
         $sshKeys = (strlen($sshKeys) > 1) ? explode(',', $sshKeys) : [];
+        $licenseNames = (strlen($licenseNames) > 1) ? explode(',', $licenseNames) : [];
 
         $this->getTransipApi()->vpsOperatingSystems()->install(
             $vpsName,
@@ -42,7 +45,8 @@ class Install extends AbstractCommand
             $base64InstallText,
             $installFlavour,
             $username,
-            $sshKeys
+            $sshKeys,
+            $licenseNames
         );
     }
 }
