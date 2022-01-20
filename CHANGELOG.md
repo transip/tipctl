@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+6.14.0
+-----
+* Added licenseName field for vps order
+* Added licenseName field for vps install
+
+
 6.12.1
 -----
 * Fixed a json serializable return datatype deprecation that occurred when running on PHP 8.1
