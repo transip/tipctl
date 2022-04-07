@@ -1,6 +1,13 @@
 CHANGELOG
 =========
 
+6.16.1
+-----
+* Added Mailbox resource commands
+* Added Mail Forward resource commands
+* Added Mail List resource commands
+* Added SSL certificate resource commands
+
 6.14.0
 -----
 * Added licenseName field for vps order
