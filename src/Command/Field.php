@@ -198,6 +198,10 @@ class Field
     public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing domain:ssl certificate';
     public const SSL_COMMON_NAME = 'commonName';
     public const SSL_COMMON_NAME__DESC = 'Domain name for which we should issue the certificate';
+    public const SSL_CERTIFICATE_PAGE = 'Page';
+    public const SSL_CERTIFICATE_PAGE__DESC = 'The page to look for';
+    public const SSL_CERTIFICATE_ITEMS_PER_PAGE = 'ItemsPerPage';
+    public const SSL_CERTIFICATE_ITEMS_PER_PAGE__DESC = 'Amount of SSL certificates per page';
 
     public const TAG_NAME = 'TagName';
     public const TAG_NAME__DESC = 'The tag name';
@@ -304,4 +308,27 @@ class Field
     public const OPENSTACK_USER_EMAIL__DESC = 'Email-address of the user';
     public const OPENSTACK_USER_PASSWORD = 'Password';
     public const OPENSTACK_USER_PASSWORD__DESC = 'Password for the user';
+
+    public const EMAIL_DOMAIN_NAME = 'DomainName';
+    public const EMAIL_DOMAIN_NAME__DESC = 'Domain the mailbox is related to';
+    public const EMAIL_ADDRESS = 'Email';
+    public const EMAIL_ADDRESS__DESC = 'Email addres for the mailbox';
+    public const EMAIL_LOCALPART = 'LocalPart';
+    public const EMAIL_LOCALPART__DESC = 'Localpart for mailbox';
+    public const EMAIL_MAXDISKUSAGE = 'MaxDiskUsage';
+    public const EMAIL_MAXDISKUSAGE__DESC = 'Max size of mailbox in MB';
+    public const EMAIL_PASSWORD = 'Password';
+    public const EMAIL_PASSWORD__DESC = 'Password for mailbox';
+    public const EMAIL_MAILBOX_FORWARDTO = 'ForwardTo';
+    public const EMAIL_MAILBOX_FORWARDTO__DESC = 'Email address to forward mail to';
+    public const EMAIL_FORWARD_ID = 'MailForwardId';
+    public const EMAIL_FORWARD_ID__DESC = 'Id of the mailforward';
+    public const EMAIL_FORWARD_FORWARDTO = 'ForwardTo';
+    public const EMAIL_FORWARD_FORWARDTO__DESC = 'Email address to forward mail to';
+    public const EMAIL_MAIL_LIST_ID = 'MailListId';
+    public const EMAIL_MAIL_LIST_ID__DESC = 'Id of the mail list';
+    public const EMAIL_MAIL_LIST_NAME = 'Name';
+    public const EMAIL_MAIL_LIST_NAME__DESC = 'Name of mail list';
+    public const EMAIL_MAIL_LIST_ENTRIES = 'Entries';
+    public const EMAIL_MAIL_LIST_ENTRIES__DESC = 'Entries of the mail list';
 }
