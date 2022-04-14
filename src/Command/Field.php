@@ -138,6 +138,10 @@ class Field
     public const VPS_INSTALL_FLAVOUR__DESC = 'The type of installation to use, installer, cloudinit or preinstallable';
     public const VPS_SSH_KEYS = 'SshKeys';
     public const VPS_SSH_KEYS__DESC = 'Add a public sshKey use for authentication with username in a cloudinit installation (use comma to seperate multiple keys)';
+    public const VPS_RESCUE_IMAGE_NAME = 'RescueImageName';
+    public const VPS_SETTING_NAME = 'SettingName';
+    public const VPS_SETTING_DATATYPE = 'DataType';
+    public const VPS_SETTING_VALUE = 'Value';
 
     public const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     public const PRIVATENETWORK_NAME__DESC = 'The private network name';

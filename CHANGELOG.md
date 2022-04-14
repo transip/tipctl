@@ -1,6 +1,12 @@
 CHANGELOG
 =========
 
+6.17.0
+-----
+
+* Added VPS Settings resource commands
+* Added Rescue Image resource commands
+
 6.16.1
 -----
 * Added Mailbox resource commands
