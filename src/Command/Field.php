@@ -221,6 +221,15 @@ class Field
     public const COLOCATION_REMOTE_HANDS_INSTRUCTIONS = 'instructions';
     public const COLOCATION_REMOTE_HANDS_INSTRUCTIONS__DESC = 'Instructions on the task to perform';
 
+    public const COLOCATION_ACCESS_REQUEST_DATE_TIME = 'dateTime';
+    public const COLOCATION_ACCESS_REQUEST_DATE_TIME__DESC = 'The datetime of the wanted datacenter access, in YYYY-MM-DD hh:mm:ss format';
+    public const COLOCATION_ACCESS_REQUEST_DURATION = 'duration';
+    public const COLOCATION_ACCESS_REQUEST_DURATION__DESC = 'The expected duration of the visit, in minutes';
+    public const COLOCATION_ACCESS_REQUEST_VISITOR_NAMES = 'visitorNames';
+    public const COLOCATION_ACCESS_REQUEST_VISITOR_NAMES__DESC = 'Comma-delimited list of visitor names for this datacenter visit, must be at least 1 and at most 20';
+    public const COLOCATION_ACCESS_REQUEST_PHONE_NUMBER = 'phoneNumber';
+    public const COLOCATION_ACCESS_REQUEST_PHONE_NUMBER__DESC = 'If an SMS with access codes needs to be sent, set the phone number of the receiving phone here';
+
 
     public const IPADDRESS = 'IPAddress';
     public const IPADDRESS__DESC = 'The IP address';
