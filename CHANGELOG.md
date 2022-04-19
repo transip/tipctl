@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.18.0
+-----
+* Added colocation access request command
+
 6.17.0
 -----
 
