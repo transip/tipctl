@@ -12,32 +12,24 @@ lint:php:
     - composer install
   script:
     - ./vendor/bin/parallel-lint --exclude vendor/ .
-  tags:
-    - k8s-tbk
 
 lint:php-codestyle:
   stage: lint
   before_script:
     - composer install
   script:
-    - ./vendor/bin/php-cs-fixer fix -v --dry-run --using-cache=no . --config .php_cs.dist
-  tags:
-    - k8s-tbk
+    - ./vendor/bin/php-cs-fixer fix -v --dry-run --using-cache=no
 
 lint:composer:
   stage: lint
   script:
     - composer validate --no-interaction --strict
-  tags:
-    - k8s-tbk
 
 lint:secretsscan:
   image: '$IMAGE_URL_PYTHON'
   stage: lint
   script:
     - ci/scan_secrets.sh
-  tags:
-    - k8s-tbk
 
 build:phar:
   stage: build
@@ -48,8 +40,6 @@ build:phar:
     expire_in: 1 hour
     paths:
       - tipctl.phar
-#  tags:
-#    - k8s-tbk
 
 validate:tag-message:
   stage: validate
@@ -57,8 +47,6 @@ validate:tag-message:
     - tags
   script:
     - ci/validate_tag_message.sh $CI_COMMIT_TAG
-  tags:
-    - k8s-tbk
 
 validate:tag-version-consistency:
   stage: validate
@@ -67,8 +55,6 @@ validate:tag-version-consistency:
   script:
     - composer dump-autoload
     - php ci/ValidateTagVersionConsistency.php $CI_COMMIT_TAG
-  tags:
-    - k8s-tbk
 
 deploy:create-github-deploy:
   stage: deploy
@@ -76,8 +62,6 @@ deploy:create-github-deploy:
     - tags
   script:
     - ci/sync_to_github.sh
-  tags:
-    - k8s-tbk
 
 release:create-github-release:
   image: '$IMAGE_URL_PYTHON'
@@ -88,5 +72,3 @@ release:create-github-release:
     - merge_requests
   script:
     - ci/release_to_github.sh $CI_COMMIT_TAG ./tipctl.phar
-  tags:
-    - k8s-tbk
