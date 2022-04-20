@@ -18,11 +18,12 @@ class GetByVpsName extends AbstractCommand
             ->setHelp('This API call will return all IPv4 and IPv6 addresses attached to the VPS');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $ipAddresses = $this->getTransipApi()->vpsIpAddresses()->getByVpsName($vpsName);
 
         $this->output($ipAddresses);
+        return 0;
     }
 }

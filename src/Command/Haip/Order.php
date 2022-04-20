@@ -20,7 +20,7 @@ class Order extends AbstractCommand
             ->addOption(Field::HAIP_WAIT_FOR_DELIVERY, 'w', InputOption::VALUE_NONE, Field::HAIP_WAIT_FOR_DELIVERY__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $productName           = $input->getArgument(Field::PRODUCT_NAME);
         $description           = $input->getArgument(Field::HAIP_DESCRIPTION);
@@ -37,7 +37,7 @@ class Order extends AbstractCommand
                 if (count($haipsBeforeOrder) < count($haips)) {
                     $lastHaip = end($haips);
                     $this->output($lastHaip);
-                    return;
+                    return 0;
                 }
 
                 $this->output("Waiting for haip '{$description}', not there yet");
@@ -45,5 +45,6 @@ class Order extends AbstractCommand
         } else {
             $this->getTransipApi()->haip()->order($productName, $description);
         }
+        return 0;
     }
 }

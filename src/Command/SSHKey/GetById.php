@@ -18,12 +18,13 @@ class GetById extends AbstractCommand
             ->setHelp('');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $sshKeyId = $input->getArgument(Field::SSH_KEY_ID);
 
         $sshKey = $this->getTransipApi()->sshKey()->getById($sshKeyId);
 
         $this->output($sshKey);
+        return 0;
     }
 }

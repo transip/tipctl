@@ -18,10 +18,11 @@ class GetElementsByProductName extends AbstractCommand
             ->setHelp('ProductElements are the specifications of a product');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $productName = $input->getArgument(Field::PRODUCT_NAME);
         $products = $this->getTransipApi()->productElements()->getByProductName($productName);
         $this->output($products);
+        return 0;
     }
 }

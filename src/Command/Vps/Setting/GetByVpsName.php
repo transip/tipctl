@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class GetByVpsName extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('vps:setting:getbyvpsname')
@@ -19,10 +19,11 @@ class GetByVpsName extends AbstractCommand
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName   = $input->getArgument(Field::VPS_NAME);
         $settings  = $this->getTransipApi()->vpsSettings()->getByVpsName($vpsName);
         $this->output($settings);
+        return 0;
     }
 }

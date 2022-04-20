@@ -20,11 +20,12 @@ class Add extends AbstractCommand
             ->setHelp('add ipAddress from a range so a ReverseDNS can be set');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coloName = $input->getArgument(Field::COLOCATION_NAME);
         $ipAddress = $input->getArgument(Field::IPADDRESS);
         $ptr = $input->getArgument(Field::IPADDRESS_PTR);
         $this->getTransipApi()->colocationIpAddress()->addIpAddress($coloName, $ipAddress, $ptr);
+        return 0;
     }
 }

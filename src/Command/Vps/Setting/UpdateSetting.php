@@ -24,7 +24,7 @@ class UpdateSetting extends AbstractCommand
             ->setHelp('This API call will allow you to update an existing setting for your VPS');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName             = $input->getArgument(Field::VPS_NAME);
         $settingName         = $input->getArgument(Field::VPS_SETTING_NAME);
@@ -51,5 +51,6 @@ class UpdateSetting extends AbstractCommand
 
         $setting->setValue($settingValue);
         $this->getTransipApi()->vpsSettings()->update($vpsName, $setting);
+        return 0;
     }
 }

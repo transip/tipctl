@@ -19,10 +19,11 @@ class GetByVpsName extends AbstractCommand
             ->setHelp('This command prints Traffic Pool information for a given vps.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $traffic = $this->getTransipApi()->trafficPool()->getByVpsName($vpsName);
         $this->output($traffic);
+        return 0;
     }
 }

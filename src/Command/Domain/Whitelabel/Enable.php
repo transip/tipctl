@@ -18,12 +18,13 @@ class Enable extends AbstractCommand
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
 
         $domain = $this->getTransipApi()->domains()->getByName($domainName);
         $domain->setIsWhitelabel(true);
         $this->getTransipApi()->domains()->update($domain);
+        return 0;
     }
 }

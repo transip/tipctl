@@ -18,11 +18,12 @@ class Disable extends AbstractCommand
             ->setHelp('All incoming traffic will be allowed when VpsFirewall is disabled');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName  = $input->getArgument(Field::VPS_NAME);
         $firewall = $this->getTransipApi()->vpsFirewall()->getByVpsName($vpsName);
         $firewall->setIsEnabled(false);
         $this->getTransipApi()->vpsFirewall()->update($vpsName, $firewall);
+        return 0;
     }
 }

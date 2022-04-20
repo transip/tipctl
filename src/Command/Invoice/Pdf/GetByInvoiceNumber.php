@@ -18,12 +18,13 @@ class GetByInvoiceNumber extends AbstractCommand
             ->setHelp('This command returns a string that is Base64 encoded. Decode this string before saving to a PDF file.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $invoiceNumber = $input->getArgument(Field::INVOICE_NUMBER);
 
         $invoicePdfData = $this->getTransipApi()->invoicePdf()->getByInvoiceNumber($invoiceNumber);
 
         $this->output($invoicePdfData);
+        return 0;
     }
 }

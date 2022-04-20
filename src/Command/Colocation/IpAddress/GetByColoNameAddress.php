@@ -21,12 +21,13 @@ class GetByColoNameAddress extends AbstractCommand
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coloName      = $input->getArgument(Field::COLOCATION_NAME);
         $coloIpAddress = $input->getArgument(Field::IPADDRESS);
 
         $ipAddress = $this->getTransipApi()->colocationIpAddress()->getByColoNameAddress($coloName, $coloIpAddress);
         $this->output($ipAddress);
+        return 0;
     }
 }

@@ -18,10 +18,11 @@ class Delete extends AbstractCommand
             ->setHelp('');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $sshKeyId = $input->getArgument(Field::SSH_KEY_ID);
 
         $this->getTransipApi()->sshKey()->delete($sshKeyId);
+        return 0;
     }
 }

@@ -17,11 +17,12 @@ class GetByName extends AbstractCommand
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorage = $this->getTransipApi()->bigStorages()->getByName($bigStorageName);
 
         $this->output($bigStorage);
+        return 0;
     }
 }

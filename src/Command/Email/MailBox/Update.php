@@ -15,7 +15,7 @@ use function filter_var;
 
 class Update extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:mailbox:update')
@@ -27,13 +27,13 @@ class Update extends AbstractCommand
             ->addArgument(Field::EMAIL_MAILBOX_FORWARDTO, InputArgument::OPTIONAL, Field::EMAIL_MAILBOX_FORWARDTO__DESC, '');
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $emailAddress = $input->getArgument(Field::EMAIL_ADDRESS);
 
         if (! filter_var($emailAddress, FILTER_VALIDATE_EMAIL)) {
             $output->writeln('<error>Please provide a valid email address</error>');
-            exit();
+            return 1;
         }
 
         $domain = explode('@', $emailAddress)[1];
@@ -48,5 +48,6 @@ class Update extends AbstractCommand
             $password,
             $forwardTo
         );
+        return 0;
     }
 }

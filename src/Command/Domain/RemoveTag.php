@@ -19,7 +19,7 @@ class RemoveTag extends AbstractCommand
             ->addArgument(Field::TAG_NAME, InputArgument::REQUIRED, Field::TAG_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
         $tagName    = $input->getArgument(Field::TAG_NAME);
@@ -27,5 +27,6 @@ class RemoveTag extends AbstractCommand
         $domain = $this->getTransipApi()->domains()->getByName($domainName);
         $domain->removeTag($tagName);
         $this->getTransipApi()->domains()->update($domain);
+        return 0;
     }
 }

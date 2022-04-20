@@ -18,11 +18,12 @@ class Remove extends AbstractCommand
             ->addArgument(Field::TCP_IPADDRESS, InputArgument::REQUIRED, Field::TCP_IPADDRESS__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName   = $input->getArgument(Field::VPS_NAME);
         $ipAddress = $input->getArgument(Field::TCP_IPADDRESS);
 
         $this->getTransipApi()->vpsTCPMonitor()->delete($vpsName, $ipAddress);
+        return 0;
     }
 }

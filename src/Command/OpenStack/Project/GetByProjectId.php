@@ -18,7 +18,7 @@ class GetByProjectId extends AbstractCommand
             ->setHelp('This API call returns details for an openstack project');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $projectId = $input->getArgument(Field::OPENSTACK_PROJECT_ID);
 
@@ -27,5 +27,6 @@ class GetByProjectId extends AbstractCommand
             ->getByProjectId($projectId);
 
         $this->output($usersData);
+        return 0;
     }
 }

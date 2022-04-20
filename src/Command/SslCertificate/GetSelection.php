@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetSelection extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('sslcertificate:getselection')
@@ -20,7 +20,7 @@ class GetSelection extends AbstractCommand
             ->addArgument(Field::SSL_CERTIFICATE_ITEMS_PER_PAGE, InputArgument::REQUIRED, Field::SSL_CERTIFICATE_ITEMS_PER_PAGE__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $page = (int) $input->getArgument(Field::SSL_CERTIFICATE_PAGE);
         $itemsPerPage = (int) $input->getArgument(Field::SSL_CERTIFICATE_ITEMS_PER_PAGE);
@@ -28,5 +28,6 @@ class GetSelection extends AbstractCommand
         $certificates = $this->getTransipApi()->sslCertificate()->getSelection($page, $itemsPerPage);
 
         $this->output($certificates);
+        return 0;
     }
 }

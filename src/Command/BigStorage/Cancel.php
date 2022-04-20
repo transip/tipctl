@@ -21,7 +21,7 @@ class Cancel extends AbstractCommand
             ->setHelp('This command will terminate or cancel your big storage.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         if (strlen($bigStorageName) < 3) {
@@ -34,5 +34,6 @@ class Cancel extends AbstractCommand
         }
 
         $this->getTransipApi()->bigStorages()->cancel($bigStorageName, $bigStorageCancelTime);
+        return 0;
     }
 }

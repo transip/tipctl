@@ -19,7 +19,7 @@ class SetTlsMode extends AbstractCommand
             ->addArgument(Field::HAIP_TLS_MODE, InputArgument::REQUIRED, Field::HAIP_TLS_MODE__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
         $tlsMode = $input->getArgument(Field::HAIP_TLS_MODE);
@@ -28,5 +28,6 @@ class SetTlsMode extends AbstractCommand
         $haip->setTlsMode($tlsMode);
 
         $this->getTransipApi()->haip()->update($haip);
+        return 0;
     }
 }

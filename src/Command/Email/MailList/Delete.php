@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Delete extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:maillist:delete')
@@ -21,7 +21,7 @@ class Delete extends AbstractCommand
             ->addArgument(Field::EMAIL_MAIL_LIST_ENTRIES, InputArgument::IS_ARRAY, Field::EMAIL_MAIL_LIST_ENTRIES__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $mailListId = $input->getArgument(Field::EMAIL_MAIL_LIST_ID);
         $domainName = $input->getArgument(Field::EMAIL_DOMAIN_NAME);
@@ -30,5 +30,6 @@ class Delete extends AbstractCommand
             $mailListId,
             $domainName
         );
+        return 0;
     }
 }

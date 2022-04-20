@@ -18,11 +18,12 @@ class AddDnsEntriesToDomains extends AbstractCommand
             ->addArgument(Field::DOMAIN_NAMES, InputArgument::REQUIRED, Field::DOMAIN_NAMES__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainNames = $input->getArgument(Field::DOMAIN_NAMES);
         $domains = explode(',', $domainNames);
 
         $this->getTransipApi()->mailService()->addMailServiceDnsEntriesToDomains($domains);
+        return 0;
     }
 }

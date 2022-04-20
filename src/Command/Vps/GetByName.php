@@ -18,10 +18,11 @@ class GetByName extends AbstractCommand
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $vps     = $this->getTransipApi()->vps()->getByName($vpsName);
         $this->output($vps);
+        return 0;
     }
 }

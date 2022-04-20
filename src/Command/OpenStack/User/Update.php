@@ -20,7 +20,7 @@ class Update extends AbstractCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $userId      = $input->getArgument(Field::OPENSTACK_USER_ID);
         $description = $input->getArgument(Field::OPENSTACK_USER_DESCRIPTION);
@@ -30,7 +30,7 @@ class Update extends AbstractCommand
             $output->writeln(
                 'Nothing to update, please provide either a new user email, a user description or both'
             );
-            return;
+            return 1;
         }
 
         $user = $this->getTransipApi()->openStackUsers()->getByUserId($userId);
@@ -39,5 +39,6 @@ class Update extends AbstractCommand
         $user->setDescription($description ?? $user->getDescription());
 
         $this->getTransipApi()->openStackUsers()->updateUser($user);
+        return 0;
     }
 }

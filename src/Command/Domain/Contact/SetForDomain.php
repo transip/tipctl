@@ -33,7 +33,7 @@ class SetForDomain extends AbstractCommand
             ->addArgument(Field::DOMAIN_FAX_NUMBER, InputArgument::OPTIONAL, Field::DOMAIN_FAX_NUMBER__DESC . Field::OPTIONAL);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName  = $input->getArgument(Field::DOMAIN_NAME);
         $type        = $input->getArgument(Field::DOMAIN_CONTACT_TYPE);
@@ -84,5 +84,6 @@ class SetForDomain extends AbstractCommand
         }
 
         $this->getTransipApi()->domainContact()->update($domainName, $newContacts);
+        return 0;
     }
 }

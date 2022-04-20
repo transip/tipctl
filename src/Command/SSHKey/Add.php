@@ -19,11 +19,12 @@ class Add extends AbstractCommand
             ->setHelp('');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $sshKey = $input->getArgument(Field::SSH_KEY);
         $sshKeyDescription = $input->getArgument(Field::SSH_KEY_DESCRIPTION);
 
         $this->getTransipApi()->sshKey()->create($sshKey, $sshKeyDescription);
+        return 0;
     }
 }

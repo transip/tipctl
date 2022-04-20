@@ -79,7 +79,7 @@ class Setup extends AbstractCommand
         $input->setOption(Field::API_PRIVATE_KEY, $privateKey);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $apiUrl     = strval($input->getOption(Field::API_URL));
         $login      = strval($input->getOption(Field::API_LOGIN));
@@ -114,7 +114,7 @@ class Setup extends AbstractCommand
             $shouldSave    = $helper->ask($input, $output, $tokenQuestion);
 
             if ($shouldSave === false) {
-                return;
+                return 1;
             }
         }
 
@@ -141,6 +141,7 @@ class Setup extends AbstractCommand
 
         $output->writeln("Config file saved in {$configFilePath}");
         $output->writeln('');
+        return 0;
     }
 
     private function greetUser(OutputInterface $output): void

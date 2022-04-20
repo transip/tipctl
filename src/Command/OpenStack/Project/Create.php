@@ -19,7 +19,7 @@ class Create extends AbstractCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $name        = $input->getArgument(Field::OPENSTACK_PROJECT_NAME);
         $description = $input->getArgument(Field::OPENSTACK_PROJECT_DESCRIPTION);
@@ -28,5 +28,6 @@ class Create extends AbstractCommand
             $name,
             $description
         );
+        return 0;
     }
 }

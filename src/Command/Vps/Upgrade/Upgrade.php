@@ -21,10 +21,11 @@ class Upgrade extends AbstractCommand
             );
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $productName = $input->getArgument(Field::PRODUCT_NAME);
         $this->getTransipApi()->vpsUpgrades()->upgrade($vpsName, $productName);
+        return 0;
     }
 }

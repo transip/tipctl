@@ -18,11 +18,12 @@ class GetByName extends AbstractCommand
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
         $privateNetwork     = $this->getTransipApi()->privateNetworks()->getByName($privateNetworkName);
 
         $this->output($privateNetwork);
+        return 0;
     }
 }

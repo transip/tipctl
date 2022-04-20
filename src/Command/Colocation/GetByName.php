@@ -18,10 +18,11 @@ class GetByName extends AbstractCommand
             ->addArgument(Field::COLOCATION_NAME, InputArgument::REQUIRED, Field::COLOCATION_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coloName = $input->getArgument(Field::COLOCATION_NAME);
         $colo     = $this->getTransipApi()->colocation()->getByName($coloName);
         $this->output($colo);
+        return 0;
     }
 }

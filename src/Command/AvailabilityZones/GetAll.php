@@ -15,9 +15,10 @@ class GetAll extends AbstractCommand
             ->setHelp('This command displays all available zones where you can order a product.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $availabilityZones = $this->getTransipApi()->availabilityZone()->getAll();
         $this->output($availabilityZones);
+        return 0;
     }
 }

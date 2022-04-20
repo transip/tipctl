@@ -20,7 +20,7 @@ class AttachVps extends AbstractCommand
             ->setHelp('This command will attach your big storage to your vps.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName    = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorageVpsName = $input->getArgument(Field::VPS_NAME);
@@ -29,5 +29,6 @@ class AttachVps extends AbstractCommand
         $bigStorage->setVpsName($bigStorageVpsName);
 
         $this->getTransipApi()->bigStorages()->update($bigStorage);
+        return 0;
     }
 }

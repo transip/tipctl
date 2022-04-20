@@ -21,7 +21,7 @@ class SetReverseDNS extends AbstractCommand
             ->setHelp('Reverse DNS for IPv4 addresses as well as IPv6 addresses can be updated using this command. This command functions if the reverse DNS is not yet configured as well, effectively allowing you to set new reverse DNS for every IP address listed.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName          = $input->getArgument(Field::VPS_NAME);
         $ipAddress        = $input->getArgument(Field::IPADDRESS);
@@ -30,5 +30,6 @@ class SetReverseDNS extends AbstractCommand
         $ipAddressObject = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($vpsName, $ipAddress);
         $ipAddressObject->setReverseDns($newPointerRecord);
         $this->getTransipApi()->vpsIpAddresses()->update($vpsName, $ipAddressObject);
+        return 0;
     }
 }

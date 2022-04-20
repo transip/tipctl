@@ -20,7 +20,7 @@ class Update extends AbstractCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $projectId   = $input->getArgument(Field::OPENSTACK_PROJECT_ID);
         $name        = $input->getArgument(Field::OPENSTACK_PROJECT_NAME);
@@ -30,7 +30,7 @@ class Update extends AbstractCommand
             $output->writeln(
                 'Nothing to update, please provide either a new project name, a project description or both'
             );
-            return;
+            return 1;
         }
 
         $project = $this->getTransipApi()->openStackProjects()->getByProjectId($projectId);
@@ -39,5 +39,6 @@ class Update extends AbstractCommand
         $project->setDescription($description ?? $project->getDescription());
 
         $this->getTransipApi()->openStackProjects()->updateProject($project);
+        return 0;
     }
 }

@@ -20,7 +20,7 @@ class Update extends AbstractCommand
             ->setHelp('Only operating system licenses can be passed through this command.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName        = $input->getArgument(Field::VPS_NAME);
         $licenseId      = $input->getArgument(Field::LICENSE_ID);
@@ -31,5 +31,6 @@ class Update extends AbstractCommand
             $licenseId,
             $newLicenseName
         );
+        return 0;
     }
 }

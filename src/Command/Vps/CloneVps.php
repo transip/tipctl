@@ -19,11 +19,12 @@ class CloneVps extends AbstractCommand
             ->setHelp('You must provide the vps name of the VPS to clone, and optionally provide the name of the availability zone where the clone should be created');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $availabilityZone = $input->getArgument(Field::AVAILABILITY_ZONE);
 
         $this->getTransipApi()->vps()->cloneVps($vpsName, $availabilityZone);
+        return 0;
     }
 }

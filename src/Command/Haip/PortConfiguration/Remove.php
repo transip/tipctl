@@ -18,11 +18,12 @@ class Remove extends AbstractCommand
             ->addArgument(Field::HAIP_PORT_CONFIGURATION_ID, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_ID__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName            = $input->getArgument(Field::HAIP_NAME);
         $portConfigurationId = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_ID);
 
         $this->getTransipApi()->haipPortConfigurations()->delete($haipName, $portConfigurationId);
+        return 0;
     }
 }

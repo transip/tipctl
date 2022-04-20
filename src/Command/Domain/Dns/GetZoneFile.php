@@ -20,7 +20,7 @@ class GetZoneFile extends AbstractCommand
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
         $dnsEntries = $this->getTransipApi()->domainDns()->getByDomainName($domainName);
@@ -30,5 +30,6 @@ class GetZoneFile extends AbstractCommand
             return [$row->getName(), $row->getType(), $row->getExpire(), $row->getRdata()];
         }, $dnsEntries));
         $table->render();
+        return 0;
     }
 }

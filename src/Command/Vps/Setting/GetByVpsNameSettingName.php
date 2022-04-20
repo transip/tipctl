@@ -19,7 +19,7 @@ class GetByVpsNameSettingName extends AbstractCommand
             ->setHelp('This API call will return the specified setting');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $settingName = $input->getArgument(Field::VPS_SETTING_NAME);
@@ -27,5 +27,6 @@ class GetByVpsNameSettingName extends AbstractCommand
         $setting = $this->getTransipApi()->vpsSettings()->getByVpsNameSettingName($vpsName, $settingName);
 
         $this->output($setting);
+        return 0;
     }
 }

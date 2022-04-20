@@ -23,7 +23,7 @@ class RemoveRule extends AbstractCommand
             ->setHelp('Removing a rule will no longer allow matching incoming traffic');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $description = $input->getArgument(Field::VPS_FIREWALL_DESCRIPTION);
@@ -41,5 +41,6 @@ class RemoveRule extends AbstractCommand
         $firewall->removeRule($firewallRule);
 
         $this->getTransipApi()->vpsFirewall()->update($vpsName, $firewall);
+        return 0;
     }
 }

@@ -19,10 +19,11 @@ class GetByBigStorageName extends AbstractCommand
             ->setHelp('This command lists backups for any given big storage.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $vps = $this->getTransipApi()->bigStorageBackups()->getByBigStorageName($bigStorageName);
         $this->output($vps);
+        return 0;
     }
 }

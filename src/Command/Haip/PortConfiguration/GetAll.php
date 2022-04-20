@@ -17,12 +17,13 @@ class GetAll extends AbstractCommand
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
 
         $portConfigurations = $this->getTransipApi()->haipPortConfigurations()->getByHaipName($haipName);
 
         $this->output($portConfigurations);
+        return 0;
     }
 }

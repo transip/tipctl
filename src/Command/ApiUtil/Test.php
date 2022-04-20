@@ -15,7 +15,7 @@ class Test extends AbstractCommand
             ->setHelp('Will check if the API is reachable with token');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $timeStart = microtime(true);
         $success   = $this->getTransipApi()->test()->test();
@@ -28,5 +28,6 @@ class Test extends AbstractCommand
         }
         $ping = round(($timeDone - $timeStart) * 1000);
         $output->writeln("Elapsed time: {$ping} ms");
+        return 0;
     }
 }

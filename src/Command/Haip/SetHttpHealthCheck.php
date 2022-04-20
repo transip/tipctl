@@ -24,7 +24,7 @@ class SetHttpHealthCheck extends AbstractCommand
             ->addArgument(self::CHECK_SSL, InputArgument::REQUIRED, 'Whether to use SSL when performing the HTTP check');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
         $port     = intval($input->getArgument(self::CHECK_PORT));
@@ -40,5 +40,6 @@ class SetHttpHealthCheck extends AbstractCommand
         $haip->setHttpHealthCheckSsl($isSsl);
 
         $this->getTransipApi()->haip()->update($haip);
+        return 0;
     }
 }

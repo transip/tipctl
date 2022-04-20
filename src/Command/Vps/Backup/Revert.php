@@ -19,11 +19,12 @@ class Revert extends AbstractCommand
             ->setHelp('Reverting a VPS back-up will restore the VPS to an earlier state. Use this API call with care, as data created after the back-up creation date can be wiped when a back-up is restored.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $backupId = $input->getArgument(Field::VPS_BACKUP_ID);
 
         $this->getTransipApi()->vpsBackups()->revertBackup($vpsName, $backupId);
+        return 0;
     }
 }

@@ -18,7 +18,7 @@ class SetHealthCheckInterval extends AbstractCommand
             ->addArgument(Field::HAIP_INTERVAL, InputArgument::REQUIRED, Field::HAIP_INTERVAL__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
         $interval = intval($input->getArgument(Field::HAIP_INTERVAL));
@@ -27,5 +27,6 @@ class SetHealthCheckInterval extends AbstractCommand
         $haip->setHealthCheckInterval($interval);
 
         $this->getTransipApi()->haip()->update($haip);
+        return 0;
     }
 }

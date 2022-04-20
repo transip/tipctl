@@ -15,7 +15,7 @@ use function filter_var;
 
 class GetByEmailAddress extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:mailbox:getbyemailaddress')
@@ -24,18 +24,19 @@ class GetByEmailAddress extends AbstractCommand
             ->addArgument(Field::EMAIL_ADDRESS, InputArgument::REQUIRED, Field::EMAIL_ADDRESS__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $email = $input->getArgument(Field::EMAIL_ADDRESS);
 
         if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $output->writeln('<error>Please provide a valid email address</error>');
-            return;
+            return 1;
         }
 
         $domainName = explode('@', $email)[1];
         $mailbox = $this->getTransipApi()->mailboxes()->getByDomainNameAndIdentifier($domainName, $email);
 
         $this->output($mailbox);
+        return 0;
     }
 }

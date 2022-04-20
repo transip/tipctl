@@ -19,11 +19,12 @@ class GetByVpsName extends AbstractCommand
             ->setHelp('List active, cancellable and available licenses for a VPS.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $licenses = $this->getTransipApi()->vpsLicenses()->getByVpsName($vpsName);
 
         $this->output($licenses);
+        return 0;
     }
 }

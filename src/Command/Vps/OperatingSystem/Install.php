@@ -24,7 +24,7 @@ class Install extends AbstractCommand
             ->addArgument(Field::LICENSE_NAMES, InputArgument::OPTIONAL, Field::LICENSE_NAMES__DESC . Field::OPTIONAL, '');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName             = $input->getArgument(Field::VPS_NAME);
         $operatingSystemName = $input->getArgument(Field::VPS_OS_NAME);
@@ -48,5 +48,6 @@ class Install extends AbstractCommand
             $sshKeys,
             $licenseNames
         );
+        return 0;
     }
 }

@@ -19,11 +19,12 @@ class Delete extends AbstractCommand
             ->setHelp('Delete a VPS snapshot using this command.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $snapshotName = $input->getArgument(Field::VPS_SNAPSHOT_NAME);
 
         $this->getTransipApi()->vpsSnapshots()->deleteSnapshot($vpsName, $snapshotName);
+        return 0;
     }
 }

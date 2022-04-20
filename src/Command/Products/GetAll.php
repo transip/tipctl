@@ -15,9 +15,10 @@ class GetAll extends AbstractCommand
             ->setHelp('All orderable products via the API excluding domains');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $products = $this->getTransipApi()->products()->getAll();
         $this->output($products);
+        return 0;
     }
 }

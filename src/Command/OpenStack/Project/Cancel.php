@@ -18,10 +18,11 @@ class Cancel extends AbstractCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $projectId = $input->getArgument(Field::OPENSTACK_PROJECT_ID);
 
         $this->getTransipApi()->openStackProjects()->cancel($projectId);
+        return 0;
     }
 }

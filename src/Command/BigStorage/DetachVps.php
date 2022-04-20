@@ -19,7 +19,7 @@ class DetachVps extends AbstractCommand
             ->setHelp('This command will detach your big storage from your vps.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
 
@@ -27,5 +27,6 @@ class DetachVps extends AbstractCommand
         $bigStorage->setVpsName('');
 
         $this->getTransipApi()->bigStorages()->update($bigStorage);
+        return 0;
     }
 }

@@ -19,11 +19,12 @@ class Cancel extends AbstractCommand
             ->setHelp('Cancel a license based on VpsName and LicenseId. Operating system licenses cannot be cancelled using this command.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $licenseId = $input->getArgument(Field::LICENSE_ID);
 
         $this->getTransipApi()->vpsLicenses()->cancel($vpsName, $licenseId);
+        return 0;
     }
 }

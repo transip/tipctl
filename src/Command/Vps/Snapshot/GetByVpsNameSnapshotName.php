@@ -18,12 +18,13 @@ class GetByVpsNameSnapshotName extends AbstractCommand
             ->addArgument(Field::VPS_SNAPSHOT_NAME, InputArgument::REQUIRED, Field::VPS_SNAPSHOT_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $snapshotName = $input->getArgument(Field::VPS_SNAPSHOT_NAME);
 
         $snapshot = $this->getTransipApi()->vpsSnapshots()->getByVpsNameSnapshotName($vpsName, $snapshotName);
         $this->output($snapshot);
+        return 0;
     }
 }

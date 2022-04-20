@@ -20,7 +20,7 @@ class GetUsage extends AbstractCommand
             ->setHelp('This command allows you to retrieve usage statistics of a big storage. Start and end dates cannot be longer than a one month period.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $dateTimeStart  = $input->getArgument(Field::BIGSTORAGE_STARTDATE);
@@ -28,5 +28,6 @@ class GetUsage extends AbstractCommand
 
         $response = $this->getTransipApi()->bigStorageUsage()->getUsageStatistics($bigStorageName, $dateTimeStart, $dateTimeEnd);
         $this->output($response);
+        return 0;
     }
 }
