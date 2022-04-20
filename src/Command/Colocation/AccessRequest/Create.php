@@ -43,7 +43,7 @@ class Create extends AbstractCommand
             ->setHelp('Send a request for some visitors to access the datacenter at some date and time for some specific duration');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $visitorNames = explode(',', Field::COLOCATION_ACCESS_REQUEST_VISITOR_NAMES);
 
@@ -55,5 +55,6 @@ class Create extends AbstractCommand
         $accessRequest->setPhoneNumber($input->getArgument(Field::COLOCATION_ACCESS_REQUEST_PHONE_NUMBER) ?? '');
 
         $this->getTransipApi()->colocationAccessRequest()->create($accessRequest);
+        return 0;
     }
 }

@@ -11,7 +11,7 @@ use Transip\Api\Library\Entity\Vps\Contact;
 
 class Update extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('vps:tcpmonitor:contact:update')
             ->setDescription('Update a TCP Monitoring contact')
@@ -21,7 +21,7 @@ class Update extends AbstractCommand
             ->addArgument(Field::CONTACT_TELEPHONE, InputArgument::REQUIRED, Field::CONTACT_TELEPHONE__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contactId        = $input->getArgument(Field::CONTACT_ID);
         $contactName      = $input->getArgument(Field::CONTACT_NAME);
@@ -35,5 +35,6 @@ class Update extends AbstractCommand
         $contact->setTelephone($contactTelephone);
 
         $this->getTransipApi()->vpsTCPMonitorContact()->update($contact);
+        return 0;
     }
 }

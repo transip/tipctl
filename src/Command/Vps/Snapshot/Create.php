@@ -19,7 +19,7 @@ class Create extends AbstractCommand
             ->addArgument(Field::VPS_SNAPSHOT_SHOULDSTARTVPS, InputArgument::OPTIONAL, Field::VPS_SNAPSHOT_SHOULDSTARTVPS__DESC . Field::OPTIONAL, true);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $snapshotDescription = $input->getArgument(Field::VPS_SNAPSHOT_DESCRIPTION);
@@ -27,5 +27,6 @@ class Create extends AbstractCommand
         $shouldStartVps = filter_var($shouldStartVps, FILTER_VALIDATE_BOOLEAN);
 
         $this->getTransipApi()->vpsSnapshots()->createSnapshot($vpsName, $snapshotDescription, $shouldStartVps);
+        return 0;
     }
 }

@@ -28,7 +28,7 @@ class Order extends AbstractCommand
             ->setHelp('Order a Vps with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $productName       = $input->getArgument(Field::PRODUCT_NAME);
         $operatingSystem   = $input->getArgument(Field::VPS_OS_NAME);
@@ -59,5 +59,6 @@ class Order extends AbstractCommand
             $sshKeys,
             $licenseNames
         );
+        return 0;
     }
 }

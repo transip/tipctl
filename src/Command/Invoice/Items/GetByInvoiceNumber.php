@@ -18,12 +18,13 @@ class GetByInvoiceNumber extends AbstractCommand
             ->setHelp('This API call returns details for each item on an invoice');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $invoiceNumber = $input->getArgument(Field::INVOICE_NUMBER);
 
         $invoicePdfData = $this->getTransipApi()->invoiceItem()->getByInvoiceNumber($invoiceNumber);
 
         $this->output($invoicePdfData);
+        return 0;
     }
 }

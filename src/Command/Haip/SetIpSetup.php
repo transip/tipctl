@@ -18,7 +18,7 @@ class SetIpSetup extends AbstractCommand
             ->addArgument(Field::HAIP_IP_SETUP, InputArgument::REQUIRED, Field::HAIP_IP_SETUP__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $ipSetup  = $input->getArgument(Field::HAIP_IP_SETUP);
         $haipName = $input->getArgument(Field::HAIP_NAME);
@@ -26,5 +26,6 @@ class SetIpSetup extends AbstractCommand
         $haip = $this->getTransipApi()->haip()->getByName($haipName);
         $haip->setIpSetup($ipSetup);
         $this->getTransipApi()->haip()->update($haip);
+        return 0;
     }
 }

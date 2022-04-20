@@ -19,7 +19,7 @@ class SetDescription extends AbstractCommand
             ->addArgument(Field::VPS_DESCRIPTION, InputArgument::REQUIRED, Field::VPS_DESCRIPTION__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName        = $input->getArgument(Field::VPS_NAME);
         $vpsDescription = $input->getArgument(Field::VPS_DESCRIPTION);
@@ -27,5 +27,6 @@ class SetDescription extends AbstractCommand
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $vps->setDescription($vpsDescription);
         $this->getTransipApi()->vps()->update($vps);
+        return 0;
     }
 }

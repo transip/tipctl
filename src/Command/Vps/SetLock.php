@@ -19,7 +19,7 @@ class SetLock extends AbstractCommand
             ->addArgument(Field::VPS_SET_LOCK, InputArgument::REQUIRED, Field::VPS_SET_LOCK__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $setLock = $input->getArgument(Field::VPS_SET_LOCK);
@@ -27,5 +27,6 @@ class SetLock extends AbstractCommand
         $vps = $this->getTransipApi()->vps()->getByName($vpsName);
         $vps->setIsCustomerLocked(filter_var($setLock, FILTER_VALIDATE_BOOLEAN));
         $this->getTransipApi()->vps()->update($vps);
+        return 0;
     }
 }

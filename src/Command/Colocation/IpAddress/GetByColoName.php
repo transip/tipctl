@@ -18,11 +18,12 @@ class GetByColoName extends AbstractCommand
             ->setHelp('This API call will return all IPv4 and IPv6 addresses attached to the Colocation');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coloName = $input->getArgument(Field::COLOCATION_NAME);
         $ipAddresses = $this->getTransipApi()->colocationIpAddress()->getByColoName($coloName);
 
         $this->output($ipAddresses);
+        return 0;
     }
 }

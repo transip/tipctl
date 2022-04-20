@@ -19,11 +19,12 @@ class SetDescription extends AbstractCommand
             ->setHelp('');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $sshKeyId = $input->getArgument(Field::SSH_KEY_ID);
         $sshKeyDescription = $input->getArgument(Field::SSH_KEY_DESCRIPTION);
 
         $this->getTransipApi()->sshKey()->update($sshKeyId, $sshKeyDescription);
+        return 0;
     }
 }

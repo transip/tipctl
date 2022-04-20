@@ -19,11 +19,12 @@ class GetByVpsName extends AbstractCommand
             ->setHelp('List active, cancellable and available addons for a VPS.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $vps = $this->getTransipApi()->vpsAddons()->getByVpsName($vpsName);
 
         $this->output($vps);
+        return 0;
     }
 }

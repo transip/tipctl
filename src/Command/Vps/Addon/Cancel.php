@@ -19,11 +19,12 @@ class Cancel extends AbstractCommand
             ->setHelp('Cancel an add-on based on its name, specifying the VPS name as well. This will instantly cancel the given add-on');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $addonName = $input->getArgument(Field::VPS_ADDON);
 
         $this->getTransipApi()->vpsAddons()->cancel($vpsName, $addonName);
+        return 0;
     }
 }

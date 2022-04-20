@@ -19,10 +19,11 @@ class RetryWithNewAuthCode extends AbstractCommand
             ->addArgument(Field::DOMAIN_AUTH_CODE, InputArgument::REQUIRED, Field::DOMAIN_AUTH_CODE__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
         $authCode   = $input->getArgument(Field::DOMAIN_AUTH_CODE);
         $this->getTransipApi()->domainAction()->retryDomainAction($domainName, $authCode);
+        return 0;
     }
 }

@@ -14,10 +14,11 @@ class GetAll extends AbstractCommand
         $this->setName('bigstorage:getall')
              ->setDescription('Get all of your big storages');
     }
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorages = $this->getTransipApi()->bigStorages()->getAll();
 
         $this->output($bigStorages);
+        return 0;
     }
 }

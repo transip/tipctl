@@ -28,7 +28,7 @@ class OrderMultiple extends AbstractCommand
             ->setHelp('Order multiple VPSs with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $count             = $input->getArgument(Field::VPS_MULTIPLE_COUNT);
         $productName       = $input->getArgument(Field::PRODUCT_NAME);
@@ -63,5 +63,6 @@ class OrderMultiple extends AbstractCommand
         }
 
         $this->getTransipApi()->vps()->orderMultiple($vpss);
+        return 0;
     }
 }

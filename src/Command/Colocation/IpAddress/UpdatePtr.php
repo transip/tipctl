@@ -20,7 +20,7 @@ class UpdatePtr extends AbstractCommand
             ->setHelp('Set the reverseDNS ptr record for given ipAddress');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coloName  = $input->getArgument(Field::COLOCATION_NAME);
         $ipAddress = $input->getArgument(Field::IPADDRESS);
@@ -29,5 +29,6 @@ class UpdatePtr extends AbstractCommand
         $ipAddress = $this->getTransipApi()->colocationIpAddress()->getByColoNameAddress($coloName, $ipAddress);
         $ipAddress->setReverseDns($ptr);
         $this->getTransipApi()->colocationIpAddress()->update($coloName, $ipAddress);
+        return 0;
     }
 }

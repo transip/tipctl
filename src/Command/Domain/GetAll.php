@@ -14,9 +14,10 @@ class GetAll extends AbstractCommand
             ->setDescription('Get all of your Domains');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domains = $this->getTransipApi()->domains()->getAll();
         $this->output($domains);
+        return 0;
     }
 }

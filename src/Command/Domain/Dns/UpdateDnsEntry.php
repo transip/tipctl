@@ -23,7 +23,7 @@ class UpdateDnsEntry extends AbstractCommand
             ->addArgument(Field::DNS_ENTRY_CONTENT, InputArgument::REQUIRED, Field::DNS_ENTRY_CONTENT__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
         $name       = $input->getArgument(Field::DNS_ENTRY_NAME);
@@ -38,5 +38,6 @@ class UpdateDnsEntry extends AbstractCommand
         $dnsEntry->setContent($content);
 
         $this->getTransipApi()->domainDns()->updateEntry($domainName, $dnsEntry);
+        return 0;
     }
 }

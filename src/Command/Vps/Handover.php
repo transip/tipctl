@@ -19,11 +19,12 @@ class Handover extends AbstractCommand
             ->addArgument(Field::CUSTOMER_NAME, InputArgument::REQUIRED, Field::CUSTOMER_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName      = $input->getArgument(Field::VPS_NAME);
         $customerName = $input->getArgument(Field::CUSTOMER_NAME);
 
         $this->getTransipApi()->vps()->handover($vpsName, $customerName);
+        return 0;
     }
 }

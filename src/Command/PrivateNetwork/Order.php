@@ -20,7 +20,7 @@ class Order extends AbstractCommand
             ->setHelp('After ordering a private network you’re able to attach it to a VPS to make use of the private network.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $description = $input->getArgument(Field::PRIVATENETWORK_DESCRIPTION);
         $shouldWaitForDelivery = $input->getOption(Field::HAIP_WAIT_FOR_DELIVERY);
@@ -36,7 +36,7 @@ class Order extends AbstractCommand
                 if (count($haipsBeforeOrder) < count($privateNetworks)) {
                     $privateNetwork = end($privateNetworks);
                     $this->output($privateNetwork);
-                    return;
+                    return 0;
                 }
 
                 $this->output("Waiting for private network '{$description}', not there yet");
@@ -44,5 +44,6 @@ class Order extends AbstractCommand
         } else {
             $this->getTransipApi()->privateNetworks()->order();
         }
+        return 0;
     }
 }

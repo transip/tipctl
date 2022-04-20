@@ -19,11 +19,12 @@ class SetPassword extends AbstractCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $userId   = $input->getArgument(Field::OPENSTACK_USER_ID);
         $password = $input->getArgument(Field::OPENSTACK_USER_PASSWORD);
 
         $this->getTransipApi()->openStackUsers()->updatePassword($userId, $password);
+        return 0;
     }
 }

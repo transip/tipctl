@@ -19,12 +19,13 @@ class GetAll extends AbstractCommand
             ->setHelp('Get all the TLD information like price, min & max character length');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $page = $input->getArgument(Field::PAGE);
         $itemsPerPage = $input->getArgument(Field::ITEMS_PER_PAGE);
         $tlds = $this->getTransipApi()->domainTlds()->getSelection($page, $itemsPerPage);
 
         $this->output($tlds);
+        return 0;
     }
 }

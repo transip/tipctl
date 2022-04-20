@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByDomainNameAndId extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:mailforward:getbydomainnameandid')
@@ -20,7 +20,7 @@ class GetByDomainNameAndId extends AbstractCommand
             ->addArgument(Field::EMAIL_FORWARD_ID, InputArgument::REQUIRED, Field::EMAIL_FORWARD_ID__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::EMAIL_DOMAIN_NAME);
         $mailForwardId = (int) $input->getArgument(Field::EMAIL_FORWARD_ID);
@@ -31,5 +31,6 @@ class GetByDomainNameAndId extends AbstractCommand
         );
 
         $this->output($forwards);
+        return 0;
     }
 }

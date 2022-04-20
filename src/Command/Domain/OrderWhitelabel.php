@@ -17,8 +17,9 @@ class OrderWhitelabel extends AbstractCommand
             ->setHelp('Order the whitelabel services for this account');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->getTransipApi()->domainWhitelabel()->order();
+        return 0;
     }
 }

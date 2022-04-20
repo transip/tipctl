@@ -18,12 +18,13 @@ class SetAttachedIpAddresses extends AbstractCommand
             ->addArgument(Field::IPADDRESSES, InputArgument::REQUIRED, Field::IPADDRESSES__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName    = $input->getArgument(Field::HAIP_NAME);
         $ipAddresses = $input->getArgument(Field::IPADDRESSES);
         $ipAddresses = explode(',', $ipAddresses);
 
         $this->getTransipApi()->haipIpAddresses()->update($haipName, $ipAddresses);
+        return 0;
     }
 }

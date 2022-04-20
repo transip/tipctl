@@ -15,9 +15,10 @@ class GetAll extends AbstractCommand
             ->setHelp('This command lists all private networks along with the VPSs it’s attached to.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $privateNetworks = $this->getTransipApi()->privateNetworks()->getAll();
         $this->output($privateNetworks);
+        return 0;
     }
 }

@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetById extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('sslcertificate:getbyid')
@@ -19,10 +19,11 @@ class GetById extends AbstractCommand
             ->addArgument(Field::SSL_CERTIFICATE_ID, InputArgument::REQUIRED, Field::SSL_CERTIFICATE_ID__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $certificateId = (int) $input->getArgument(Field::SSL_CERTIFICATE_ID);
         $certificate = $this->getTransipApi()->sslCertificate()->getById($certificateId);
         $this->output($certificate);
+        return 0;
     }
 }

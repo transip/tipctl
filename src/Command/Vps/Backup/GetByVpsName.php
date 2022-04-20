@@ -19,11 +19,12 @@ class GetByVpsName extends AbstractCommand
             ->setHelp('TransIP offers multiple back-up types, every VPS has 4 hourly back-ups by default, weekly back-ups are available for a small fee. This API call returns back-ups for both types.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
 
         $vps = $this->getTransipApi()->vpsBackups()->getByVpsName($vpsName);
         $this->output($vps);
+        return 0;
     }
 }

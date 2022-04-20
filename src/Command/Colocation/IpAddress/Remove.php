@@ -19,10 +19,11 @@ class Remove extends AbstractCommand
             ->setHelp('Administratively remove a ipAddress from a range');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coloName = $input->getArgument(Field::COLOCATION_NAME);
         $ipAddress = $input->getArgument(Field::IPADDRESS);
         $this->getTransipApi()->colocationIpAddress()->removeAddress($coloName, $ipAddress);
+        return 0;
     }
 }

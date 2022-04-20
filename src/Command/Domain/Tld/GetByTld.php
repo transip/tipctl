@@ -18,10 +18,11 @@ class GetByTld extends AbstractCommand
             ->addArgument(Field::TLD, InputArgument::REQUIRED, Field::TLD__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $tld       = $input->getArgument(Field::TLD);
         $tldObject = $this->getTransipApi()->domainTlds()->getByTld($tld);
         $this->output($tldObject);
+        return 0;
     }
 }

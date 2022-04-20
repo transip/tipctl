@@ -23,7 +23,7 @@ class SetForDomain extends AbstractCommand
             ->addArgument(Field::DNSSEC_ENTRY_PUBLICKEY, InputArgument::REQUIRED, Field::DNSSEC_ENTRY_PUBLICKEY__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
         $keyTag     = $input->getArgument(Field::DNSSEC_ENTRY_KEYTAG);
@@ -38,5 +38,6 @@ class SetForDomain extends AbstractCommand
         $dnsSecEntry->setPublicKey($publicKey);
 
         $this->getTransipApi()->domainDnsSec()->update($domainName, [$dnsSecEntry]);
+        return 0;
     }
 }

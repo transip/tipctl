@@ -15,10 +15,11 @@ class GetMailServiceInformation extends AbstractCommand
             ->setDescription('Get the Mail Service usage');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $mailServiceInformation = $this->getTransipApi()->mailService()->getMailServiceInformation();
 
         $this->output($mailServiceInformation);
+        return 0;
     }
 }

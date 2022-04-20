@@ -19,12 +19,13 @@ class GetByVpsNameAddress extends AbstractCommand
             ->setHelp('This API call returns information (generally network information) based on the specific IP address specified.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName      = $input->getArgument(Field::VPS_NAME);
         $vpsIPAddress = $input->getArgument(Field::IPADDRESS);
 
         $ipAddress = $this->getTransipApi()->vpsIpAddresses()->getByVpsNameAddress($vpsName, $vpsIPAddress);
         $this->output($ipAddress);
+        return 0;
     }
 }

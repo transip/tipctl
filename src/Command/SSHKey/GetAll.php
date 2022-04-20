@@ -19,7 +19,7 @@ class GetAll extends AbstractCommand
             ->setHelp('This command supports pagination, using this command you can limit the amount of ssh keys returned by the api call, which might be useful if you expect a lot of response objects and you want to spread that over to multiple requests.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $page = $input->getArgument(Field::PAGE);
         $itemsPerPage = $input->getArgument(Field::ITEMS_PER_PAGE);
@@ -27,5 +27,6 @@ class GetAll extends AbstractCommand
         $sshKeyList = $this->getTransipApi()->sshKey()->getSelection($page, $itemsPerPage);
 
         $this->output($sshKeyList);
+        return 0;
     }
 }

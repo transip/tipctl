@@ -20,7 +20,7 @@ class SetForDomain extends AbstractCommand
             ->addArgument(Field::DOMAIN_NAMESERVERS, InputArgument::REQUIRED, Field::DOMAIN_NAMESERVERS__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName  = $input->getArgument(Field::DOMAIN_NAME);
         $nameservers = $input->getArgument(Field::DOMAIN_NAMESERVERS);
@@ -35,5 +35,6 @@ class SetForDomain extends AbstractCommand
         }
 
         $this->getTransipApi()->domainNameserver()->update($domainName, $nameserverObjects);
+        return 0;
     }
 }

@@ -20,7 +20,7 @@ class RequestAccessToken extends AbstractCommand
             ->setHelp('Create a temporary access token');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $readOnly = filter_var($input->getArgument(Field::READ_ONLY), FILTER_VALIDATE_BOOLEAN);
         $expirationTime = $input->getArgument(Field::TOKEN_END_DATE);
@@ -28,5 +28,6 @@ class RequestAccessToken extends AbstractCommand
         $settings = Settings::getInstance(false);
         $token = $this->getTransipApi()->auth()->createToken($settings->getApiLogin(), $settings->getApiPrivateKey(), false, $readOnly, "test-" . time(), $expirationTime);
         $output->writeLn($token);
+        return 0;
     }
 }

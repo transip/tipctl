@@ -19,7 +19,7 @@ class Order extends AbstractCommand
             ->addArgument(Field::QUANTITY, InputArgument::OPTIONAL, Field::QUANTITY__DESC, 1);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $licenseName = $input->getArgument(Field::LICENSE_NAME);
@@ -30,5 +30,6 @@ class Order extends AbstractCommand
             $licenseName,
             $quantity
         );
+        return 0;
     }
 }

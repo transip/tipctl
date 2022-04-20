@@ -39,7 +39,7 @@ class Create extends AbstractCommand
             ->setHelp('Give instructions to a datacenter engineer to perform on your colocation server');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $coloName         = $input->getArgument(Field::COLOCATION_NAME);
         $contactName      = $input->getArgument(Field::COLOCATION_REMOTE_HANDS_CONTACT_NAME);
@@ -55,5 +55,6 @@ class Create extends AbstractCommand
         $remoteHands->setInstructions($instructions);
 
         $this->getTransipApi()->colocationRemoteHands()->create($remoteHands);
+        return 0;
     }
 }

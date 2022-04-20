@@ -17,7 +17,7 @@ class GetByTagName extends AbstractCommand
             ->addArgument(Field::TAG_NAME, InputArgument::REQUIRED, Field::TAG_NAME__DESC . ' (more than one tag, comma separated)');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $tagName = $input->getArgument(Field::TAG_NAME);
         $tagNames = explode(',', $tagName);
@@ -25,5 +25,6 @@ class GetByTagName extends AbstractCommand
         $domains = $this->getTransipApi()->domains()->getByTagNames($tagNames);
 
         $this->output($domains);
+        return 0;
     }
 }

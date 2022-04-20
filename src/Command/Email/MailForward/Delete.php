@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Delete extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:mailforward:delete')
@@ -20,7 +20,7 @@ class Delete extends AbstractCommand
             ->addArgument(Field::EMAIL_FORWARD_ID, InputArgument::REQUIRED, Field::EMAIL_FORWARD_ID__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::EMAIL_DOMAIN_NAME);
         $mailForwardId = (int) $input->getArgument(Field::EMAIL_FORWARD_ID);
@@ -29,5 +29,6 @@ class Delete extends AbstractCommand
             $mailForwardId,
             $domainName
         );
+        return 0;
     }
 }

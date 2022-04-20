@@ -10,19 +10,20 @@ use Transip\Api\CLI\Command\Field;
 
 class GetAll extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('haip:certificate:getall')
             ->setDescription('List all SSL Certificates that are currently used by your HA-IP')
             ->addArgument(Field::HAIP_NAME, InputArgument::REQUIRED, Field::HAIP_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
 
         $certificates = $this->getTransipApi()->haipCertificates()->getByHaipName($haipName);
 
         $this->output($certificates);
+        return 0;
     }
 }

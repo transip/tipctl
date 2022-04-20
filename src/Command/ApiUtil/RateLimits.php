@@ -15,7 +15,7 @@ class RateLimits extends AbstractCommand
             ->setHelp('Will do a test API call to retrieve rate limit information');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->getTransipApi()->test()->test();
         $rateLimitReset = $this->getTransipApi()->getRateLimitReset();
@@ -31,5 +31,6 @@ class RateLimits extends AbstractCommand
         ];
 
         $this->output($information);
+        return 0;
     }
 }

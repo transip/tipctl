@@ -18,7 +18,7 @@ class SetPtrRecord extends AbstractCommand
             ->addArgument(Field::IPADDRESS_PTR, InputArgument::REQUIRED, Field::IPADDRESS_PTR__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $ptr      = $input->getArgument(Field::IPADDRESS_PTR);
         $haipName = $input->getArgument(Field::HAIP_NAME);
@@ -26,5 +26,6 @@ class SetPtrRecord extends AbstractCommand
         $haip = $this->getTransipApi()->haip()->getByName($haipName);
         $haip->setPtrRecord($ptr);
         $this->getTransipApi()->haip()->update($haip);
+        return 0;
     }
 }

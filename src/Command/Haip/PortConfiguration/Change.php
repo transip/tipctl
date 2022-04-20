@@ -24,7 +24,7 @@ class Change extends AbstractCommand
             ->addArgument(Field::HAIP_PORT_CONFIGURATION_SSL_MODE, InputArgument::REQUIRED, Field::HAIP_PORT_CONFIGURATION_SSL_MODE__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName            = $input->getArgument(Field::HAIP_NAME);
         $portConfigurationId = $input->getArgument(Field::HAIP_PORT_CONFIGURATION_ID);
@@ -43,5 +43,6 @@ class Change extends AbstractCommand
         $portConfiguration->setEndpointSslMode($sslMode);
 
         $this->getTransipApi()->haipPortConfigurations()->update($haipName, $portConfiguration);
+        return 0;
     }
 }

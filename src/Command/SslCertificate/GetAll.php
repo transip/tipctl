@@ -8,7 +8,7 @@ use Transip\Api\CLI\Command\AbstractCommand;
 
 class GetAll extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('sslcertificate:getall')
@@ -16,10 +16,11 @@ class GetAll extends AbstractCommand
             ->setHelp('Get all SSL certificates in your account');
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $certificates = $this->getTransipApi()->sslCertificate()->getAll();
 
         $this->output($certificates);
+        return 0;
     }
 }

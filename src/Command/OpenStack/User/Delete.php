@@ -18,10 +18,11 @@ class Delete extends AbstractCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $userId = $input->getArgument(Field::OPENSTACK_USER_ID);
 
         $this->getTransipApi()->openStackUsers()->delete($userId);
+        return 0;
     }
 }

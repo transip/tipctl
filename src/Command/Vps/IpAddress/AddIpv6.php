@@ -19,11 +19,12 @@ class AddIpv6 extends AbstractCommand
             ->addArgument(Field::VPS_IPV6Address, InputArgument::REQUIRED, Field::VPS_IPV6Address__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $IPv6Address = $input->getArgument(Field::VPS_IPV6Address);
 
         $this->getTransipApi()->vpsIpAddresses()->addIpv6Address($vpsName, $IPv6Address);
+        return 0;
     }
 }

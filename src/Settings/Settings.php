@@ -7,7 +7,7 @@ use Symfony\Component\Console\Helper\HelperInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Settings\Provider\Json;
-use Webmozart\PathUtil\Path;
+use Symfony\Component\Filesystem\Path;
 
 class Settings
 {

@@ -15,10 +15,11 @@ class RegeneratePassword extends AbstractCommand
             ->setDescription('Get a new password for the mail service');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->getTransipApi()->mailService()->regenerateMailServicePassword();
         $mailServiceInformation = $this->getTransipApi()->mailService()->getMailServiceInformation();
         $this->output($mailServiceInformation);
+        return 0;
     }
 }

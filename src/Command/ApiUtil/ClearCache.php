@@ -15,9 +15,10 @@ class ClearCache extends AbstractCommand
             ->setHelp('Will force the generation of a new token');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->getTransipApi()->clearCache();
         $output->writeLn("<fg=green>TransIP API library cache cleared</>");
+        return 0;
     }
 }

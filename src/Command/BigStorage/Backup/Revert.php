@@ -20,7 +20,7 @@ class Revert extends AbstractCommand
             ->setHelp('This command restores a big storage backup.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName     = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorageBackupId = $input->getArgument(Field::BIGSTORAGE_BACKUPID);
@@ -31,5 +31,6 @@ class Revert extends AbstractCommand
             $bigStorageBackupId,
             $destinationBigStorageName
         );
+        return 0;
     }
 }

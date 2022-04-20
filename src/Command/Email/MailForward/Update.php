@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Update extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:mailforward:update')
@@ -22,7 +22,7 @@ class Update extends AbstractCommand
             ->addArgument(Field::EMAIL_FORWARD_FORWARDTO, InputArgument::REQUIRED, Field::EMAIL_FORWARD_FORWARDTO__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $mailForwardId = (int) $input->getArgument(Field::EMAIL_FORWARD_ID);
         $domainName = $input->getArgument(Field::EMAIL_DOMAIN_NAME);
@@ -35,5 +35,6 @@ class Update extends AbstractCommand
             $localPart,
             $forwardTo
         );
+        return 0;
     }
 }

@@ -12,7 +12,7 @@ use Transip\Api\CLI\Command\Field;
 
 class GetByDomainName extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:mailbox:getbydomainname')
@@ -21,11 +21,12 @@ class GetByDomainName extends AbstractCommand
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::DOMAIN_NAME);
         $mailboxes = $this->getTransipApi()->mailboxes()->getByDomainName($domainName);
 
         $this->output($mailboxes);
+        return 0;
     }
 }

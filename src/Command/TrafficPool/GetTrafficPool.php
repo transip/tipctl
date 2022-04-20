@@ -15,9 +15,10 @@ class GetTrafficPool extends AbstractCommand
             ->setHelp('This command outputs Traffic Pool information of your VPSs combined.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $trafficPool = $this->getTransipApi()->trafficPool()->getTrafficPool();
         $this->output($trafficPool);
+        return 0;
     }
 }

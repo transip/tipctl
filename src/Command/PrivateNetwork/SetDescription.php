@@ -20,7 +20,7 @@ class SetDescription extends AbstractCommand
             ->addArgument(self::PRIVATENETWORK_DESCRIPTION, InputArgument::REQUIRED, 'The private network description');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $privateNetworkName        = $input->getArgument(Field::PRIVATENETWORK_NAME);
         $privateNetworkDescription = $input->getArgument(self::PRIVATENETWORK_DESCRIPTION);
@@ -29,5 +29,6 @@ class SetDescription extends AbstractCommand
         $privateNetwork->setDescription($privateNetworkDescription);
 
         $this->getTransipApi()->privateNetworks()->update($privateNetwork);
+        return 0;
     }
 }

@@ -14,9 +14,10 @@ class GetAll extends AbstractCommand
             ->setDescription('List all Colocations associated with your TransIP account');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $colocations = $this->getTransipApi()->colocation()->getAll();
         $this->output($colocations);
+        return 0;
     }
 }

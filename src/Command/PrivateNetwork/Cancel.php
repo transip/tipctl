@@ -20,11 +20,12 @@ class Cancel extends AbstractCommand
             ->setHelp('This command will terminate or cancel your private network.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $privateNetworkName = $input->getArgument(Field::PRIVATENETWORK_NAME);
         $cancelTime         = $input->getArgument(Field::CANCELTIME);
 
         $this->getTransipApi()->privateNetworks()->cancel($privateNetworkName, $cancelTime);
+        return 0;
     }
 }

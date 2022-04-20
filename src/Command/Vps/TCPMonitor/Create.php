@@ -30,7 +30,7 @@ class Create extends AbstractCommand
             ->addArgument(Field::TIME_TO, InputArgument::OPTIONAL, Field::TIME_TO__DESC . Field::OPTIONAL, null);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName            = $input->getArgument(Field::VPS_NAME);
         $ipAddress          = $input->getArgument(Field::TCP_IPADDRESS);
@@ -67,5 +67,6 @@ class Create extends AbstractCommand
         }
 
         $this->getTransipApi()->vpsTCPMonitor()->create($vpsName, $tcpMonitor);
+        return 0;
     }
 }

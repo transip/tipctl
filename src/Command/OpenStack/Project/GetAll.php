@@ -14,10 +14,11 @@ class GetAll extends AbstractCommand
             ->setDescription('List OpenStack projects attached to your TransIP account.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $projects = $this->getTransipApi()->openStackProjects()->getAll();
 
         $this->output($projects);
+        return 0;
     }
 }

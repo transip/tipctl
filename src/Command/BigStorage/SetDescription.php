@@ -19,7 +19,7 @@ class SetDescription extends AbstractCommand
             ->setHelp('This command will change the description of your big storage');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorageDescription = $input->getArgument(Field::BIGSTORAGE_DESCRIPTION);
@@ -28,5 +28,6 @@ class SetDescription extends AbstractCommand
         $bigStorage->setDescription($bigStorageDescription);
 
         $this->getTransipApi()->bigStorages()->update($bigStorage);
+        return 0;
     }
 }

@@ -12,7 +12,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Create extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:mailbox:create')
@@ -25,7 +25,7 @@ class Create extends AbstractCommand
             ->addArgument(Field::EMAIL_MAILBOX_FORWARDTO, InputArgument::OPTIONAL, Field::EMAIL_MAILBOX_FORWARDTO__DESC, '');
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::EMAIL_DOMAIN_NAME);
         $localPart = $input->getArgument(Field::EMAIL_LOCALPART);
@@ -40,5 +40,6 @@ class Create extends AbstractCommand
             $password,
             $forwardTo
         );
+        return 0;
     }
 }

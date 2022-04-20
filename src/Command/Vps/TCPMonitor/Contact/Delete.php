@@ -10,17 +10,18 @@ use Transip\Api\CLI\Command\Field;
 
 class Delete extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('vps:tcpmonitor:contact:delete')
             ->setDescription('Remove a TCP Monitoring contact')
             ->addArgument(Field::CONTACT_ID, InputArgument::REQUIRED, Field::CONTACT_ID__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $contactId = $input->getArgument(Field::CONTACT_ID);
 
         $this->getTransipApi()->vpsTCPMonitorContact()->delete($contactId);
+        return 0;
     }
 }

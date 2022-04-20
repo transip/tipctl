@@ -14,9 +14,10 @@ class GetAll extends AbstractCommand
             ->setDescription('List all VPSs associated with your TransIP account');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpss = $this->getTransipApi()->vps()->getAll();
         $this->output($vpss);
+        return 0;
     }
 }

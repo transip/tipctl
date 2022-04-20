@@ -14,10 +14,11 @@ class GetAll extends AbstractCommand
             ->setDescription('Get all of your HA-IP\'s');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haips = $this->getTransipApi()->haip()->getAll();
 
         $this->output($haips);
+        return 0;
     }
 }

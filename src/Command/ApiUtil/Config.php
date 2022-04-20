@@ -16,7 +16,7 @@ class Config extends AbstractCommand
             ->setHelp('Display the config currently in use');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $information = [
             'cliClient' =>
@@ -33,5 +33,6 @@ class Config extends AbstractCommand
         ];
 
         $this->output($information);
+        return 0;
     }
 }

@@ -18,7 +18,7 @@ class RemoveTag extends AbstractCommand
             ->addArgument(Field::TAG_NAME, InputArgument::REQUIRED, Field::TAG_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output): void
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $tagName = $input->getArgument(Field::TAG_NAME);
@@ -27,5 +27,6 @@ class RemoveTag extends AbstractCommand
         $vps->removeTag($tagName);
 
         $this->getTransipApi()->vps()->update($vps);
+        return 0;
     }
 }

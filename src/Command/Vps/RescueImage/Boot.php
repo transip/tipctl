@@ -10,7 +10,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class Boot extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('vps:rescueimage:boot')
@@ -20,11 +20,12 @@ class Boot extends AbstractCommand
             ->addArgument(Field::VPS_RESCUE_IMAGE_NAME, InputArgument::REQUIRED);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName         = $input->getArgument(Field::VPS_NAME);
         $rescueImageName = $input->getArgument(Field::VPS_RESCUE_IMAGE_NAME);
 
         $this->getTransipApi()->vpsRescueImages()->bootRescueImage($vpsName, $rescueImageName);
+        return 0;
     }
 }

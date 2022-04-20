@@ -22,7 +22,7 @@ class Create extends AbstractCommand
         ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $projectId   = $input->getArgument(Field::OPENSTACK_PROJECT_ID);
         $username    = $input->getArgument(Field::OPENSTACK_USER_USERNAME);
@@ -37,5 +37,6 @@ class Create extends AbstractCommand
             $password,
             $projectId
         );
+        return 0;
     }
 }

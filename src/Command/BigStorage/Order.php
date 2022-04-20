@@ -23,7 +23,7 @@ class Order extends AbstractCommand
             ->setHelp('This command allows you to order a new big storage');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageSize               = $input->getArgument(Field::BIGSTORAGE_SIZE);
 
@@ -34,5 +34,6 @@ class Order extends AbstractCommand
         $bigStorageDescription        = $input->getArgument(Field::BIGSTORAGE_DESCRIPTION) ?? '';
 
         $this->getTransipApi()->bigStorages()->order($bigStorageSize, $bigStorageHasOffSiteBackups, $bigStorageAvailabiltyZone, $bigStorageVpsName, $bigStorageDescription);
+        return 0;
     }
 }

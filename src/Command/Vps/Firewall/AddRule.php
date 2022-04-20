@@ -24,7 +24,7 @@ class AddRule extends AbstractCommand
             ->setHelp('All incoming traffic that matches this rule will be allowed');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName     = $input->getArgument(Field::VPS_NAME);
         $description = $input->getArgument(Field::VPS_FIREWALL_DESCRIPTION);
@@ -48,5 +48,6 @@ class AddRule extends AbstractCommand
         $firewall->addRule($firewallRule);
 
         $this->getTransipApi()->vpsFirewall()->update($vpsName, $firewall);
+        return 0;
     }
 }

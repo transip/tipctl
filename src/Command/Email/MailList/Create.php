@@ -12,7 +12,7 @@ use function sprintf;
 
 class Create extends AbstractCommand
 {
-    public function configure()
+    protected function configure(): void
     {
         $this
             ->setName('email:maillist:create')
@@ -24,7 +24,7 @@ class Create extends AbstractCommand
             ->addArgument(Field::EMAIL_MAIL_LIST_ENTRIES, InputArgument::IS_ARRAY, Field::EMAIL_MAIL_LIST_ENTRIES__DESC);
     }
 
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName = $input->getArgument(Field::EMAIL_DOMAIN_NAME);
         $localPart = $input->getArgument(Field::EMAIL_LOCALPART);
@@ -37,5 +37,6 @@ class Create extends AbstractCommand
             sprintf('%s@%s', $localPart, $domainName),
             $entries
         );
+        return 0;
     }
 }

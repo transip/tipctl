@@ -21,7 +21,7 @@ class ConvertToSnapshot extends AbstractCommand
             ->setHelp('Convert a backup to a snapshot for the VPS. Setting a description for a snapshot is highly recommended in case you have multiple snapshots for one VPS.');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $backupId = $input->getArgument(Field::VPS_BACKUP_ID);
@@ -32,5 +32,6 @@ class ConvertToSnapshot extends AbstractCommand
         }
 
         $this->getTransipApi()->vpsBackups()->convertBackupToSnapshot($vpsName, $backupId, $snapshotDescription);
+        return 0;
     }
 }

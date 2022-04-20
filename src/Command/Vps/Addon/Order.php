@@ -19,7 +19,7 @@ class Order extends AbstractCommand
             ->setHelp('Extend a specific VPS with add-ons. The type of add-ons that can be ordered range from extra IP addresses to hardware add-ons such as an extra core or additional SSD disk space');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $addons  = $input->getArgument(Field::VPS_ADDONS);
@@ -30,5 +30,6 @@ class Order extends AbstractCommand
             $vpsName,
             $addons
         );
+        return 0;
     }
 }

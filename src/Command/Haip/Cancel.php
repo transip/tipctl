@@ -19,11 +19,12 @@ class Cancel extends AbstractCommand
             ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName   = $input->getArgument(Field::HAIP_NAME);
         $cancelTime = $input->getArgument(Field::CANCELTIME);
 
         $this->getTransipApi()->haip()->cancel($haipName, $cancelTime);
+        return 0;
     }
 }

@@ -20,7 +20,7 @@ class SetLoadBalancingMode extends AbstractCommand
             ->addArgument(Field::HAIP_COOKIE_NAME, InputArgument::OPTIONAL, Field::HAIP_COOKIE_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName      = $input->getArgument(Field::HAIP_NAME);
         $balancingMode = $input->getArgument(Field::HAIP_LOADBALANCING_MODE);
@@ -37,5 +37,6 @@ class SetLoadBalancingMode extends AbstractCommand
         }
 
         $this->getTransipApi()->haip()->update($haip);
+        return 0;
     }
 }

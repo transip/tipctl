@@ -20,7 +20,7 @@ class Upgrade extends AbstractCommand
             ->setHelp('This command allows you to upgrade a big storage');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorageSize = $input->getArgument(Field::BIGSTORAGE_SIZE);
@@ -29,5 +29,6 @@ class Upgrade extends AbstractCommand
         $bigStorageHasOffSiteBackups = ($hasOffSiteBackupsInput === null) ? null : filter_var($hasOffSiteBackupsInput, FILTER_VALIDATE_BOOLEAN);
 
         $this->getTransipApi()->bigStorages()->upgrade($bigStorageName, $bigStorageSize, $bigStorageHasOffSiteBackups);
+        return 0;
     }
 }

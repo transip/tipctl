@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class AddExisting extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('haip:certificate:addexisting')
             ->setDescription('Add existing Domain:Ssl certificates to your HA-IP')
@@ -18,11 +18,12 @@ class AddExisting extends AbstractCommand
             ->addArgument(Field::SSL_CERTIFICATE_ID, InputArgument::REQUIRED, Field::SSL_CERTIFICATE_ID__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName      = $input->getArgument(Field::HAIP_NAME);
         $certificateId = $input->getArgument(Field::SSL_CERTIFICATE_ID);
 
         $this->getTransipApi()->haipCertificates()->addBySslCertificateId($haipName, intval($certificateId));
+        return 0;
     }
 }

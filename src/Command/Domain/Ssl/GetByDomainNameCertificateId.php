@@ -19,7 +19,7 @@ class GetByDomainNameCertificateId extends AbstractCommand
             ->addArgument(Field::SSL_CERTIFICATE_ID, InputArgument::REQUIRED, Field::SSL_CERTIFICATE_ID__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName      = $input->getArgument(Field::DOMAIN_NAME);
         $certificateId   = $input->getArgument(Field::SSL_CERTIFICATE_ID);
@@ -28,5 +28,6 @@ class GetByDomainNameCertificateId extends AbstractCommand
             $certificateId
         );
         $this->output($sslCertificates);
+        return 0;
     }
 }

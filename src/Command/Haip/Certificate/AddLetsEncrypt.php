@@ -12,7 +12,7 @@ class AddLetsEncrypt extends AbstractCommand
 {
     private const COMMON_NAME = 'commonName';
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('haip:certificate:addletsencrypt')
             ->setDescription('Request a lets encrypt certificate by a common name and add it to your HA-IP')
@@ -20,11 +20,12 @@ class AddLetsEncrypt extends AbstractCommand
             ->addArgument(Field::SSL_COMMON_NAME, InputArgument::REQUIRED, Field::SSL_COMMON_NAME__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName   = $input->getArgument(Field::HAIP_NAME);
         $commonName = $input->getArgument(self::COMMON_NAME);
 
         $this->getTransipApi()->haipCertificates()->addByCommonName($haipName, $commonName);
+        return 0;
     }
 }

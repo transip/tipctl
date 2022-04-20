@@ -26,7 +26,7 @@ class SetForDomain extends AbstractCommand
             ->addArgument(Field::DOMAIN_BANNER_LINE_3, InputArgument::REQUIRED, Field::DOMAIN_BANNER_LINE_3);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $domainName      = $input->getArgument(Field::DOMAIN_NAME);
         $companyName     = $input->getArgument(Field::DOMAIN_COMPANY_NAME);
@@ -47,5 +47,6 @@ class SetForDomain extends AbstractCommand
         $branding->setBannerLine3($bannerLine3);
 
         $this->getTransipApi()->domainBranding()->update($domainName, $branding);
+        return 0;
     }
 }

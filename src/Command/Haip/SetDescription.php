@@ -18,7 +18,7 @@ class SetDescription extends AbstractCommand
             ->addArgument(Field::HAIP_DESCRIPTION, InputArgument::REQUIRED, Field::HAIP_DESCRIPTION);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $description = $input->getArgument(Field::HAIP_DESCRIPTION);
         $haipName = $input->getArgument(Field::HAIP_NAME);
@@ -26,5 +26,6 @@ class SetDescription extends AbstractCommand
         $haip = $this->getTransipApi()->haip()->getByName($haipName);
         $haip->setDescription($description);
         $this->getTransipApi()->haip()->update($haip);
+        return 0;
     }
 }

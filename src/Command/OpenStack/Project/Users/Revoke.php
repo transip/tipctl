@@ -19,7 +19,7 @@ class Revoke extends AbstractCommand
             ;
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $projectId = $input->getArgument(Field::OPENSTACK_PROJECT_ID);
         $userId = $input->getArgument(Field::OPENSTACK_USER_ID);
@@ -27,5 +27,6 @@ class Revoke extends AbstractCommand
         $this->getTransipApi()
             ->openStackProjectUsers()
             ->revokeUserAccessFromProject($projectId, $userId);
+        return 0;
     }
 }

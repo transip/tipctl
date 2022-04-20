@@ -14,9 +14,10 @@ class GetAll extends AbstractCommand
             ->setDescription('List installable operating systems for a VPS');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $operatingSystems = $this->getTransipApi()->vpsOperatingSystems()->getAll();
         $this->output($operatingSystems);
+        return 0;
     }
 }

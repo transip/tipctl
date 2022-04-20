@@ -10,7 +10,7 @@ use Transip\Api\CLI\Command\Field;
 
 class Create extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('vps:tcpmonitor:contact:create')
             ->setDescription('Create a TCP Monitoring contact')
@@ -19,12 +19,13 @@ class Create extends AbstractCommand
             ->addArgument(Field::CONTACT_TELEPHONE, InputArgument::REQUIRED, Field::CONTACT_TELEPHONE__DESC);
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $name      = $input->getArgument(Field::CONTACT_NAME);
         $email     = $input->getArgument(Field::CONTACT_EMAIL);
         $telephone = $input->getArgument(Field::CONTACT_TELEPHONE);
 
         $this->getTransipApi()->vpsTCPMonitorContact()->create($name, $telephone, $email);
+        return 0;
     }
 }
