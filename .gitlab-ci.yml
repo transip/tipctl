@@ -27,6 +27,13 @@ lint:php-stan:
   script:
     - ./vendor/bin/phpstan --no-progress --memory-limit="2G" --error-format=gitlab > phpstan-report.json || (cat phpstan-report.json && exit 1)
 
+lint:rector:
+  stage: lint
+  before_script:
+    - composer install
+  script:
+    - ./vendor/bin/rector process --no-progress-bar --dry-run
+
 lint:composer:
   stage: lint
   script:

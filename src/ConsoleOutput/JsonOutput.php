@@ -2,6 +2,7 @@
 
 namespace Transip\Api\CLI\ConsoleOutput;
 
+use RuntimeException;
 use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface;
 
 class JsonOutput implements OutputInterface
@@ -15,7 +16,7 @@ class JsonOutput implements OutputInterface
         $output = json_encode($data, JSON_PRETTY_PRINT);
 
         if ($output === false) {
-            throw new \RuntimeException('Failed to parse provided data: ' . print_r($data, true));
+            throw new RuntimeException('Failed to parse provided data: ' . print_r($data, true));
         }
 
         return $output;
