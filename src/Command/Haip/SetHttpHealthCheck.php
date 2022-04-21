@@ -27,7 +27,7 @@ class SetHttpHealthCheck extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
-        $port     = intval($input->getArgument(self::CHECK_PORT));
+        $port     = $input->getArgument(self::CHECK_PORT);
         $path     = $input->getArgument(self::CHECK_PATH);
 
         $isSsl = $input->getArgument(self::CHECK_SSL);

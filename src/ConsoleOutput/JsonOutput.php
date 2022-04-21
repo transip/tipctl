@@ -6,6 +6,10 @@ use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface;
 
 class JsonOutput implements OutputInterface
 {
+    /**
+     * @param mixed $data
+     * @return string
+     */
     public function render($data): string
     {
         $output = json_encode($data, JSON_PRETTY_PRINT);

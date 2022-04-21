@@ -3,6 +3,7 @@
 namespace Transip\Api\CLI\Settings;
 
 use \RuntimeException;
+use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Helper\HelperInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\Field;
@@ -74,7 +75,7 @@ class Settings
         $this->apiUrl                          = '';
         $this->apiLogin                        = '';
         $this->apiPrivateKey                   = '';
-        $this->apiUseWhitelist                 = '';
+        $this->apiUseWhitelist                 = false;
         $this->showConfigFilePermissionWarning = '';
     }
 
@@ -129,7 +130,7 @@ class Settings
         return Path::join(self::getConfigDir(), self::CONFIG_FILE_NAME);
     }
 
-    public function ensureConfigFileIsReadOnly(HelperInterface $formatter, OutputInterface $output): void
+    public function ensureConfigFileIsReadOnly(FormatterHelper $formatter, OutputInterface $output): void
     {
         if (!$this->getShowConfigFilePermissionWarning()) {
             return;

@@ -22,6 +22,7 @@ class Json
     /**
      * Reads a json file and decodes the data in to an array
      *
+     * @return mixed[]
      * @throws RuntimeException
      */
     public function read(): array
@@ -31,9 +32,14 @@ class Json
         }
 
         $fileData = file_get_contents($this->filePath);
+
+        if (!is_string($fileData)) {
+            throw new RuntimeException("Failed read settings file '{$this->filePath}'");
+        }
+
         $jsonData = json_decode($fileData, true);
 
-        if ($jsonData === null) {
+        if (!is_array($jsonData)) {
             throw new RuntimeException("Failed to parse settings file '{$this->filePath}', are you sure this is valid json?");
         }
 
@@ -43,7 +49,8 @@ class Json
     /**
      * Encodes an array to json and writes to a json file
      *
-     * @throws RuntimeException
+     * @param mixed[] $data
+     * @return bool
      */
     public function write(array $data): bool
     {
