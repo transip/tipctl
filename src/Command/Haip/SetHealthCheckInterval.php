@@ -21,7 +21,7 @@ class SetHealthCheckInterval extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $haipName = $input->getArgument(Field::HAIP_NAME);
-        $interval = intval($input->getArgument(Field::HAIP_INTERVAL));
+        $interval = $input->getArgument(Field::HAIP_INTERVAL);
 
         $haip = $this->getTransipApi()->haip()->getByName($haipName);
         $haip->setHealthCheckInterval($interval);

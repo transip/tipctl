@@ -2,7 +2,9 @@
 
 namespace Transip\Api\CLI\Command;
 
+use RuntimeException;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -67,7 +69,15 @@ abstract class AbstractCommand extends Command
             }
 
             $this->transipApi->setTokenLabelPrefix('api.cli-');
-            $settings->ensureConfigFileIsReadOnly($this->getHelperSet()->get('formatter'), $output);
+
+            $helperSet = $this->getHelperSet();
+            if ($helperSet === null) {
+                throw new RuntimeException("Could not retrieve symfony console helperSet");
+            }
+            /** @var FormatterHelper $formatter */
+            $formatter = $helperSet->get('formatter');
+
+            $settings->ensureConfigFileIsReadOnly($formatter, $output);
         }
 
         $this->input  = $input;
@@ -79,6 +89,10 @@ abstract class AbstractCommand extends Command
         return $this->transipApi;
     }
 
+    /**
+     * @param mixed $data
+     * @return void
+     */
     protected function output($data): void
     {
         $formatter = $this->getFormatterFromInput();

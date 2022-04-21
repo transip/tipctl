@@ -3,6 +3,7 @@
 namespace Transip\Api\CLI\Command\Setup;
 
 use Exception;
+use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -97,6 +98,7 @@ class Setup extends AbstractCommand
         // Test connection to the api
         try {
             $response = (new TransipAPI($login, $privateKey, $whitelist, '', $apiUrl))->test()->test();
+            $errorMessage = 'Malformed API response';
         } catch (Exception $exception) {
             $response = false;
             $errorMessage = $exception->getMessage();
@@ -146,7 +148,12 @@ class Setup extends AbstractCommand
 
     private function greetUser(OutputInterface $output): void
     {
-        $formatter = $this->getHelperSet()->get('formatter');
+        $helperSet = $this->getHelperSet();
+        if ($helperSet === null) {
+            throw new RuntimeException("Could not retrieve symfony console helperSet");
+        }
+        /** @var FormatterHelper $formatter */
+        $formatter = $helperSet->get('formatter');
 
         $welcomeMessage = $formatter->formatBlock(
             'Welcome to the TransIP RestAPI config generator',

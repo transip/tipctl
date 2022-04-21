@@ -27,7 +27,7 @@ class RequestAccessToken extends AbstractCommand
 
         $settings = Settings::getInstance(false);
         $token = $this->getTransipApi()->auth()->createToken($settings->getApiLogin(), $settings->getApiPrivateKey(), false, $readOnly, "test-" . time(), $expirationTime);
-        $output->writeLn($token);
+        $output->writeLn(strval($token));
         return 0;
     }
 }

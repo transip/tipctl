@@ -21,7 +21,7 @@ class GetById extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $certificateId = (int) $input->getArgument(Field::SSL_CERTIFICATE_ID);
+        $certificateId = $input->getArgument(Field::SSL_CERTIFICATE_ID);
         $certificate = $this->getTransipApi()->sslCertificate()->getById($certificateId);
         $this->output($certificate);
         return 0;
