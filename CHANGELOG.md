@@ -3,6 +3,8 @@ CHANGELOG
 6.19.0
 -----
 * Added includes to domain:getbyname and domain:getall
+* Updated tipctl composer dependencies to symfony 5 
+  * Minimum required PHP version is now 7.2.5
 
 6.18.0
 -----
@@ -25,7 +27,6 @@ CHANGELOG
 -----
 * Added licenseName field for vps order
 * Added licenseName field for vps install
-
 
 6.12.1
 -----
