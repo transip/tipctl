@@ -344,4 +344,7 @@ class Field
     public const EMAIL_MAIL_LIST_NAME__DESC = 'Name of mail list';
     public const EMAIL_MAIL_LIST_ENTRIES = 'Entries';
     public const EMAIL_MAIL_LIST_ENTRIES__DESC = 'Entries of the mail list';
+
+    public const INCLUDE = 'include';
+    public const INCLUDE__DESC = 'Data to include in the response';
 }
