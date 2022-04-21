@@ -3,6 +3,7 @@
 
 namespace Transip\Api\CLI\Command\Vps\Usage;
 
+use StdClass;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -23,7 +24,7 @@ class GetLastCpuUsage extends AbstractCommand
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $usages  = $this->getTransipApi()->vpsUsage()->getByVpsName($vpsName, ['cpu'], time() - 300, time());
 
-        /** @var \StdClass $lastUsage */
+        /** @var StdClass $lastUsage */
         $lastUsage = null;
         $usages    = $usages['cpu'] ?? [];
         foreach ($usages as $usage) {

@@ -2,6 +2,7 @@
 
 namespace Transip\Api\CLI\Command\Haip;
 
+use Exception;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -27,7 +28,7 @@ class SetLoadBalancingMode extends AbstractCommand
         $cookieName    = $input->getArgument(Field::HAIP_COOKIE_NAME);
 
         if ($balancingMode == Haip::BALANCINGMODE_COOKIE && $cookieName == null) {
-            throw new \Exception("No sticky cookie name provided while load balancing mode is set to 'cookie'");
+            throw new Exception("No sticky cookie name provided while load balancing mode is set to 'cookie'");
         }
 
         $haip = $this->getTransipApi()->haip()->getByName($haipName);
