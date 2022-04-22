@@ -5,6 +5,7 @@ CHANGELOG
 * Added includes to domain:getbyname and domain:getall
 * Updated tipctl composer dependencies to symfony 5 
   * Minimum required PHP version is now 7.2.5
+* Renamed update setting command and solved minor issue
 
 6.18.0
 -----
