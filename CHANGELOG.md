@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.23.0
+-----
+* Added Ssl Install
+
 6.22.0
 -----
 * Added domain handover
