@@ -43,12 +43,12 @@ class Create extends AbstractCommand
         $contactEnableSMS   = $input->getArgument(Field::CONTACT_ENABLE_SMS);
         $ignoreTimeFrom     = $input->getArgument(Field::TIME_FROM);
         $ignoreTimeTo       = $input->getArgument(Field::TIME_TO);
-
         $ports = explode(',', $ports);
 
         $tcpMonitor = new TCPMonitor();
         $tcpMonitor->setIpAddress($ipAddress);
         $tcpMonitor->setLabel($label);
+        /** @var int[] $ports */
         $tcpMonitor->setPorts($ports);
         $tcpMonitor->setInterval($checkInterval);
         $tcpMonitor->setAllowedTimeouts($allowedTimeOuts);

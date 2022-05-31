@@ -202,6 +202,8 @@ class Field
     public const SSL_CERTIFICATE_ID__DESC = 'Provide the identifier of an existing domain:ssl certificate';
     public const SSL_COMMON_NAME = 'commonName';
     public const SSL_COMMON_NAME__DESC = 'Domain name for which we should issue the certificate';
+    public const SSL_CERTIFICATE_PASSPHRASE = 'passphrase';
+    public const SSL_CERTIFICATE_PASSPHRASE__DESC = 'Passphrase that the ssl certificate was created with';
     public const SSL_CERTIFICATE_PAGE = 'Page';
     public const SSL_CERTIFICATE_PAGE__DESC = 'The page to look for';
     public const SSL_CERTIFICATE_ITEMS_PER_PAGE = 'ItemsPerPage';

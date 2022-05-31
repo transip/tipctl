@@ -9,6 +9,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Transip\Api\CLI\Command\Field;
+use Transip\Api\Library\Entity\Vps\UsageData;
 
 class GetLastCpuUsage extends AbstractCommand
 {
@@ -24,11 +25,11 @@ class GetLastCpuUsage extends AbstractCommand
         $vpsName = $input->getArgument(Field::VPS_NAME);
         $usages  = $this->getTransipApi()->vpsUsage()->getByVpsName($vpsName, ['cpu'], time() - 300, time());
 
-        /** @var StdClass $lastUsage */
+        /** @var null|UsageData $lastUsage */
         $lastUsage = null;
         $usages    = $usages['cpu'] ?? [];
         foreach ($usages as $usage) {
-            if ($lastUsage == null || $lastUsage->date < $usage->date) {
+            if ($lastUsage === null || $lastUsage->getDate() < $usage->getDate()) {
                 $lastUsage = $usage;
             }
         }
