@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.23.1
+-----
+* Updated `guzzlehttp/guzzle`
+
 6.23.0
 -----
 * Added Ssl Install
