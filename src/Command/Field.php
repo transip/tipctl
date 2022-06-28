@@ -294,6 +294,8 @@ class Field
     public const SSH_KEY__DESC = 'SSH Key';
     public const SSH_KEY_DESCRIPTION = 'Description';
     public const SSH_KEY_DESCRIPTION__DESC = 'SSH key description';
+    public const SSH_KEY_IS_DEFAULT = 'isDefault';
+    public const SSH_KEY_IS_DEFAULT_DESC = 'Default SSH Key';
 
     public const LICENSE_ID = 'LicenseId';
     public const LICENSE_ID__DESC = 'License Id';
@@ -346,6 +348,9 @@ class Field
     public const EMAIL_MAIL_LIST_NAME__DESC = 'Name of mail list';
     public const EMAIL_MAIL_LIST_ENTRIES = 'Entries';
     public const EMAIL_MAIL_LIST_ENTRIES__DESC = 'Entries of the mail list';
+
+    public const OPERATING_SYSTEM_FILTER_ADDONS = 'addons';
+    public const OPERATING_SYSTEM_FILTER_ADDONS__DESC = 'List of additonal vps addons that will be added to the vps';
 
     public const INCLUDE = 'include';
     public const INCLUDE__DESC = 'Data to include in the response';

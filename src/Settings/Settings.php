@@ -16,7 +16,8 @@ class Settings
     private const CONFIG_FILE_NAME = 'cli-config.json';
 
     public const TRANSIP_API_ENDPOINT = 'https://api.transip.nl/v6';
-    public const TRANSIP_CLI_VERSION = '6.23.1';
+
+    public const TRANSIP_CLI_VERSION = '6.24.0';
 
     /**
      * @var string

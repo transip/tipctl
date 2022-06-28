@@ -16,6 +16,7 @@ class Add extends AbstractCommand
             ->setDescription('Add a new SSH key')
             ->addArgument(Field::SSH_KEY, InputArgument::REQUIRED, Field::SSH_KEY__DESC)
             ->addArgument(Field::SSH_KEY_DESCRIPTION, InputArgument::OPTIONAL, Field::SSH_KEY_DESCRIPTION__DESC, '')
+            ->addArgument(Field::SSH_KEY_IS_DEFAULT, InputArgument::OPTIONAL, Field::SSH_KEY_IS_DEFAULT_DESC, false)
             ->setHelp('');
     }
 
@@ -23,8 +24,9 @@ class Add extends AbstractCommand
     {
         $sshKey = $input->getArgument(Field::SSH_KEY);
         $sshKeyDescription = $input->getArgument(Field::SSH_KEY_DESCRIPTION);
+        $sshKeyIsDefault = $input->getArgument(Field::SSH_KEY_IS_DEFAULT);
 
-        $this->getTransipApi()->sshKey()->create($sshKey, $sshKeyDescription);
+        $this->getTransipApi()->sshKey()->create($sshKey, $sshKeyDescription, $sshKeyIsDefault);
         return 0;
     }
 }
