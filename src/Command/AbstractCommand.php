@@ -12,6 +12,8 @@ use Transip\Api\CLI\Command\Setup\Setup;
 use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface as ConsoleOutputInterface;
 use Transip\Api\CLI\ConsoleOutput\OutputFactory;
 use Transip\Api\CLI\Settings\Settings;
+use Transip\Api\Library\HttpClient\Builder\ClientBuilder;
+use Transip\Api\Library\HttpClient\HttpMethodsClient;
 use Transip\Api\Library\TransipAPI;
 
 abstract class AbstractCommand extends Command
@@ -57,7 +59,9 @@ abstract class AbstractCommand extends Command
                 $settings->getApiPrivateKey(),
                 $settings->getApiUseWhitelist(),
                 '',
-                $settings->getApiUrl()
+                $settings->getApiUrl(),
+                null,
+                new HttpMethodsClient(new ClientBuilder())
             );
 
             if ($isDemoMode) {
