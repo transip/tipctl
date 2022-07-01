@@ -22,7 +22,8 @@
     "symfony/filesystem": "^5.4",
     "transip/transip-api-php": "^6.19",
     "symfony/yaml": "^5.4",
-    "symfony/http-client": "^5.4"
+    "symfony/http-client": "^5.4",
+    "nyholm/psr7": "^1.5"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.0",
