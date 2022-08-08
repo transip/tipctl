@@ -1,11 +1,13 @@
 CHANGELOG
 =========
+6.27.0
+-----
+* Added domain auth-code endpoint
 
 6.24.0
 -----
 * Added an endpoint for operating system filtering on specs
 * Added isDefault option to the SSH keys endpoint.
-
 
 6.23.1
 -----
