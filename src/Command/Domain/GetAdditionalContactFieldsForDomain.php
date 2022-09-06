@@ -16,7 +16,6 @@ class GetAdditionalContactFieldsForDomain extends AbstractCommand
             ->setDescription('Get all additional contact fields for a domain.')
             ->setHelp('Get all the additional fields needed to register or transfer a domain')
             ->addArgument(Field::DOMAIN_NAME, InputArgument::REQUIRED, Field::DOMAIN_NAME__DESC);
-
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

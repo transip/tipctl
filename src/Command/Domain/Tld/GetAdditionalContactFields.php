@@ -16,7 +16,6 @@ class GetAdditionalContactFields extends AbstractCommand
             ->setDescription('Get all additional contact fields for a tld.')
             ->setHelp('Get all the additional fields needed to register or transfer a domain on this tld')
             ->addArgument(Field::TLD, InputArgument::REQUIRED, Field::TLD__DESC);
-
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
