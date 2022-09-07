@@ -325,6 +325,8 @@ class Field
     public const OPENSTACK_USER_EMAIL__DESC = 'Email-address of the user';
     public const OPENSTACK_USER_PASSWORD = 'Password';
     public const OPENSTACK_USER_PASSWORD__DESC = 'Password for the user';
+    public const OPENSTACK_TOKEN_ID = 'TokenId';
+    public const OPENSTACK_TOKEN_ID__DESC = 'Token Id';
 
     public const EMAIL_DOMAIN_NAME = 'DomainName';
     public const EMAIL_DOMAIN_NAME__DESC = 'Domain the mailbox is related to';
