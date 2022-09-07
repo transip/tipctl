@@ -15,7 +15,7 @@ class Update extends AbstractCommand
     {
         $this->setName('sshkey:update')
             ->setDescription('Update a SSH key')
-            ->addArgument(Field::SSH_KEY, InputArgument::REQUIRED, Field::SSH_KEY__DESC)
+            ->addArgument(Field::SSH_KEY_ID, InputArgument::REQUIRED, Field::SSH_KEY_ID__DESC)
             ->addArgument(Field::SSH_KEY_DESCRIPTION, InputArgument::REQUIRED, Field::SSH_KEY_DESCRIPTION__DESC)
             ->addArgument(Field::SSH_KEY_IS_DEFAULT, InputArgument::REQUIRED, Field::SSH_KEY_IS_DEFAULT_DESC)
             ->setHelp('');

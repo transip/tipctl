@@ -1,5 +1,10 @@
 CHANGELOG
 =========
+6.28.0
+-----
+* Implemented Object Store functionality
+* Added token endpoint to Openstack
+
 6.27.0
 -----
 * Added domain auth-code endpoint
