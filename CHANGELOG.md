@@ -1,5 +1,10 @@
 CHANGELOG
 =========
+6.29.0
+-----
+* Changed used resource parameter name in MailListRepository
+* Changed behaviour of MailListRepository::update, now expects MailList entity
+
 6.28.0
 -----
 * Implemented Object Store functionality
