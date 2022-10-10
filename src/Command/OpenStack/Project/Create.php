@@ -15,7 +15,8 @@ class Create extends AbstractCommand
         $this->setName('openstack:project:create')
             ->setDescription('Create an OpenStack project.')
             ->addArgument(Field::OPENSTACK_PROJECT_NAME, InputArgument::REQUIRED, Field::OPENSTACK_PROJECT_NAME__DESC)
-            ->addArgument(Field::OPENSTACK_PROJECT_DESCRIPTION, InputArgument::OPTIONAL, Field::OPENSTACK_PROJECT_DESCRIPTION__DESC)
+            ->addArgument(Field::OPENSTACK_PROJECT_DESCRIPTION, InputArgument::REQUIRED, Field::OPENSTACK_PROJECT_DESCRIPTION__DESC)
+            ->addArgument(Field::OPENSTACK_PROJECT_TYPE, InputArgument::OPTIONAL, Field::OPENSTACK_PROJECT_TYPE__DESC)
         ;
     }
 
@@ -23,11 +24,14 @@ class Create extends AbstractCommand
     {
         $name        = $input->getArgument(Field::OPENSTACK_PROJECT_NAME);
         $description = $input->getArgument(Field::OPENSTACK_PROJECT_DESCRIPTION);
+        $type        = $input->getArgument(Field::OPENSTACK_PROJECT_TYPE) ?? 'openstack';
 
         $this->getTransipApi()->openStackProjects()->create(
             $name,
-            $description
+            $description,
+            $type
         );
+
         return 0;
     }
 }

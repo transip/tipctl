@@ -314,6 +314,8 @@ class Field
     public const OPENSTACK_PROJECT_NAME__DESC = 'Name of the project (will be prefixed with your TransIP username)';
     public const OPENSTACK_PROJECT_DESCRIPTION = 'Description';
     public const OPENSTACK_PROJECT_DESCRIPTION__DESC = 'Description of the project';
+    public const OPENSTACK_PROJECT_TYPE = 'Type';
+    public const OPENSTACK_PROJECT_TYPE__DESC = 'Type of the project';
 
     public const OPENSTACK_USER_ID = 'UserId';
     public const OPENSTACK_USER_ID__DESC = 'User Id';

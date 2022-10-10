@@ -1,5 +1,13 @@
 CHANGELOG
 =========
+6.29.2
+-----
+* Fixed getEntries in certain conditions on mailLists.
+
+6.29.1
+-----
+* Added type to the Openstack Project entity
+
 6.29.0
 -----
 * Changed used resource parameter name in MailListRepository

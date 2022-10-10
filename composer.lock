@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf0267e642345d17e3720b735d84eefe",
+    "content-hash": "410d3a6a2be5dcadb3743336fb28c798",
     "packages": [
         {
             "name": "clue/stream-filter",
@@ -2492,16 +2492,16 @@
         },
         {
             "name": "transip/transip-api-php",
-            "version": "6.29.0",
+            "version": "6.29.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/transip/transip-api-php.git",
-                "reference": "e6342aab1bcb7f016490cff3db989e3aa5599a2b"
+                "reference": "03710938e76605e32d7cfd518a2351a8f15449db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/transip/transip-api-php/zipball/e6342aab1bcb7f016490cff3db989e3aa5599a2b",
-                "reference": "e6342aab1bcb7f016490cff3db989e3aa5599a2b",
+                "url": "https://api.github.com/repos/transip/transip-api-php/zipball/03710938e76605e32d7cfd518a2351a8f15449db",
+                "reference": "03710938e76605e32d7cfd518a2351a8f15449db",
                 "shasum": ""
             },
             "require": {
@@ -2545,9 +2545,9 @@
             "description": "TransIP Rest API Library",
             "support": {
                 "issues": "https://github.com/transip/transip-api-php/issues",
-                "source": "https://github.com/transip/transip-api-php/tree/6.29.0"
+                "source": "https://github.com/transip/transip-api-php/tree/6.29.2"
             },
-            "time": "2022-09-08T07:50:24+00:00"
+            "time": "2022-10-10T11:50:39+00:00"
         }
     ],
     "packages-dev": [
