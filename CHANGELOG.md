@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.29.3
+-----
+* Added configFile option to all commands.
+
 6.29.2
 -----
 * Fixed getEntries in certain conditions on mailLists.
