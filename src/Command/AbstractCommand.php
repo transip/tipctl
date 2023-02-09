@@ -43,10 +43,22 @@ abstract class AbstractCommand extends Command
             Field::FORMAT__DESC,
             'json'
         );
+
+        // adds --configFile option to all commands
+        $this->addOption(
+            Field::CONFIG_FILE,
+            null,
+            InputOption::VALUE_OPTIONAL,
+            Field::CONFIG_FILE__DESC,
+            Settings::getDefaultConfigFilePath()
+        );
     }
 
     protected function initialize(InputInterface $input, OutputInterface $output): void
     {
+        $configFile = $input->getOption(Field::CONFIG_FILE);
+        Settings::setConfigFilePath($configFile);
+
         if (!($this instanceof Setup)) {
             $isDemoMode = $input->getOption('demo');
 

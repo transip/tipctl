@@ -358,4 +358,7 @@ class Field
 
     public const INCLUDE = 'include';
     public const INCLUDE__DESC = 'Data to include in the response';
+
+    public const CONFIG_FILE = 'configFile';
+    public const CONFIG_FILE__DESC = 'The config file path';
 }

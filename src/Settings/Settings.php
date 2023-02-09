@@ -12,12 +12,12 @@ use Symfony\Component\Filesystem\Path;
 
 class Settings
 {
-    private const CONFIG_DIR_NAME  = '.config/transip-api';
-    private const CONFIG_FILE_NAME = 'cli-config.json';
+    private const DEFAULT_CONFIG_DIR_NAME  = '.config/transip-api';
+    private const DEFAULT_CONFIG_FILE_NAME = 'cli-config.json';
 
     public const TRANSIP_API_ENDPOINT = 'https://api.transip.nl/v6';
 
-    public const TRANSIP_CLI_VERSION = '6.29.2';
+    public const TRANSIP_CLI_VERSION = '6.29.3';
 
     /**
      * @var string
@@ -48,6 +48,11 @@ class Settings
      * @var null|self
      */
     private static $instance;
+
+    /**
+     * @var string
+     */
+    private static $configFilePath;
 
     private function initialise(): void
     {
@@ -122,13 +127,12 @@ class Settings
 
     public static function getConfigDir(): string
     {
-        $homeDirectory = Path::getHomeDirectory();
-        return Path::join($homeDirectory, self::CONFIG_DIR_NAME);
+        return Path::getDirectory(self::getConfigFilePath());
     }
 
     public static function getConfigFilePath(): string
     {
-        return Path::join(self::getConfigDir(), self::CONFIG_FILE_NAME);
+        return self::$configFilePath;
     }
 
     public function ensureConfigFileIsReadOnly(FormatterHelper $formatter, OutputInterface $output): void
@@ -162,5 +166,15 @@ class Settings
         $output->writeln('');
         $output->writeln($warning);
         $output->writeln('');
+    }
+
+    public static function setConfigFilePath(string $configFile): void
+    {
+        self::$configFilePath = $configFile;
+    }
+
+    public static function getDefaultConfigFilePath(): string
+    {
+        return Path::join(Path::getHomeDirectory(), self::DEFAULT_CONFIG_DIR_NAME, self::DEFAULT_CONFIG_FILE_NAME);
     }
 }
