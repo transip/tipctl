@@ -2,11 +2,13 @@
 
 namespace Transip\Api\CLI\Command\Vps;
 
+use Transip\Api\CLI\Command\Field;
+use Transip\Api\CLI\Command\AbstractCommand;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Transip\Api\CLI\Command\AbstractCommand;
-use Transip\Api\CLI\Command\Field;
 
 class Order extends AbstractCommand
 {
@@ -25,6 +27,7 @@ class Order extends AbstractCommand
             ->addArgument(Field::VPS_SSH_KEYS, InputArgument::OPTIONAL, Field::VPS_SSH_KEYS__DESC . Field::OPTIONAL, '')
             ->addArgument(Field::VPS_BASE64INSTALLTEXT, InputArgument::OPTIONAL, Field::VPS_BASE64INSTALLTEXT__DESC . Field::OPTIONAL, '')
             ->addArgument(Field::LICENSE_NAMES, InputArgument::OPTIONAL, Field::LICENSE_NAMES__DESC . Field::OPTIONAL, '')
+            ->addOption(Field::ACTION_WAIT, 'w', InputOption::VALUE_NONE, Field::ACTION_WAIT_DESC)
             ->setHelp('Order a Vps with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products');
     }
 
@@ -41,12 +44,13 @@ class Order extends AbstractCommand
         $sshKeys           = $input->getArgument(Field::VPS_SSH_KEYS);
         $base64InstallText = $input->getArgument(Field::VPS_BASE64INSTALLTEXT);
         $licenseNames      = $input->getArgument(Field::LICENSE_NAMES);
+        $waitForAction     = $input->getOption(Field::ACTION_WAIT);
 
         $addons  = (strlen($addons) > 1) ? explode(',', $addons) : [];
         $sshKeys = (strlen($sshKeys) > 1) ? explode(',', $sshKeys) : [];
         $licenseNames = (strlen($licenseNames) > 1) ? explode(',', $licenseNames) : [];
 
-        $this->getTransipApi()->vps()->order(
+        $response = $this->getTransipApi()->vps()->order(
             $productName,
             $operatingSystem,
             $addons,
@@ -59,6 +63,25 @@ class Order extends AbstractCommand
             $sshKeys,
             $licenseNames
         );
+
+        $action = $this->getTransipApi()->actions()->parseActionFromResponse($response);
+
+        if ($action && $waitForAction) {
+            $app = $this->getApplication();
+
+            if (!$app) {
+                return 0;
+            }
+
+            $command = $app->get('action:pollstatus');
+                
+            $arguments = [
+                'actionUuid'        => $action->getUuid()
+            ];
+
+            $actionInput = new ArrayInput($arguments);
+            $command->run($actionInput, $output);
+        }
         return 0;
     }
 }
