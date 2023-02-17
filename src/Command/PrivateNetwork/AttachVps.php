@@ -2,11 +2,13 @@
 
 namespace Transip\Api\CLI\Command\PrivateNetwork;
 
+use Transip\Api\CLI\Command\Field;
+use Transip\Api\CLI\Command\AbstractCommand;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Transip\Api\CLI\Command\AbstractCommand;
-use Transip\Api\CLI\Command\Field;
 
 class AttachVps extends AbstractCommand
 {
@@ -15,6 +17,7 @@ class AttachVps extends AbstractCommand
         $this->setName('privatenetwork:attachvps')
             ->setDescription('Attach a VPS to a private network')
             ->addArgument(Field::PRIVATENETWORK_NAME, InputArgument::REQUIRED, Field::PRIVATENETWORK_NAME__DESC)
+            ->addOption(Field::ACTION_WAIT, 'w', InputOption::VALUE_NONE, Field::ACTION_WAIT_DESC)
             ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, Field::VPS_NAME__DESC);
     }
 
@@ -22,8 +25,27 @@ class AttachVps extends AbstractCommand
     {
         $privateNetworkName    = $input->getArgument(Field::PRIVATENETWORK_NAME);
         $privateNetworkVpsName = $input->getArgument(Field::VPS_NAME);
+        $waitForAction = $input->getOption(Field::ACTION_WAIT);
 
-        $this->getTransipApi()->privateNetworks()->attachVps($privateNetworkName, $privateNetworkVpsName);
+        $response = $this->getTransipApi()->privateNetworks()->attachVps($privateNetworkName, $privateNetworkVpsName);
+        $action = $this->getTransipApi()->actions()->parseActionFromResponse($response);
+
+        if ($action && $waitForAction) {
+            $app = $this->getApplication();
+
+            if (!$app) {
+                return 0;
+            }
+
+            $command = $app->get('action:pollstatus');
+                
+            $arguments = [
+                'actionUuid'        => $action->getUuid()
+            ];
+
+            $actionInput = new ArrayInput($arguments);
+            $command->run($actionInput, $output);
+        }
         return 0;
     }
 }

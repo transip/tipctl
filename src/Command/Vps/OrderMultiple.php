@@ -2,11 +2,13 @@
 
 namespace Transip\Api\CLI\Command\Vps;
 
+use Transip\Api\CLI\Command\Field;
+use Transip\Api\CLI\Command\AbstractCommand;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Transip\Api\CLI\Command\AbstractCommand;
-use Transip\Api\CLI\Command\Field;
 
 class OrderMultiple extends AbstractCommand
 {
@@ -25,6 +27,7 @@ class OrderMultiple extends AbstractCommand
             ->addArgument(Field::VPS_DESCRIPTION, InputArgument::OPTIONAL, Field::VPS_DESCRIPTION__DESC . Field::OPTIONAL, '')
             ->addArgument(Field::VPS_SSH_KEYS, InputArgument::OPTIONAL, Field::VPS_SSH_KEYS__DESC . Field::OPTIONAL, '')
             ->addArgument(Field::VPS_BASE64INSTALLTEXT, InputArgument::OPTIONAL, Field::VPS_BASE64INSTALLTEXT__DESC . Field::OPTIONAL, '')
+            ->addOption(Field::ACTION_WAIT, 'w', InputOption::VALUE_NONE, Field::ACTION_WAIT_DESC)
             ->setHelp('Order multiple VPSs with this command. After the order process has been completed (payment will occur at a later stage should direct debit be used) the VPS will automatically be provisioned and deployed. Use Products:getAll to get a list of products');
     }
 
@@ -41,6 +44,7 @@ class OrderMultiple extends AbstractCommand
         $username          = $input->getArgument(Field::VPS_USERNAME);
         $sshKeys           = $input->getArgument(Field::VPS_SSH_KEYS);
         $base64InstallText = $input->getArgument(Field::VPS_BASE64INSTALLTEXT);
+        $waitForAction     = $input->getOption(Field::ACTION_WAIT);
 
         $addons  = (strlen($addons) > 1) ? explode(',', $addons) : [];
         $sshKeys = (strlen($sshKeys) > 1) ? explode(',', $sshKeys) : [];
@@ -62,7 +66,25 @@ class OrderMultiple extends AbstractCommand
             ];
         }
 
-        $this->getTransipApi()->vps()->orderMultiple($vpss);
+        $response = $this->getTransipApi()->vps()->orderMultiple($vpss);
+        $action = $this->getTransipApi()->actions()->parseActionFromResponse($response);
+        
+        if ($action && $waitForAction) {
+            $app = $this->getApplication();
+
+            if (!$app) {
+                return 0;
+            }
+
+            $command = $app->get('action:pollstatus');
+                
+            $arguments = [
+                'actionUuid'        => $action->getUuid()
+            ];
+
+            $actionInput = new ArrayInput($arguments);
+            $command->run($actionInput, $output);
+        }
         return 0;
     }
 }

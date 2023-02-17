@@ -356,6 +356,15 @@ class Field
     public const OPERATING_SYSTEM_FILTER_ADDONS = 'addons';
     public const OPERATING_SYSTEM_FILTER_ADDONS__DESC = 'List of additonal vps addons that will be added to the vps';
 
+    public const ACTION_UUID = 'actionUuid';
+    public const ACTION_UUID__DESC = 'The uuid of the action';
+    public const ACTION_PROGRESS = 'showProgress';
+    public const ACTION_PROGRESS_DESC = 'Wait for the action to finish and show progress if applicable';
+    public const ACTION_WAIT = 'waitForAction';
+    public const ACTION_WAIT_DESC = 'Wait for the action to finish and show metadata if applicable';
+    public const ACTION_POLL_TIME = 'pollRetryTime';
+    public const ACTION_POLL_TIME_DESC = 'Allows you to set a poll time in seconds';
+
     public const INCLUDE = 'include';
     public const INCLUDE__DESC = 'Data to include in the response';
 

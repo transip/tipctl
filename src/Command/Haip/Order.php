@@ -2,12 +2,13 @@
 
 namespace Transip\Api\CLI\Command\Haip;
 
+use Transip\Api\CLI\Command\Field;
+use Transip\Api\CLI\Command\AbstractCommand;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Transip\Api\CLI\Command\AbstractCommand;
-use Transip\Api\CLI\Command\Field;
 
 class Order extends AbstractCommand
 {
@@ -23,27 +24,27 @@ class Order extends AbstractCommand
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $productName           = $input->getArgument(Field::PRODUCT_NAME);
-        $description           = $input->getArgument(Field::HAIP_DESCRIPTION);
+        $description           = $input->getArgument(Field::HAIP_DESCRIPTION) ?? '';
         $shouldWaitForDelivery = $input->getOption(Field::HAIP_WAIT_FOR_DELIVERY);
 
-        if ($description && $shouldWaitForDelivery) {
-            $haipsBeforeOrder = $this->getTransipApi()->haip()->findByDescription($description);
-            $this->getTransipApi()->haip()->order($productName, $description);
+        $response = $this->getTransipApi()->haip()->order($productName, $description);
+        $action = $this->getTransipApi()->actions()->parseActionFromResponse($response);
 
-            while (true) {
-                sleep(1);
-                $haips = $this->getTransipApi()->haip()->findByDescription($description);
-
-                if (count($haipsBeforeOrder) < count($haips)) {
-                    $lastHaip = end($haips);
-                    $this->output($lastHaip);
-                    return 0;
-                }
-
-                $this->output("Waiting for haip '{$description}', not there yet");
+        if ($action && $shouldWaitForDelivery) {
+            $app = $this->getApplication();
+            
+            if (!$app) {
+                return 0;
             }
-        } else {
-            $this->getTransipApi()->haip()->order($productName, $description);
+
+            $command = $app->get('action:pollstatus');
+                
+            $arguments = [
+                'actionUuid'        => $action->getUuid()
+            ];
+
+            $actionInput = new ArrayInput($arguments);
+            $command->run($actionInput, $output);
         }
         return 0;
     }

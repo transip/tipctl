@@ -11,6 +11,9 @@
   "config": {
     "platform": {
       "php": "7.2.5"
+    },
+    "allow-plugins": {
+      "php-http/discovery": true
     }
   },
   "minimum-stability": "stable",

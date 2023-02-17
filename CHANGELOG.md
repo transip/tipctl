@@ -1,5 +1,12 @@
 CHANGELOG
 =========
+
+6.30.0
+-----
+* Implemented Actions
+* Implemented Poll Status command for Actions
+* Added progress bar option to specific Actions
+
 6.29.3
 -----
 * Added configFile option to all commands.

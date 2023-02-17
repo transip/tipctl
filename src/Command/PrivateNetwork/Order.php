@@ -2,12 +2,13 @@
 
 namespace Transip\Api\CLI\Command\PrivateNetwork;
 
+use Transip\Api\CLI\Command\Field;
+use Transip\Api\CLI\Command\AbstractCommand;
+use Symfony\Component\Console\Input\ArrayInput;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Transip\Api\CLI\Command\AbstractCommand;
-use Transip\Api\CLI\Command\Field;
 
 class Order extends AbstractCommand
 {
@@ -22,27 +23,27 @@ class Order extends AbstractCommand
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $description = $input->getArgument(Field::PRIVATENETWORK_DESCRIPTION);
+        $description = $input->getArgument(Field::PRIVATENETWORK_DESCRIPTION) ?? '';
         $shouldWaitForDelivery = $input->getOption(Field::HAIP_WAIT_FOR_DELIVERY);
 
-        if ($description && $shouldWaitForDelivery) {
-            $haipsBeforeOrder = $this->getTransipApi()->privateNetworks()->findByDescription($description);
-            $this->getTransipApi()->privateNetworks()->order($description);
+        $response = $this->getTransipApi()->privateNetworks()->order($description);
+        $action = $this->getTransipApi()->actions()->parseActionFromResponse($response);
 
-            while (true) {
-                sleep(1);
-                $privateNetworks = $this->getTransipApi()->privateNetworks()->findByDescription($description);
+        if ($action && $shouldWaitForDelivery) {
+            $app = $this->getApplication();
 
-                if (count($haipsBeforeOrder) < count($privateNetworks)) {
-                    $privateNetwork = end($privateNetworks);
-                    $this->output($privateNetwork);
-                    return 0;
-                }
-
-                $this->output("Waiting for private network '{$description}', not there yet");
+            if (!$app) {
+                return 0;
             }
-        } else {
-            $this->getTransipApi()->privateNetworks()->order();
+
+            $command = $app->get('action:pollstatus');
+                
+            $arguments = [
+                'actionUuid'        => $action->getUuid()
+            ];
+
+            $actionInput = new ArrayInput($arguments);
+            $command->run($actionInput, $output);
         }
         return 0;
     }
