@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.31.0
+-----
+* Added ssh key support to rescue images
+
 6.30.0
 -----
 * Implemented Actions
