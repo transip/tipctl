@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.32.0
+-----
+* Added block storage commands. Deprecated big storage methods.
+
 6.31.0
 -----
 * Added ssh key support to rescue images

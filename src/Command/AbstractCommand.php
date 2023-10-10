@@ -8,6 +8,7 @@ use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Transip\Api\CLI\Command\Setup\Setup;
 use Transip\Api\CLI\ConsoleOutput\Interfaces\OutputInterface as ConsoleOutputInterface;
 use Transip\Api\CLI\ConsoleOutput\OutputFactory;
@@ -30,6 +31,9 @@ abstract class AbstractCommand extends Command
      * @var OutputInterface
      */
     private $output;
+
+    /** @var SymfonyStyle */
+    private $io;
 
     public function __construct(string $name = null)
     {
@@ -90,6 +94,8 @@ abstract class AbstractCommand extends Command
             $formatter = $helperSet->get('formatter');
 
             $settings->ensureConfigFileIsReadOnly($formatter, $output);
+
+            $this->io = new SymfonyStyle($input, $output);
         }
 
         $this->input  = $input;
@@ -112,6 +118,11 @@ abstract class AbstractCommand extends Command
         $formattedOutput = $formatter->render($data);
 
         $this->output->writeln($formattedOutput);
+    }
+
+    protected function warning(string $message): void
+    {
+        $this->io->getErrorStyle()->warning($message);
     }
 
     private function getFormatterFromInput(): ConsoleOutputInterface

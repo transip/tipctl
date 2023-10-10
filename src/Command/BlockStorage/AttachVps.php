@@ -1,8 +1,8 @@
 <?php
 
+namespace Transip\Api\CLI\Command\BlockStorage;
 
-namespace Transip\Api\CLI\Command\BigStorage;
-
+use Symfony\Component\Console\Exception\ExceptionInterface;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Symfony\Component\Console\Input\ArrayInput;
@@ -15,25 +15,27 @@ class AttachVps extends AbstractCommand
 {
     protected function configure(): void
     {
-        $this->setName('bigstorage:attachvps')
-            ->setDescription('Attach your big storage to your vps')
-            ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
-            ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, 'Name of the vps that the big storage should attach to.')
+        $this->setName('blockstorage:attachvps')
+            ->setDescription('Attach your block storage to your vps')
+            ->addArgument(Field::BLOCKSTORAGE_NAME, InputArgument::REQUIRED, Field::BLOCKSTORAGE_NAME__DESC)
+            ->addArgument(Field::VPS_NAME, InputArgument::REQUIRED, 'Name of the vps that the block storage should attach to.')
             ->addOption(Field::ACTION_WAIT, 'w', InputOption::VALUE_NONE, Field::ACTION_WAIT_DESC)
-            ->setHelp('This command will attach your big storage to your vps. [deprecated] Use blockstorage:attachvps instead.');
+            ->setHelp('This command will attach your block storage to your vps.');
     }
 
+    /**
+     * @throws ExceptionInterface
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $this->warning('Deprecated: use blockstorage:attachvps instead');
-        $bigStorageName    = $input->getArgument(Field::BIGSTORAGE_NAME);
-        $bigStorageVpsName = $input->getArgument(Field::VPS_NAME);
+        $blockStorageName    = $input->getArgument(Field::BLOCKSTORAGE_NAME);
+        $blockStorageVpsName = $input->getArgument(Field::VPS_NAME);
         $waitForAction     = $input->getOption(Field::ACTION_WAIT);
 
-        $bigStorage = $this->getTransipApi()->bigStorages()->getByName($bigStorageName);
-        $bigStorage->setVpsName($bigStorageVpsName);
+        $blockStorage = $this->getTransipApi()->blockStorages()->getByName($blockStorageName);
+        $blockStorage->setVpsName($blockStorageVpsName);
 
-        $response = $this->getTransipApi()->bigStorages()->update($bigStorage);
+        $response = $this->getTransipApi()->blockStorages()->update($blockStorage);
         $action = $this->getTransipApi()->actions()->parseActionFromResponse($response);
 
         if ($action && $waitForAction) {
@@ -46,12 +48,13 @@ class AttachVps extends AbstractCommand
             $command = $app->get('action:pollstatus');
                 
             $arguments = [
-                'actionUuid'        => $action->getUuid()
+                'actionUuid' => $action->getUuid()
             ];
 
             $actionInput = new ArrayInput($arguments);
             $command->run($actionInput, $output);
         }
+
         return 0;
     }
 }

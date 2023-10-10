@@ -17,11 +17,12 @@ class Upgrade extends AbstractCommand
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::BIGSTORAGE_SIZE, InputArgument::REQUIRED, Field::BIGSTORAGE_SIZE__DESC)
             ->addArgument(Field::BIGSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, 'Whether to add offsite backups. (optional)')
-            ->setHelp('This command allows you to upgrade a big storage');
+            ->setHelp('This command allows you to upgrade a big storage. [deprecated] Use blockstorage:upgrade instead.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $this->warning('Deprecated: use blockstorage:upgrade instead');
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorageSize = $input->getArgument(Field::BIGSTORAGE_SIZE);
 

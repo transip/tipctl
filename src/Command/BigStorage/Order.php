@@ -23,11 +23,12 @@ class Order extends AbstractCommand
             ->addArgument(Field::VPS_NAME, InputArgument::OPTIONAL, Field::BIGSTORAGE_VPS_ATTACH__DESC . Field::OPTIONAL)
             ->addArgument(Field::BIGSTORAGE_DESCRIPTION, InputArgument::OPTIONAL, FIELD::BIGSTORAGE_DESCRIPTION__DESC . Field::OPTIONAL)
             ->addOption(Field::ACTION_WAIT, 'w', InputOption::VALUE_NONE, Field::ACTION_WAIT_DESC)
-            ->setHelp('This command allows you to order a new big storage');
+            ->setHelp('This command allows you to order a new big storage. [deprecated] Use blockstorage:order instead.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $this->warning('Deprecated: use blockstorage:order instead');
         $bigStorageSize               = $input->getArgument(Field::BIGSTORAGE_SIZE);
 
         // Default must be true
