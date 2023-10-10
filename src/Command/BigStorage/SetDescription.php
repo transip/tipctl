@@ -16,11 +16,12 @@ class SetDescription extends AbstractCommand
             ->setDescription('Update your big storage description')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::BIGSTORAGE_DESCRIPTION, InputArgument::REQUIRED, Field::BIGSTORAGE_DESCRIPTION__DESC)
-            ->setHelp('This command will change the description of your big storage');
+            ->setHelp('This command will change the description of your big storage. [deprecated] Use blockstorage:setdescription instead.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $this->warning('Deprecated: use blockstorage:setdescription instead');
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         $bigStorageDescription = $input->getArgument(Field::BIGSTORAGE_DESCRIPTION);
 

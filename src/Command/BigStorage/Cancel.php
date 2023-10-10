@@ -18,11 +18,12 @@ class Cancel extends AbstractCommand
             ->setDescription('Terminate or cancel your big storage')
             ->addArgument(Field::BIGSTORAGE_NAME, InputArgument::REQUIRED, Field::BIGSTORAGE_NAME__DESC)
             ->addArgument(Field::CANCELTIME, InputArgument::REQUIRED, Field::CANCELTIME__DESC)
-            ->setHelp('This command will terminate or cancel your big storage.');
+            ->setHelp('This command will terminate or cancel your big storage. [deprecated] Use blockstorage:cancel instead.');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $this->warning('Deprecated: use blockstorage:cancel instead');
         $bigStorageName = $input->getArgument(Field::BIGSTORAGE_NAME);
         if (strlen($bigStorageName) < 3) {
             throw new Exception('Invalid big storage name provided');

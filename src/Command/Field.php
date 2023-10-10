@@ -169,6 +169,27 @@ class Field
     public const BIGSTORAGE_VPS_ATTACH__DESC = 'The name of the VPS to attach the big storage to';
     public const BIGSTORAGE_VPS_AVAILABILITY_ZONE__DESC = 'The name of the availabilityZone where the BigStorage should be created. This parameter can not be used in conjunction with vpsName. If a vpsName is provided as well as an availabilityZone, the zone of the vps is leading';
 
+    public const BLOCKSTORAGE_NAME = 'BlockStorageName';
+    public const BLOCKSTORAGE_NAME__DESC = 'The name of the block storage';
+    public const BLOCKSTORAGE_TYPE = 'BlockStorageType';
+    public const BLOCKSTORAGE_TYPE__DESC = 'The type of the block storage. It can be big-storage or fast-storage.';
+    public const BLOCKSTORAGE_SIZE = 'BlockStorageSize';
+    public const BLOCKSTORAGE_SIZE__DESC = 'The size of the block storage in KB. Big storages: The minimum size is 2 TiB and storage can be extended with up to maximum of 40 TiB. Make sure to use a multiple of 2 TiB. Note that 2 TiB equals 2147483648 KiB. Fast storages: The minimum size is 10 GiB and storage can be extended with up to maximum of 10000 GiB. Make sure to use a multiple of 10 GiB. Note that 10 GiB equals 10485760 KiB.';
+    public const BLOCKSTORAGE_HASOFFSITEBACKUPS = 'BlockStorageHasOffSiteBackups';
+    public const BLOCKSTORAGE_HASOFFSITEBACKUPS__DESC = 'Whether to order offsite backups, default is true.';
+    public const BLOCKSTORAGE_BACKUPID = 'BlockStorageBackupId';
+    public const BLOCKSTORAGE_BACKUPID__DESC = 'ID number of the backup';
+    public const BLOCKSTORAGE_BACKUP_DESTINATION_NAME = 'DestinationBlockStorageName';
+    public const BLOCKSTORAGE_BACKUP_DESTINATION_NAME__DESC = 'Reverts the backup to this block storage.';
+    public const BLOCKSTORAGE_DESCRIPTION = 'BlockStorageDescription';
+    public const BLOCKSTORAGE_DESCRIPTION__DESC = 'Description of the block storage';
+    public const BLOCKSTORAGE_STARTDATE = 'StartDate';
+    public const BLOCKSTORAGE_STARTDATE__DESC = 'Start date in unix timestamp';
+    public const BLOCKSTORAGE_ENDDATE = 'EndDate';
+    public const BLOCKSTORAGE_ENDDATE__DESC = 'End date in unix timestamp';
+    public const BLOCKSTORAGE_VPS_ATTACH__DESC = 'The name of the VPS to attach the block storage to';
+    public const BLOCKSTORAGE_VPS_AVAILABILITY_ZONE__DESC = 'The name of the availabilityZone where the BlockStorage should be created. This parameter can not be used in conjunction with vpsName. If a vpsName is provided as well as an availabilityZone, the zone of the vps is leading';
+
     public const HAIP_NAME = 'HaipName';
     public const HAIP_NAME__DESC = 'The name of the HA-IP';
     public const HAIP_LOADBALANCING_MODE = 'LoadBalancingMode';
