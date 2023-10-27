@@ -1,6 +1,10 @@
 CHANGELOG
 =========
 
+6.33.0
+-----
+* Added ability to fetch Action from Operating Install
+
 6.32.0
 -----
 * Added block storage commands. Deprecated big storage methods.
