@@ -6,9 +6,9 @@ use \RuntimeException;
 use Symfony\Component\Console\Helper\FormatterHelper;
 use Symfony\Component\Console\Helper\HelperInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Path;
 use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Settings\Provider\Json;
-use Symfony\Component\Filesystem\Path;
 
 class Settings
 {
@@ -17,7 +17,7 @@ class Settings
 
     public const TRANSIP_API_ENDPOINT = 'https://api.transip.nl/v6';
 
-    public const TRANSIP_CLI_VERSION = '6.32.0';
+    public const TRANSIP_CLI_VERSION = '6.33.0';
 
     /**
      * @var string
