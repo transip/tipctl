@@ -17,7 +17,7 @@ class Settings
 
     public const TRANSIP_API_ENDPOINT = 'https://api.transip.nl/v6';
 
-    public const TRANSIP_CLI_VERSION = '6.33.0';
+    public const TRANSIP_CLI_VERSION = '6.33.1';
 
     /**
      * @var string
