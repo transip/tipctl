@@ -7,7 +7,6 @@ use Transip\Api\CLI\Command\Field;
 use Transip\Api\CLI\Command\AbstractCommand;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
@@ -17,12 +16,12 @@ class Order extends AbstractCommand
     {
         $this->setName('blockstorage:order')
             ->setDescription('Order a block storage')
-            ->addArgument(Field::BLOCKSTORAGE_TYPE, InputArgument::REQUIRED, Field::BLOCKSTORAGE_TYPE__DESC)
-            ->addArgument(Field::BLOCKSTORAGE_SIZE, InputArgument::REQUIRED, Field::BLOCKSTORAGE_SIZE__DESC)
-            ->addArgument(Field::BLOCKSTORAGE_HASOFFSITEBACKUPS, InputArgument::OPTIONAL, Field::BLOCKSTORAGE_HASOFFSITEBACKUPS__DESC . Field::OPTIONAL)
-            ->addArgument(Field::AVAILABILITY_ZONE, InputArgument::OPTIONAL, Field::BLOCKSTORAGE_VPS_AVAILABILITY_ZONE__DESC . Field::OPTIONAL)
-            ->addArgument(Field::VPS_NAME, InputArgument::OPTIONAL, Field::BLOCKSTORAGE_VPS_ATTACH__DESC . Field::OPTIONAL)
-            ->addArgument(Field::BLOCKSTORAGE_DESCRIPTION, InputArgument::OPTIONAL, FIELD::BLOCKSTORAGE_DESCRIPTION__DESC . Field::OPTIONAL)
+            ->addOption(Field::BLOCKSTORAGE_TYPE, 'y', InputOption::VALUE_REQUIRED, Field::BLOCKSTORAGE_TYPE__DESC)
+            ->addOption(Field::BLOCKSTORAGE_SIZE, 's', InputOption::VALUE_REQUIRED, Field::BLOCKSTORAGE_SIZE__DESC)
+            ->addOption(Field::BLOCKSTORAGE_HASOFFSITEBACKUPS, 'b', InputOption::VALUE_OPTIONAL, Field::BLOCKSTORAGE_HASOFFSITEBACKUPS__DESC . Field::OPTIONAL)
+            ->addOption(Field::AVAILABILITY_ZONE, 'z', InputOption::VALUE_OPTIONAL, Field::BLOCKSTORAGE_VPS_AVAILABILITY_ZONE__DESC . Field::OPTIONAL)
+            ->addOption(Field::VPS_NAME, 'a', InputOption::VALUE_OPTIONAL, Field::BLOCKSTORAGE_VPS_ATTACH__DESC . Field::OPTIONAL)
+            ->addOption(Field::BLOCKSTORAGE_DESCRIPTION, 'e', InputOption::VALUE_OPTIONAL, FIELD::BLOCKSTORAGE_DESCRIPTION__DESC . Field::OPTIONAL)
             ->addOption(Field::ACTION_WAIT, 'w', InputOption::VALUE_NONE, Field::ACTION_WAIT_DESC)
             ->setHelp('This command allows you to order a new block storage');
     }
@@ -32,13 +31,23 @@ class Order extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $blockStorageType = $input->getArgument(Field::BLOCKSTORAGE_TYPE);
-        $blockStorageSize = $input->getArgument(Field::BLOCKSTORAGE_SIZE);
-        $blockStorageHasOffSiteBackups = filter_var($input->getArgument(Field::BLOCKSTORAGE_HASOFFSITEBACKUPS) ?? true, FILTER_VALIDATE_BOOLEAN);
-        $blockStorageAvailabilityZone = $input->getArgument(Field::AVAILABILITY_ZONE) ?? '';
-        $blockStorageVpsName = $input->getArgument(Field::VPS_NAME) ?? '';
-        $blockStorageDescription = $input->getArgument(Field::BLOCKSTORAGE_DESCRIPTION) ?? '';
+        $blockStorageType = $input->getOption(Field::BLOCKSTORAGE_TYPE);
+        $blockStorageSize = $input->getOption(Field::BLOCKSTORAGE_SIZE);
+        $blockStorageHasOffSiteBackups = filter_var($input->getOption(Field::BLOCKSTORAGE_HASOFFSITEBACKUPS) ?? true, FILTER_VALIDATE_BOOLEAN);
+        $blockStorageAvailabilityZone = $input->getOption(Field::AVAILABILITY_ZONE) ?? '';
+        $blockStorageVpsName = $input->getOption(Field::VPS_NAME) ?? '';
+        $blockStorageDescription = $input->getOption(Field::BLOCKSTORAGE_DESCRIPTION) ?? '';
         $waitForAction = $input->getOption(Field::ACTION_WAIT);
+
+        if ($blockStorageType === null) {
+            $output->writeln("BlockStorageType is required");
+            return 0;
+        }
+
+        if ($blockStorageSize === null) {
+            $output->writeln("BlockStorageSize is required");
+            return 0;
+        }
 
         $response = $this->getTransipApi()->blockStorages()->order(
             $blockStorageType,
