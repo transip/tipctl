@@ -1,6 +1,14 @@
 CHANGELOG
 =========
 
+6.33.2
+-----
+* CI: Fix GitHub release script
+
+6.33.1
+-----
+* Renamed block storage diskSize parameter to size
+
 6.33.0
 -----
 * Added ability to fetch Action from Operating Install
