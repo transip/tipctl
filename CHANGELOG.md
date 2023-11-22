@@ -1,5 +1,8 @@
 CHANGELOG
 =========
+6.33.3
+-----
+* Correctly parse the useApiWhitelist flag when using non interactive mode
 
 6.33.2
 -----
