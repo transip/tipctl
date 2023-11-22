@@ -52,9 +52,11 @@ class Setup extends AbstractCommand
         $input->setOption(Field::API_LOGIN, $login);
 
         // Third question: use the IP whitelist?
-        $apiUseWhitelist   = $input->getOption(Field::API_USE_WHITELIST);
+        $apiUseWhitelistString = $input->getOption(Field::API_USE_WHITELIST);
+        $apiUseWhitelist = filter_var($apiUseWhitelistString, FILTER_VALIDATE_BOOLEAN);
+
         $whitelistQuestion = new ConfirmationQuestion(
-            "Use IP Whitelisting? [<comment>Yes</comment>]: ",
+            "Use IP Whitelisting? [<comment>{$apiUseWhitelistString}</comment>]: ",
             $apiUseWhitelist
         );
 
@@ -84,7 +86,7 @@ class Setup extends AbstractCommand
     {
         $apiUrl     = strval($input->getOption(Field::API_URL));
         $login      = strval($input->getOption(Field::API_LOGIN));
-        $whitelist  = boolval($input->getOption(Field::API_USE_WHITELIST));
+        $whitelist  = filter_var($input->getOption(Field::API_USE_WHITELIST), FILTER_VALIDATE_BOOLEAN);
         $privateKey = $input->getOption(Field::API_PRIVATE_KEY);
 
         if (strlen($privateKey) < 2) {
