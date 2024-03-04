@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.0
+-----
+* Added `GetByIdentifier` to the VPS commands 
+
 6.33.3
 -----
 * Correctly parse the useApiWhitelist flag when using non interactive mode
