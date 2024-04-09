@@ -1,4 +1,8 @@
-image: '$IMAGE_URL'
+default:
+  image: '$IMAGE_URL'
+  retry:
+    max: 2
+
 stages:
   - lint
   - build
@@ -47,6 +51,9 @@ lint:secretsscan:
 
 build:phar:
   stage: build
+  before_script:
+    - composer global require humbug/box
+    - export PATH=/home/transip/.composer/vendor/bin:$PATH
   script:
     - composer install --no-dev --no-interaction --no-progress
     - box compile

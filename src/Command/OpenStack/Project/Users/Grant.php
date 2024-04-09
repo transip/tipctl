@@ -15,8 +15,7 @@ class Grant extends AbstractCommand
         $this->setName('openstack:project:users:grant')
             ->setDescription('Grants a user access to a specific openstack project')
             ->addArgument(Field::OPENSTACK_PROJECT_ID, InputArgument::REQUIRED, Field::OPENSTACK_PROJECT_ID__DESC)
-            ->addArgument(Field::OPENSTACK_USER_ID, InputArgument::REQUIRED, Field::OPENSTACK_USER_ID__DESC)
-            ;
+            ->addArgument(Field::OPENSTACK_USER_ID, InputArgument::REQUIRED, Field::OPENSTACK_USER_ID__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

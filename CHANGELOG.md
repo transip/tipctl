@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.1
+-----
+* Added humbug box to pipeline so it uses latest version via composer
+
 6.34.0
 -----
 * Added `GetByIdentifier` to the VPS commands 
