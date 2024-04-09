@@ -15,8 +15,7 @@ class GetS3TokenById extends AbstractCommand
         $this->setName('openstack:users:token:getbyuserandtokenid')
             ->setDescription('Get the token for a specific user and tokenId')
             ->addArgument(Field::OPENSTACK_TOKEN_ID, InputArgument::REQUIRED, Field::OPENSTACK_TOKEN_ID__DESC)
-            ->addArgument(Field::OPENSTACK_USER_ID, InputArgument::REQUIRED, Field::OPENSTACK_USER_ID__DESC)
-            ;
+            ->addArgument(Field::OPENSTACK_USER_ID, InputArgument::REQUIRED, Field::OPENSTACK_USER_ID__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int

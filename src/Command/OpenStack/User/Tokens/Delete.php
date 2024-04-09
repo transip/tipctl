@@ -15,8 +15,7 @@ class Delete extends AbstractCommand
         $this->setName('openstack:users:token:delete')
             ->setDescription('Delete a specific S3 token')
             ->addArgument(Field::OPENSTACK_USER_ID, InputArgument::REQUIRED, Field::OPENSTACK_USER_ID__DESC)
-            ->addArgument(Field::OPENSTACK_TOKEN_ID, InputArgument::REQUIRED, Field::OPENSTACK_TOKEN_ID__DESC)
-            ;
+            ->addArgument(Field::OPENSTACK_TOKEN_ID, InputArgument::REQUIRED, Field::OPENSTACK_TOKEN_ID__DESC);
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
