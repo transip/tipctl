@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.2
+-----
+* Remove colocation remote hands and access request endpoints
+
 6.34.1
 -----
 * Added humbug box to pipeline so it uses latest version via composer
