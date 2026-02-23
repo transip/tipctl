@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.3
+-----
+* Provide missing cache adapter
+
 6.34.2
 -----
 * Remove colocation remote hands and access request endpoints
