@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.4
+-----
+* Pin symfony/cache to 6.4 to fix https://github.com/transip/tipctl/issues/19
+
 6.34.3
 -----
 * Provide missing cache adapter

@@ -54,8 +54,9 @@ build:phar:
   before_script:
     - composer global require humbug/box
     - export PATH=/home/transip/.composer/vendor/bin:$PATH
-  script:
     - composer install --no-dev --no-interaction --no-progress
+    - composer require symfony/cache:^6.4
+  script:
     - box compile
   artifacts:
     expire_in: 1 hour
