@@ -145,6 +145,8 @@ class Field
     public const VPS_SETTING_NAME = 'SettingName';
     public const VPS_SETTING_DATATYPE = 'DataType';
     public const VPS_SETTING_VALUE = 'Value';
+    public const VPS_TARGET_PRODUCT_NAME = 'TargetProductName';
+    public const VPS_TARGET_PRODUCT_NAME__DESC = 'Name of the product used by the cloned VPS';
 
     public const PRIVATENETWORK_NAME = 'PrivateNetworkName';
     public const PRIVATENETWORK_NAME__DESC = 'The private network name';

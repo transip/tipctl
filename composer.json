@@ -23,7 +23,7 @@
     "symfony/console": "^5.4",
     "symfony/finder": "^5.4",
     "symfony/filesystem": "^5.4",
-    "transip/transip-api-php": "^6.48",
+    "transip/transip-api-php": "^6.54",
     "symfony/yaml": "^5.4",
     "symfony/cache": "^6.4 || ^7.4 || ^8.0"
   },
