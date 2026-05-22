@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.6
+-----
+* updated symfony/*
+
 6.34.5
 -----
 * Add `targetProductName` and `addons` parameter to clone vps method
