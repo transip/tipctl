@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.7
+-----
+* updated guzzlehttps/psr7
+
 6.34.6
 -----
 * updated symfony/*
