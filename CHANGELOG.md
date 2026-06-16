@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.8
+-----
+* Add description to licences
+
 6.34.7
 -----
 * updated guzzlehttps/psr7
