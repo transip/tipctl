@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.10
+-----
+* Updated guzzlehttps/*
+
 6.34.9
 -----
 * Updated guzzlehttps/*
