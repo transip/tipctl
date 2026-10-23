@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.34.11
+-----
+* Show `descriptionChangedAt` in `vps:getbyname`
+
 6.34.10
 -----
 * Updated guzzlehttps/*
