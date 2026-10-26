@@ -28,6 +28,8 @@ php bin/tipctl --demo availabilityzones:getall --format=yaml
 
 `--test` (`-t`) sets the API's test mode (dry run) for commands that change things.
 
+- Team rules and procedures (commits, MRs, tests, generated code, workflows, releases) are agent skills in https://gitlab.group.team.blue/nl-transip/transip/ai-skills. If no `vps-*` skills are available to you, tell the developer to install them (see that repository's README) before you start; don't install them yourself.
+
 ## Commands
 
 All of these run in the `lint` stage of `.gitlab-ci.yml` and pass on `master`:
@@ -79,9 +81,8 @@ There is no PHPUnit suite; CI has no test job.
 - In `configure()`, use `Field` constants for names and help: `Field::X` with `Field::X__DESC`, append `Field::OPTIONAL` to the description of optional arguments (see `src/Command/Vps/CloneVps.php`). Add new constants to `Field.php`.
 - In `execute()`, call the library via `$this->getTransipApi()->...`, print with `$this->output($data)` (respects `--format`) and return `0`. Example: `src/Command/Invoice/GetAll.php`.
 - Long-running actions: `src/Command/Action/PollStatus.php` (`action:pollstatus`) polls `actions()->getByUuid()` until `Action::STATUS_FINISHED`.
-- Keep code PHP 7.2 compatible: `rector.php` uses `LevelSetList::UP_TO_PHP_72` and `PhpVersion::PHP_72`. Existing code uses `@var` docblocks instead of typed properties.
-- PHPStan runs at level 8 with no baseline; fix errors rather than suppressing them.
-- When a command needs a newer `transip/transip-api-php`, bump it in `composer.json` and `composer.lock` in the same MR (as the clone vps parameters change did).
+- The lowest supported version is PHP 7.2: `rector.php` uses `LevelSetList::UP_TO_PHP_72` and `PhpVersion::PHP_72`. Existing code uses `@var` docblocks instead of typed properties.
+- PHPStan runs at level 8 with no baseline.
 
 ## Releases
 
@@ -90,10 +91,7 @@ Releases are git tags `vX.Y.Z`. Tag pipelines run:
 - `validate:tag-version-consistency`: `Settings::TRANSIP_CLI_VERSION` must equal the tag without `v` (`php ci/ValidateTagVersionConsistency.php v6.34.10`).
 - `deploy:create-github-deploy` and `release:create-github-release`: push to GitHub `transip/tipctl` and upload `tipctl.phar`.
 
-A change that will be released bumps `TRANSIP_CLI_VERSION` in `src/Settings/Settings.php` and adds a `CHANGELOG.md` entry in the same MR (e.g. "Add new parameters to clone vps method").
-
 ## Git / MRs
 
 - Default branch: `master`. No staging/deploy branches; releases are tags.
-- Commit subjects are short, imperative, optionally prefixed with the Jira key, e.g. `[NL8VPS4-892] update guzzle`, `Add new parameters to clone vps method`.
 - MRs are merged into `master` with a merge commit (`Merge branch '<branch>' into 'master'`).
