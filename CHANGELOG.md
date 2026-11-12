@@ -1,5 +1,9 @@
 CHANGELOG
 =========
+6.35.0
+-----
+* Add `domain:verification:getall`, `domain:verification:getselection` and `domain:verification:getbyid` commands
+
 6.34.10
 -----
 * Updated guzzlehttps/*

@@ -23,6 +23,13 @@ class Field
     public const DOMAIN_NAMESERVERS = 'Nameservers';
     public const DOMAIN_NAMESERVERS__DESC = 'Nameserver hostnames (comma separated)';
 
+    public const VERIFICATION_ID = 'VerificationId';
+    public const VERIFICATION_ID__DESC = 'The id of the domain verification (find by <fg=yellow>domain:verification:getall</>)';
+    public const VERIFICATION_DOMAIN_NAME = 'domainName';
+    public const VERIFICATION_DOMAIN_NAME__DESC = 'Only show verifications of this domain name';
+    public const VERIFICATION_STATUSES = 'statuses';
+    public const VERIFICATION_STATUSES__DESC = 'Only show verifications with these statuses (comma separated: cancelled, failed, pending, success)';
+
     public const DOMAIN_COMPANY_NAME = 'companyName';
     public const DOMAIN_COMPANY_NAME__DESC = 'Name of the company';
     public const DOMAIN_SUPPORT_EMAIL = 'supportEmail';
