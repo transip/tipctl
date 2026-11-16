@@ -1,5 +1,12 @@
 CHANGELOG
 =========
+6.35.0
+-----
+* Added forwarding service commands: `forwardingservice:getall`, `forwardingservice:getbydomainname` and `forwardingservice:update`
+* Added forwarding service SSL commands: `forwardingservice:ssl:getstatus`, `forwardingservice:ssl:enable` and `forwardingservice:ssl:disable`
+* Added forwarding service email commands: `forwardingservice:email:getforwardto`, `forwardingservice:email:setforwardto` and `forwardingservice:email:removeforwardto`
+* Requires `transip/transip-api-php` 6.55.0 or higher
+
 6.34.10
 -----
 * Updated guzzlehttps/*
