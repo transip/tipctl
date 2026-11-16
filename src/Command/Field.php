@@ -361,6 +361,23 @@ class Field
     public const EMAIL_MAIL_LIST_ENTRIES = 'Entries';
     public const EMAIL_MAIL_LIST_ENTRIES__DESC = 'Entries of the mail list';
 
+    public const FORWARDING_SERVICE_DOMAIN_NAME = 'DomainName';
+    public const FORWARDING_SERVICE_DOMAIN_NAME__DESC = 'The domain name of the forwarding service';
+    public const FORWARDING_SERVICE_FORWARD_TO = 'ForwardTo';
+    public const FORWARDING_SERVICE_FORWARD_TO__DESC = 'The URL to forward HTTP requests to';
+    public const FORWARDING_SERVICE_FORWARD_METHOD = 'ForwardMethod';
+    public const FORWARDING_SERVICE_FORWARD_METHOD__DESC = 'The method used to forward HTTP requests: `iframe`, `location` or `movedPermanently`';
+    public const FORWARDING_SERVICE_FRAME_TITLE = 'frameTitle';
+    public const FORWARDING_SERVICE_FRAME_TITLE__DESC = 'The title of the page, only used when the forward method is `iframe`';
+    public const FORWARDING_SERVICE_FRAME_ICON = 'frameIcon';
+    public const FORWARDING_SERVICE_FRAME_ICON__DESC = 'The URL of the icon of the page, only used when the forward method is `iframe`';
+    public const FORWARDING_SERVICE_FORWARD_EVERYTHING = 'forwardEverything';
+    public const FORWARDING_SERVICE_FORWARD_EVERYTHING__DESC = 'Forward request methods, headers and the request path (true|false)';
+    public const FORWARDING_SERVICE_FORWARD_SUBDOMAINS = 'forwardSubdomains';
+    public const FORWARDING_SERVICE_FORWARD_SUBDOMAINS__DESC = 'Forward subdomains to the same subdomains on the destination (true|false)';
+    public const FORWARDING_SERVICE_EMAIL_FORWARD_TO = 'EmailForwardTo';
+    public const FORWARDING_SERVICE_EMAIL_FORWARD_TO__DESC = 'The email address to forward email for the domain name to';
+
     public const OPERATING_SYSTEM_FILTER_ADDONS = 'addons';
     public const OPERATING_SYSTEM_FILTER_ADDONS__DESC = 'List of additonal vps addons that will be added to the vps';
 
